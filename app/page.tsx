@@ -1,10 +1,14 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import ComingSoon from './coming-soon/page'
+import Navbar from './components/navbar';
 
 export default function Home() {
   return (
-    <ComingSoon />
+    <>
+      <Navbar />
+      <ComingSoon />
+    </>
     // <div className={styles.container}>
     //   <main className={styles.main}>
     //     <h1 className={styles.title}>
