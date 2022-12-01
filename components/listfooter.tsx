@@ -1,14 +1,20 @@
 import React from 'react'
+import { footerlistInterface } from '../data/footerList'
 
-export default function ListFooter({ listfooters }: { listfooters: any }) {
+
+export default function ListFooter({ listfooters }: { listfooters: footerlistInterface[] }) {
   return (
-    <div>
+    <div className='flex justify-center text-white space-x-[138px]'>
       {listfooters.map((list: any) => (
-        <section>
+        <section className="flex flex-col space-y-[15px]">
           <h1>{list.title}</h1>
-          {list.content.map((listcontent: any) => (
-            <li>{listcontent.lable}</li>
-          ))}
+          <ul className='flex flex-col space-y-[13px]'>
+            {list.content.map((listcontent: any) => (
+              <li>
+                <a href={listcontent.href}>{listcontent.lable}</a>
+              </li>
+            ))}
+          </ul>
         </section>
       ))}
     </div>
