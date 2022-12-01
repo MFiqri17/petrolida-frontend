@@ -1,24 +1,22 @@
-import './globals.css'
+import '../globals.css'
+import Navbar from '../../components/navbar'
 import localFont from '@next/font/local'
-import Navbar from '../components/navbar'
-import Footer from './footer'
 
 const gilroy = localFont({
   src: [
     {
-      path: '../public/fonts/Gilroy-ExtraBold.woff',
+      path: '../../public/fonts/Gilroy-Regular.woff',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/Gilroy-ExtraBold.woff',
       weight: '700',
     },
     {
-      path: '../public/fonts/Gilroy-SemiBold.woff',
+      path: '../../public/fonts/Gilroy-SemiBold.woff',
       weight: '600',
     },
-    {
-      path: '../public/fonts/Gilroy-Regular.woff',
-      weight: '400',
-    },
   ],
-  variable: '--font-primary',
 })
 
 export default function RootLayout({
@@ -33,11 +31,10 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-
       <body>
-        <Navbar />
+        <Navbar isTrans={true} />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   )
