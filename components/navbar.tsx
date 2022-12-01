@@ -4,7 +4,7 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-export default function Navbar() {
+export default function Navbar({ isTrans }: { isTrans: boolean }) {
   const links = [
     {
       href: '##',
@@ -37,12 +37,12 @@ export default function Navbar() {
   ]
   return (
     <div>
-      <nav className="shadow-liteBlack fixed left-0 right-0 z-[999] mx-auto flex max-w-screen-xl flex-wrap justify-between bg-[#FBFBFC] text-center shadow-lg lg:mt-4 lg:max-w-screen-lg lg:rounded-full ">
+      <nav className={`shadow-liteBlack fixed left-0 right-0 z-[999] mx-auto flex max-w-screen-xl flex-wrap justify-between ${isTrans ? 'bg-transparent' : 'bg-[#FBFBFC] '} text-center ${isTrans ? 'shadow-none' : 'shadow-lg'} lg:mt-4 lg:max-w-screen-lg lg:rounded-full`}>
         <a href="/">
           <span className="sr-only">Petrolida 2023</span>
           <div className="p-4">
             <img
-              src={'/logo/petrolida-2023.png'}
+              src={`${isTrans ? '/logo/petrolida-2023-white.png' : '/logo/petrolida-2023.png'}`}
               alt="logo-petrolida"
               className="h-10"
             />
@@ -67,22 +67,22 @@ export default function Navbar() {
             >
               <Popover.Panel
                 focus
-                className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition lg:hidden"
+                className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform lg:hidden"
               >
-                <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="bg-white divide-y-2 rounded-lg shadow-lg divide-gray-50 ring-1 ring-black ring-opacity-5">
                   <div className="px-5 pt-5 pb-6">
                     <div className="flex items-center justify-between">
                       <div>
                         <img
-                          className="h-8 w-auto"
+                          className="w-auto h-8"
                           src={'/logo/petrolida-2023.png'}
                           alt="logo-petrolida"
                         />
                       </div>
                       <div className="-mr-2">
-                        <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                           <span className="sr-only">Close menu</span>
-                          <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                          <XMarkIcon className="w-6 h-6" aria-hidden="true" />
                         </Popover.Button>
                       </div>
                     </div>
@@ -92,7 +92,7 @@ export default function Navbar() {
                           <a
                             key={item.name}
                             href={item.href}
-                            className="-m-3 flex items-center justify-center rounded-md p-3 hover:bg-gray-50"
+                            className="flex items-center justify-center p-3 -m-3 rounded-md hover:bg-gray-50"
                           >
                             <span className="ml-3 text-sm font-medium text-gray-900">
                               {item.name}
@@ -102,7 +102,7 @@ export default function Navbar() {
                       </nav>
                     </div>
                   </div>
-                  <div className="space-y-6 px-5 py-6">
+                  <div className="px-5 py-6 space-y-6">
                     <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                       <a
                         href="#"
@@ -142,11 +142,11 @@ export default function Navbar() {
                     <div>
                       <a
                         href="#"
-                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700"
+                        className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
                       >
                         Register
                       </a>
-                      <p className="mt-6 text-center text-sm font-medium text-gray-500">
+                      <p className="mt-6 text-sm font-medium text-center text-gray-500">
                         Already have an account?{' '}
                         <a
                           href="#"
@@ -190,7 +190,7 @@ export default function Navbar() {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Popover.Panel className="absolute z-10 w-60 -translate-x-12">
+              <Popover.Panel className="absolute z-10 -translate-x-12 w-60">
                 <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12">
                   {links.map((item: { name: any; href: any }) => (
                     <a key={item.name} href={item.href}>
@@ -237,7 +237,7 @@ export default function Navbar() {
 
               <li title="{{ Auth::user()->email }}">User123</li>
               <svg
-                className="transform transition-transform duration-200 "
+                className="transition-transform duration-200 transform "
                 width="11"
                 height="7"
                 viewBox="0 0 11 7"
@@ -245,7 +245,7 @@ export default function Navbar() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   clip-rule="evenodd"
                   d="M0 0.5L5.54167 6.83333L11.0833 0.5H0Z"
                   fill="#B5B3BC"
