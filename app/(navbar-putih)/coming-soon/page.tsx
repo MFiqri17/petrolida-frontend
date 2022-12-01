@@ -14,7 +14,7 @@ export default function ComingSoon() {
         </h1>
         <a
           href="https://www.instagram.com/petrolida.2023/"
-          className="absolute bottom-36 flex rounded-full bg-[#07003F] px-8 py-4 transition duration-300 hover:-translate-y-2 md:px-12"
+          className="absolute bottom-20 md:bottom-36 flex rounded-full bg-[#07003F] px-8 py-4 transition duration-300 hover:-translate-y-2 md:px-12"
           target="_blank"
         >
           <span className="pr-3">
