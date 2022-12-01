@@ -2,12 +2,15 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import ComingSoon from './coming-soon/page'
 import Navbar from './components/navbar';
+import Footer from './footer';
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <ComingSoon />
+      <Footer />
+
     </>
     // <div className={styles.container}>
     //   <main className={styles.main}>

@@ -1,3 +1,4 @@
+import Footer from '../footer'
 export default function ComingSoon() {
     return (
         <div>
@@ -18,6 +19,7 @@ export default function ComingSoon() {
                     </span>
                 </a>
             </main>
+            
         </div>
     );
 }
