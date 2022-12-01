@@ -1,5 +1,5 @@
 'use client'
-import ListFooter from './listfooter'
+import ListFooter from '../components/listfooter'
 import footerData from '../data/footerList'
 import React, { useState } from 'react'
 const footer = () => {
