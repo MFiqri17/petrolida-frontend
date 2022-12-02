@@ -1,6 +1,6 @@
 import '../globals.css'
-import localFont from '@next/font/local'
 import Navbar from '../../components/navbar'
+import localFont from '@next/font/local'
 import Footers from '../../components/footers'
 
 const gilroy = localFont({
@@ -33,7 +33,7 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <Navbar isTrans={false} />
+        <Navbar isTrans={true} />
         {children}
         <Footers />
       </body>
