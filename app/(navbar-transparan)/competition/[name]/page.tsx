@@ -8,6 +8,7 @@ import '@splidejs/react-splide/css'
 import Image from 'next/image'
 import React from 'react'
 import TimerContainer from '../../../../components/timercontainer'
+import Contact from '../../../../components/contact'
 
 const faq = [
   {
@@ -42,10 +43,10 @@ export default function OilRigDesign() {
     <main className="bg-light">
       <RegularJumbotron title='coba' desc='coba' />
       <TimerContainer expiryTimestamp={time} />
-      <section className=" py-20">
+      <section className="py-20 ">
         <SectionTitle title="Competition Prize" />
-        <div className="mx-auto w-1/3">
-          <h2 className=" text-center text-xl font-semibold">
+        <div className="w-1/3 mx-auto">
+          <h2 className="text-xl font-semibold text-center ">
             Winners have a chance to win the prize pool of Rp 6.500.000 consist
             of
           </h2>
@@ -59,7 +60,7 @@ export default function OilRigDesign() {
             }}
           >
             <SplideSlide className="relative">
-              <div className="mx-auto w-1/2">
+              <div className="w-1/2 mx-auto">
                 <Image
                   src={'/images/juara-1.png'}
                   width={238}
@@ -73,7 +74,7 @@ export default function OilRigDesign() {
               </div>
             </SplideSlide>
             <SplideSlide className="relative">
-              <div className="mx-auto w-1/2">
+              <div className="w-1/2 mx-auto">
                 <Image
                   src={'/images/juara-2.png'}
                   width={238}
@@ -87,7 +88,7 @@ export default function OilRigDesign() {
               </div>
             </SplideSlide>
             <SplideSlide className="relative">
-              <div className="mx-auto w-1/2">
+              <div className="w-1/2 mx-auto">
                 <Image
                   src={'/images/juara-3.png'}
                   width={238}
@@ -102,13 +103,13 @@ export default function OilRigDesign() {
             </SplideSlide>
           </Splide>
         </div>
-        <div className="flex justify-center gap-x-4 pt-5">
+        <div className="flex justify-center pt-5 gap-x-4">
           <button onClick={() => handleThumbs('<')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-8 w-8"
+              className="w-8 h-8"
             >
               <path
                 fillRule="evenodd"
@@ -122,7 +123,7 @@ export default function OilRigDesign() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-8 w-8"
+              className="w-8 h-8"
             >
               <path
                 fillRule="evenodd"
@@ -133,9 +134,9 @@ export default function OilRigDesign() {
           </button>
         </div>
       </section>
-      <section className="bg-light py-20">
+      <section className="py-20 bg-light">
         <SectionTitle title="FAQ" />
-        <div className="mx-auto w-3/4 py-8">
+        <div className="w-3/4 py-8 mx-auto">
           {faq.map(({ question, answer }, i) => (
             <Disclosure key={i} as="div" className="mb-4">
               {({ open }) => (
@@ -176,7 +177,7 @@ export default function OilRigDesign() {
                     leaveFrom="transform translate-y-0 opacity-100"
                     leaveTo="transform -translate-y-2 opacity-0"
                   >
-                    <Disclosure.Panel className="rounded-b-2xl bg-white pl-10 pr-20 pb-4 text-black">
+                    <Disclosure.Panel className="pb-4 pl-10 pr-20 text-black bg-white rounded-b-2xl">
                       {answer}
                     </Disclosure.Panel>
                   </Transition>
@@ -186,6 +187,7 @@ export default function OilRigDesign() {
           ))}
         </div>
       </section>
+      <Contact type={'competition'} />
     </main>
   )
 }

@@ -17,7 +17,7 @@ export default function Home() {
   const [datamissions] = React.useState(missionitem)
   return (
     <>
-      <section className="bg-light pb-40">
+      <section className="pb-40 bg-light">
         <RegularJumbotron
           isHome={true}
           title="Igniting Sustainable and Flawless Notion to Embrace The Energy Security"
@@ -27,7 +27,7 @@ export default function Home() {
       <PetrolidaJumbotron />
       <SixCompetition />
       <main className="bg-[#EDEEF3]">
-        <ComingSoon />
+        {/* <ComingSoon /> */}
 
         <CardAbout
           image={'/icon/surabaya.png'}
