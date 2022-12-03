@@ -1,9 +1,9 @@
 'use client'
 import { Disclosure, Transition } from '@headlessui/react'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
-import RegularJumbotron from '../../../components/utils/regular-jumbotron'
+import RegularJumbotron from '../../../../components/utils/regular-jumbotron'
 import clsx from 'clsx'
-import SectionTitle from '../../../components/utils/section-title'
+import SectionTitle from '../../../../components/utils/section-title'
 import '@splidejs/react-splide/css'
 import Image from 'next/image'
 import React from 'react'
@@ -37,7 +37,7 @@ export default function OilRigDesign() {
   }
   return (
     <>
-      <RegularJumbotron />
+      <RegularJumbotron title="coba" desc="coba" />
       <section className="bg-light py-20">
         <SectionTitle title="Competition Prize" />
         <div className="mx-auto w-1/3">
