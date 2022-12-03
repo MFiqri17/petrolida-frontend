@@ -7,6 +7,7 @@ import SectionTitle from '../../../../components/utils/section-title'
 import '@splidejs/react-splide/css'
 import Image from 'next/image'
 import React from 'react'
+import TimerContainer from '../../../../components/timercontainer'
 
 const faq = [
   {
@@ -29,6 +30,8 @@ const faq = [
 
 export default function OilRigDesign() {
   const carouselRef = React.useRef<Splide>(null)
+  const time = new Date()
+  time.setSeconds(time.getSeconds() + 600)
 
   const handleThumbs = (id: string) => {
     if (carouselRef.current) {
@@ -36,9 +39,10 @@ export default function OilRigDesign() {
     }
   }
   return (
-    <>
-      <RegularJumbotron title="coba" desc="coba" />
-      <section className="bg-light py-20">
+    <main className="bg-light">
+      <RegularJumbotron title='coba' desc='coba' />
+      <TimerContainer expiryTimestamp={time} />
+      <section className=" py-20">
         <SectionTitle title="Competition Prize" />
         <div className="mx-auto w-1/3">
           <h2 className=" text-center text-xl font-semibold">
@@ -182,6 +186,6 @@ export default function OilRigDesign() {
           ))}
         </div>
       </section>
-    </>
+    </main>
   )
 }

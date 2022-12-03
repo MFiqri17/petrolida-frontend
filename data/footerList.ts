@@ -1,3 +1,12 @@
+export interface footerlistInterface {
+  id:number,
+  title:string,
+  content: {
+    lable: string,
+    href: string
+  }[]
+}
+
 const footerListData = [
   {
     id: 1,
