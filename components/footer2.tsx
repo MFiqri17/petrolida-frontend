@@ -1,7 +1,7 @@
 import Image from "next/image";
 const footer2 = () => {
     return (
-      <div className="flex justify-between items-center text-white">
+      <div className="flex justify-between items-center text-white border-none">
         <div className="w-[143px] h-[56px] relative">
           <Image
             layout="fill"

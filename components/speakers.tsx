@@ -1,6 +1,6 @@
 export default function Speakers() {
     return (
-        <div className="bg-[#EDEEF3] py-4">
+        <div className=" py-4">
             <div className="text-center ">
                 <p className="text-center text-[#3D4BE0] font-medium text-lg">
                     Non Competitions
