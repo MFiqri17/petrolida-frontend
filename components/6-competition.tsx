@@ -52,14 +52,14 @@ export default function SixCompetition() {
     }
   }
   return (
-    <section className="bg-light pt-40 pb-64">
-      <p className="pb-4 text-center text-lg text-secondary">Competitions</p>
+    <section className="pt-40 pb-64 bg-light">
+      <p className="pb-4 text-lg text-center text-secondary">Competitions</p>
       <SectionTitle title="6 COMPETITION EVENT" />
-      <p className="mx-auto w-1/2 px-12 text-center text-xl font-semibold">
+      <p className="w-1/2 px-12 mx-auto text-xl font-semibold text-center">
         Meet other participants, let’s show your ideas, innovations and
         abilities to Petrolida 2022
       </p>
-      <div className="relative mx-auto mt-32 w-3/5 ">
+      <div className="relative w-3/5 mx-auto mt-32 ">
         <div className="absolute -top-60 -right-40">
           <Image
             src={'/images/6-competition-bg.png'}
@@ -80,7 +80,7 @@ export default function SixCompetition() {
         >
           {competitionData.map(({ name, desc, src, className }) => (
             <SplideSlide className="flex">
-              <div className="flex w-1/3 items-end">
+              <div className="flex items-end w-1/3">
                 <SectionTitle
                   title={name}
                   className={`text-left ${className}`}
@@ -93,19 +93,19 @@ export default function SixCompetition() {
                 alt="competition"
                 className="transition hover:-skew-x-3"
               />
-              <div className="ml-3 flex w-1/3 items-center">
+              <div className="flex items-center w-1/3 ml-3">
                 <p className="text-white">{desc}</p>
               </div>
             </SplideSlide>
           ))}
         </Splide>
-        <div className="absolute bottom-36 right-40 flex justify-center gap-x-4 text-white">
+        <div className="absolute flex justify-center text-white bottom-36 right-40 gap-x-4">
           <button onClick={() => handleThumbs('<')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-8 w-8"
+              className="w-8 h-8"
             >
               <path
                 fillRule="evenodd"
@@ -119,7 +119,7 @@ export default function SixCompetition() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-8 w-8"
+              className="w-8 h-8"
             >
               <path
                 fillRule="evenodd"

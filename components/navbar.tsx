@@ -106,7 +106,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                     <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                       <a
                         href="#"
-                        className="text-sm font-medium text-gray-900 hover:text-gray-700"
+                        className="text-sm font-medium ${isTrans ? 'bg-transparent' : 'bg-[#FBFBFC] '} text-gray-900 hover:text-gray-700"
                       >
                         About
                       </a>
@@ -164,22 +164,22 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
         </div>
         <ul className="font-poppins bg-liteBlack absolute mt-[3.25em] hidden transform flex-col space-y-4 rounded-br-lg px-6 py-8 text-start font-semibold text-white transition duration-300 lg:static lg:mt-0 lg:flex lg:translate-x-0 lg:flex-row lg:items-center lg:!space-y-0 lg:space-x-8 lg:rounded-full lg:!py-2">
           <a href="/">
-            <li className="bg-gradient-to-r bg-clip-text text-[#07003F] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
+            <li className={`bg-gradient-to-r bg-clip-text ${isTrans ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
               About
             </li>
           </a>
           <a href="#">
-            <li className="bg-gradient-to-r bg-clip-text text-[#07003F] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
+            <li className={`bg-gradient-to-r bg-clip-text ${isTrans ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
               Event
             </li>
           </a>
           <a href="#">
-            <li className="bg-gradient-to-r bg-clip-text text-[#07003F] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
+            <li className={`bg-gradient-to-r bg-clip-text ${isTrans ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
               Contact
             </li>
           </a>
-          <Popover className="relative bg-white">
-            <Popover.Button className="bg-gradient-to-r bg-clip-text text-[#07003F] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
+          <Popover className="relative">
+            <Popover.Button className={`bg-gradient-to-r bg-clip-text ${isTrans ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
               Competition
             </Popover.Button>
             <Transition
@@ -204,7 +204,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
             </Transition>
           </Popover>
           <a href="/">
-            <li className="bg-gradient-to-r bg-clip-text text-[#07003F] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
+            <li className={`bg-gradient-to-r bg-clip-text ${isTrans ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
               Non Competition
             </li>
           </a>
@@ -246,7 +246,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
               >
                 <path
                   fillRule="evenodd"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                   d="M0 0.5L5.54167 6.83333L11.0833 0.5H0Z"
                   fill="#B5B3BC"
                 />
@@ -284,16 +284,16 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
         </ul>
         {/* @endauth
                     @guest */}
-        <ul className="font-poppins hidden flex-row items-center space-x-4 rounded-full bg-[#FBFBFC]  py-3 px-6 font-semibold sm:justify-center  lg:flex lg:py-2">
+        <ul className="flex-row items-center hidden px-6 py-3 space-x-4 font-semibold bg-transparent rounded-full font-poppins sm:justify-center lg:flex lg:py-2">
           <a
             href="/dashboard/login"
-            className="rounded-full bg-gradient-to-r  px-8 py-2 text-[#07003F] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent"
+            className={`rounded-full bg-gradient-to-r  px-8 py-2 ${isTrans ? 'text-[#FBFBFC]' : 'text-[#07003F]'} hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
           >
             <li>Log in</li>
           </a>
           <a
             href="/dashboard/register"
-            className="rounded-full bg-[#07003F] bg-gradient-to-r px-8 py-2 text-white  transition duration-300 ease-linear hover:from-[#D0D4F8] hover:to-[#3D4BE0] hover:text-[#07003F]"
+            className={`rounded-full ${isTrans ? 'bg-[#FBFBFC]' : 'bg-[#07003F]'} bg-gradient-to-r px-8 py-2 ${isTrans ? 'text-[#07003F]' : 'text-[#FBFBFC]'}  transition duration-300 ease-linear hover:from-[#D0D4F8] hover:to-[#3D4BE0]`}
           >
             <li>Register</li>
           </a>
