@@ -30,7 +30,7 @@ export default function RegularJumbotron({
             href="#"
             className="rounded-full border border-white px-6 py-2.5 font-semibold text-white transition hover:bg-white hover:text-secondary"
           >
-            Guidebook
+            {isHome ? 'Learn More' : 'Guidebook'}
           </a>
           <a
             href="#"

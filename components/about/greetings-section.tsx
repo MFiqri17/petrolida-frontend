@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function GreetingSection() {
   return (
-    <section className="py-32">
+    <section className="relative pb-32">
       <SectionTitle title="Greetings to all aspiring students" />
       <div>
         <div className="absolute top-12 right-0 z-0">
@@ -14,7 +14,7 @@ export default function GreetingSection() {
             alt="circle"
           />
         </div>
-        <div className="absolute -bottom-80 left-0 z-0">
+        <div className="absolute -bottom-32 left-0 z-0">
           <Image
             src={'/images/green-circle.png'}
             width={670}
