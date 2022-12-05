@@ -30,7 +30,7 @@ const TimerContainer = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
   ]
   return (
     <div
-      className="flex flex-col space-y-20 bg-no-repeat bg-center bg-cover pt-[190px] pb-[350px]"
+      className="flex flex-col space-y-20 bg-no-repeat bg-center bg-cover pt-[190px] pb-[250px]"
       style={{
         backgroundImage: "url('/images/countdown-bg.png')",
       }}
