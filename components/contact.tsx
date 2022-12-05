@@ -21,7 +21,7 @@ const landingData = [
 
 
 
-export default function Contact({ type }: { type: String }) {
+export default function Contact({ type, picName, compName, line }: { type: String, picName: any, compName: String, line: any }) {
     const carouselRef = React.useRef<Splide>(null)
 
     const handleThumbs = (id: string) => {
@@ -30,7 +30,7 @@ export default function Contact({ type }: { type: String }) {
         }
     }
 
-    if (type === 'ancur') {
+    if (type === 'competition') {
         return (
             <>
 
@@ -44,12 +44,13 @@ export default function Contact({ type }: { type: String }) {
                         <p className="text-lg font-semibold text-[#605C84] lg:text-left text-center">Explore our FAQ above, if you can't find the answer <br /> you're looking for, please contact us.</p>
                     </div>
                     <div className="flex items-center justify-center" >
-                        <a target={'_blank'} href="https://line.me/ti/p/krishnananda" className="transition duration-300 ease-linear hover:-translate-y-1">
+                        <a target={'_blank'} href={`https://line.me/ti/p/${line}`} className="transition duration-300 ease-linear hover:-translate-y-1">
                             <div className="bg-[#FBFBFC] rounded-[30px] p-4 lg:pl-8 lg:py-6 grid lg:grid-cols-3 lg:gap-0 gap-4">
                                 <div className="text-center lg:text-right lg:col-span-2">
                                     <p className="text-[#07003F] text-sm lg:text-lg font-medium pb-2">
-                                        I Gede Krishnananda Wibawa <br />
-                                        Oil Rig Design Comp <span className="font-bold ">PIC</span>
+                                        {picName}
+                                        <br />
+                                        {compName} Comp <span className="font-bold ">PIC</span>
                                     </p>
                                     <p className="text-[#07003F] text-sm lg:text-lg font-bold hover:underline">
                                         id line : krishnananda
@@ -153,7 +154,7 @@ export default function Contact({ type }: { type: String }) {
                         <h1 className="text-4xl font-bold text-[#07003F] pb-4 lg:text-left text-center">Follow Us</h1>
                         <p className="text-lg font-semibold text-[#605C84] lg:text-left text-center">Keep up with us through our social media, let’s connect! Don’t miss the ultimate opportunity to showcase your ideas and innovation in reinforcing the future of our energy industry</p>
                     </div>
-                    <Socials />
+                    <Socials width={60} height={60} />
                 </div>
             </>
         );

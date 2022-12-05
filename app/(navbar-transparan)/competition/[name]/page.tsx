@@ -9,6 +9,7 @@ import Contact from '../../../../components/contact'
 import PrizeCarousel from '../../../../components/prize-carousel'
 import FaqSection from '../../../../components/faq-section'
 import CardAbout from '../../../../components/CardAbout'
+import Timeline from '../../../../components/timeline'
 
 function getPageData(param: string) {
   const data = competitionData.filter(({ slug }) => slug === param)
@@ -46,7 +47,7 @@ export default function OilRigDesign({ params }: { params: { name: string } }) {
             for a specific offshore oil field. Participants are expected to make
             a project explanation of their semi-submersible oil rig based on
             what situation they had.{' '}
-            <span className="mt-3 block">
+            <span className="block mt-3">
               {' '}
               This competition aims to develop participants' knowledge to
               overcome all challenges in the given field. In the next round,
@@ -57,9 +58,10 @@ export default function OilRigDesign({ params }: { params: { name: string } }) {
           </>
         }
       />
+      <Timeline firstDate={data.firstDate} firstEvent={data.firstEvent} timeline={data.timeline} lastDate={data.lastDate} lastEvent={data.lastEvent} />
       <PrizeCarousel prize={data.prize} />
       <FaqSection faq={data.faq} />
-      <Contact type={'competition'} />
+      <Contact type={'competition'} compName={data.name} picName={data.picName} line={data.lineId} />
     </main>
   )
 }
