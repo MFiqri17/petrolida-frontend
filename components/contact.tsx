@@ -118,7 +118,7 @@ export default function Contact({ type }: { type: String }) {
                                 </div>
                             </div>
                             <div className="flex items-center justify-center" >
-                                <a target={'_blank'} href="https://line.me/ti/p/krishnananda" className="transition duration-300 ease-linear hover:-translate-y-1">
+                                <div className="transition duration-300 ease-linear hover:-translate-y-1">
                                     <div className="relative grid grid-cols-2 pr-12 overflow-hidden translate-y-8">
                                         <div className="flex flex-col items-end justify-end space-y-1 text-end">
                                             <div className='w-6 h-6 bg-[#FBFBFC]'></div>
@@ -134,7 +134,7 @@ export default function Contact({ type }: { type: String }) {
                                             />
                                         </div>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                         </SplideSlide>
                     ))}
