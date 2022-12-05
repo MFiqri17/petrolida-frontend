@@ -3,38 +3,39 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { competitionData } from '../data/competition'
 
 export default function Navbar({ isTrans }: { isTrans: boolean }) {
-  const links = [
-    {
-      href: '##',
-      name: 'Oil Rig Design',
-    },
-    {
-      href: '##',
-      name: 'Fracturing Fluid Design',
-    },
-    {
-      href: '##',
-      name: 'Fracturing Fluid Design',
-    },
-    {
-      href: '##',
-      name: 'Petrosmart',
-    },
-    {
-      href: '##',
-      name: 'Paper',
-    },
-    {
-      href: '##',
-      name: 'Business Case',
-    },
-    {
-      href: '##',
-      name: 'Case Study',
-    },
-  ]
+  // const links = [
+  //   {
+  //     href: 'oil-rig-design',
+  //     name: 'Oil Rig Design',
+  //   },
+  //   {
+  //     href: 'fracturing-fluid-design',
+  //     name: 'Fracturing Fluid Design',
+  //   },
+  //   {
+  //     href: 'petrosmart',
+  //     name: 'Petrosmart',
+  //   },
+  //   {
+  //     href: 'paper',
+  //     name: 'Paper',
+  //   },
+  //   {
+  //     href: '##',
+  //     name: 'Paper',
+  //   },
+  //   {
+  //     href: '##',
+  //     name: 'Business Case',
+  //   },
+  //   {
+  //     href: '##',
+  //     name: 'Case Study',
+  //   },
+  // ]
   return (
     <div>
       <nav className={`shadow-liteBlack fixed left-0 right-0 z-[999] mx-auto flex max-w-screen-xl flex-wrap justify-between ${isTrans ? 'bg-transparent' : 'bg-[#FBFBFC] '} text-center ${isTrans ? 'shadow-none' : 'shadow-lg'} lg:mt-4 lg:max-w-screen-lg lg:rounded-full`}>
@@ -88,10 +89,10 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                     </div>
                     <div className="mt-6">
                       <nav className="grid grid-cols-2 gap-y-8">
-                        {links.map((item) => (
+                        {competitionData.map((item) => (
                           <a
                             key={item.name}
-                            href={item.href}
+                            href={`/competition/${item.slug}`}
                             className="flex items-center justify-center p-3 -m-3 rounded-md hover:bg-gray-50"
                           >
                             <span className="ml-3 text-sm font-medium text-gray-900">
@@ -179,7 +180,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
             </li>
           </a>
           <Popover className="relative">
-            <Popover.Button className={`bg-gradient-to-r bg-clip-text ${isTrans ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
+            <Popover.Button className={`bg-gradient-to-r bg-clip-text ${isTrans ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] focus-visible:outline-none hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
               Competition
             </Popover.Button>
             <Transition
@@ -192,8 +193,8 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
             >
               <Popover.Panel className="absolute z-10 -translate-x-12 w-60">
                 <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12">
-                  {links.map((item: { name: any; href: any }) => (
-                    <a key={item.name} href={item.href}>
+                  {competitionData.map((item: { name: any; slug: any }) => (
+                    <a key={item.name} href={`/competition/${item.slug}`}>
                       <li className="mb-3 bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
                         {item.name}
                       </li>
