@@ -31,10 +31,7 @@ export default function Home() {
             held by SPE ITS Student Chapter. This year’s series will be the 10th
             annual event."
         link={
-          <a
-            href=""
-            className="mt-14 inline-flex items-center gap-x-6 text-2xl font-semibold text-white transition-all hover:gap-x-8"
-          >
+          <>
             Learn More{' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,12 +45,12 @@ export default function Home() {
                 clipRule="evenodd"
               />
             </svg>
-          </a>
+          </>
         }
       />
       <SixCompetition />
       <Speakers />
-      <Contact type={'landing'} />
+      <Contact type='landing' />
     </>
   )
 }

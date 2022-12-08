@@ -24,8 +24,8 @@ const CardAbout = ({
   bgPosition
 }: cardaboutInterface) => {
   return (
-    <div className={`flex relative  py-[350px]	 ${cardclass} `}>
-      <div className="absolute -right-32 mt-10">
+    <div className={`flex overflow-hidden relative   py-[350px]	 ${cardclass} `}>
+      <div className={`absolute -${bgPosition}-32 mt-48`}>
         <Image
           src={'/images/6-competition-bg-alt.png'}
           width={1135}
