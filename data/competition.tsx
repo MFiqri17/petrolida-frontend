@@ -409,7 +409,7 @@ export const competitionData = [
       },
       {
         date: '10 Mar',
-        component: <>Case Released</>
+        component: <>Case <br /> Released</>
       },
       {
         date: '31 Mar - 13 Apr',
