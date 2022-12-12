@@ -10,7 +10,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (isTrans) {
-      if (window.scrollY >= 130) {
+      if (window.scrollY >= 110) {
         setColor(false)
       } else {
         setColor(true)
