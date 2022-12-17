@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 import { competitionData } from '../data/competition'
 
 export default function Navbar({ isTrans }: { isTrans: boolean }) {
@@ -21,7 +21,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
   console.log(color)
   return (
     <div>
-      <nav className={`shadow-liteBlack fixed left-0 right-0 z-[999] mx-auto flex max-w-screen-xl flex-wrap justify-between ${isTrans && color ? 'bg-transparent' : 'bg-[#FBFBFC] '} text-center ${isTrans && color ? 'shadow-none' : 'shadow-lg'} lg:mt-4 lg:max-w-screen-lg lg:rounded-full transition duration-300 ease-linear`}>
+      <nav className={`shadow-liteBlack fixed left-0 right-0 z-[999] mt-4 lg:mt-0 mx-12 lg:mx-auto flex max-w-screen-xl flex-wrap justify-between ${isTrans && color ? 'bg-transparent' : 'bg-[#FBFBFC] '} text-center ${isTrans && color ? 'shadow-none' : 'shadow-lg'} lg:mt-4 lg:max-w-screen-lg rounded-full transition duration-300 ease-linear`}>
         <a href="/">
           <span className="sr-only">Petrolida 2023</span>
           <div className="p-4">
@@ -35,10 +35,11 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
         <div className="-my-2 mr-4 flex items-center pl-4 md:pl-12 lg:!hidden">
           <Popover>
             <Popover.Button className="flex items-center space-x-2 text-purple-200 focus:outline-none">
-              <Bars3Icon
-                className="h-6 w-6 stroke-[#07003F]"
-                aria-hidden="true"
-              />
+              <svg width="26" height="19" viewBox="0 0 26 19" className={`${isTrans && color ? 'stroke-white' : 'stroke-black'}`} fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.13916 10L25 9.74065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9.09277 1.00879L25 1.00017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M1.13916 18H17.0464" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
             </Popover.Button>
             <Transition
               as={Fragment}
