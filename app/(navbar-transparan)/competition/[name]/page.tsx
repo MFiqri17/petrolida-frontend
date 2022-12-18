@@ -2,7 +2,7 @@
 
 import RegularJumbotron from '../../../../components/utils/regular-jumbotron'
 import React from 'react'
-import TimerContainer from '../../../../components/timercontainer'
+import Timers from '../../../../components/timercontainer'
 import { competitionData } from '../../../../data/competition'
 import { notFound } from 'next/navigation'
 import Contact from '../../../../components/contact'
@@ -21,8 +21,7 @@ function getPageData(param: string) {
 
 export default function OilRigDesign({ params }: { params: { name: string } }) {
   const data = getPageData(params.name)
-  const time = new Date()
-  time.setSeconds(time.getSeconds() + 600)
+
 
   if (!data) {
     notFound()
@@ -31,14 +30,10 @@ export default function OilRigDesign({ params }: { params: { name: string } }) {
   return (
     <main className="bg-light">
       <RegularJumbotron title={data.name} desc={data.desc} />
-      <TimerContainer expiryTimestamp={time} />
+      <Timers />
       <CardAbout
-        bgPosition="right"
-        cardclass="flex-row pl-[222px] pr-[120px] space-x-8 justify-center items-center"
         image={'/images/surabaya.png'}
-        text="About Petrolida"
-        direction="text-left"
-        href="/google.com"
+        text="About the Competition"
         desc={
           <>
             Oil Rig Design Competition that will be held online is a competition
@@ -47,7 +42,7 @@ export default function OilRigDesign({ params }: { params: { name: string } }) {
             for a specific offshore oil field. Participants are expected to make
             a project explanation of their semi-submersible oil rig based on
             what situation they had.{' '}
-            <span className="block mt-3">
+            <span className="mt-3 block">
               {' '}
               This competition aims to develop participants' knowledge to
               overcome all challenges in the given field. In the next round,
@@ -58,10 +53,21 @@ export default function OilRigDesign({ params }: { params: { name: string } }) {
           </>
         }
       />
-      <Timeline firstDate={data.firstDate} firstEvent={data.firstEvent} timeline={data.timeline} lastDate={data.lastDate} lastEvent={data.lastEvent} />
+      <Timeline
+        firstDate={data.firstDate}
+        firstEvent={data.firstEvent}
+        timeline={data.timeline}
+        lastDate={data.lastDate}
+        lastEvent={data.lastEvent}
+      />
       <PrizeCarousel prize={data.prize} />
       <FaqSection faq={data.faq} />
-      <Contact type={'competition'} compName={data.name} picName={data.picName} line={data.lineId} />
+      <Contact
+        type={'competition'}
+        compName={data.name}
+        picName={data.picName}
+        line={data.lineId}
+      />
     </main>
   )
 }

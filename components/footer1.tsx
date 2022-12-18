@@ -8,7 +8,7 @@ const footer1 = () => {
   const [dataFooter] = useState(footerData)
   const [dataitemFooter] = useState(footeritem)
   return (
-    <div className="flex justify-between px-4 border-none">
+    <div className="flex lg:flex-row flex-col items-center justify-between lg:space-y-0 space-y-10  border-none">
       <ListFooter listfooters={dataFooter} />
       <FooterCard footerItem={dataitemFooter} />
     </div>

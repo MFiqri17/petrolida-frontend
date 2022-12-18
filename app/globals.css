@@ -25,4 +25,18 @@
     height: 366px;
     border-radius: 100% 0% 50% 50% / 50% 0% 100% 50%;
   }
+
+  .bg-mission {
+    background-image: url('/images/bg-mission.png');
+
+  }
+
+   @media screen and (max-width: 500px) { 
+   .bg-mission {
+    background-image: url('/images/bg-mission-mobile.png');  
+  }
+  }
+
 }
+
+

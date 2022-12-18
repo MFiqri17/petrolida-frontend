@@ -1,14 +1,14 @@
 const letsJoin = () => {
     return (
-      <div className=" bg-gradient-to-t from-[#251F56] to-[#3D4BE0] py-[123px]">
-        <section className="flex flex-col space-y-[98px] items-center text-center">
+      <div className=" bg-gradient-to-t from-[#251F56] to-[#3D4BE0] py-[123px] md:px-0 px-4">
+        <section className="flex flex-col lg:space-y-[98px] space-y-12 items-center text-center">
           <div className="flex  flex-col items-center space-y-6">
-            <h1 className="text-5xl font-extrabold text-[#FBFBFC]	">
+            <h1 className="md:text-5xl text-[28px] font-extrabold text-[#FBFBFC]	">
               Let’s join our excitement
             </h1>
-            <p className="text-2xl font-semibold text-[#F3F4F7]">
+            <p className="md:text-2xl text-base font-semibold text-[#F3F4F7]">
               Don’t miss the ultimate opportunity to showcase your ideas and{' '}
-              <br />
+              <br className="md:block hidden"/>
               innovation in reinforcing the future of our energy industry
             </p>
           </div>

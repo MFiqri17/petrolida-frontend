@@ -7,7 +7,7 @@ export default function ListFooter({
   listfooters: footerlistInterface[]
 }) {
   return (
-    <div className="flex justify-center space-x-[138px] text-white">
+    <div className="grid md:grid-cols-3 grid-cols-2 justify-between gap-x-9 xl:gap-y-0 gap-y-10  xl:gap-x-[138px] text-white">
       {listfooters.map((list: any) => (
         <section className="flex flex-col space-y-[15px]">
           <h1 className="text-base font-bold	 text-[#FBFBFC]">{list.title}</h1>

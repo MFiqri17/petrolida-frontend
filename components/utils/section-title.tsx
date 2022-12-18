@@ -5,7 +5,7 @@ export default function SectionTitle({
   className = '',
   bgClassName = '',
 }: {
-  title?: string
+  title?: any
   className?: string
   bgClassName?: string
 }) {
