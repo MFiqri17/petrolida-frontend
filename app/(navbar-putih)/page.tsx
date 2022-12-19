@@ -11,17 +11,15 @@ import React from 'react'
 export default function Home() {
   return (
     <>
-      <section className="bg-light pb-40">
-        <RegularJumbotron
-          isHome={true}
-          title="Igniting Sustainable and Flawless Notion to Embrace The Energy Security"
-          desc="Petrolida 2023 is present as a place for initiating continuous innovations based on sustainable ideas that play a role in securing energy security"
-        />
-        <PetrolidaAbout />
-        <SixCompetition />
-        <Speakers />
-        <Contact type="landing" />
-      </section>
+      <RegularJumbotron
+        isHome={true}
+        title="Igniting Sustainable and Flawless Notion to Embrace The Energy Security"
+        desc="Petrolida 2023 is present as a place for initiating continuous innovations based on sustainable ideas that play a role in securing energy security"
+      />
+      <PetrolidaAbout />
+      <SixCompetition />
+      <Speakers />
+      <Contact type="landing" />
     </>
   )
 }

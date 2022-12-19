@@ -1,16 +1,22 @@
 import SectionTitle from './utils/section-title'
 import Link from 'next/link'
 import Image from 'next/image'
-interface cardaboutInterface {
-}
-const PetrolidaAbout = ({
-}: cardaboutInterface) => {
+interface cardaboutInterface {}
+const PetrolidaAbout = ({}: cardaboutInterface) => {
   return (
-    <div className={`overflow-hidden py-[350px] xl:pr-[222px] xl:pl-[120px]`}>
-      <section className="relative mx-auto flex  lg:flex-row flex-col  items-center justify-center xl:space-x-10  ">
-        <div className={`absolute -left-40  -top-48`}>
+    <div className={`overflow-hidden py-[350px] px-4 xl:pr-[222px] xl:pl-[120px]`}>
+      <section className="relative mx-auto flex  flex-col items-center  justify-center lg:flex-row xl:space-x-10  ">
+        <div className={`absolute -left-40 -top-48 hidden  md:block`}>
           <Image
             src={'/images/6-competition-bg-alt.png'}
+            width={1135}
+            height={1135}
+            alt="competition"
+          />
+        </div>
+        <div className="absolute w-[1000px] left-30 -top-10 block md:hidden">
+          <Image
+            src={'/images/bg-card-mobile.png'}
             width={1135}
             height={1135}
             alt="competition"
@@ -20,9 +26,9 @@ const PetrolidaAbout = ({
           <section>
             <SectionTitle
               title={'PETROLEUM INTEGRATED DAYS'}
-              className="xl:w-[410px] w-full text-left text-5xl"
+              className="w-full text-left text-5xl xl:w-[410px]"
             />
-            <p className="xl:w-[486px] w-full text-xl font-medium text-[#FBFBFC]">
+            <p className="w-full text-xl font-medium text-[#FBFBFC] xl:w-[486px]">
               {
                 ' Petroleum Integrated Days (Petrolida) is the biggest annual event held by SPE ITS Student Chapter. This year’s series will be the 10th annual event.'
               }
@@ -49,11 +55,11 @@ const PetrolidaAbout = ({
         </div>
         <div className=" flex flex-col space-y-6">
           <p
-            className={` ${'text-right'} text-lg font-semibold text-[#3D4BE0]`}
+            className={` ${'text-right'} lg:block hidden text-lg font-semibold text-[#3D4BE0]`}
           >
             {'About Petrolida'}
           </p>
-          <div className="relative h-[500px] w-[486px]">
+          <div className="relative lg:h-[500px] lg:w-[486px] w-[334px] h-[344px]">
             <Image
               layout="fill"
               src={'/images/surabaya.png'}
@@ -68,4 +74,3 @@ const PetrolidaAbout = ({
 }
 
 export default PetrolidaAbout
-;

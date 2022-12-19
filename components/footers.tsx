@@ -3,7 +3,7 @@ import Footer2 from './footer2'
 import Image from "next/image"
 const footers = () => {
     return (
-      <div className="flex flex-col space-y-[47px] bg-[#26215B] xl:px-[120px] px-4 py-[71.5px]">
+      <div className="flex flex-col space-y-[47px] bg-[#26215B] xl:px-[120px] px-4 pt-[71.5px]">
         <Footer1 />
         {/* <div className=" h-[20px] w-full">
           <Image
