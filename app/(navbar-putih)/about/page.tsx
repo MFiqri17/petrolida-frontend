@@ -5,12 +5,13 @@ import GreetingSection from '../../../components/about/greetings-section'
 import MissionContainer from '../../../components/missionContainer'
 import SectionTitle from '../../../components/utils/section-title'
 import missionitem from '../../../data/missionitem'
+import Contact from '../../../components/contact'
 
 export default function AboutPage() {
   const [datamissions] = React.useState(missionitem)
   return (
     <>
-      <div className="relative flex overflow-x-clip pl-56 pt-48">
+      <div className="relative flex pt-48 pl-56 overflow-x-clip">
         <div className="z-20 w-1/2">
           <SectionTitle
             className="text-left text-8xl text-secondary"
@@ -18,7 +19,7 @@ export default function AboutPage() {
             title="Igniting Sustainable and Flawless Notion to Embrace The Energy Security"
           />
         </div>
-        <div className="z-20 flex w-1/2 items-center pl-4 pr-20">
+        <div className="z-20 flex items-center w-1/2 pl-4 pr-20">
           <p className="text-xl text-white">
             Petroleum Integrated Days (Petrolida) is the biggest annual event
             held by SPE ITS Student Chapter. This year’s series will be the 10th
@@ -40,6 +41,7 @@ export default function AboutPage() {
       </div>
       <MissionContainer missions={datamissions} />
       <GreetingSection />
+      <Contact type='about' />
     </>
   )
 }
