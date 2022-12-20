@@ -9,7 +9,7 @@ import missionitem from '../../../data/missionitem'
 export default function AboutPage() {
   const [datamissions] = React.useState(missionitem)
   return (
-    <section className="bg-light">
+    <>
       <div className="relative flex overflow-x-clip pl-56 pt-48">
         <div className="z-20 w-1/2">
           <SectionTitle
@@ -40,6 +40,6 @@ export default function AboutPage() {
       </div>
       <MissionContainer missions={datamissions} />
       <GreetingSection />
-    </section>
+    </>
   )
 }

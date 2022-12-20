@@ -13,13 +13,13 @@ const CardAbout = ({
 }: cardaboutInterface) => {
   return (
     <div
-      className={`py-[350px] flex-row relative mx-auto flex  items-center justify-center space-x-8 overflow-hidden pl-[222px] pr-[120px]`}
+      className={`py-[350px] md:flex-row flex-col relative mx-auto flex  items-center justify-center px-4 md:px-10 md:space-x-8 overflow-hidden xl:pl-[222px] xl:pr-[120px]`}
     >
-      <div className={`absolute -right-40  top-40`}>
+      <div className={`absolute w-[1135px] md:h-[1135px] h-[1500px]  2xl:-right-40 md:-right-64  lg:top-40 md:top-10 top-60`}>
         <Image
           src={'/images/6-competition-bg-alt.png'}
-          width={1135}
-          height={1135}
+          layout="fill"
+          objectFit='contain'
           alt="competition"
         />
       </div>

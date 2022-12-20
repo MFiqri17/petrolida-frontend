@@ -5,8 +5,8 @@ interface itemInterface {
 
 const CardItemAbout = ({ desc }: itemInterface) => {
   return (
-    <div className="z-20 mt-10">
-        <p className="w-[486px]  text-xl font-medium text-[#FBFBFC]">
+    <div className="mt-11 z-20">
+        <p className="lg:w-[486px]  lg:text-xl text-base font-medium text-[#FBFBFC]">
           {desc}
         </p>
     </div>

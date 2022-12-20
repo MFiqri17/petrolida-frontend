@@ -4,6 +4,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { competitionData } from '../data/competition'
+import Link from 'next/link'
 
 export default function Navbar({ isTrans }: { isTrans: boolean }) {
 
@@ -21,24 +22,58 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
   console.log(color)
   return (
     <div>
-      <nav className={`shadow-liteBlack fixed left-0 right-0 z-[999] mt-4 lg:mt-0 mx-12 lg:mx-auto flex max-w-screen-xl flex-wrap justify-between ${isTrans && color ? 'bg-transparent' : 'bg-[#FBFBFC] '} text-center ${isTrans && color ? 'shadow-none' : 'shadow-lg'} lg:mt-4 lg:max-w-screen-lg rounded-full transition duration-300 ease-linear`}>
-        <a href="/">
+      <nav
+        className={`shadow-liteBlack fixed left-0 right-0 z-[999] mx-12 mt-4 flex max-w-screen-xl flex-wrap justify-between lg:mx-auto lg:mt-0 ${
+          isTrans && color ? 'bg-transparent' : 'bg-[#FBFBFC] '
+        } text-center ${
+          isTrans && color ? 'shadow-none' : 'shadow-lg'
+        } rounded-full transition duration-300 ease-linear lg:mt-4 lg:max-w-screen-lg`}
+      >
+        <Link href="/">
           <span className="sr-only">Petrolida 2023</span>
           <div className="p-4">
             <img
-              src={`${isTrans && color ? '/logo/petrolida-2023-white.png' : '/logo/petrolida-2023.png'}`}
+              src={`${
+                isTrans && color
+                  ? '/logo/petrolida-2023-white.png'
+                  : '/logo/petrolida-2023.png'
+              }`}
               alt="logo-petrolida"
               className="h-10"
             />
           </div>
-        </a>
+        </Link>
         <div className="-my-2 mr-4 flex items-center pl-4 md:pl-12 lg:!hidden">
           <Popover>
             <Popover.Button className="flex items-center space-x-2 text-purple-200 focus:outline-none">
-              <svg width="26" height="19" viewBox="0 0 26 19" className={`${isTrans && color ? 'stroke-white' : 'stroke-black'}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.13916 10L25 9.74065" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M9.09277 1.00879L25 1.00017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M1.13916 18H17.0464" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <svg
+                width="26"
+                height="19"
+                viewBox="0 0 26 19"
+                className={`${
+                  isTrans && color ? 'stroke-white' : 'stroke-black'
+                }`}
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.13916 10L25 9.74065"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9.09277 1.00879L25 1.00017"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M1.13916 18H17.0464"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </Popover.Button>
             <Transition
@@ -52,93 +87,93 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
             >
               <Popover.Panel
                 focus
-                className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform lg:hidden"
+                className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition lg:hidden"
               >
-                <div className="bg-white divide-y-2 rounded-lg shadow-lg divide-gray-50 ring-1 ring-black ring-opacity-5">
+                <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="px-5 pt-5 pb-6">
                     <div className="flex items-center justify-between">
                       <div>
                         <img
-                          className="w-auto h-8"
+                          className="h-8 w-auto"
                           src={'/logo/petrolida-2023.png'}
                           alt="logo-petrolida"
                         />
                       </div>
                       <div className="-mr-2">
-                        <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                           <span className="sr-only">Close menu</span>
-                          <XMarkIcon className="w-6 h-6" aria-hidden="true" />
+                          <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                         </Popover.Button>
                       </div>
                     </div>
                     <div className="mt-6">
                       <nav className="grid grid-cols-2 gap-y-8">
                         {competitionData.map((item) => (
-                          <a
+                          <Link
                             key={item.name}
                             href={`/competition/${item.slug}`}
-                            className="flex items-center justify-center p-3 -m-3 rounded-md hover:bg-gray-50"
+                            className="-m-3 flex items-center justify-center rounded-md p-3 hover:bg-gray-50"
                           >
                             <span className="ml-3 text-sm font-medium text-gray-900">
                               {item.name}
                             </span>
-                          </a>
+                          </Link>
                         ))}
                       </nav>
                     </div>
                   </div>
-                  <div className="px-5 py-6 space-y-6">
+                  <div className="space-y-6 px-5 py-6">
                     <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                      <a
-                        href="#"
-                        className="text-sm font-medium ${isTrans ? 'bg-transparent' : 'bg-[#FBFBFC] '} text-gray-900 hover:text-gray-700"
+                      <Link
+                        href="/about"
+                        className="${isTrans ? 'bg-transparent' : 'bg-[#FBFBFC] '} text-sm font-medium text-gray-900 hover:text-gray-700"
                       >
                         About
-                      </a>
+                      </Link>
 
-                      <a
+                      <Link
                         href="#"
                         className="text-sm font-medium text-gray-900 hover:text-gray-700"
                       >
                         Event
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         href="#"
                         className="text-sm font-medium text-gray-900 hover:text-gray-700"
                       >
                         Contact
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         href="#"
                         className="text-sm font-medium text-gray-900 hover:text-gray-700"
                       >
                         Non Competition
-                      </a>
+                      </Link>
                       {/* {links.map((item) => (
-                                                <a
+                                                <Link
                                                     key={item.name}
                                                     href={item.href}
                                                     className="text-sm font-medium text-gray-900 hover:text-gray-700"
                                                 >
                                                     {item.name}
-                                                </a>
+                                                </Link>
                                             ))} */}
                     </div>
                     <div>
-                      <a
+                      <Link
                         href="#"
-                        className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
+                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700"
                       >
                         Register
-                      </a>
-                      <p className="mt-6 text-sm font-medium text-center text-gray-500">
+                      </Link>
+                      <p className="mt-6 text-center text-sm font-medium text-gray-500">
                         Already have an account?{' '}
-                        <a
+                        <Link
                           href="#"
                           className="text-indigo-600 hover:text-indigo-500"
                         >
                           Log in
-                        </a>
+                        </Link>
                       </p>
                     </div>
                   </div>
@@ -148,23 +183,39 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
           </Popover>
         </div>
         <ul className="font-poppins bg-liteBlack absolute mt-[3.25em] hidden transform flex-col space-y-4 rounded-br-lg px-6 py-8 text-start font-semibold text-white transition duration-300 lg:static lg:mt-0 lg:flex lg:translate-x-0 lg:flex-row lg:items-center lg:!space-y-0 lg:space-x-8 lg:rounded-full lg:!py-2">
-          <a href="/">
-            <li className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
+          <Link href="/about">
+            <li
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+            >
               About
             </li>
-          </a>
-          <a href="#">
-            <li className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
+          </Link>
+          <Link href="#">
+            <li
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+            >
               Event
             </li>
-          </a>
-          <a href="#">
-            <li className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
+          </Link>
+          <Link href="#">
+            <li
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+            >
               Contact
             </li>
-          </a>
+          </Link>
           <Popover className="relative">
-            <Popover.Button className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] focus-visible:outline-none hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
+            <Popover.Button
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent focus-visible:outline-none`}
+            >
               Competition
             </Popover.Button>
             <Transition
@@ -175,24 +226,28 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Popover.Panel className="absolute z-10 -translate-x-12 w-60">
+              <Popover.Panel className="absolute z-10 w-60 -translate-x-12">
                 <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12">
                   {competitionData.map((item: { name: any; slug: any }) => (
-                    <a key={item.name} href={`/competition/${item.slug}`}>
+                    <Link key={item.name} href={`/competition/${item.slug}`}>
                       <li className="mb-3 bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
                         {item.name}
                       </li>
-                    </a>
+                    </Link>
                   ))}
                 </ul>
               </Popover.Panel>
             </Transition>
           </Popover>
-          <a href="/">
-            <li className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'}  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}>
+          <Link href="/">
+            <li
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+            >
               Non Competition
             </li>
-          </a>
+          </Link>
         </ul>
 
         {/* @auth */}
@@ -222,7 +277,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
 
               <li title="{{ Auth::user()->email }}">User123</li>
               <svg
-                className="transition-transform duration-200 transform "
+                className="transform transition-transform duration-200 "
                 width="11"
                 height="7"
                 viewBox="0 0 11 7"
@@ -247,20 +302,20 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
             >
               <Popover.Panel className="absolute z-10 translate-x-8">
                 <ul className="absolute mt-4 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12">
-                  <a href="/dashboard">
+                  <Link href="/dashboard">
                     <li className="mb-3 bg-gradient-to-r bg-clip-text text-[#07003F] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
                       Dashboard
                     </li>
-                  </a>
+                  </Link>
                   <li className="bg-gradient-to-r text-start text-[#07003F] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
-                    <a href="{{ route('logout') }}">
+                    <Link href="{{ route('logout') }}">
                       Log out
                       <form
                         action="{{ route('logout') }}"
                         method="POST"
                         id="logout"
                       ></form>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </Popover.Panel>
@@ -269,19 +324,25 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
         </ul>
         {/* @endauth
                     @guest */}
-        <ul className="flex-row items-center hidden px-6 py-3 space-x-4 font-semibold bg-transparent rounded-full font-poppins sm:justify-center lg:flex lg:py-2">
-          <a
+        <ul className="font-poppins hidden flex-row items-center space-x-4 rounded-full bg-transparent px-6 py-3 font-semibold sm:justify-center lg:flex lg:py-2">
+          <Link
             href="/dashboard/login"
-            className={`rounded-full bg-gradient-to-r  px-8 py-2 ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'} hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+            className={`rounded-full bg-gradient-to-r  px-8 py-2 ${
+              isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+            } hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
           >
             <li>Log in</li>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/dashboard/register"
-            className={`rounded-full ${isTrans && color ? 'bg-[#FBFBFC]' : 'bg-[#07003F]'} bg-gradient-to-r px-8 py-2 ${isTrans && color ? 'text-[#07003F]' : 'text-[#FBFBFC]'}  transition duration-300 ease-linear hover:from-[#D0D4F8] hover:to-[#3D4BE0]`}
+            className={`rounded-full ${
+              isTrans && color ? 'bg-[#FBFBFC]' : 'bg-[#07003F]'
+            } bg-gradient-to-r px-8 py-2 ${
+              isTrans && color ? 'text-[#07003F]' : 'text-[#FBFBFC]'
+            }  transition duration-300 ease-linear hover:from-[#D0D4F8] hover:to-[#3D4BE0]`}
           >
             <li>Register</li>
-          </a>
+          </Link>
         </ul>
         {/* @endguest */}
       </nav>

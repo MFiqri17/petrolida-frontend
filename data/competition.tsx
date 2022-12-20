@@ -6,38 +6,84 @@ export const competitionData = [
     about:
       'Oil Rig Design Competition that will be held online is a competition in which challenges participants to combine their engineering sense and creative innovations in designing a semi-submersible platform for a specific offshore oil field. Participants are expected to make a project explanation of their semi-submersible oil rig based on what situation they had. This competition aims to develop participants knowledge to overcome all challenges in the given field. In the next round, participants are also expected to make a 3D Video for the selection in favorite winner categories and prepare a presentation to be presented in front of the judges.',
     firstDate: '27 Feb',
-    firstEvent: <>Open <br /> Registration</>,
+    firstEvent: (
+      <>
+        Open <br /> Registration
+      </>
+    ),
+
+    image: '/images/oil-rig-desain.png',
+    descCard: (
+      <>
+        Oil Rig Design Competition that will be held online is a competition in
+        which challenges participants to combine their engineering sense and
+        creative innovations in designing a semi-submersible platform for a
+        specific offshore oil field. Participants are expected to make a project
+        explanation of their semi-submersible oil rig based on what situation
+        they had.{' '}
+        <span className="mt-3 block">
+          {' '}
+          This competition aims to develop participants' knowledge to overcome
+          all challenges in the given field. In the next round, participants are
+          also expected to make a 3D Video for the selection in favorite winner
+          categories and prepare a presentation to be presented in front of the
+          judges.{' '}
+        </span>
+      </>
+    ),
     timeline: [
       {
         date: '30 Mar',
-        component: <>Closing <br /> Registration</>
+        component: (
+          <>
+            Closing <br /> Registration
+          </>
+        ),
       },
       {
         date: '31 Mar - 13 Apr',
-        component: <>Project Explanation <br />
-          Submission
-          Deadline</>
+        component: (
+          <>
+            Project Explanation <br />
+            Submission Deadline
+          </>
+        ),
       },
       {
         date: '20 Apr',
-        component: <>Finalist <br />
-          Announcement</>
+        component: (
+          <>
+            Finalist <br />
+            Announcement
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>Presentation <br />
-          Submission
-          Deadline</>
+        component: (
+          <>
+            Presentation <br />
+            Submission Deadline
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>Technical <br />
-          Meeting</>
+        component: (
+          <>
+            Technical <br />
+            Meeting
+          </>
+        ),
       },
     ],
     lastDate: '26 May',
-    lastEvent: <>Competition <br />
-      Day</>,
+    lastEvent: (
+      <>
+        Competition <br />
+        Day
+      </>
+    ),
     prize: [
       {
         name: '1st Place',
@@ -89,44 +135,96 @@ export const competitionData = [
     about:
       'The Fracturing Fluid Design Competition was first held in 2018 and credited with being the pioneer in the region of Pacific Asia. This competition will challenge all delegates to create the optimal capability of fracture fluid related to the given case. Each team will present their findings directly to the judges and the most optimal, including performance feasibility, environmental effects, and economic consideration, will have the most points.',
     firstDate: '27 Feb',
-    firstEvent: <>Open <br /> Registration</>,
+    firstEvent: (
+      <>
+        Open <br /> Registration
+      </>
+    ),
+    image: '/images/fluid-desain.png',
+    descCard: (
+      <>
+        The Fracturing Fluid Design Competition was first held in 2018 and
+        credited with being the pioneer in the region of Pacific Asia. This
+        competition will challenge all delegates to create the optimal
+        capability of fracture fluid related to the given case.{' '}
+        <span className="mt-3 block">
+          {' '}
+          Each team will present their findings directly to the judges and the
+          most optimal, including performance feasibility, environmental
+          effects, and economic consideration, will have the most points.{' '}
+        </span>
+      </>
+    ),
     timeline: [
       {
         date: '30 Mar',
-        component: <>Closing <br /> Registration</>
+        component: (
+          <>
+            Closing <br /> Registration
+          </>
+        ),
       },
       {
         date: '31 Mar',
-        component: <>Case <br />
-          Distribution</>
+        component: (
+          <>
+            Case <br />
+            Distribution
+          </>
+        ),
       },
       {
         date: '1 Apr',
-        component: <>Coaching for <br />
-          Delegates</>
+        component: (
+          <>
+            Coaching for <br />
+            Delegates
+          </>
+        ),
       },
       {
         date: '23 Apr',
-        component: <>Preliminary Round <br />
-          Submission</>
+        component: (
+          <>
+            Preliminary Round <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '27 Apr',
-        component: <>Finalist <br />
-          Announcement</>
+        component: (
+          <>
+            Finalist <br />
+            Announcement
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>PowerPoint File <br />
-          Submission</>
+        component: (
+          <>
+            PowerPoint File <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>Technical <br /> Meeting</>
+        component: (
+          <>
+            Technical <br /> Meeting
+          </>
+        ),
       },
     ],
     lastDate: '26 May',
-    lastEvent: <>Competition <br />Day</>,
+    lastEvent: (
+      <>
+        Competition <br />
+        Day
+      </>
+    ),
     prize: [
       {
         name: '1st Place',
@@ -169,27 +267,66 @@ export const competitionData = [
     about:
       'Petrosmart Competition is an online quick-fire rounds competition where teams from various universities compete against one another to challenge their knowledge by answering questions covering technical and non-technical aspects of the oil and gas industry. There will be 3 rounds: online preliminary, semi-final and final. Participants will have to answer questions or cases that will be packed in each exciting round of petrosmart. With this competition, we hope each of the participants could enrich their knowledge in petroleum science and to have an unforgettable experience with the fellow SPE Student Chapter while upholding sportsmanship during the competition.',
     firstDate: '27 Feb',
-    firstEvent: <>Open <br /> Registration</>,
+    firstEvent: (
+      <>
+        Open <br /> Registration
+      </>
+    ),
+    image: '/images/petrosmart.png',
+    descCard: (
+      <>
+        Petrosmart Competition is an online quick-fire rounds competition where
+        teams from various universities compete against one another to challenge
+        their knowledge by answering questions covering technical and
+        non-technical aspects of the oil and gas industry. There will be 3
+        rounds: online preliminary, semi-final and final.{' '}
+        <span className="mt-3 block">
+          {' '}
+          Participants will have to answer questions or cases that will be
+          packed in each exciting round of petrosmart. With this competition, we
+          hope each of the participants could enrich their knowledge in
+          petroleum science and to have an unforgettable experience with the
+          fellow SPE Student Chapter while upholding sportsmanship during the
+          competition.{' '}
+        </span>
+      </>
+    ),
     timeline: [
       {
         date: '30 Mar',
-        component: <>Closing <br />
-          Registration</>
+        component: (
+          <>
+            Closing <br />
+            Registration
+          </>
+        ),
       },
       {
         date: '27 Apr',
-        component: <>Finalist <br />
-          Announcement</>
+        component: (
+          <>
+            Finalist <br />
+            Announcement
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>Technical <br />
-          Meeting</>
+        component: (
+          <>
+            Technical <br />
+            Meeting
+          </>
+        ),
       },
     ],
     lastDate: '26 May',
-    lastEvent: <>Competition <br />
-      Day</>,
+    lastEvent: (
+      <>
+        Competition <br />
+        Day
+      </>
+    ),
     prize: [
       {
         name: '1st Place',
@@ -236,36 +373,84 @@ export const competitionData = [
     about:
       'Petrolida 2022 paper competition is held by SPE Student Chapter Sepuluh Nopember Insitute of Technology annually. For educational purposes, Petrolida 2022 Paper Competition is a competition that challenges undergraduate students to apply their knowledge concerning the oil and gas industry to enhance their capability for supervising scientific new innovation research. This will be valuable for the human race and the energy industry also to solve energy issues by providing innovative solutions to create a sustainable future in a form of a research paper. Petrolida 2022 Paper Competition aims to benefit students greatly on their critical thinking skills and push them to brainstorm ideas as visionary to better the future.',
     firstDate: '27 Feb',
-    firstEvent: <>Open <br /> Registration</>,
+    firstEvent: (
+      <>
+        Open <br /> Registration
+      </>
+    ),
+    image: '/images/paper.png',
+    descCard: (
+      <>
+        Petrolida 2022 paper competition is held by SPE Student Chapter Sepuluh
+        Nopember Insitute of Technology annually. For educational purposes,
+        Petrolida 2022 Paper Competition is a competition that challenges
+        undergraduate students to apply their knowledge concerning the oil and
+        gas industry to enhance their capability for supervising scientific new
+        innovation research.{' '}
+        <span className="mt-3 block">
+          {' '}
+          This will be valuable for the human race and the energy industry also
+          to solve energy issues by providing innovative solutions to create a
+          sustainable future in a form of a research paper. Petrolida 2022 Paper
+          Competition aims to benefit students greatly on their critical
+          thinking skills and push them to brainstorm ideas as visionary to
+          better the future.{' '}
+        </span>
+      </>
+    ),
     timeline: [
       {
         date: '30 Mar',
-        component: <>Closing <br /> Registration</>
+        component: (
+          <>
+            Closing <br /> Registration
+          </>
+        ),
       },
       {
         date: '31 Mar - 13 Apr',
-        component: <>Abstract <br />
-          Submission</>
+        component: (
+          <>
+            Abstract <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '27 Apr',
-        component: <>Finalist <br />
-          Announcement</>
+        component: (
+          <>
+            Finalist <br />
+            Announcement
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>PPT & Paper <br />
-          Submission</>
+        component: (
+          <>
+            PPT & Paper <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>Technical <br />
-          Meeting</>
+        component: (
+          <>
+            Technical <br />
+            Meeting
+          </>
+        ),
       },
     ],
     lastDate: '26 May',
-    lastEvent: <>Competition <br />
-      Day</>,
+    lastEvent: (
+      <>
+        Competition <br />
+        Day
+      </>
+    ),
     prize: [
       {
         name: '1st Place',
@@ -309,56 +494,112 @@ export const competitionData = [
     about:
       "The business case competition is a problem-solving competition that focuses on the industry's real-world problems. The participants must emphasize their ideas to solve the problems that the company has. There will be three stages in this competition that include the Preliminary round, Semi-final round, and Final round. The objective of the competition is to find feasible solutions with depth analysis of the problems.",
     firstDate: '27 Feb',
-    firstEvent: <>Open <br /> Registration</>,
+    firstEvent: (
+      <>
+        Open <br /> Registration
+      </>
+    ),
+    image: '/images/business case.png',
+    descCard: (
+      <>
+        The business case competition is a problem-solving competition that
+        focuses on the industry's real-world problems. The participants must
+        emphasize their ideas to solve the problems that the company has. There
+        will be three stages in this competition that include the Preliminary
+        round, Semi-final round, and Final round. The objective of the
+        competition is to find feasible solutions with depth analysis of the
+        problems.
+      </>
+    ),
     timeline: [
       {
         date: '26 Mar',
-        component: <>Closing <br /> Registration</>
+        component: (
+          <>
+            Closing <br /> Registration
+          </>
+        ),
       },
       {
         date: '10 Mar',
-        component: <>Preliminary <br />
-          Case Release</>
+        component: (
+          <>
+            Preliminary <br />
+            Case Release
+          </>
+        ),
       },
       {
         date: '1 - 10 Apr',
-        component: <>Abstract <br />
-          Submission</>
+        component: (
+          <>
+            Abstract <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '14 Apr',
-        component: <>Semifinal <br />
-          Announcement</>
+        component: (
+          <>
+            Semifinal <br />
+            Announcement
+          </>
+        ),
       },
       {
         date: '1 - 10 May',
-        component: <>Semifinal <br />
-          Submission</>
+        component: (
+          <>
+            Semifinal <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '12 May',
-        component: <>Finalist <br />
-          Announcement</>
+        component: (
+          <>
+            Finalist <br />
+            Announcement
+          </>
+        ),
       },
       {
         date: '20 - 21 May',
-        component: <>Coaching <br />
-          Session</>
+        component: (
+          <>
+            Coaching <br />
+            Session
+          </>
+        ),
       },
       {
         date: '21 - 25 May',
-        component: <>Final <br />
-          Submission</>
+        component: (
+          <>
+            Final <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>Technical <br />
-          Meeting</>
+        component: (
+          <>
+            Technical <br />
+            Meeting
+          </>
+        ),
       },
     ],
     lastDate: '26 May',
-    lastEvent: <>Competition <br />
-      Day</>,
+    lastEvent: (
+      <>
+        Competition <br />
+        Day
+      </>
+    ),
     prize: [
       {
         name: '1st Place',
@@ -401,45 +642,99 @@ export const competitionData = [
     about:
       'Case Study Competition that will be held online, enables undergraduate students to demonstrate their critical thinking abilities, determination to address complex issues, and competence to work in teams in order to solve oil and gas industry-related cases. Participating teams of the competition will be challenged with a case problem statement given by a panel of petroleum experts representing various disciplines within oil and gas companies. Moreover, participating teams must also be able to examine case resolution using an appropriate problem approach in a solution report and presentation in front of the honorable judges.',
     firstDate: '27 Feb',
-    firstEvent: <>Open <br /> Registration</>,
+    firstEvent: (
+      <>
+        Open <br /> Registration
+      </>
+    ),
+    image: '/images/case-study.png',
+    descCard: (
+      <>
+        Case Study Competition that will be held online, enables undergraduate
+        students to demonstrate their critical thinking abilities, determination
+        to address complex issues, and competence to work in teams in order to
+        solve oil and gas industry-related cases.{' '}
+        <span className="mt-3 block">
+          {' '}
+          Participating teams of the competition will be challenged with a case
+          problem statement given by a panel of petroleum experts representing
+          various disciplines within oil and gas companies. Moreover,
+          participating teams must also be able to examine case resolution using
+          an appropriate problem approach in a solution report and presentation
+          in front of the honorable judges.{' '}
+        </span>
+      </>
+    ),
     timeline: [
       {
         date: '30 Mar',
-        component: <>Closing <br /> Registration</>
+        component: (
+          <>
+            Closing <br /> Registration
+          </>
+        ),
       },
       {
         date: '10 Mar',
-        component: <>Case <br /> Released</>
+        component: (
+          <>
+            Case <br /> Released
+          </>
+        ),
       },
       {
         date: '31 Mar - 13 Apr',
-        component: <>Abstract <br />
-          Submission</>
+        component: (
+          <>
+            Abstract <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '27 Apr',
-        component: <>Finalist <br />
-          Announcement</>
+        component: (
+          <>
+            Finalist <br />
+            Announcement
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>Solution Report <br />
-          Submission</>
+        component: (
+          <>
+            Solution Report <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>PowerPoint File <br />
-          Submission</>
+        component: (
+          <>
+            PowerPoint File <br />
+            Submission
+          </>
+        ),
       },
       {
         date: '25 May',
-        component: <>Technical <br />
-          Meeting</>
+        component: (
+          <>
+            Technical <br />
+            Meeting
+          </>
+        ),
       },
     ],
     lastDate: '26 May',
-    lastEvent: <>Competition <br />
-      Day</>,
+    lastEvent: (
+      <>
+        Competition <br />
+        Day
+      </>
+    ),
     prize: [
       {
         name: '1st Place',

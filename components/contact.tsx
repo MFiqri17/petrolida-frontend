@@ -21,7 +21,7 @@ const landingData = [
 
 
 
-export default function Contact({ type, picName, compName, line }: { type: String, picName: any, compName: String, line: any }) {
+export default function Contact({ type, picName, compName, line }: { type: String, picName?: any, compName?: String, line?: any }) {
     const carouselRef = React.useRef<Splide>(null)
 
     const handleThumbs = (id: string) => {

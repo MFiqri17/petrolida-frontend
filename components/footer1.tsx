@@ -4,7 +4,7 @@ import footerData from '../data/footerList'
 import footeritem from '../data/footeritem'
 import FooterCard from './footerCard'
 import React, { useState } from 'react'
-const footer1 = () => {
+const Footer1 = () => {
   const [dataFooter] = useState(footerData)
   const [dataitemFooter] = useState(footeritem)
   return (
@@ -14,4 +14,4 @@ const footer1 = () => {
     </div>
   )
 }
-export default footer1;
+export default Footer1;

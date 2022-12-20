@@ -4,8 +4,10 @@ import Image from 'next/image'
 interface cardaboutInterface {}
 const PetrolidaAbout = ({}: cardaboutInterface) => {
   return (
-    <div className={`overflow-hidden py-[350px] px-4 xl:pr-[222px] xl:pl-[120px]`}>
-      <section className="relative mx-auto flex  flex-col items-center  justify-center lg:flex-row xl:space-x-10  ">
+    <div
+      className={`overflow-hidden py-[350px] px-4 xl:pr-[222px] xl:pl-[120px]`}
+    >
+      <section className="relative mx-auto flex  flex-col items-center  justify-center md:flex-row xl:space-x-10  ">
         <div className={`absolute -left-40 -top-48 hidden  md:block`}>
           <Image
             src={'/images/6-competition-bg-alt.png'}
@@ -14,7 +16,7 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
             alt="competition"
           />
         </div>
-        <div className="absolute w-[1000px] left-30 -top-10 block md:hidden">
+        <div className="left-30 absolute -top-40 block w-[1000px] md:hidden">
           <Image
             src={'/images/bg-card-mobile.png'}
             width={1135}
@@ -23,12 +25,17 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
           />
         </div>
         <div className="z-20 mt-32">
+          <p
+            className={` ${'text-left'} text-lg font-semibold text-[#3D4BE0] mb-6 block lg:hidden`}
+          >
+            {'About Petrolida'}
+          </p>
           <section>
             <SectionTitle
               title={'PETROLEUM INTEGRATED DAYS'}
-              className="w-full text-left text-5xl xl:w-[410px]"
+              className="w-[220px] text-left text-2xl lg:text-5xl xl:w-[410px]"
             />
-            <p className="w-full text-xl font-medium text-[#FBFBFC] xl:w-[486px]">
+            <p className="w-full md:text-xl text-base font-medium text-[#FBFBFC] xl:w-[486px]">
               {
                 ' Petroleum Integrated Days (Petrolida) is the biggest annual event held by SPE ITS Student Chapter. This year’s series will be the 10th annual event.'
               }
@@ -36,7 +43,7 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
           </section>
           <Link
             href={'googel'}
-            className="mt-14 inline-flex items-center gap-x-6 text-2xl font-semibold text-white transition-all hover:gap-x-8"
+            className="lg:mt-14 mt-6 inline-flex items-center gap-x-6 lg:text-2xl text-base font-semibold text-white transition-all hover:gap-x-8"
           >
             Learn More{' '}
             <svg
@@ -55,11 +62,11 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
         </div>
         <div className=" flex flex-col space-y-6">
           <p
-            className={` ${'text-right'} lg:block hidden text-lg font-semibold text-[#3D4BE0]`}
+            className={` ${'text-right'} hidden text-lg font-semibold text-[#3D4BE0] lg:block`}
           >
             {'About Petrolida'}
           </p>
-          <div className="relative lg:h-[500px] lg:w-[486px] w-[334px] h-[344px]">
+          <div className="relative h-[344px] w-[334px] lg:h-[500px] lg:w-[486px]">
             <Image
               layout="fill"
               src={'/images/surabaya.png'}

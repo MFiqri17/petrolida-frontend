@@ -8,7 +8,7 @@ const MissionContainer = ({missions}: any) => {
         </h1>
         <section className="flex flex-col items-center justify-center space-y-6 md:flex-row md:items-start md:space-x-6 md:space-y-0  ">
           {missions.map((mission: any) => (
-            <MissionCard {...mission} />
+            <MissionCard key={mission.id} {...mission} />
           ))}
         </section>
       </div>

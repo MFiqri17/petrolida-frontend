@@ -12,8 +12,8 @@ const footeritem = [
     id: 1,
     title: 'Contact',
     text: [
-      { label: 'Mail Us: petrolida2023@gmail.com', href: '' },
-      { label: 'Call Us: 6281296588582 (Renaldi)', href: '' },
+      { id: 1, label: 'Mail Us: petrolida2023@gmail.com', href: '' },
+      { id: 2, label: 'Call Us: 6281296588582 (Renaldi)', href: '' },
     ],
   },
   {
@@ -21,6 +21,7 @@ const footeritem = [
     title: 'Visit Us',
     text: [
       {
+        id: 1,
         label:
           'Institut Teknologi Sepuluh Nopember \n Jl. Teknik Kimia Keputih, Sukolilo \n Surabaya Jawa Timur 60111',
         href: '',
@@ -31,8 +32,8 @@ const footeritem = [
     id: 3,
     title: 'Media',
     text: [
-      { label: 'Sponsor: sponsorshipetrolida@gmail.com', href: '' },
-      { label: 'Media partner: prpetrolida2023@gmail.com', href: '' },
+      { id: 1, label: 'Sponsor: sponsorshipetrolida@gmail.com', href: '' },
+      { id: 2, label: 'Media partner: prpetrolida2023@gmail.com', href: '' },
     ],
   },
 ]
