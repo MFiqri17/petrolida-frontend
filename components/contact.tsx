@@ -124,7 +124,7 @@ export default function Contact({ type, picName, compName, line }: { type: Strin
                                 </div>
                             </div>
                             <div className="flex lg:items-center lg:justify-center" >
-                                <div className="transition duration-300 ease-linear hover:-translate-y-1">
+                                <div className="pb-12 transition duration-300 ease-linear hover:-translate-y-1">
                                     <div className="relative grid grid-cols-1 px-4 pb-4 overflow-hidden lg:px-0 lg:grid-cols-2 lg:pr-12 lg:pb-0 lg:translate-y-8">
                                         <div className="flex flex-col space-y-1 lg:justify-end lg:items-end text-start lg:text-end">
                                             <div className='w-6 h-6 bg-[#FBFBFC]'></div>
@@ -189,7 +189,7 @@ export default function Contact({ type, picName, compName, line }: { type: Strin
                         <h1 className="text-4xl font-bold text-[#07003F] pb-4 text-left">Follow Us</h1>
                         <p className="text-lg font-semibold text-[#605C84] text-left">Keep up with us through our social media, let’s connect! Don’t miss the ultimate opportunity to showcase your ideas and innovation in reinforcing the future of our energy industry</p>
                     </div>
-                    <Socials width={60} height={60}/>
+                    <Socials width={60} height={60} />
                 </div>
             </>
         );
