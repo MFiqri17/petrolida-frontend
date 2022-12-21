@@ -9,15 +9,15 @@ export default function FaqSection({
 }) {
   return (
     <section className="bg-light py-20">
-      <SectionTitle title="FAQ" />
-      <div className="mx-auto w-3/4 py-8">
+      <SectionTitle title="FAQ" className="text-4xl sm:text-6xl" />
+      <div className="mx-auto py-8 px-4 sm:w-3/4 sm:px-0">
         {faq.map(({ question, answer }, i) => (
           <Disclosure key={i} as="div" className="mb-4">
             {({ open }) => (
               <>
                 <Disclosure.Button
                   className={clsx(
-                    'z-50 flex w-full items-center justify-between bg-white px-4 py-4 text-left font-bold text-black transition-transform focus:outline-none focus-visible:ring focus-visible:ring-black focus-visible:ring-opacity-75',
+                    'z-50 flex w-full items-center justify-between bg-white px-4 py-4 text-left font-semibold text-black transition-transform focus:outline-none focus-visible:ring focus-visible:ring-black focus-visible:ring-opacity-75 sm:font-bold',
                     open ? 'rounded-t-2xl' : 'rounded-2xl',
                   )}
                 >

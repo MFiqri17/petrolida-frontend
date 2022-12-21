@@ -19,7 +19,11 @@ function getPageData(param: string) {
   return null
 }
 
-export default function OilRigDesign({ params }: { params: { name: string } }) {
+export default function CompetitionPage({
+  params,
+}: {
+  params: { name: string }
+}) {
   const data = getPageData(params.name)
 
   if (!data) {

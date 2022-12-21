@@ -18,9 +18,12 @@ export default function PrizeCarousel({
   }
   return (
     <section className="pb-32 pt-20">
-      <SectionTitle title="Competition Prize" />
-      <div className="mx-auto w-1/3">
-        <h2 className=" text-center text-xl font-semibold">
+      <SectionTitle
+        title="Competition Prize"
+        className="text-4xl sm:text-6xl"
+      />
+      <div className="mx-auto px-5 sm:w-1/3 sm:px-0">
+        <h2 className="text-center sm:text-xl sm:font-semibold">
           Winners have a chance to win the prize pool of Rp 6.500.000 consist of
         </h2>
         <Splide
@@ -34,10 +37,10 @@ export default function PrizeCarousel({
         >
           {prize.map(({ name, prize, src }) => (
             <SplideSlide className="relative">
-              <div className="mx-auto w-1/2">
+              <div className="mx-auto sm:w-1/2">
                 <Image
                   src={src}
-                  width={238}
+                  width={438}
                   height={3}
                   alt="trophy"
                   className="mx-auto"

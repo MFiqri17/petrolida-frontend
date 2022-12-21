@@ -11,16 +11,16 @@ export default function AboutPage() {
   const [datamissions] = React.useState(missionitem)
   return (
     <>
-      <div className="relative flex pt-48 pl-56 overflow-x-clip">
-        <div className="z-20 w-1/2">
+      <div className="relative overflow-x-clip px-4 pt-40 sm:flex sm:px-0 sm:pt-48 sm:pl-56">
+        <div className="z-20 sm:w-1/2">
           <SectionTitle
-            className="text-left text-8xl text-secondary"
+            className="text-left text-4xl text-secondary sm:text-8xl"
             bgClassName="from-secondary to-secondary"
             title="Igniting Sustainable and Flawless Notion to Embrace The Energy Security"
           />
         </div>
-        <div className="z-20 flex items-center w-1/2 pl-4 pr-20">
-          <p className="text-xl text-white">
+        <div className="z-20 flex items-center sm:w-1/2 sm:pl-4 sm:pr-20">
+          <p className="text-white sm:text-xl">
             Petroleum Integrated Days (Petrolida) is the biggest annual event
             held by SPE ITS Student Chapter. This year’s series will be the 10th
             annual event. Petroleum Integrated Days mainly focuses on several
@@ -36,12 +36,19 @@ export default function AboutPage() {
           width={1084}
           height={1135}
           alt="bg"
-          className="absolute -right-20 -top-40"
+          className="absolute -right-20 -top-40 hidden sm:block"
+        />
+        <Image
+          src={'/images/about-jumbotron-mobile.png'}
+          width={1084}
+          height={1135}
+          alt="bg"
+          className="absolute top-0 left-0 -z-10 block sm:hidden"
         />
       </div>
       <MissionContainer missions={datamissions} />
       <GreetingSection />
-      <Contact type='about' />
+      <Contact type="about" />
     </>
   )
 }

@@ -13,18 +13,22 @@ export default function RegularJumbotron({
   return (
     <header
       className={clsx(
-        'relative flex h-[623px] mb-[350px] bg-light',
+        'relative mb-[350px] flex h-[623px] bg-light',
         !isHome && 'overflow-clip bg-gradient-to-r from-secondary to-primary',
       )}
     >
       <div
         className={clsx(
-          'z-20 flex flex-col justify-center gap-y-8 pl-32',
-          isHome ? 'w-3/5 pt-72' : 'w-1/2',
+          'z-20 flex flex-col justify-center gap-y-8 sm:pl-32',
+          isHome
+            ? 'px-5 pt-28 sm:w-3/5 sm:px-0 sm:pt-72'
+            : 'px-5 sm:w-1/2 sm:px-0',
         )}
       >
-        <h1 className="text-5xl font-extrabold text-white">{title}</h1>
-        <p className="w-2/3 text-xl text-white">{desc}</p>
+        <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
+          {title}
+        </h1>
+        <p className="text-white sm:w-2/3 sm:text-xl">{desc}</p>
         <div className="flex gap-x-6">
           <a
             href="#"
@@ -43,15 +47,41 @@ export default function RegularJumbotron({
       {isHome ? (
         <div className="absolute top-20">
           <Image
-            src={'/images/mega-triangle.png'}
-            width={1145}
+            src={'/images/mega-triangle-mobile.png'}
+            width={1147}
             height={883}
             alt="triangle"
+            className="sm:hidden"
+          />
+          <Image
+            src={'/images/mega-triangle.png'}
+            width={1147}
+            height={883}
+            alt="triangle"
+            className="hidden sm:block"
           />
         </div>
       ) : (
-        <div className="relative w-1/2">
-          <div className="absolute -bottom-60 right-0 z-20">
+        <>
+          <div className="relative hidden w-1/2 sm:block">
+            <div className="absolute -bottom-60 right-0 z-20">
+              <Image
+                src={'/svg/jumbotron-triangle.svg'}
+                width={441}
+                height={580}
+                alt="triangle"
+              />
+            </div>
+            <div className="absolute right-[13rem] -bottom-60">
+              <Image
+                src={'/svg/jumbotron-triangle.svg'}
+                width={441}
+                height={580}
+                alt="triangle"
+              />
+            </div>
+          </div>
+          <div className="absolute right-12 -bottom-24 z-20 block w-1/2 sm:hidden">
             <Image
               src={'/svg/jumbotron-triangle.svg'}
               width={441}
@@ -59,7 +89,7 @@ export default function RegularJumbotron({
               alt="triangle"
             />
           </div>
-          <div className="absolute right-[13rem] -bottom-60">
+          <div className="absolute -bottom-24 -right-8 z-20 block w-1/2 sm:hidden">
             <Image
               src={'/svg/jumbotron-triangle.svg'}
               width={441}
@@ -67,7 +97,7 @@ export default function RegularJumbotron({
               alt="triangle"
             />
           </div>
-        </div>
+        </>
       )}
     </header>
   )

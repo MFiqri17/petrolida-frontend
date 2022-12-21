@@ -5,7 +5,7 @@ interface cardaboutInterface {}
 const PetrolidaAbout = ({}: cardaboutInterface) => {
   return (
     <div
-      className={`overflow-hidden py-[350px] px-4 xl:pr-[222px] xl:pl-[120px]`}
+      className={`overflow-hidden px-4 py-64 sm:py-[350px] xl:pr-[222px] xl:pl-[120px]`}
     >
       <section className="relative mx-auto flex  flex-col items-center  justify-center md:flex-row xl:space-x-10  ">
         <div className={`absolute -left-40 -top-48 hidden  md:block`}>
@@ -26,7 +26,7 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
         </div>
         <div className="z-20 mt-32">
           <p
-            className={` ${'text-left'} text-lg font-semibold text-[#3D4BE0] mb-6 block lg:hidden`}
+            className={` ${'text-left'} mb-6 block text-lg font-semibold text-[#3D4BE0] lg:hidden`}
           >
             {'About Petrolida'}
           </p>
@@ -35,7 +35,7 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
               title={'PETROLEUM INTEGRATED DAYS'}
               className="w-[220px] text-left text-2xl lg:text-5xl xl:w-[410px]"
             />
-            <p className="w-full md:text-xl text-base font-medium text-[#FBFBFC] xl:w-[486px]">
+            <p className="w-full text-base font-medium text-[#FBFBFC] md:text-xl xl:w-[486px]">
               {
                 ' Petroleum Integrated Days (Petrolida) is the biggest annual event held by SPE ITS Student Chapter. This year’s series will be the 10th annual event.'
               }
@@ -43,7 +43,7 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
           </section>
           <Link
             href={'googel'}
-            className="lg:mt-14 mt-6 inline-flex items-center gap-x-6 lg:text-2xl text-base font-semibold text-white transition-all hover:gap-x-8"
+            className="mt-6 inline-flex items-center gap-x-6 text-base font-semibold text-white transition-all hover:gap-x-8 lg:mt-14 lg:text-2xl"
           >
             Learn More{' '}
             <svg

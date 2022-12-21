@@ -9,37 +9,37 @@ const competitionData = [
     name: 'OIL RIG DESAIN',
     desc: 'Innovate and present your ideas related to oil and gas in a form of research paper',
     src: '/images/competition-carousel/oil-rig-desain.png',
-    className: '',
+    className: 'sm:text-6xl text-2xl',
   },
   {
     name: 'FRACTURING FLUID DESIGN',
     desc: 'Formulate the optimal fracture fluid to solve the problem based on the...',
     src: '/images/competition-carousel/ff-design.png',
-    className: 'text-4xl',
+    className: 'sm:text-4xl text-2xl',
   },
   {
     name: 'PETROSMART',
     desc: 'Challange your knowledge related to the oil and gas industry by answering quick-fire questions',
     src: '/images/competition-carousel/petrosmart.png',
-    className: 'text-4xl',
+    className: 'sm:text-4xl text-2xl',
   },
   {
     name: 'PAPER',
     desc: 'Innovate and present your ideas related to oil and gas in a form of research paper',
     src: '/images/competition-carousel/paper.png',
-    className: '',
+    className: 'sm:text-6xl text-2xl',
   },
   {
     name: 'BUSINESS CASE',
     desc: 'Find the most suitable solution to answer a real business case problem',
     src: '/images/competition-carousel/business-case.png',
-    className: 'text-5xl',
+    className: 'sm:text-5xl text-2xl',
   },
   {
     name: 'CASE STUDY',
     desc: 'Challange your oil and gas knowledge to solve a problem based on the case given',
     src: '/images/competition-carousel/case-study.png',
-    className: '',
+    className: 'sm:text-6xl text-2xl',
   },
 ]
 
@@ -52,19 +52,30 @@ export default function SixCompetition() {
     }
   }
   return (
-    <section className="pt-40 pb-64 bg-light">
-      <p className="pb-4 text-lg text-center text-secondary">Competitions</p>
-      <SectionTitle title="6 COMPETITION EVENT" />
-      <p className="w-1/2 px-12 mx-auto text-xl font-semibold text-center">
+    <section className="bg-light pb-64 sm:pt-40">
+      <p className="pb-4 text-center text-lg text-secondary">Competitions</p>
+      <SectionTitle
+        title="6 COMPETITION EVENT"
+        className="text-3xl sm:text-6xl"
+      />
+      <p className="mx-auto px-12 text-center sm:w-1/2 sm:text-xl sm:font-semibold">
         Meet other participants, let’s show your ideas, innovations and
         abilities to Petrolida 2022
       </p>
-      <div className="relative w-3/5 mx-auto mt-32 ">
-        <div className="absolute -top-60 -right-40">
+      <div className="relative mx-auto mt-10 px-6 sm:mt-32 sm:w-3/5">
+        <div className="absolute -top-60 -right-40 hidden sm:block">
           <Image
             src={'/images/6-competition-bg.png'}
             width={1185}
             height={1135}
+            alt="competition"
+          />
+        </div>
+        <div className="absolute left-0 sm:hidden">
+          <Image
+            src={'/images/6-comp-mobile-bg.png'}
+            width={375}
+            height={859}
             alt="competition"
           />
         </div>
@@ -79,8 +90,8 @@ export default function SixCompetition() {
           }}
         >
           {competitionData.map(({ name, desc, src, className }) => (
-            <SplideSlide className="flex">
-              <div className="flex items-end w-1/3">
+            <SplideSlide className="flex flex-col sm:flex-row">
+              <div className="flex items-end justify-center sm:w-1/3 sm:justify-start">
                 <SectionTitle
                   title={name}
                   className={`text-left ${className}`}
@@ -93,19 +104,19 @@ export default function SixCompetition() {
                 alt="competition"
                 className="transition hover:-skew-x-3"
               />
-              <div className="flex items-center w-1/3 ml-3">
+              <div className="ml-3 mt-4 flex items-center px-6 sm:mt-0 sm:w-1/3 sm:px-0">
                 <p className="text-white">{desc}</p>
               </div>
             </SplideSlide>
           ))}
         </Splide>
-        <div className="absolute flex justify-center text-white bottom-36 right-40 gap-x-4">
+        <div className="absolute -bottom-14 right-40 flex justify-center gap-x-4 text-white sm:bottom-36">
           <button onClick={() => handleThumbs('<')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-8 h-8"
+              className="h-8 w-8"
             >
               <path
                 fillRule="evenodd"
@@ -119,7 +130,7 @@ export default function SixCompetition() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-8 h-8"
+              className="h-8 w-8"
             >
               <path
                 fillRule="evenodd"
