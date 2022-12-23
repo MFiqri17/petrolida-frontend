@@ -13,7 +13,7 @@ export default function RegularJumbotron({
   return (
     <header
       className={clsx(
-        'relative mb-[350px] flex h-[623px] bg-light',
+        'relative lg:mb-[350px] flex h-[623px] bg-light',
         !isHome && 'overflow-clip bg-gradient-to-r from-secondary to-primary',
       )}
     >

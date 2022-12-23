@@ -13,9 +13,9 @@ const CardAbout = ({
 }: cardaboutInterface) => {
   return (
     <div
-      className={`py-[350px] md:flex-row flex-col relative mx-auto flex  items-center justify-center px-4 md:px-10 md:space-x-8 overflow-hidden xl:pl-[222px] xl:pr-[120px]`}
+      className={`lg:py-[350px] pt-[200px] pb-[350px] md:flex-row flex-col relative mx-auto flex  items-center justify-center px-4 md:px-10 md:space-x-8 overflow-hidden xl:pl-[222px] xl:pr-[120px]`}
     >
-      <div className={`absolute w-[1135px] md:h-[1135px] h-[1500px]  2xl:-right-40 md:-right-64  lg:top-40 md:top-10 top-60`}>
+      <div className={`absolute w-[1135px] md:h-[1135px] h-[1500px]  2xl:-right-40 md:-right-64  lg:top-40 md:top-10 top-40`}>
         <Image
           src={'/images/6-competition-bg-alt.png'}
           layout="fill"
