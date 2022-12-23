@@ -1,6 +1,6 @@
 'use client'
 
-import ComingSoon from './coming-soon/page'
+import ComingSoon from '../coming-soon/page'
 import Contact from '../../components/contact'
 import Speakers from '../../components/speakers'
 import SixCompetition from '../../components/6-competition'

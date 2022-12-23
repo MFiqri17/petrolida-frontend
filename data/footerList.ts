@@ -15,23 +15,23 @@ const footerListData = [
       {
         id: 1,
         lable: 'About us',
-        href: '',
+        href: '/about',
       },
 
       {
         id: 2,
         lable: 'Event',
-        href: '',
+        href: '/coming-soon',
       },
       {
         id: 3,
         lable: 'Competitions',
-        href: '',
+        href: '/coming-soon',
       },
       {
         id: 4,
         lable: 'Non Competitions',
-        href: '',
+        href: '/coming-soon',
       },
       {
         id: 5,
@@ -47,32 +47,32 @@ const footerListData = [
       {
         id: 1,
         lable: 'Oil Rig Desain',
-        href: '',
+        href: '/competition/oil-rig-design',
       },
       {
         id: 1,
         lable: 'Fracturing Fluid Desain',
-        href: '',
+        href: '/competition/fracturing-fluid-design',
       },
       {
         id: 3,
         lable: 'Petrosmart',
-        href: '',
+        href: '/competition/petrosmart',
       },
       {
         id: 4,
         lable: 'Paper',
-        href: '',
+        href: '/competition/paper',
       },
       {
         id: 5,
         lable: 'Business Case',
-        href: '',
+        href: '/competition/business-case',
       },
       {
         id: 6,
         lable: 'Case Study',
-        href: '',
+        href: '/competition/case-study',
       },
     ],
   },
@@ -83,17 +83,17 @@ const footerListData = [
       {
         id: 1,
         lable: 'CV 101',
-        href: '',
+        href: '/coming-soon',
       },
       {
         id: 2,
         lable: 'Interview 101',
-        href: '',
+        href: '/coming-soon',
       },
       {
         id: 3,
         lable: 'Career Paths',
-        href: '',
+        href: '/coming-soon',
       },
     ],
   },

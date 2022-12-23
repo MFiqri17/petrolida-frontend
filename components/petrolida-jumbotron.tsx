@@ -42,7 +42,7 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
             </p>
           </section>
           <Link
-            href={'googel'}
+            href={'/about'}
             className="mt-6 inline-flex items-center gap-x-6 text-base font-semibold text-white transition-all hover:gap-x-8 lg:mt-14 lg:text-2xl"
           >
             Learn More{' '}

@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { competitionData } from '../data/competition'
@@ -23,18 +23,21 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
   return (
     <div>
       <nav
-        className={`shadow-liteBlack fixed left-0 right-0 z-[999] mx-4 sm:mx-12 mt-4 flex max-w-screen-xl flex-wrap justify-between lg:mx-auto lg:mt-0 ${isTrans && color ? 'bg-transparent' : 'bg-[#FBFBFC] '
-          } text-center ${isTrans && color ? 'shadow-none' : 'shadow-lg'
-          } rounded-full transition duration-300 ease-linear lg:mt-4 lg:max-w-screen-lg`}
+        className={`shadow-liteBlack fixed left-0 right-0 z-[999] mx-4 mt-4 flex max-w-screen-xl flex-wrap justify-between sm:mx-12 lg:mx-auto lg:mt-0 ${
+          isTrans && color ? 'bg-transparent' : 'bg-[#FBFBFC] '
+        } text-center ${
+          isTrans && color ? 'shadow-none' : 'shadow-lg'
+        } rounded-full transition duration-300 ease-linear lg:mt-4 lg:max-w-screen-lg`}
       >
         <Link href="/">
           <span className="sr-only">Petrolida 2023</span>
           <div className="p-4">
             <img
-              src={`${isTrans && color
+              src={`${
+                isTrans && color
                   ? '/logo/petrolida-2023-white.png'
                   : '/logo/petrolida-2023.png'
-                }`}
+              }`}
               alt="logo-petrolida"
               className="h-10"
             />
@@ -47,8 +50,9 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                 width="26"
                 height="19"
                 viewBox="0 0 26 19"
-                className={`${isTrans && color ? 'stroke-white' : 'stroke-black'
-                  }`}
+                className={`${
+                  isTrans && color ? 'stroke-white' : 'stroke-black'
+                }`}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -83,22 +87,22 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
             >
               <Popover.Panel
                 focus
-                className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform lg:hidden"
+                className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition lg:hidden"
               >
-                <div className="bg-white divide-y-2 rounded-lg shadow-lg divide-gray-50 ring-1 ring-black ring-opacity-5">
+                <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="px-5 pt-5 pb-6">
                     <div className="flex items-center justify-between">
                       <div>
                         <img
-                          className="w-auto h-8"
+                          className="h-8 w-auto"
                           src={'/logo/petrolida-2023.png'}
                           alt="logo-petrolida"
                         />
                       </div>
                       <div className="-mr-2">
-                        <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                           <span className="sr-only">Close menu</span>
-                          <XMarkIcon className="w-6 h-6" aria-hidden="true" />
+                          <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                         </Popover.Button>
                       </div>
                     </div>
@@ -108,7 +112,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                           <Link
                             key={item.name}
                             href={`/competition/${item.slug}`}
-                            className="flex items-center justify-center p-3 -m-3 rounded-md hover:bg-gray-50"
+                            className="-m-3 flex items-center justify-center rounded-md p-3 hover:bg-gray-50"
                           >
                             <span className="ml-3 text-sm font-medium text-gray-900">
                               {item.name}
@@ -118,7 +122,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                       </nav>
                     </div>
                   </div>
-                  <div className="px-5 py-6 space-y-6">
+                  <div className="space-y-6 px-5 py-6">
                     <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                       <Link
                         href="/about"
@@ -128,19 +132,19 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                       </Link>
 
                       <Link
-                        href="#"
+                        href="/coming-soon"
                         className="text-sm font-medium text-gray-900 hover:text-gray-700"
                       >
                         Event
                       </Link>
                       <Link
-                        href="#"
+                        href="/coming-soon"
                         className="text-sm font-medium text-gray-900 hover:text-gray-700"
                       >
                         Contact
                       </Link>
                       <Link
-                        href="#"
+                        href="/coming-soon"
                         className="text-sm font-medium text-gray-900 hover:text-gray-700"
                       >
                         Non Competition
@@ -157,15 +161,15 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                     </div>
                     <div>
                       <Link
-                        href="#"
-                        className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
+                        href="/register"
+                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700"
                       >
                         Register
                       </Link>
-                      <p className="mt-6 text-sm font-medium text-center text-gray-500">
+                      <p className="mt-6 text-center text-sm font-medium text-gray-500">
                         Already have an account?{' '}
                         <Link
-                          href="#"
+                          href="/login"
                           className="text-indigo-600 hover:text-indigo-500"
                         >
                           Log in
@@ -181,32 +185,36 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
         <ul className="font-poppins bg-liteBlack absolute mt-[3.25em] hidden transform flex-col space-y-4 rounded-br-lg px-6 py-8 text-start font-semibold text-white transition duration-300 lg:static lg:mt-0 lg:flex lg:translate-x-0 lg:flex-row lg:items-center lg:!space-y-0 lg:space-x-8 lg:rounded-full lg:!py-2">
           <Link href="/about">
             <li
-              className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-                }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
             >
               About
             </li>
           </Link>
-          <Link href="#">
+          <Link href="/coming-soon">
             <li
-              className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-                }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
             >
               Event
             </li>
           </Link>
-          <Link href="#">
+          <Link href="/coming-soon">
             <li
-              className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-                }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
             >
               Contact
             </li>
           </Link>
           <Popover className="relative">
             <Popover.Button
-              className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-                }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent focus-visible:outline-none`}
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent focus-visible:outline-none`}
             >
               Competition
             </Popover.Button>
@@ -218,7 +226,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Popover.Panel className="absolute z-10 -translate-x-12 w-60">
+              <Popover.Panel className="absolute z-10 w-60 -translate-x-12">
                 <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12">
                   {competitionData.map((item: { name: any; slug: any }) => (
                     <Link key={item.name} href={`/competition/${item.slug}`}>
@@ -231,10 +239,11 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
               </Popover.Panel>
             </Transition>
           </Popover>
-          <Link href="/">
+          <Link href="/coming-soon">
             <li
-              className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-                }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+              className={`bg-gradient-to-r bg-clip-text ${
+                isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+              }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
             >
               Non Competition
             </li>
@@ -268,7 +277,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
 
               <li title="{{ Auth::user()->email }}">User123</li>
               <svg
-                className="transition-transform duration-200 transform "
+                className="transform transition-transform duration-200 "
                 width="11"
                 height="7"
                 viewBox="0 0 11 7"
@@ -315,19 +324,22 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
         </ul>
         {/* @endauth
                     @guest */}
-        <ul className="flex-row items-center hidden px-6 py-3 space-x-4 font-semibold bg-transparent rounded-full font-poppins sm:justify-center lg:flex lg:py-2">
+        <ul className="font-poppins hidden flex-row items-center space-x-4 rounded-full bg-transparent px-6 py-3 font-semibold sm:justify-center lg:flex lg:py-2">
           <Link
-            href="/dashboard/login"
-            className={`rounded-full bg-gradient-to-r  px-8 py-2 ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-              } hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
+            href="/login"
+            className={`rounded-full bg-gradient-to-r  px-8 py-2 ${
+              isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+            } hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
           >
             <li>Log in</li>
           </Link>
           <Link
-            href="/dashboard/register"
-            className={`rounded-full ${isTrans && color ? 'bg-[#FBFBFC]' : 'bg-[#07003F]'
-              } bg-gradient-to-r px-8 py-2 ${isTrans && color ? 'text-[#07003F]' : 'text-[#FBFBFC]'
-              }  transition duration-300 ease-linear hover:from-[#D0D4F8] hover:to-[#3D4BE0]`}
+            href="/register"
+            className={`rounded-full ${
+              isTrans && color ? 'bg-[#FBFBFC]' : 'bg-[#07003F]'
+            } bg-gradient-to-r px-8 py-2 ${
+              isTrans && color ? 'text-[#07003F]' : 'text-[#FBFBFC]'
+            }  transition duration-300 ease-linear hover:from-[#D0D4F8] hover:to-[#3D4BE0]`}
           >
             <li>Register</li>
           </Link>

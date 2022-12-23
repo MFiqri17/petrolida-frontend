@@ -1,5 +1,6 @@
 import React from 'react'
 import { footerlistInterface } from '../data/footerList'
+import Link from 'next/link'
 
 export default function ListFooter({
   listfooters,
@@ -14,7 +15,7 @@ export default function ListFooter({
           <ul className="flex flex-col space-y-[13px]">
             {list.content.map((listcontent: any) => (
               <li key={listcontent.id} className="text-[#FBFBFC]/[0.7] text-base font-medium">
-                <a href={listcontent.href}>{listcontent.lable}</a>
+                <Link className='hover:font-semibold' href={listcontent.href}>{listcontent.lable}</Link>
               </li>
             ))}
           </ul>
