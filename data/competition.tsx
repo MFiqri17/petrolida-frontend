@@ -109,20 +109,21 @@ export const competitionData = [
     faq: [
       {
         question:
-          'Is it allowed to present other files in the question and answer session?',
+          'Will the Competition Day of this year Petrolida’s Oil Rig Design Competition be held offline?',
         answer:
-          'Teams are allowed to present their other files along with judges permission',
+          'Yes! After 4 years of online competition format, this year Petrolida’s Oil Rig Design Competition will be held in offline competition format on the Competition Day',
       },
       {
         question:
-          'Will committees provide time for discussion in Question and Answer session?',
+          'How many participant needed in 1 team if I want to compete in Oil Rig Design Competition?',
         answer:
-          'There is no specific time for discussion, but it will take time in Question and Answer Session.',
+          'If you want to compete, you can create teams with 4 to 5 participants. You can pick participant from different major but the members should be in the same university. Tip : look for people with their respective specialties for maximum results',
       },
       {
-        question: 'Is there any tolerance for late submission?',
+        question:
+          'Is there any tolerance for late submission of Project Explanation?',
         answer:
-          'The submission of registration form should not pass the specified deadline.',
+          'The submission of registration form should not pass the specified deadline. So please mark your calendar if you don’t want to miss out',
       },
     ],
     picName: 'I Gede Krishnananda Wibawa ',
@@ -246,15 +247,18 @@ export const competitionData = [
       {
         question:
           'In what scheme Fracturing Fluid Design Competition 2022 will be held, and how many stages?',
-        answer: 'belom ada',
+        answer:
+          'There will be two stages in total that are going to be held in Fracturing Fluid Design Competition 2022, and that consist of Preliminary Stage. Preliminary stage will be conducted online but Final Stage will be fully OFFLINE',
       },
       {
         question: 'What are the regulations to form a team?',
-        answer: 'belom ada',
+        answer:
+          'Each team can consist of three students maximum and must be from the same university. However, different majors are allowed. Undergraduate or vocational degree students are all welcome to participate in the competition!',
       },
       {
         question: 'Is it necessary for each team to pay in full upfront?',
-        answer: 'belom ada',
+        answer:
+          'Yes, each team must fully pay their registration fee to be included in the competition',
       },
     ],
     picName: 'Muhammad Hagie Antasena',
@@ -335,7 +339,7 @@ export const competitionData = [
       },
       {
         name: '2nd Place',
-        prize: 'Rp3,000,000',
+        prize: 'Rp3,500,000',
         src: '/images/prize/juara-2.png',
       },
       {
@@ -348,7 +352,7 @@ export const competitionData = [
       {
         question: 'Will the final round be held offline?',
         answer:
-          "Due to the COVID-19 condition, it will be held online. But don't worry, it won't make the final round less exciting!",
+          'Yes!! Petrolida 2023 will be held fully offline, including the final round of Petrosmart Competition.',
       },
 
       {
@@ -472,16 +476,17 @@ export const competitionData = [
       {
         question: 'What is the theme of this competition?',
         answer:
-          'Petrolida 2022 Paper Competition will bring a theme of "Driving Sustainability in Oil and Gas Industry”, which will be specified into three sub-themes, as follow: Innovation in Technological Pathways for Decarbonizing Petroleum Refining. Risk Management and Its Mitigation to Prevent Accident in Oil and Gas Industry. and Utilization of AI and Big Data Management to Maximize Production Planning and Forecasting in Oil and Gas Industry',
+          'Paper Competition PETROLIDA 2023 is a competition which challenges undergraduate students to enhance their ability for conducting scientific research and bringing new and intriguing innovations to the oil and gas industry. The innovations are expected to be able to solve various energy issues in the form of research papers. PETROLIDA 2023 Paper Competition will bring a theme of "Envolving the Opportunity on Oil and Gas Industry to Ignite the Sustainability of Energy Transition”',
       },
       {
         question: 'Can I join as an individually?',
         answer:
-          'Yes you can. However you can also register yourself in a team consist of a maximum 3 people',
+          'Yes, you can. However you can also register yourself in a team consist of a maximum 3 people',
       },
       {
         question: 'Do I need to submit the full paper at the first stage?',
-        answer: 'BELOM ADA',
+        answer:
+          'No, there’s no need. On this PETROLIDA 2023 Paper Competition divided into 3 stages: 1) Abstract submission 2) Full Paper & PowerPoint submission 3) Presentation stage that will be judge in front of the honorable judges and will be held OFFLINE at ITS Surabaya',
       },
     ],
     picName: 'Hanna Ressica Putri',
@@ -620,16 +625,17 @@ export const competitionData = [
     faq: [
       {
         question: 'What is the theme of this competition?',
-        answer: 'BELOM ADA',
+        answer:
+          'The Petrolida 2022 Business Case Competition have the theme “Optimizing Supply Chain System Through Reliable & Effective Business Strategy in FMCG Industry”',
       },
       {
-        question: 'Can I join as an individually?',
-        answer: 'BELOM ADA',
+        question: 'Can I join as an individual?',
+        answer:
+          'Unfortunately, no. Each team consist of 3 (three) students from same university.',
       },
       {
-        question:
-          'Can a team member consist of different universities and majors?',
-        answer: 'BELOM ADA',
+        question: 'Is BCC Petrolida an oil & gas BCC?',
+        answer: 'No. BCC Petrolida is Non Oil & Gas BCC',
       },
     ],
     picName: 'Fatahillah Muhammad Daffa Shodiq',
@@ -754,17 +760,20 @@ export const competitionData = [
     ],
     faq: [
       {
-        question: 'How much is the registration and finalist fee?',
-        answer: 'BELOM ADA',
+        question: 'Will the final round be held offline?',
+        answer:
+          'Yes, the final round will be held offline at Institut Teknologi Sepuluh Nopember (ITS) Surabaya. Your team must present your solution report to the judges directly.',
       },
       {
         question: 'Can I join as an individual?',
-        answer: 'BELOM ADA',
+        answer:
+          'Unfortunately, you cant join this competition individually. You must form a team of three members, including the leader.',
       },
       {
         question:
           'Can a team member consist of different universities and majors?',
-        answer: 'BELOM ADA',
+        answer:
+          'Different major is allowed, but the members should be in the same university.',
       },
     ],
     picName: 'Evania Christiana Febiani',

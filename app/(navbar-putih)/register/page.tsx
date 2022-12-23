@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function LoginPage() {
   return (
     <div className="relative flex items-center justify-center overflow-clip bg-light">
-      <div className="z-20 my-40 w-1/3 rounded-xl border-2 bg-white/25 p-10 backdrop-blur-sm backdrop-filter">
+      <div className="z-20 my-40 mx-3 rounded-xl border-2 bg-white/25 p-10 backdrop-blur-sm backdrop-filter sm:mx-0 sm:w-1/3">
         <h1 className="text-center text-4xl font-semibold">
           Create Your Account
         </h1>
@@ -19,7 +19,7 @@ export default function LoginPage() {
             placeholder="Email Address"
           />
           <input
-            type="text"
+            type="password"
             className="w-full rounded-full bg-gray-200 py-4 px-7"
             placeholder="Create Password"
           />
