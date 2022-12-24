@@ -44,7 +44,7 @@ export default function GreetingSection() {
           </div>
           <div className="space-y-9">
             <p className="sm:font-semibold">
-              Today, it's time for us to rise together again to signify the end
+              Today, its time for us to rise together again to signify the end
               of the Covid-19 pandemic. With the fighting spirit to achieve
               dreams, this year Petrolida is back with a new concept and various
               exciting events that will once again unite the spirit of

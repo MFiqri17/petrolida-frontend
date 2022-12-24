@@ -36,7 +36,7 @@ export default function PrizeCarousel({
           }}
         >
           {prize.map(({ name, prize, src }) => (
-            <SplideSlide className="relative">
+            <SplideSlide key={name} className="relative">
               <div className="mx-auto sm:w-1/2">
                 <Image
                   src={src}

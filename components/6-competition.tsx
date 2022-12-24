@@ -90,7 +90,7 @@ export default function SixCompetition() {
           }}
         >
           {competitionData.map(({ name, desc, src, className }) => (
-            <SplideSlide className="flex flex-col sm:flex-row">
+            <SplideSlide key={name} className="flex flex-col sm:flex-row">
               <div className="flex items-end justify-center sm:w-1/3 sm:justify-start">
                 <SectionTitle
                   title={name}

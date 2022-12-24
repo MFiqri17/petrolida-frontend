@@ -6,19 +6,24 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { competitionData } from '../data/competition'
 import Link from 'next/link'
 
-export default function Navbar({ isTrans }: { isTrans: boolean }) {
+const isBrowser = () => typeof window !== 'undefined'
 
-  const [color, setColor] = useState(false);
+export default function Navbar({ isTrans }: { isTrans: boolean }) {
+  const [color, setColor] = useState(false)
   const changeColor = () => {
-    if (isTrans) {
-      if (window.scrollY >= 110) {
-        setColor(false)
-      } else {
-        setColor(true)
+    if (isBrowser()) {
+      if (isTrans) {
+        if (window.scrollY >= 110) {
+          setColor(false)
+        } else {
+          setColor(true)
+        }
       }
     }
   }
-  window.addEventListener('scroll', changeColor)
+  if (isBrowser()) {
+    window.addEventListener('scroll', changeColor)
+  }
   console.log(color)
   return (
     <div>

@@ -4,7 +4,7 @@ import TimerCard from './timercard'
 
 const Timers = () => {
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 600);
+  time.setSeconds(time.getSeconds() + 5616000);
   return <TimerContainer expiryTimestamp={time}/>;
 }
 

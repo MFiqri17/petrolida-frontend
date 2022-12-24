@@ -25,7 +25,7 @@ export default function Timeline({ firstDate, firstEvent, timeline, lastDate, la
                         </li>
                         {/* Repeat the same for each item */}
                         {timeline.map((item) => (
-                            <li className="relative mb-6 sm:mb-0 snap-center">
+                            <li key={timeline.indexOf(item)} className="relative mb-6 sm:mb-0 snap-center">
                                 <time className="block w-48 mb-2 text-base font-semibold text-center text-black -translate-y-4 font-poppins">{item.date}</time>
                                 <div className="relative flex items-center">
                                     <div
