@@ -1,5 +1,5 @@
+import DefaultHead from '../../../../components/utils/default-head'
 import { competitionData } from '../../../../data/competition'
-import { notFound } from 'next/navigation'
 
 function getPageTitle(param: string) {
   const data = competitionData.filter(({ slug }) => slug === param)
@@ -12,16 +12,9 @@ function getPageTitle(param: string) {
 export default function Head({ params }: { params: { name: string } }) {
   const title = getPageTitle(params.name)
 
-  // if (!title) {
-  //   notFound()
-  // }
-
-  const fullTitle = title + ' - Petrolida 2023'
   return (
     <>
-      <title>{fullTitle}</title>
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <link rel="icon" href="/favicon.ico" />
+      <DefaultHead templateTitle={title || ''} />
     </>
   )
 }
