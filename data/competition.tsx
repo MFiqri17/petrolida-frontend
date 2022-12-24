@@ -15,7 +15,7 @@ export const competitionData = [
     image: '/images/oil-rig-desain.png',
     descCard: (
       <>
-        Oil Rig Design Competition that will be held online is a competition in
+        Oil Rig Design Competition that will be held offline is a competition in
         which challenges participants to combine their engineering sense and
         creative innovations in designing a semi-submersible platform for a
         specific offshore oil field. Participants are expected to make a project
