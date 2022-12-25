@@ -10,6 +10,7 @@ const defaultMeta = {
   type: 'website',
   robots: 'follow, index',
   image: '',
+  keywords: 'oil, petroleum, petrolida, petrol',
 }
 
 interface IDefaultHeadProps extends Partial<typeof defaultMeta> {
@@ -67,6 +68,8 @@ export default function DefaultHead(props: IDefaultHeadProps) {
   return (
     <>
       <title>{meta.title}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="keywords" content={meta.keywords} />
       <meta name="robots" content={meta.robots} />
       <meta content={meta.description} name="description" />
       <meta property="og:url" content={`${meta.url}${pathname}`} />
