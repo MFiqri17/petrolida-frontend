@@ -78,11 +78,11 @@ export default function Contact({
                     <span className="font-bold ">PIC</span>
                   </p>
                   <p className="text-sm font-bold text-[#07003F] hover:underline lg:text-lg">
-                    id line : krishnananda
+                    id line : {line}
                   </p>
                 </div>
                 <div className="flex items-center justify-center">
-                  <img src="/icon/line-app.svg" alt="" />
+                  <img src="/icon/line-app.svg" alt="line" />
                 </div>
               </div>
             </a>
@@ -154,7 +154,7 @@ export default function Contact({
                 </div>
                 <div className="flex lg:items-center lg:justify-center">
                   <div className="pb-12 transition duration-300 ease-linear hover:-translate-y-1">
-                    <div className="relative grid grid-cols-1 overflow-hidden px-4 pb-4 lg:translate-y-8 lg:grid-cols-2 lg:px-0 lg:pr-12 lg:pb-0">
+                    <div className="relative grid grid-cols-1 px-4 pb-4 overflow-hidden lg:translate-y-8 lg:grid-cols-2 lg:px-0 lg:pr-12 lg:pb-0">
                       <div className="flex flex-col space-y-1 text-start lg:items-end lg:justify-end lg:text-end">
                         <div className="h-6 w-6 bg-[#FBFBFC]"></div>
                         <h6 className="text-2xl font-semibold text-[#FBFBFC]">
@@ -164,7 +164,7 @@ export default function Contact({
                           {winnerPlace}
                         </p>
                       </div>
-                      <div className="z-10 hidden -translate-x-2 items-end justify-center lg:flex">
+                      <div className="z-10 items-end justify-center hidden -translate-x-2 lg:flex">
                         <Image
                           src={src}
                           width={350}
@@ -174,7 +174,7 @@ export default function Contact({
                       </div>
                     </div>
                   </div>
-                  <div className="absolute bottom-6 flex justify-start gap-x-4 px-4 text-white lg:hidden">
+                  <div className="absolute flex justify-start px-4 text-white bottom-6 gap-x-4 lg:hidden">
                     <button onClick={() => handleThumbs('<')}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
