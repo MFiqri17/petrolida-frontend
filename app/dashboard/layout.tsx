@@ -1,6 +1,6 @@
 import '../globals.css'
 import localFont from '@next/font/local'
-import Navbar from '../../components/layout/navbar/navbar'
+
 const gilroy = localFont({
   src: [
     {
@@ -17,7 +17,6 @@ const gilroy = localFont({
     },
   ],
 })
-
 export default function RootLayout({
   children,
 }: {
@@ -26,10 +25,7 @@ export default function RootLayout({
   return (
     <html className={gilroy.className}>
       <head />
-      <body>
-        <Navbar isTrans={false} />
-        {children}
-      </body>
+      <body className="border border-black bg-red-200">{children}</body>
     </html>
   )
 }

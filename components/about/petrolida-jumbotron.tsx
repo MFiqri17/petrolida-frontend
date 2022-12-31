@@ -1,4 +1,4 @@
-import SectionTitle from './utils/section-title'
+import SectionTitle from '../utils/section-title'
 import Link from 'next/link'
 import Image from 'next/image'
 interface cardaboutInterface {}

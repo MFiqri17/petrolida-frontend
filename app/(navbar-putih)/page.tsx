@@ -1,10 +1,10 @@
 'use client'
 
 import ComingSoon from '../coming-soon/page'
-import Contact from '../../components/contact'
-import Speakers from '../../components/speakers'
-import SixCompetition from '../../components/6-competition'
-import PetrolidaAbout from '../../components/petrolida-jumbotron'
+import Contact from '../../components/home/contact'
+import Speakers from '../../components/home/speakers'
+import SixCompetition from '../../components/home/6-competition'
+import PetrolidaAbout from '../../components/about/petrolida-jumbotron'
 import RegularJumbotron from '../../components/utils/regular-jumbotron'
 import React from 'react'
 

@@ -2,10 +2,10 @@
 import React from 'react'
 import Image from 'next/image'
 import GreetingSection from '../../../components/about/greetings-section'
-import MissionContainer from '../../../components/missionContainer'
 import SectionTitle from '../../../components/utils/section-title'
 import missionitem from '../../../data/missionitem'
-import Contact from '../../../components/contact'
+import Contact from '../../../components/home/contact'
+import MissionContainer from '../../../components/about/missions/missionContainer'
 
 export default function AboutPage() {
   const [datamissions] = React.useState(missionitem)

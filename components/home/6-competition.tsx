@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css'
-import SectionTitle from './utils/section-title'
+import SectionTitle from '../utils/section-title'
 
 const competitionData = [
   {

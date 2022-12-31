@@ -2,14 +2,14 @@
 
 import RegularJumbotron from '../../../../components/utils/regular-jumbotron'
 import React from 'react'
-import Timers from '../../../../components/timercontainer'
+import Timers from '../../../../components/competitions/timer/timercontainer'
 import { competitionData } from '../../../../data/competition'
 import { notFound } from 'next/navigation'
-import Contact from '../../../../components/contact'
-import PrizeCarousel from '../../../../components/prize-carousel'
-import FaqSection from '../../../../components/faq-section'
-import CardAbout from '../../../../components/CardAbout'
-import Timeline from '../../../../components/timeline'
+import Contact from '../../../../components/home/contact'
+import PrizeCarousel from '../../../../components/competitions/prize-carousel'
+import FaqSection from '../../../../components/competitions/faq-section'
+import CardAbout from '../../../../components/home/card-about/CardAbout'
+import Timeline from '../../../../components/competitions/timeline'
 
 function getPageData(param: string) {
   const data = competitionData.filter(({ slug }) => slug === param)

@@ -1,8 +1,8 @@
 import '../globals.css'
-import Navbar from '../../components/navbar'
+import Navbar from '../../components/layout/navbar/navbar'
 import localFont from '@next/font/local'
-import Footers from '../../components/footers'
-import LetsJoin from '../../components/letsJoin'
+import LetsJoin from '../../components/layout/footer/letsJoin'
+import Footers from '../../components/layout/footer/footers'
 
 const gilroy = localFont({
   src: [

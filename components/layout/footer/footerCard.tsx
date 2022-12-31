@@ -1,5 +1,5 @@
-import { footeritemInterface } from '../data/footeritem'
 import Link from 'next/link'
+import { footeritemInterface } from '../../../data/footeritem'
 const footerCard = ({ footerItem }: { footerItem: footeritemInterface[] }) => {
   return (
     <div className="flex flex-col space-y-2.5 rounded-[30px] bg-white px-[42px] py-[30px]">

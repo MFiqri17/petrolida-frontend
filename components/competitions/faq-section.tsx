@@ -1,6 +1,6 @@
 import { Disclosure, Transition } from '@headlessui/react'
 import clsx from 'clsx'
-import SectionTitle from './utils/section-title'
+import SectionTitle from '../utils/section-title'
 
 export default function FaqSection({
   faq,
