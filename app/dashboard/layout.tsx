@@ -1,5 +1,7 @@
 import '../globals.css'
 import localFont from '@next/font/local'
+import Sidebar from '../../components/layout/sidebar/sidebar'
+import ProfileBar from '../../components/dashboard/profile-bar'
 
 const gilroy = localFont({
   src: [
@@ -25,7 +27,15 @@ export default function RootLayout({
   return (
     <html className={gilroy.className}>
       <head />
-      <body className="border border-black bg-red-200">{children}</body>
+      <body className="min-h-screen bg-lightb sm:flex">
+        <Sidebar />
+        <div className="px-5 sm:grow sm:px-24">
+          <section className="hidden w-full justify-end py-14 sm:flex">
+            <ProfileBar />
+          </section>
+          {children}
+        </div>
+      </body>
     </html>
   )
 }

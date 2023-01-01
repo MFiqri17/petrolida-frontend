@@ -8,16 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': "#07003F",
-        'secondary': "#3D4BE0",
-        'tertiary': "#8EF1FF",
-        'cream': "#EDCDC0",
-        'light': "#EDEEF3",
-        'error': "#FF695A",
-        'success': "#1DE4AE",
+        primary: '#07003F',
+        secondary: '#3D4BE0',
+        tertiary: '#8EF1FF',
+        cream: '#EDCDC0',
+        light: '#EDEEF3',
+        lightb: '#EFF0F4',
+        whiteb: '#FBFBFC',
+        error: '#FF695A',
+        success: '#1DE4AE',
       },
       fontFamily: {
-        primary: ['var(--font-primary)']
+        primary: ['var(--font-primary)'],
       },
     },
   },

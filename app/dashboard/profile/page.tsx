@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <>
-      <div>Event</div>
+      <div>Profile</div>
     </>
   )
 }
