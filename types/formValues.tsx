@@ -1,0 +1,29 @@
+export interface FormValues {
+  competitiont_type: string
+  team_name: string
+  university: string
+  leader_batch: string
+  leader_email: string
+  leader_id: string
+  leader_major: string
+  leader_name: string
+  leader_number: string
+  member1_batch: string
+  member1_email: string
+  member1_id: string
+  member1_major: string
+  member1_name: string
+  member1_number: string
+  member2_batch: string
+  member2_email: string
+  member2_id: string
+  member2_major: string
+  member2_name: string
+  member2_number: string
+  member3_batch: string
+  member3_email: string
+  member3_id: string
+  member3_major: string
+  member3_name: string
+  member3_number: string
+}
