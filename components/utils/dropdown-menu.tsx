@@ -1,7 +1,7 @@
 'use client'
 import { Menu, Transition } from '@headlessui/react'
+import clsx from 'clsx'
 import { Fragment } from 'react'
-import classNames from '../../utils/classname'
 
 interface IMenuProps {
   button: React.ReactNode
@@ -26,7 +26,7 @@ export default function DropdownMenu({
   return (
     <div>
       <Menu as="div" className="relative inline-block text-left">
-        <Menu.Button className={classNames('p-1', buttonClassName)}>
+        <Menu.Button className={clsx('p-1', buttonClassName)}>
           {button}
         </Menu.Button>
         <Transition
@@ -40,7 +40,7 @@ export default function DropdownMenu({
         >
           <Menu.Items
             style={{ width: width }}
-            className={classNames(
+            className={clsx(
               'absolute mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none',
               menuClassName,
             )}
@@ -64,7 +64,7 @@ export default function DropdownMenu({
                 ) => (
                   <Menu.Item key={i}>
                     <Tag
-                      className={classNames(
+                      className={clsx(
                         'flex w-full items-center text-sm',
                         className,
                       )}
