@@ -7,7 +7,10 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
     <div
       className={`overflow-hidden px-4 pb-[120px] pt-[350px] lg:py-[350px] xl:pr-[222px] xl:pl-[120px]`}
     >
-      <section className="relative mx-auto flex  flex-col items-center  justify-center md:flex-row xl:space-x-10  ">
+      <section
+        id="petrolida"
+        className="relative mx-auto flex  flex-col items-center  justify-center md:flex-row xl:space-x-10  "
+      >
         <div className={`absolute -left-40 -top-48 hidden  md:block`}>
           <Image
             src={'/images/6-competition-bg-alt.png'}

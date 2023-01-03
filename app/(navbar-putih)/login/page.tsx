@@ -1,48 +1,23 @@
+'use client'
+
 import Image from 'next/image'
+import Link from 'next/link'
+import LoginForm from '../../../components/auth/login-form'
 
 export default function LoginPage() {
   return (
     <div className="relative flex items-center justify-center overflow-clip bg-light">
       <div className="z-20 my-40 mx-3 rounded-xl border-2 bg-white/25 p-10 backdrop-blur-sm backdrop-filter sm:mx-0 sm:w-1/3">
         <h1 className="text-center text-5xl font-semibold">Log in</h1>
-        <form action="" className="my-8 space-y-6">
-          <input
-            type="text"
-            className="w-full rounded-full bg-gray-200 p-4"
-            placeholder="Email Address"
-          />
-          <input
-            type="password"
-            className="w-full rounded-full bg-gray-200 p-4"
-            placeholder="Your Password"
-          />
-          <div className="flex justify-between">
-            <div>
-              <input
-                type="checkbox"
-                id="remember"
-                name="remember"
-                value="Bike"
-              />
-              <label htmlFor="remember">Remember me</label>
-            </div>
-            <a href="">Forgot Password?</a>
-          </div>
-          <button className="w-full rounded-full bg-primary p-4 text-white">
-            Log in
-          </button>
-          <button className="w-full rounded-full bg-white p-4 font-semibold">
-            Log in with Google
-          </button>
-        </form>
+        <LoginForm />
         <div className="flex justify-center gap-x-1">
           <p>Dont have an account?</p>
-          <a
-            href=""
+          <Link
+            href="/register"
             className="font-semibold text-secondary hover:text-primary"
           >
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
       <div className="absolute -right-24 -bottom-40">

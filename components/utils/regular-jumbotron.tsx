@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function RegularJumbotron({
   isHome = false,
@@ -13,7 +14,7 @@ export default function RegularJumbotron({
   return (
     <header
       className={clsx(
-        'relative lg:mb-[350px] flex h-[623px] bg-light',
+        'relative flex h-[623px] bg-light lg:mb-[350px]',
         !isHome && 'overflow-clip bg-gradient-to-r from-secondary to-primary',
       )}
     >
@@ -31,17 +32,17 @@ export default function RegularJumbotron({
         <p className="text-white sm:w-2/3 sm:text-xl">{desc}</p>
         <div className="flex gap-x-6">
           <a
-            href="#"
+            href={isHome ? '#petrolida' : '#'}
             className="rounded-full border border-white px-6 py-2.5 font-semibold text-white transition hover:bg-white hover:text-secondary"
           >
             {isHome ? 'Learn More' : 'Guidebook'}
           </a>
-          <a
-            href="#"
+          <Link
+            href="/register"
             className="rounded-full border border-white bg-white px-6 py-2.5 font-semibold text-secondary transition hover:text-primary"
           >
             Register
-          </a>
+          </Link>
         </div>
       </div>
       {isHome ? (
