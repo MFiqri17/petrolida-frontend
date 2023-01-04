@@ -24,7 +24,6 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
   if (isBrowser()) {
     window.addEventListener('scroll', changeColor)
   }
-  console.log(color)
   return (
     <div>
       <nav
