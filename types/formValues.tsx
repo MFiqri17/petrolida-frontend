@@ -26,4 +26,7 @@ export interface FormValues {
   member3_major: string
   member3_name: string
   member3_number: string
+  transfer_receipt: string
+  'ktp/passport': string
+  id_card: string
 }

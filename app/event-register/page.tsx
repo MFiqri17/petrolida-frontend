@@ -3,7 +3,11 @@
 import React from 'react'
 import { registerData } from '../../data/register'
 import { useForm } from 'react-hook-form'
-import { Input, Select } from '../../components/register/formComponent'
+import {
+  Input,
+  Select,
+  ImageInput,
+} from '../../components/register/formComponent'
 import FormTimeline from '../../components/register/formTimeline'
 import Formbutton from '../../components/register/formButton'
 import { FormValues } from '../../types/formValues'
@@ -24,9 +28,26 @@ const competitionType = [
   'Business Case',
 ]
 
+interface IFileState {
+  file: File | null
+  src: string
+  dimension: {
+    width: number
+    height: number
+  }
+}
+
 const EventRegistration = () => {
   const [index, setIndex] = React.useState<number>(0)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const initialFileState: IFileState = {
+    file: null,
+    src: '',
+    dimension: { width: 0, height: 0 },
+  }
+  const [Img, setImg] = React.useState(initialFileState)
+  const [Img2, setImg2] = React.useState(initialFileState)
+  const [Img3, setImg3] = React.useState(initialFileState)
   const incrementIndex = () => {
     setIndex(index + 1)
   }
@@ -42,22 +63,28 @@ const EventRegistration = () => {
   const {
     register,
     handleSubmit,
+    setValue,
+    clearErrors,
+    setError,
     trigger,
     formState: { errors, isValid },
   } = useForm<FormValues>()
   return (
-    <div className="bg-[#EDEEF3] px-72 pt-36 pb-32">
+    <div className="bg-[#EDEEF3] px-5 pt-36 pb-32 lg:px-24   xl:px-48 2xl:px-72">
       <section
         style={{
           background:
             'linear-gradient(95.81deg, rgba(255, 255, 255, 0.448) 0%, rgba(255, 255, 255, 0.259) 100%)',
         }}
-        className="mx-auto flex flex-col items-center justify-center py-10 px-20"
+        className="flex flex-col items-center justify-center px-0 py-10 md:px-10 "
       >
+        <h1 className="text-[28px] font-black text-[#07003F] md:text-5xl">
+          Event Registration
+        </h1>
         <FormTimeline formType={formtypeArray} isActive={index} />
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-20"
+          className="mt-9 flex w-full flex-col space-y-20 px-4 md:px-0 lg:mt-0 lg:w-[700px]"
         >
           {Object.values(registerData).map((registers: any[]) => (
             <>
@@ -75,6 +102,30 @@ const EventRegistration = () => {
                           register={register}
                           {...registerItem}
                           options={competitionType}
+                        />
+                      ) : registerItem.types === 'file' ? (
+                        <ImageInput
+                          key={registerItem.id}
+                          register={register}
+                          setValue={setValue}
+                          setError={setError}
+                          clearErrors={clearErrors}
+                          Img={
+                            registerItem.name === 'transfer_receipt'
+                              ? Img
+                              : registerItem.name === 'ktp/passport'
+                              ? Img2
+                              : Img3
+                          }
+                          setImg={
+                            registerItem.name === 'transfer_receipt'
+                              ? setImg
+                              : registerItem.name === 'ktp/passport'
+                              ? setImg2
+                              : setImg3
+                          }
+                          {...registerItem}
+                          errors={errors}
                         />
                       ) : (
                         <Input

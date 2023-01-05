@@ -225,4 +225,30 @@ export const registerData = {
       pattern: '',
     },
   ],
+  Files: [
+    {
+      id: 1,
+      label: 'Upload Transfer Receipt',
+      name: 'transfer_receipt',
+      placeholder: '',
+      types: 'file',
+      pattern: /image\/(png|jpg|jpeg)/i,
+    },
+    {
+      id: 2,
+      label: 'Upload KTP/Passport',
+      name: 'ktp/passport',
+      placeholder: '',
+      types: 'file',
+      pattern: /image\/(png|jpg|jpeg)/i,
+    },
+    {
+      id: 3,
+      label: 'Upload Students ID Card',
+      name: 'id_card',
+      placeholder: '',
+      types: 'file',
+      pattern: /image\/(png|jpg|jpeg)/i,
+    },
+  ],
 }
