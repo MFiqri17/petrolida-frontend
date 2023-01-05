@@ -76,9 +76,9 @@ const EventRegistration = () => {
           background:
             'linear-gradient(95.81deg, rgba(255, 255, 255, 0.448) 0%, rgba(255, 255, 255, 0.259) 100%)',
         }}
-        className="flex flex-col items-center justify-center px-0 py-10 md:px-10 "
+        className="flex flex-col rounded-[30px] items-center justify-center px-0 py-10 md:px-10 "
       >
-        <h1 className="text-[28px] font-black text-[#07003F] md:text-5xl">
+        <h1 className="text-[28px] text-center font-black text-[#07003F] md:text-5xl">
           Event Registration
         </h1>
         <FormTimeline formType={formtypeArray} isActive={index} />
