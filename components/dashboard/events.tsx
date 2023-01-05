@@ -42,20 +42,20 @@ export default function Events() {
             },
         ],
         "Registered": [
-            {
-                id: 1,
-                title: 'Is tech making coffee better or worse?',
-                date: 'Jan 7',
-                commentCount: 29,
-                shareCount: 16,
-            },
-            {
-                id: 2,
-                title: 'The most innovative things happening in coffee',
-                date: 'Mar 19',
-                commentCount: 24,
-                shareCount: 12,
-            },
+            // {
+            //     id: 1,
+            //     title: 'Is tech making coffee better or worse?',
+            //     date: 'Jan 7',
+            //     commentCount: 29,
+            //     shareCount: 16,
+            // },
+            // {
+            //     id: 2,
+            //     title: 'The most innovative things happening in coffee',
+            //     date: 'Mar 19',
+            //     commentCount: 24,
+            //     shareCount: 12,
+            // },
         ],
     })
 
@@ -83,50 +83,67 @@ export default function Events() {
                         ))}
                     </Tab.List>
                     <Tab.Panels className="mt-2">
-                        {Object.keys(competitionData).map((idx) => (
+                        {Object.values(categories).map((items, idx) => (
                             <Tab.Panel
                                 key={idx}
                                 className={classNames(
                                     'rounded-xl p-3',
                                 )}
                             >
-                                <ul className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
-                                    {competitionData.map((item) => (
-                                        <li
-                                            key={item.name}
-                                            className="relative max-w-sm border bg-whiteb rounded-3xl hover:bg-gray-100"
-                                        >
-                                            <div className='relative overflow-hidden rounded-3xl'>
-                                                <img className='w-full transition duration-300 max-h-80 hover:scale-105' src={`https://source.unsplash.com/400x300?${item.name}`} alt={item.name} />
-                                                <div className='absolute left-0 right-0 flex justify-between px-3 py-2 mx-6 font-semibold rounded-full bottom-4 bg-whiteb'>
-                                                    <p>
-                                                        Register Ends
-                                                    </p>
-                                                    <div>
-                                                        <span className='p-1 rounded-md text-whiteb bg-primary'>00</span> : <span className='p-1 rounded-md text-whiteb bg-primary'>00</span> : <span className='p-1 rounded-md text-whiteb bg-primary'>00</span>
+                                <ul className={`${Object.keys(items).length != 0 ? 'grid grid-cols-1 gap-8 lg:grid-cols-3' : 'flex flex-col justify-center items-center'}`}>
+                                    {Object.keys(items).length != 0
+                                        ?
+                                        items.map((item) => (
+                                            <li
+                                                key={item.title}
+                                                className="relative max-w-sm border bg-whiteb rounded-3xl hover:bg-gray-100"
+                                            >
+                                                <div className='relative overflow-hidden rounded-3xl'>
+                                                    <img className='w-full transition duration-300 max-h-80 hover:scale-105' src={`https://source.unsplash.com/400x300?${item.title}`} alt={item.title} />
+                                                    <div className='absolute left-0 right-0 flex justify-between px-3 py-2 mx-6 font-semibold rounded-full bottom-4 bg-whiteb'>
+                                                        <p>
+                                                            Register Ends
+                                                        </p>
+                                                        <div>
+                                                            <span className='p-1 rounded-md text-whiteb bg-primary'>00</span> : <span className='p-1 rounded-md text-whiteb bg-primary'>00</span> : <span className='p-1 rounded-md text-whiteb bg-primary'>00</span>
+                                                        </div>
                                                     </div>
+                                                    {/* if registered */}
+                                                    {idx === 1
+                                                        ?
+                                                        <div className='absolute top-0 right-0 mx-3 mt-3'>
+                                                            <OngoingPopup />
+                                                        </div>
+                                                        :
+                                                        ''
+                                                    }
+
                                                 </div>
-                                                {/* if registered */}
-                                                <div className='absolute top-0 right-0 mx-3 mt-3'>
-                                                    <OngoingPopup />
+                                                <div className='flex items-center justify-between px-4 py-6 space-x-6'>
+                                                    <h3 className="text-xl font-semibold leading-5">
+                                                        {item.title}
+                                                    </h3>
+                                                    <a href="#" className='px-5 py-4 font-semibold transition duration-300 rounded-full bg-secondary text-whiteb hover:-translate-y-1'>
+                                                        Register
+                                                    </a>
+                                                    {/* if Registered */}
+                                                    <p className='font-medium text-slate-500'>
+                                                        Registered
+                                                    </p>
                                                 </div>
-                                            </div>
-                                            <div className='flex items-center justify-between px-4 py-6 space-x-6'>
-                                                <h3 className="text-xl font-semibold leading-5">
-                                                    {item.name}
-                                                </h3>
-                                                <a href="#" className='px-5 py-4 font-semibold transition duration-300 rounded-full bg-secondary text-whiteb hover:-translate-y-1'>
-                                                    Register
-                                                </a>
-                                                {/* if Registered */}
-                                                <p className='font-medium text-slate-500'>
-                                                    Registered
-                                                </p>
-                                            </div>
 
 
-                                        </li>
-                                    ))}
+                                            </li>
+                                        ))
+                                        :
+                                        <div className='flex flex-col items-center justify-center p-4 space-y-6 text-left lg:text-center'>
+                                            <div className='w-72 md:w-96'>
+                                                <img className='w-full' src="/event-dashboard/empty-register.png" alt="empty-register" />
+                                            </div>
+                                            <h4 className='text-2xl font-semibold md:text-4xl text-primary'>You haven't registered for the Petrolida event</h4>
+                                            <p className='max-w-xl'>Let’s join our excitement don’t miss the ultimate opportunity to showcase your ideas and innovation in reinforcing the future of oue energy industry</p>
+                                        </div>
+                                    }
                                 </ul>
                             </Tab.Panel>
                         ))}
