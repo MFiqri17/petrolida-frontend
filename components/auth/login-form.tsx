@@ -1,5 +1,9 @@
+import Link from 'next/link'
+import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { api } from '../../utils/api'
+import Spinner from '../utils/spinner'
 
 interface LoginFormValue {
   email: string
@@ -7,17 +11,27 @@ interface LoginFormValue {
 }
 
 export default function LoginForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginFormValue>()
+  const { register, handleSubmit } = useForm<LoginFormValue>()
+  const [isLoading, setIsLoading] = React.useState<boolean>(false)
+
   const onSubmit: SubmitHandler<LoginFormValue> = (data) => {
+    setIsLoading(true)
     const formData = new FormData()
     Object.keys(data).forEach((val) =>
       formData.append(val, data[val as keyof LoginFormValue]),
     )
-    api.post('/login', formData)
+    api
+      .post('/login', formData)
+      .then(() => {
+        toast.success('Login success')
+      })
+      .catch((e) => {
+        toast.error('Error')
+        console.error(e)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="my-8 space-y-6">
@@ -40,13 +54,14 @@ export default function LoginForm() {
           <input type="checkbox" id="remember" name="remember" value="Bike" />
           <label htmlFor="remember">Remember me</label>
         </div>
-        <a href="">Forgot Password?</a>
+        <Link href="/forgot-password">Forgot Password?</Link>
       </div>
       <button
         type="submit"
         className="w-full rounded-full bg-primary p-4 text-white"
+        disabled={isLoading}
       >
-        Log in
+        {isLoading ? <Spinner /> : 'Log in'}
       </button>
       <button
         type="button"

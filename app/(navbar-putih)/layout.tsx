@@ -3,6 +3,7 @@ import localFont from '@next/font/local'
 import Navbar from '../../components/layout/navbar/navbar'
 import LetsJoin from '../../components/layout/footer/letsJoin'
 import Footers from '../../components/layout/footer/footers'
+import Toast from '../../components/utils/toast'
 
 const gilroy = localFont({
   src: [
@@ -35,6 +36,7 @@ export default function RootLayout({
       <head />
       <body className="bg-light">
         <Navbar isTrans={false} />
+        <Toast />
         {children}
         <LetsJoin />
         <Footers />

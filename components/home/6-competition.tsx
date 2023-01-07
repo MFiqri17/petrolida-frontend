@@ -37,7 +37,7 @@ const competitionData = [
   },
   {
     name: 'CASE STUDY',
-    desc: 'Challange your oil and gas knowledge to solve a problem based on the case given',
+    desc: 'Challenge your oil and gas knowledge to solve a problem based on the case given',
     src: '/images/competition-carousel/case-study.png',
     className: 'sm:text-6xl text-2xl',
   },
