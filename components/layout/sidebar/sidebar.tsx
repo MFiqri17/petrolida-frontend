@@ -109,7 +109,7 @@ export default function Sidebar() {
           </Dialog>
         </Transition>
       </header>
-      <aside className="hidden h-screen w-[14%] flex-col bg-whiteb px-3 py-14 shadow sm:flex">
+      <aside className="sticky top-0 hidden h-screen w-[14%] flex-col bg-whiteb px-3 py-14 shadow sm:flex">
         <div className="flex h-1/4 justify-center">
           <Link href="/dashboard">
             <Image
