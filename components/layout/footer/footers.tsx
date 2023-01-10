@@ -5,14 +5,6 @@ const footers = () => {
     return (
       <div className="flex flex-col space-y-[47px] bg-[#26215B] xl:px-[120px] px-4 md:py-[71.5px] pb-8">
         <Footer1 />
-        {/* <div className=" h-[20px] w-full">
-          <Image
-            layout="fill"
-            src={'/icon/Divider.png'}
-            alt="Divider"
-            objectFit="contain"
-          />
-        </div> */}
         <hr className="border-none bg-[#F3F4F7]/[.06] h-[1px] " />
         <Footer2 />
       </div>

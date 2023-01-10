@@ -71,7 +71,7 @@ export function Select({
         {...register(name)}
       >
         {options.map((value) => (
-          <option key={value} value={value}>
+          <option className="mt-10 w-[500px]" key={value} value={value}>
             {value}
           </option>
         ))}
@@ -85,7 +85,6 @@ export function ImageInput({
   name,
   label,
   errors,
-  pattern,
   setValue,
   clearErrors,
   setError,
@@ -97,7 +96,6 @@ export function ImageInput({
   name: string
   label: string
   errors: any
-  pattern: any
   setValue: any
   clearErrors: any
   setError: any
@@ -107,14 +105,16 @@ export function ImageInput({
 }) {
   const fileRef = React.useRef<HTMLInputElement>(null)
   React.useEffect(() => {
-    register(name, { required: true, pattern: pattern })
-  }, [name])
+    register(name, {
+      required: true,
+      pattern: /image\/(png|jpg|jpeg)/i,
+    })
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     if (!e.target.files) return
     const file = e.target.files[0]
-
     setImg((prev: any) => ({ ...prev, file: file }))
     e.target.files
   }
@@ -178,26 +178,21 @@ export function ImageInput({
           <input
             ref={fileRef}
             multiple={false}
+            accept="image/*"
             id={name}
+            name={name}
             onChange={(e: any) => {
               const value = e.target.files[0]
-              if (!value.type.match(pattern)) {
-                setError(name)
-              }
+              setError(name)
               handleChange(e)
               clearErrors(name)
               setValue(name, value)
             }}
-            name={name}
             type={types}
             className="hidden"
           />
         </div>
-        {errors[name] && (
-          <p className="text-red-700 ">
-            {label.toLowerCase()} is required or incorrect format
-          </p>
-        )}
+        {errors[name] && <p className="text-red-700 ">{label.toLowerCase()} is required</p>}
       </div>
       <div>
         <img src={Img.src} alt="" />

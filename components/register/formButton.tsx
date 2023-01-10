@@ -5,18 +5,13 @@ const Formbutton = ({
   step,
   increamentStep,
   decreamentStep,
-  isLoading,
   isValid,
 }: {
   step: number
   increamentStep: () => void
   decreamentStep: () => void
   isValid: boolean
-  isLoading: boolean
 }) => {
-  const isFormValid = () => {
-    return !isValid || isLoading
-  }
   return (
     <div className="flex flex-col-reverse justify-center space-y-5 space-y-reverse md:flex-row md:space-x-10 md:space-y-0">
       {step > 0 && step <= 5 && (
@@ -37,24 +32,21 @@ const Formbutton = ({
               'w-full rounded-[30px] bg-[#07003F] py-4 text-center text-2xl  font-semibold text-[#FBFBFC] !transition !duration-300 hover:!scale-105 md:w-[190px]',
               !isValid && 'cursor-not-allowed',
             )}
-            onClick={() => {
-              increamentStep()
-            }}
+            onClick={increamentStep}
             type="button"
             disabled={!isValid}
           >
             Next
           </button>
         )}
-        {step >= 5 && (
+        {step > 4  && (
           <button
             className={clsx(
-              'w-full rounded-[30px] bg-[#07003F] py-4 text-2xl  font-semibold text-[#FBFBFC] !transition !duration-300 hover:!scale-105 md:w-[190px]',
-              !isFormValid() && 'cursor-not-allowed',
+              'w-full rounded-[30px] bg-[#07003F] py-4 text-2xl  font-semibold text-[#FBFBFC] !transition !duration-300 hover:!scale-105 md:w-[190px]'
             )}
             type="submit"
           >
-            Daftar
+            Register
           </button>
         )}
       </>

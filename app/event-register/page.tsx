@@ -38,13 +38,14 @@ interface IFileState {
 }
 
 const EventRegistration = () => {
-  const [index, setIndex] = React.useState<number>(0)
-  const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const initialFileState: IFileState = {
     file: null,
     src: '',
     dimension: { width: 0, height: 0 },
   }
+  const [index, setIndex] = React.useState<number>(0)
+  const [isLoading, setIsLoading] = React.useState<boolean>(false)
+
   const [Img, setImg] = React.useState(initialFileState)
   const [Img2, setImg2] = React.useState(initialFileState)
   const [Img3, setImg3] = React.useState(initialFileState)
@@ -69,6 +70,7 @@ const EventRegistration = () => {
     trigger,
     formState: { errors, isValid },
   } = useForm<FormValues>()
+
   return (
     <div className="bg-[#EDEEF3] px-5 pt-36 pb-32 lg:px-24   xl:px-48 2xl:px-72">
       <section
@@ -76,9 +78,9 @@ const EventRegistration = () => {
           background:
             'linear-gradient(95.81deg, rgba(255, 255, 255, 0.448) 0%, rgba(255, 255, 255, 0.259) 100%)',
         }}
-        className="flex flex-col rounded-[30px] items-center justify-center px-0 py-10 md:px-10 "
+        className="flex flex-col items-center justify-center rounded-[30px] px-0 py-10 md:px-10 "
       >
-        <h1 className="text-[28px] text-center font-black text-[#07003F] md:text-5xl">
+        <h1 className="text-center text-[28px] font-black text-[#07003F] md:text-5xl">
           Event Registration
         </h1>
         <FormTimeline formType={formtypeArray} isActive={index} />
@@ -108,6 +110,7 @@ const EventRegistration = () => {
                           key={registerItem.id}
                           register={register}
                           setValue={setValue}
+                          errors={errors}
                           setError={setError}
                           clearErrors={clearErrors}
                           Img={
@@ -125,7 +128,6 @@ const EventRegistration = () => {
                               : setImg3
                           }
                           {...registerItem}
-                          errors={errors}
                         />
                       ) : (
                         <Input
@@ -145,7 +147,6 @@ const EventRegistration = () => {
           ))}
           <Formbutton
             step={index}
-            isLoading={isLoading}
             increamentStep={incrementIndex}
             decreamentStep={decrementIndex}
             isValid={isValid}
