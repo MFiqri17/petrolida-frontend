@@ -46,12 +46,12 @@ const footerListData = [
     content: [
       {
         id: 1,
-        lable: 'Oil Rig Desain',
+        lable: 'Oil Rig Design',
         href: '/competition/oil-rig-design',
       },
       {
         id: 1,
-        lable: 'Fracturing Fluid Desain',
+        lable: 'Fracturing Fluid Design',
         href: '/competition/fracturing-fluid-design',
       },
       {

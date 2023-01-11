@@ -7,37 +7,37 @@ import SectionTitle from '../utils/section-title'
 const competitionData = [
   {
     name: 'OIL RIG DESAIN',
-    desc: 'Innovate and present your ideas related to oil and gas in a form of research paper',
+    desc: 'Innovating Sustainable Oil Platform to Strengthen Energy Security and Maximize Energy Potential',
     src: '/images/competition-carousel/oil-rig-desain.png',
     className: 'sm:text-6xl text-2xl',
   },
   {
     name: 'FRACTURING FLUID DESIGN',
-    desc: 'Formulate the optimal fracture fluid to solve the problem based on the...',
+    desc: 'Enhancing Oil and Gas Production Efficiency through Modern Hydraulic Fracturing Approach to Sustain Future Energy Supply and Maintain The Safety of Environment',
     src: '/images/competition-carousel/ff-design.png',
     className: 'sm:text-4xl text-2xl',
   },
   {
     name: 'PETROSMART',
-    desc: 'Challange your knowledge related to the oil and gas industry by answering quick-fire questions',
+    desc: 'Igniting Curiosity About The Oil and Gas Industry as The Fulfillment of Future Energy Needs',
     src: '/images/competition-carousel/petrosmart.png',
     className: 'sm:text-4xl text-2xl',
   },
   {
     name: 'PAPER',
-    desc: 'Innovate and present your ideas related to oil and gas in a form of research paper',
+    desc: 'Envolving the Opportunity on Oil and Gas Industry to Ignite the Sustainability of Energy Transition',
     src: '/images/competition-carousel/paper.png',
     className: 'sm:text-6xl text-2xl',
   },
   {
     name: 'BUSINESS CASE',
-    desc: 'Find the most suitable solution to answer a real business case problem',
+    desc: 'Optimizing Supply Chain System Through Reliable and Effective Business Strategy in FMCG Industry',
     src: '/images/competition-carousel/business-case.png',
     className: 'sm:text-5xl text-2xl',
   },
   {
     name: 'CASE STUDY',
-    desc: 'Challenge your oil and gas knowledge to solve a problem based on the case given',
+    desc: 'Enhancing the Suitable Production to Embrace the Energy Security',
     src: '/images/competition-carousel/case-study.png',
     className: 'sm:text-6xl text-2xl',
   },
