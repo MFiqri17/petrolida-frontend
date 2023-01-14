@@ -14,10 +14,16 @@ const ShortenLink = ({ params }: { params: { short_url: string } }) => {
         }
       })
       .catch((err) => {
+        console.log(err.message)
         notFound()
       })
   }, [params.short_url, router])
-  return <div>loading...</div>
+  return (
+    <div className='flex justify-center items-center mx-0'>
+      {' '}
+      <p className='text-2xl'>Please wait, You are being redirected</p>{' '}
+    </div>
+  )
 }
 
 export default ShortenLink
