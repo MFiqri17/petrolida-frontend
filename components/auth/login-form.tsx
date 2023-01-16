@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -13,6 +14,7 @@ interface LoginFormValue {
 export default function LoginForm() {
   const { register, handleSubmit } = useForm<LoginFormValue>()
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const router = useRouter()
 
   const onSubmit: SubmitHandler<LoginFormValue> = (data) => {
     setIsLoading(true)
@@ -24,6 +26,7 @@ export default function LoginForm() {
       .post('/login', formData)
       .then(() => {
         toast.success('Login success')
+        router.push('/dashboard')
       })
       .catch((e) => {
         toast.error('Error')

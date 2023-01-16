@@ -1,9 +1,11 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { api } from '../../utils/api'
+import { setToken } from '../../utils/token'
 import Spinner from '../utils/spinner'
 
 interface RegisterFormValue {
@@ -21,6 +23,7 @@ export default function RegisterForm() {
     formState: { errors },
   } = useForm<RegisterFormValue>()
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const router = useRouter()
 
   const onSubmit: SubmitHandler<RegisterFormValue> = (data) => {
     setIsLoading(true)
@@ -31,7 +34,10 @@ export default function RegisterForm() {
     api
       .post('/register', formData)
       .then(() => {
-        toast.success('Register success')
+        toast.success(
+          'Register success, please check your email for verify email',
+        )
+        router.push('/login')
       })
       .catch((e) => {
         toast.error('Error')
