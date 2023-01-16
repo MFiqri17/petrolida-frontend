@@ -10,55 +10,11 @@ function classNames(...classes: string[]) {
 }
 
 export default function Events() {
-    let [categories] = useState({
-        "All Competitions": [
-            {
-                id: 1,
-                title: 'Does drinking coffee make you smarter?',
-                date: '5h ago',
-                commentCount: 5,
-                shareCount: 2,
-            },
-            {
-                id: 2,
-                title: "So you've bought coffee... now what?",
-                date: '2h ago',
-                commentCount: 3,
-                shareCount: 2,
-            },
-            {
-                id: 2,
-                title: "So you've bought coffee... now what?",
-                date: '2h ago',
-                commentCount: 3,
-                shareCount: 2,
-            },
-            {
-                id: 2,
-                title: "So you've bought coffee... now what?",
-                date: '2h ago',
-                commentCount: 3,
-                shareCount: 2,
-            },
-        ],
-        "Registered": [
-            // {
-            //     id: 1,
-            //     title: 'Is tech making coffee better or worse?',
-            //     date: 'Jan 7',
-            //     commentCount: 29,
-            //     shareCount: 16,
-            // },
-            // {
-            //     id: 2,
-            //     title: 'The most innovative things happening in coffee',
-            //     date: 'Mar 19',
-            //     commentCount: 24,
-            //     shareCount: 12,
-            // },
-        ],
-    })
 
+    let [categories] = useState({
+        "All Competitions": competitionData,
+        "Registered": [],
+    })
     return (
         <>
             <div className="w-full px-2 sm:px-0">
@@ -95,11 +51,11 @@ export default function Events() {
                                         ?
                                         items.map((item) => (
                                             <li
-                                                key={item.title}
+                                                key={item.name}
                                                 className="relative max-w-sm border bg-whiteb rounded-3xl hover:bg-gray-100"
                                             >
                                                 <div className='relative overflow-hidden rounded-3xl'>
-                                                    <img className='w-full transition duration-300 max-h-80 hover:scale-105' src={`https://source.unsplash.com/400x300?${item.title}`} alt={item.title} />
+                                                    <img className='w-full max-h-full transition duration-300 hover:scale-105' src={`/event-dashboard/${item.slug}.png`} alt={item.slug} />
                                                     <div className='absolute left-0 right-0 flex justify-between px-3 py-2 mx-6 font-semibold rounded-full bottom-4 bg-whiteb'>
                                                         <p>
                                                             Register Ends
@@ -121,7 +77,7 @@ export default function Events() {
                                                 </div>
                                                 <div className='flex items-center justify-between px-4 py-6 space-x-6'>
                                                     <h3 className="text-xl font-semibold leading-5">
-                                                        {item.title}
+                                                        {item.name}
                                                     </h3>
                                                     <a href="#" className='px-5 py-4 font-semibold transition duration-300 rounded-full bg-secondary text-whiteb hover:-translate-y-1'>
                                                         Register
