@@ -46,49 +46,50 @@ export default function Contact({
 
   if (type === 'competition') {
     return (
-      <>
-        <div
-          className="grid grid-cols-1 bg-[#EDEEF3] bg-[right_-20rem_top_-12rem] bg-no-repeat  py-4 lg:grid-cols-2"
-          style={{
-            backgroundImage: "url('/contact/bg.png')",
-          }}
-        >
-          <div className="px-4 py-8 lg:px-24 lg:py-36">
-            <h1 className="pb-4 text-left text-4xl font-bold text-[#07003F]">
-              You still have a question?
-            </h1>
-            <p className="text-left text-lg font-semibold text-[#605C84] ">
-              Explore our FAQ above, if you can't find the answer <br /> you're
-              looking for, please contact us.
-            </p>
-          </div>
-          <div className="flex items-center justify-center">
-            <a
-              target={'_blank'}
-              rel="noreferrer"
-              href={`https://line.me/ti/p/${line}`}
-              className="transition duration-300 ease-linear hover:-translate-y-1"
-            >
-              <div className="flex flex-row space-x-4 rounded-[30px] bg-[#FBFBFC] px-4 py-4 lg:p-4 lg:py-6  lg:pl-8">
-                <div className="text-center lg:col-span-2 lg:text-right">
-                  <p className="pb-2 text-end text-sm font-bold  text-[#07003F] lg:text-lg">
-                    {picName}
-                    <br />
-                    <span className="font-semibold">{compName} Comp </span>
-                    <span className="font-bold ">PIC</span>
-                  </p>
-                  <p className="text-sm font-bold text-[#07003F] hover:underline lg:text-lg">
-                    id line : {line}
-                  </p>
-                </div>
-                <div className="flex items-center justify-center">
-                  <img src="/icon/line-app.svg" alt="line" />
-                </div>
-              </div>
-            </a>
-          </div>
+      <div
+        className="grid relative grid-cols-1 bg-[#EDEEF3] bg-[right_-20rem_top_-12rem] bg-no-repeat  py-4 lg:grid-cols-2 overflow-hidden"
+        style={{
+          backgroundImage: "url('/contact/bg.png')",
+        }}
+      >
+        <div className="relative z-50 px-4 py-8 lg:px-24 lg:py-36">
+          <h1 className="pb-4 text-left text-4xl font-bold text-[#07003F]">
+            You still have a question?
+          </h1>
+          <p className="text-left text-lg font-semibold text-[#605C84] ">
+            Explore our FAQ above, if you can't find the answer <br /> you're
+            looking for, please contact us.
+          </p>
         </div>
-      </>
+        <div className="relative z-50 flex items-center justify-center">
+          <a
+            target={'_blank'}
+            rel="noreferrer"
+            href={`https://line.me/ti/p/${line}`}
+            className="transition duration-300 ease-linear hover:-translate-y-1"
+          >
+            <div className="flex flex-row space-x-4 rounded-[30px] bg-[#FBFBFC] px-4 py-4 lg:p-4 lg:py-6  lg:pl-8">
+              <div className="text-center lg:col-span-2 lg:text-right">
+                <p className="pb-2 text-end text-sm font-bold  text-[#07003F] lg:text-lg">
+                  {picName}
+                  <br />
+                  <span className="font-semibold">{compName} Comp </span>
+                  <span className="font-bold ">PIC</span>
+                </p>
+                <p className="text-sm font-bold text-[#07003F] hover:underline lg:text-lg">
+                  id line : {line}
+                </p>
+              </div>
+              <div className="flex items-center justify-center">
+                <img src="/icon/line-app.svg" alt="line" />
+              </div>
+            </div>
+          </a>
+        </div>
+        <div className="absolute animate-blob top-0 lg:top-36 right-[18rem] w-[30rem] h-[30rem] bg-[#8EF1FF] rounded-full blur-3xl"></div>
+        <div className="absolute animate-blob2 animation-delay-2 hidden lg:block  lg:top-56 lg:right-[24rem] w-[30rem] h-[30rem] bg-gradient-to-l from-[#07003F] via-[#5461E4] to-[#838CEB] rounded-full blur-3xl"></div>
+        <div className="absolute animate-blob3 animation-delay-4 lg:top-56 -right-72  w-[30rem] h-[30rem] bg-[#B1B7F3] rounded-full blur-3xl"></div>
+      </div>
     )
   } else if (type === 'landing') {
     return (
@@ -154,7 +155,7 @@ export default function Contact({
                 </div>
                 <div className="flex lg:items-center lg:justify-center">
                   <div className="pb-12 transition duration-300 ease-linear hover:-translate-y-1">
-                    <div className="relative grid grid-cols-1 overflow-hidden px-4 pb-4 lg:translate-y-8 lg:grid-cols-2 lg:px-0 lg:pr-12 lg:pb-0">
+                    <div className="relative grid grid-cols-1 px-4 pb-4 overflow-hidden lg:translate-y-8 lg:grid-cols-2 lg:px-0 lg:pr-12 lg:pb-0">
                       <div className="flex flex-col space-y-1 text-start lg:items-end lg:justify-end lg:text-end">
                         <div className="h-6 w-6 bg-[#FBFBFC]"></div>
                         <h6 className="text-2xl font-semibold text-[#FBFBFC]">
@@ -164,7 +165,7 @@ export default function Contact({
                           {winnerPlace}
                         </p>
                       </div>
-                      <div className="z-10 hidden -translate-x-2 items-end justify-center lg:flex">
+                      <div className="z-10 items-end justify-center hidden -translate-x-2 lg:flex">
                         <Image
                           src={src}
                           width={350}
@@ -174,7 +175,7 @@ export default function Contact({
                       </div>
                     </div>
                   </div>
-                  <div className="absolute bottom-6 flex justify-start gap-x-4 px-4 text-white lg:hidden">
+                  <div className="absolute flex justify-start px-4 text-white bottom-6 gap-x-4 lg:hidden">
                     <button onClick={() => handleThumbs('<')}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

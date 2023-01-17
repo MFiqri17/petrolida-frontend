@@ -22,9 +22,9 @@ module.exports = {
         primary: ['var(--font-primary)'],
       },
       animation: {
-        blob: 'blob 5s infinite',
-        blob2: 'blob2 4s infinite',
-        blob3: 'blob3 3s infinite',
+        blob: 'blob 8s infinite',
+        blob2: 'blob2 10s infinite',
+        blob3: 'blob3 9s infinite',
       },
       keyframes: {
         blob: {

@@ -1,7 +1,9 @@
+'use client'
+
 export default function Speakers() {
   return (
-    <div className="py-4 bg-light">
-      <div className="text-center ">
+    <div className="relative overflow-hidden bg-light">
+      <div className="relative z-50 text-center">
         <p className="text-center text-lg font-medium text-[#3D4BE0]">
           Non Competitions
         </p>
@@ -16,11 +18,9 @@ export default function Speakers() {
         </p>
       </div>
       <div
-        className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-4  lg:gap-8 bg-cover lg:bg-contain bg-[center_-4rem] bg-no-repeat px-24 py-16 lg:py-56"
-        style={{
-          backgroundImage: "url('/speakers/bg.png')",
-        }}
+        className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-4  lg:gap-8 bg-cover lg:bg-contain bg-[center_-4rem] bg-no-repeat px-24 py-16 lg:py-56 relative z-50"
       >
+
         <div className="flex items-center justify-center transition duration-300 bg-white cursor-pointer lg:-skew-x-12 h-96 w-80 lg:-rotate-12 rounded-xl hover:rotate-0 hover:skew-x-0">
           <p className="text-2xl font-bold text-[#07003F] ">Coming Soon</p>
         </div>
@@ -31,6 +31,9 @@ export default function Speakers() {
           <p className="text-2xl font-bold text-[#07003F]">Coming Soon</p>
         </div>
       </div>
+      <div className="absolute animate-blob top-24 lg:top-56 left-1 w-[30rem] h-[30rem] bg-[#A5F4DF] rounded-full blur-3xl"></div>
+      <div className="absolute animate-blob animation-delay-2 top-96 lg:top-56 lg:left-[36rem] w-[30rem] h-[30rem] bg-gradient-to-l from-[#07003F] via-[#5461E4] to-[#838CEB] rounded-full blur-3xl"></div>
+      <div className="absolute animate-blob animation-delay-4 bottom-24 lg:top-56 right-1  w-[30rem] h-[30rem] bg-[#B1B7F3] rounded-full blur-3xl"></div>
     </div>
   )
 }
