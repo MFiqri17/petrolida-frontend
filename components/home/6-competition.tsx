@@ -52,6 +52,12 @@ export default function SixCompetition() {
       carouselRef.current.go(id)
     }
   }
+
+  React.useEffect(() => {
+    setInterval(() => {
+      handleThumbs('>')
+    }, 5000)
+  }, [])
   return (
     <section className="overflow-hidden bg-light pb-64 sm:pt-40">
       <p className="pb-4 text-center text-lg text-secondary">Competitions</p>
@@ -64,7 +70,7 @@ export default function SixCompetition() {
         abilities to Petrolida 2022
       </p>
       <div className="relative mx-auto mt-10 px-6 sm:mt-32 sm:w-3/5">
-        <div className="absolute top-0 -right-64 sm:-top-32">
+        <div className="absolute top-0 -right-80 sm:-right-64 sm:-top-32">
           <MovingGradient className="h-[70rem] w-[70rem]" />
         </div>
         {/* <div className="absolute -top-60 -right-40 hidden sm:block">
@@ -91,6 +97,7 @@ export default function SixCompetition() {
             arrows: false,
             pagination: false,
             type: 'fade',
+            rewind: true,
           }}
         >
           {competitionData.map(({ name, desc, src, className }) => (

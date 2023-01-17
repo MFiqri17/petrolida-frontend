@@ -6,20 +6,24 @@ import SectionTitle from '../../../components/utils/section-title'
 import missionitem from '../../../data/missionitem'
 import Contact from '../../../components/home/contact'
 import MissionContainer from '../../../components/about/missions/missionContainer'
+import MovingGradient from '../../../components/utils/moving-gradient'
 
 export default function AboutPage() {
   const [datamissions] = React.useState(missionitem)
   return (
     <>
       <div className="relative overflow-x-clip px-4 pt-40 sm:flex sm:px-0 sm:pt-48 sm:pl-56">
-        <div className="z-20 sm:w-1/2">
+        <div className="absolute -right-80 top-0 -z-10 sm:-right-60">
+          <MovingGradient variant="alternate" className="h-[70rem] w-[70rem]" />
+        </div>
+        <div className="sm:w-1/2">
           <SectionTitle
             className="text-left text-4xl text-secondary sm:text-8xl"
             bgClassName="from-secondary to-secondary"
             title="Igniting Sustainable and Flawless Notion to Embrace The Energy Security"
           />
         </div>
-        <div className="z-20 flex items-center sm:w-1/2 sm:pl-4 sm:pr-20">
+        <div className="flex items-center sm:w-1/2 sm:pl-4 sm:pr-20">
           <p className="text-white sm:text-xl">
             Petroleum Integrated Days (Petrolida) is the biggest annual event
             held by SPE ITS Student Chapter. This year’s series will be the 10th
@@ -31,7 +35,7 @@ export default function AboutPage() {
             substantial and competitive experiences to advance their excellence.
           </p>
         </div>
-        <Image
+        {/* <Image
           src={'/images/6-competition-bg-alt-2.png'}
           width={1084}
           height={1135}
@@ -44,7 +48,7 @@ export default function AboutPage() {
           height={1135}
           alt="bg"
           className="absolute top-0 left-0 -z-10 block sm:hidden"
-        />
+        /> */}
       </div>
       <MissionContainer missions={datamissions} />
       <GreetingSection />

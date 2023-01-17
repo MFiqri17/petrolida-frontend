@@ -1,8 +1,8 @@
 export interface footerlistInterface {
-  id:number,
-  title:string,
+  id: number
+  title: string
   content: {
-    lable: string,
+    lable: string
     href: string
   }[]
 }
@@ -76,27 +76,27 @@ const footerListData = [
       },
     ],
   },
-  {
-    id: 3,
-    title: 'Non Competitions',
-    content: [
-      {
-        id: 1,
-        lable: 'CV 101',
-        href: '/coming-soon',
-      },
-      {
-        id: 2,
-        lable: 'Interview 101',
-        href: '/coming-soon',
-      },
-      {
-        id: 3,
-        lable: 'Career Paths',
-        href: '/coming-soon',
-      },
-    ],
-  },
+  // {
+  //   id: 3,
+  //   title: 'Non Competitions',
+  //   content: [
+  //     {
+  //       id: 1,
+  //       lable: 'CV 101',
+  //       href: '/coming-soon',
+  //     },
+  //     {
+  //       id: 2,
+  //       lable: 'Interview 101',
+  //       href: '/coming-soon',
+  //     },
+  //     {
+  //       id: 3,
+  //       lable: 'Career Paths',
+  //       href: '/coming-soon',
+  //     },
+  //   ],
+  // },
 ]
 
 export default footerListData

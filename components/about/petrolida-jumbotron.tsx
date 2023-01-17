@@ -1,6 +1,7 @@
 import SectionTitle from '../utils/section-title'
 import Link from 'next/link'
 import Image from 'next/image'
+import MovingGradient from '../utils/moving-gradient'
 interface cardaboutInterface {}
 const PetrolidaAbout = ({}: cardaboutInterface) => {
   return (
@@ -11,22 +12,23 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
         id="petrolida"
         className="relative mx-auto flex  flex-col items-center  justify-center md:flex-row xl:space-x-10  "
       >
-        <div className={`absolute -left-40 -top-48 hidden  md:block`}>
-          <Image
+        <div className={`absolute -left-60 -top-20 sm:-left-40`}>
+          {/* <Image
             src={'/images/6-competition-bg-alt.png'}
             width={1135}
             height={1135}
             alt="competition"
-          />
+          /> */}
+          <MovingGradient variant="alternate" className="h-[70rem] w-[70rem]" />
         </div>
-        <div className="left-30 absolute -top-40 block w-[1000px] md:hidden">
+        {/* <div className="left-30 absolute -top-40 block w-[1000px] md:hidden">
           <Image
             src={'/images/bg-card-mobile.png'}
             width={1135}
             height={1135}
             alt="competition"
           />
-        </div>
+        </div> */}
         <div className="z-20 mt-32">
           <p
             className={` ${'text-left'} mb-6 block text-lg font-semibold text-[#3D4BE0] lg:hidden`}

@@ -3,13 +3,13 @@ import Image from 'next/image'
 
 export default function GreetingSection() {
   return (
-    <section className="relative pb-32">
+    <section className="relative overflow-x-clip pb-32">
       <SectionTitle
         title="Greetings to all aspiring students"
         className="text-3xl sm:text-6xl"
       />
       <div>
-        <div className="absolute top-12 right-0 z-0">
+        <div className="absolute top-12 right-0 z-0 animate-blob">
           <Image
             src={'/images/blue-circle.png'}
             width={670}
@@ -17,7 +17,7 @@ export default function GreetingSection() {
             alt="circle"
           />
         </div>
-        <div className="absolute left-0 bottom-0 z-0 sm:-bottom-32">
+        <div className="absolute left-0 bottom-0 z-0 animate-blob sm:-bottom-32">
           <Image
             src={'/images/green-circle.png'}
             width={670}
