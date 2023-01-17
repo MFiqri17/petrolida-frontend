@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css'
 import SectionTitle from '../utils/section-title'
+import MovingGradient from '../utils/moving-gradient'
 
 const competitionData = [
   {
@@ -52,7 +53,7 @@ export default function SixCompetition() {
     }
   }
   return (
-    <section className="bg-light pb-64 sm:pt-40">
+    <section className="overflow-hidden bg-light pb-64 sm:pt-40">
       <p className="pb-4 text-center text-lg text-secondary">Competitions</p>
       <SectionTitle
         title="6 COMPETITION EVENT"
@@ -63,7 +64,10 @@ export default function SixCompetition() {
         abilities to Petrolida 2022
       </p>
       <div className="relative mx-auto mt-10 px-6 sm:mt-32 sm:w-3/5">
-        <div className="absolute -top-60 -right-40 hidden sm:block">
+        <div className="absolute top-0 -right-64 sm:-top-32">
+          <MovingGradient className="h-[70rem] w-[70rem]" />
+        </div>
+        {/* <div className="absolute -top-60 -right-40 hidden sm:block">
           <Image
             src={'/images/6-competition-bg.png'}
             width={1185}
@@ -78,7 +82,7 @@ export default function SixCompetition() {
             height={859}
             alt="competition"
           />
-        </div>
+        </div> */}
         <Splide
           aria-label="Competition Prize"
           ref={carouselRef}
