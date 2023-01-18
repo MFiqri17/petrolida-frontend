@@ -46,17 +46,17 @@ export default function RegularJumbotron({
         </div>
       </div>
       {isHome ? (
-        <div className="absolute top-20">
+        <div className="absolute top-20 sm:top-0">
           <Image
-            src={'/images/mega-triangle-mobile.png'}
+            src={'/images/mega-triangle-mobile.svg'}
             width={1147}
             height={883}
             alt="triangle"
             className="sm:hidden"
           />
           <Image
-            src={'/images/mega-triangle.png'}
-            width={1147}
+            src={'/images/mega-triangle.svg'}
+            width={1260}
             height={883}
             alt="triangle"
             className="hidden sm:block"

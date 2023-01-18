@@ -9,37 +9,37 @@ const competitionData = [
   {
     name: 'OIL RIG DESAIN',
     desc: 'Innovating Sustainable Oil Platform to Strengthen Energy Security and Maximize Energy Potential',
-    src: '/images/competition-carousel/oil-rig-desain.png',
+    src: '/event-dashboard/oil-rig-design.png',
     className: 'sm:text-6xl text-2xl',
   },
   {
     name: 'FRACTURING FLUID DESIGN',
     desc: 'Enhancing Oil and Gas Production Efficiency through Modern Hydraulic Fracturing Approach to Sustain Future Energy Supply and Maintain The Safety of Environment',
-    src: '/images/competition-carousel/ff-design.png',
+    src: '/event-dashboard/fracturing-fluid-design.png',
     className: 'sm:text-4xl text-2xl',
   },
   {
     name: 'PETROSMART',
     desc: 'Igniting Curiosity About The Oil and Gas Industry as The Fulfillment of Future Energy Needs',
-    src: '/images/competition-carousel/petrosmart.png',
+    src: '/event-dashboard/petrosmart.png',
     className: 'sm:text-4xl text-2xl',
   },
   {
     name: 'PAPER',
     desc: 'Envolving the Opportunity on Oil and Gas Industry to Ignite the Sustainability of Energy Transition',
-    src: '/images/competition-carousel/paper.png',
+    src: '/event-dashboard/paper.png',
     className: 'sm:text-6xl text-2xl',
   },
   {
     name: 'BUSINESS CASE',
     desc: 'Optimizing Supply Chain System Through Reliable and Effective Business Strategy in FMCG Industry',
-    src: '/images/competition-carousel/business-case.png',
+    src: '/event-dashboard/business-case.png',
     className: 'sm:text-5xl text-2xl',
   },
   {
     name: 'CASE STUDY',
     desc: 'Enhancing the Suitable Production to Embrace the Energy Security',
-    src: '/images/competition-carousel/case-study.png',
+    src: '/event-dashboard/case-study.png',
     className: 'sm:text-6xl text-2xl',
   },
 ]

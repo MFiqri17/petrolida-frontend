@@ -1,0 +1,21 @@
+<svg width="1205" height="975" viewBox="0 0 1205 975" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1033.96 212.433C1097.51 219.683 1112.64 276.158 1061.23 314.219L643.406 623.364L225.703 932.391C174.294 970.452 94.9656 961.361 82.8501 916.133L-15.6795 548.31L-114.231 180.406C-126.347 135.177 -62.1901 87.6291 1.35665 94.879L517.728 153.637L1033.96 212.433Z" fill="url(#paint0_linear_296_396)"/>
+<defs>
+<linearGradient id="paint0_linear_296_396" x1="-15.7703" y1="548.292" x2="1090.76" y2="251.881" gradientUnits="userSpaceOnUse">
+<!-- <stop stop-color="#07003F"/>
+<stop offset="0.651042" stop-color="#3D4BE0"/>
+<stop offset="0.985194" stop-color="#D0D4F8"/> -->
+            <stop offset="0%" stop-color="#07003F">
+                <animate attributeName="stop-color" values="#07003F; #3D4BE0; #07003F;" dur="4s" repeatCount="indefinite"></animate>
+            </stop>
+<stop offset="75%" stop-color="#3D4BE0">
+                <animate attributeName="stop-color" values="#3D4BE0; #07003F; #3D4BE0;" dur="4s" repeatCount="indefinite"></animate>
+            </stop>
+
+
+             <stop offset="100%" stop-color="#D0D4F8">
+                <animate attributeName="stop-color" values="#D0D4F8; #3D4BE0; #D0D4F8;" dur="4s" repeatCount="indefinite"></animate>
+            </stop>
+</linearGradient>
+</defs>
+</svg>
