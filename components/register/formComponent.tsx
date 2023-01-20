@@ -53,13 +53,20 @@ export function Select({
   register,
   options,
   name,
+  setValue,
   label,
 }: {
   register: any
   name: string
   label: string
+  setValue: any
   options: string[]
 }) {
+  React.useEffect(() => {
+    register(name, {
+      required: true,
+    })
+  }, [])
   return (
     <div className="flex flex-col justify-center space-y-2">
       <label htmlFor={name} className="text-xl font-semibold">
@@ -68,7 +75,7 @@ export function Select({
       <select
         className={`h-[48px] w-full rounded-[30px] bg-white pl-4  font-normal text-[#605C84]
         focus:!border-2 focus:!border-[#838CEB] focus:outline-none  focus:!ring-[#838CEB] focus-visible:!border-[#838CEB] lg:h-[60px] lg:w-[700px]  `}
-        {...register(name)}
+        onChange={(e:any) => setValue(name, e.target.value)}
       >
         {options.map((value) => (
           <option className="mt-10 w-[500px]" key={value} value={value}>
