@@ -3,6 +3,7 @@ import Navbar from '../../components/layout/navbar/navbar'
 import localFont from '@next/font/local'
 import LetsJoin from '../../components/layout/footer/letsJoin'
 import Footers from '../../components/layout/footer/footers'
+import SmoothScrollContainer from '../../components/utils/smooth-scroll'
 
 const gilroy = localFont({
   src: [
@@ -35,9 +36,11 @@ export default function RootLayout({
       <head />
       <body>
         <Navbar isTrans={true} />
-        {children}
-        <LetsJoin />
-        <Footers />
+        <SmoothScrollContainer>
+          {children}
+          <LetsJoin />
+          <Footers />
+        </SmoothScrollContainer>
       </body>
     </html>
   )

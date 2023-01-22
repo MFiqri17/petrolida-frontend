@@ -101,7 +101,10 @@ export default function SixCompetition() {
           }}
         >
           {competitionData.map(({ name, desc, src, className }) => (
-            <SplideSlide key={name} className="flex flex-col sm:flex-row">
+            <SplideSlide
+              key={name}
+              className="flex flex-col gap-x-2 sm:flex-row"
+            >
               <div className="flex items-end justify-center sm:w-1/3 sm:justify-start">
                 <SectionTitle
                   title={name}
@@ -113,7 +116,7 @@ export default function SixCompetition() {
                 width={384}
                 height={480}
                 alt="competition"
-                className="transition hover:-skew-x-3"
+                className="-skew-x-3"
               />
               <div className="ml-3 mt-4 flex items-center px-6 sm:mt-0 sm:w-1/3 sm:px-0">
                 <p className="text-white">{desc}</p>

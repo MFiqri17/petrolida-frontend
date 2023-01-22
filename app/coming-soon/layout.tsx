@@ -1,6 +1,7 @@
 import '../globals.css'
 import localFont from '@next/font/local'
 import Navbar from '../../components/layout/navbar/navbar'
+import SmoothScrollContainer from '../../components/utils/smooth-scroll'
 const gilroy = localFont({
   src: [
     {
@@ -27,8 +28,10 @@ export default function RootLayout({
     <html className={gilroy.className}>
       <head />
       <body>
-        <Navbar isTrans={false} />
-        {children}
+        <SmoothScrollContainer>
+          <Navbar isTrans={false} />
+          {children}
+        </SmoothScrollContainer>
       </body>
     </html>
   )

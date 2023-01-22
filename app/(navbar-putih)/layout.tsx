@@ -4,6 +4,7 @@ import Navbar from '../../components/layout/navbar/navbar'
 import LetsJoin from '../../components/layout/footer/letsJoin'
 import Footers from '../../components/layout/footer/footers'
 import Toast from '../../components/utils/toast'
+import SmoothScrollContainer from '../../components/utils/smooth-scroll'
 
 const gilroy = localFont({
   src: [
@@ -36,10 +37,12 @@ export default function RootLayout({
       <head />
       <body className="bg-light">
         <Navbar isTrans={false} />
-        <Toast />
-        {children}
-        <LetsJoin />
-        <Footers />
+        <SmoothScrollContainer>
+          <Toast />
+          {children}
+          <LetsJoin />
+          <Footers />
+        </SmoothScrollContainer>
       </body>
     </html>
   )

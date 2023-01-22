@@ -12,7 +12,7 @@ export const competitionData = [
       </>
     ),
 
-    image: '/images/oil-rig-desain.png',
+    image: '/event-dashboard/oil-rig-design.png',
     descCard: (
       <>
         Oil Rig Design Competition that will be held offline is a competition in
@@ -21,7 +21,7 @@ export const competitionData = [
         specific offshore oil field. Participants are expected to make a project
         explanation of their semi-submersible oil rig based on what situation
         they had.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           This competition aims to develop participants' knowledge to overcome
           all challenges in the given field. In the next round, participants are
@@ -141,14 +141,14 @@ export const competitionData = [
         Open <br /> Registration
       </>
     ),
-    image: '/images/fluid-desain.png',
+    image: '/event-dashboard/fracturing-fluid-design.png',
     descCard: (
       <>
         The Fracturing Fluid Design Competition was first held in 2018 and
         credited with being the pioneer in the region of Pacific Asia. This
         competition will challenge all delegates to create the optimal
         capability of fracture fluid related to the given case.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           Each team will present their findings directly to the judges and the
           most optimal, including performance feasibility, environmental
@@ -276,7 +276,7 @@ export const competitionData = [
         Open <br /> Registration
       </>
     ),
-    image: '/images/petrosmart.png',
+    image: '/event-dashboard/petrosmart.png',
     descCard: (
       <>
         Petrosmart Competition is an online quick-fire rounds competition where
@@ -284,7 +284,7 @@ export const competitionData = [
         their knowledge by answering questions covering technical and
         non-technical aspects of the oil and gas industry. There will be 3
         rounds: online preliminary, semi-final and final.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           Participants will have to answer questions or cases that will be
           packed in each exciting round of petrosmart. With this competition, we
@@ -391,7 +391,7 @@ export const competitionData = [
         Open <br /> Registration
       </>
     ),
-    image: '/images/paper.png',
+    image: '/event-dashboard/paper.png',
     descCard: (
       <>
         Petrolida 2022 paper competition is held by SPE Student Chapter Sepuluh
@@ -400,7 +400,7 @@ export const competitionData = [
         undergraduate students to apply their knowledge concerning the oil and
         gas industry to enhance their capability for supervising scientific new
         innovation research.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           This will be valuable for the human race and the energy industry also
           to solve energy issues by providing innovative solutions to create a
@@ -513,7 +513,7 @@ export const competitionData = [
         Open <br /> Registration
       </>
     ),
-    image: '/images/business case.png',
+    image: '/event-dashboard/business-case.png',
     descCard: (
       <>
         The business case competition is a problem-solving competition that
@@ -662,14 +662,14 @@ export const competitionData = [
         Open <br /> Registration
       </>
     ),
-    image: '/images/case-study.png',
+    image: '/event-dashboard/case-study.png',
     descCard: (
       <>
         Case Study Competition that will be held online, enables undergraduate
         students to demonstrate their critical thinking abilities, determination
         to address complex issues, and competence to work in teams in order to
         solve oil and gas industry-related cases.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           Participating teams of the competition will be challenged with a case
           problem statement given by a panel of petroleum experts representing
