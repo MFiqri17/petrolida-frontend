@@ -11,6 +11,7 @@ export function Input({
   trigger,
   pattern,
   errors,
+  ErrorMessage,
 }: {
   placeholder: string
   types: string
@@ -20,6 +21,7 @@ export function Input({
   pattern: any
   trigger: any
   errors: any
+  ErrorMessage: any
 }) {
   return (
     <div className="flex flex-col justify-center space-y-2">
@@ -41,11 +43,15 @@ export function Input({
         }}
         {...register(name, { required: true, pattern: pattern })}
       />{' '}
-      {errors[name] && (
-        <p className="text-red-700 ">
-          {label.toLowerCase()} is required or incorrect format
-        </p>
-      )}
+      <ErrorMessage
+        errors={errors}
+        name={name}
+        render={() => (
+          <p className="text-red-700 ">
+            {label.toLowerCase()} is required or incorrect format
+          </p>
+        )}
+      />
     </div>
   )
 }
@@ -76,7 +82,7 @@ export function Select({
       <select
         className={`h-[48px] w-full rounded-[30px] bg-white pl-4  font-normal text-[#605C84]
         focus:!border-2 focus:!border-[#838CEB] focus:outline-none  focus:!ring-[#838CEB] focus-visible:!border-[#838CEB] lg:h-[60px] lg:w-[700px]  `}
-        onChange={(e:any) => setValue(name, e.target.value)}
+        onChange={(e: any) => setValue(name, e.target.value)}
       >
         {options.map((value) => (
           <option className="mt-10 w-[500px]" key={value} value={value}>
@@ -200,7 +206,9 @@ export function ImageInput({
             className="hidden"
           />
         </div>
-        {errors[name] && <p className="text-red-700 ">{label.toLowerCase()} is required</p>}
+        {errors[name] && (
+          <p className="text-red-700 ">{label.toLowerCase()} is required</p>
+        )}
       </div>
       <div>
         <img src={Img.src} alt="" />
