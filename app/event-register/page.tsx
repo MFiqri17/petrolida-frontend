@@ -3,6 +3,7 @@
 import React from 'react'
 import { registerData, registerData2 } from '../../data/register'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { ErrorMessage } from '@hookform/error-message'
 import clsx from 'clsx'
 import { Input, ImageInput } from '../../components/register/formComponent'
 import { api } from '../../utils/api'
@@ -208,6 +209,7 @@ const EventRegistration = () => {
                             <Input
                               register={register}
                               {...registerItem}
+                              ErrorMessage={ErrorMessage}
                               errors={errors}
                               trigger={trigger}
                             />

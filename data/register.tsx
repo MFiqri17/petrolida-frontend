@@ -303,7 +303,6 @@ export const registerData = {
   ],
 }
 
-
 export const registerData2 = {
   General: [
     {
