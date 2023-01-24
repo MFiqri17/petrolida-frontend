@@ -13,6 +13,7 @@ import { FormValues } from '../../types/formValues'
 import SuccessModal from '../../components/register/successModal'
 import Spinner from '../../components/utils/spinner'
 import toast from 'react-hot-toast'
+import { headers } from 'next/headers'
 
 const formtypeArray = [
   'General',
@@ -70,19 +71,21 @@ const EventRegistration = () => {
     Object.keys(data).forEach((val) =>
       formData.append(val, data[val as keyof FormValues]),
     )
+    console.log(formData)
     api
-      .post('/events/registration', formData)
+      .post('/events/registration', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
       .then(() => {
         setIsOpen(true)
       })
-      .catch((e:any) => {
+      .catch((e: any) => {
         toast.error('Error')
         console.error(e)
       })
       .finally(() => {
         setIsLoading(false)
       })
-      console.log(formData)
   }
   const {
     register,
@@ -177,7 +180,7 @@ const EventRegistration = () => {
                           {registerItem.name == 'amount' ? (
                             <input
                               id={registerItem.name}
-                              value={"200000"}
+                              value={'200000'}
                               {...register(registerItem.name, {
                                 required: true,
                               })}
