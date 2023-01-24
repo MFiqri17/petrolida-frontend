@@ -47,6 +47,7 @@ export default function RegisterForm() {
       .finally(() => {
         setIsLoading(false)
       })
+      console.log(formData)
   }
 
   return (

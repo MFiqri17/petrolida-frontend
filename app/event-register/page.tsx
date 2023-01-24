@@ -82,7 +82,7 @@ const EventRegistration = () => {
       .finally(() => {
         setIsLoading(false)
       })
-      console.log(data)
+      console.log(formData)
   }
   const {
     register,

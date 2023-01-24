@@ -37,6 +37,7 @@ export default function LoginForm() {
       .finally(() => {
         setIsLoading(false)
       })
+      console.log(formData)
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="my-8 space-y-6">
