@@ -2,12 +2,15 @@
 
 import React from 'react'
 import { registerData, registerData2 } from '../../data/register'
-import { useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import clsx from 'clsx'
 import { Input, ImageInput } from '../../components/register/formComponent'
+import { api } from '../../utils/api'
 import FormTimeline from '../../components/register/formTimeline'
 import Formbutton from '../../components/register/formButton'
 import { FormValues } from '../../types/formValues'
+import SuccessModal from '../../components/register/successModal'
+import toast from 'react-hot-toast'
 
 const formtypeArray = [
   'General',
@@ -20,11 +23,11 @@ const formtypeArray = [
 ]
 const formTypeArray2 = ['General', 'Leader', 'Member 1', 'Member 2', 'Files']
 const competitionType = [
-  'Oil Rig Design',
-  'Fracturing Fluid Design',
-  'Petrosmart',
-  'Paper',
-  'Business Case',
+  { id: '1', name: 'Oil Rig Design' },
+  { id: '2', name: 'Fracturing Fluid Design' },
+  { id: '3', name: 'Petrosmart' },
+  { id: '4', name: 'Paper' },
+  { id: '5', name: 'Business Case' },
 ]
 
 interface IFileState {
@@ -44,12 +47,12 @@ const EventRegistration = () => {
   }
   const [index, setIndex] = React.useState<number>(0)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
-
+  const [isOpen, setIsOpen] = React.useState<boolean>(false)
   const [Img, setImg] = React.useState(initialFileState)
   const [Img2, setImg2] = React.useState(initialFileState)
   const [Img3, setImg3] = React.useState(initialFileState)
   const [step, setStep] = React.useState(0)
-  const [compValue, setCompValue] = React.useState<string>('Oil Rig Design')
+  const [compValue, setCompValue] = React.useState<string>('1')
   const incrementIndex = () => {
     setIndex(index + 1)
   }
@@ -59,8 +62,25 @@ const EventRegistration = () => {
   function getKeyByValue(object: any, value: any) {
     return Object.keys(object).find((key) => object[key] === value)
   }
-  const onSubmit = (data: FormValues) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    setIsLoading(true)
+    const formData = new FormData()
+    Object.keys(data).forEach((val) =>
+      formData.append(val, data[val as keyof FormValues]),
+    )
+    api
+      .post('/events/registration', formData)
+      .then(() => {
+        setIsOpen(true)
+      })
+      .catch((e) => {
+        toast.error('Error')
+        console.error(e)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
+      console.log(data)
   }
   const {
     register,
@@ -87,13 +107,14 @@ const EventRegistration = () => {
                 id="compeType"
                 name="compeType"
                 onChange={(e: any) => {
+                  console.log(compValue)
                   setCompValue(e.target.value)
                 }}
                 value={compValue}
               >
-                {competitionType.map((value) => (
-                  <option className="mt-10 w-[500px]" key={value} value={value}>
-                    {value}
+                {competitionType.map(({ id, name }) => (
+                  <option className="mt-10 w-[500px]" key={id} value={id}>
+                    {name}
                   </option>
                 ))}
               </select>
@@ -116,7 +137,7 @@ const EventRegistration = () => {
           <>
             <FormTimeline
               formType={
-                compValue === competitionType[0]
+                compValue === competitionType[0].id
                   ? formtypeArray
                   : formTypeArray2
               }
@@ -127,29 +148,37 @@ const EventRegistration = () => {
               className="mt-9 flex w-full flex-col space-y-20 px-4 md:px-0 lg:mt-0 lg:w-[700px]"
             >
               {Object.values(
-                compValue === competitionType[0] ? registerData : registerData2,
+                compValue === competitionType[0].id
+                  ? registerData
+                  : registerData2,
               ).map((registers: any[]) => (
                 <>
                   {getKeyByValue(
-                    compValue === competitionType[0]
+                    compValue === competitionType[0].id
                       ? registerData
                       : registerData2,
                     registers,
-                  ) == formtypeArray[index] ? (
+                  ) ==
+                  (compValue === competitionType[0].id
+                    ? formtypeArray[index]
+                    : formTypeArray2[index]) ? (
                     <div
                       className="flex flex-col space-y-10"
-                      key={formtypeArray[index]}
+                      key={
+                        compValue === competitionType[0].id
+                          ? formtypeArray[index]
+                          : formTypeArray2[index]
+                      }
                     >
                       {registers.map((registerItem) => (
                         <>
-                          {registerItem.name == 'competition_type' ? (
+                          {registerItem.name == 'event_id' ? (
                             <input
                               id={registerItem.name}
                               value={compValue}
                               {...register(registerItem.name, {
                                 required: true,
                               })}
-                              className="hidden"
                             />
                           ) : registerItem.types === 'file' ? (
                             <ImageInput
@@ -162,14 +191,14 @@ const EventRegistration = () => {
                               Img={
                                 registerItem.name === 'transfer_receipt'
                                   ? Img
-                                  : registerItem.name === 'ktp/passport'
+                                  : registerItem.name === 'identity_card'
                                   ? Img2
                                   : Img3
                               }
                               setImg={
                                 registerItem.name === 'transfer_receipt'
                                   ? setImg
-                                  : registerItem.name === 'ktp/passport'
+                                  : registerItem.name === 'identity_card'
                                   ? setImg2
                                   : setImg3
                               }
@@ -192,6 +221,7 @@ const EventRegistration = () => {
                 </>
               ))}
               <Formbutton
+                compValue={compValue}
                 step={index}
                 increamentStep={incrementIndex}
                 decreamentStep={decrementIndex}
@@ -221,8 +251,9 @@ const EventRegistration = () => {
         </h1>
         {conditionalForm()}
       </section>
+      <SuccessModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   )
 }
 
-export default EventRegistration;
+export default EventRegistration

@@ -4,31 +4,15 @@ import { Fragment, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function MyModal() {
-  let [isOpen, setIsOpen] = useState(false)
-
-  function closeModal() {
-    setIsOpen(false)
-  }
-
-  function openModal() {
-    setIsOpen(true)
-  }
-
+export default function MyModal({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: any }) {
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center">
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          Open dialog
-        </button>
-      </div>
-
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10 " onClose={closeModal}>
+        <Dialog
+          as="div"
+          className="relative z-10 "
+          onClose={() => setIsOpen(false)}
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -83,7 +67,7 @@ export default function MyModal() {
                     <Link
                       type="button"
                       className="w-full rounded-[30px] bg-[#07003F] py-[13.5px] text-center text-2xl  font-semibold text-[#FBFBFC] !transition !duration-300 hover:!scale-105 md:w-[255px]"
-                      href='/dashboard'
+                      href="/dashboard"
                     >
                       Back to Dashboard
                     </Link>

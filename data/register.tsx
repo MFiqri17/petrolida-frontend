@@ -3,7 +3,7 @@ export const registerData = {
     {
       id: 1,
       label: 'Competition Type',
-      name: 'competition_type',
+      name: 'event_id',
       placeholder: 'Oil Rig Design Competition',
       types: 'text',
       pattern: '',
@@ -29,15 +29,15 @@ export const registerData = {
     {
       id: 1,
       label: 'Leader Name',
-      name: 'leader_name',
-      placeholder: "Eneter your leader's name",
+      name: 'members[0][name]',
+      placeholder: "Enter your leader's name",
       types: 'text',
       pattern: '',
     },
     {
       id: 2,
       label: 'Leader Major',
-      name: 'leader_major',
+      name: 'members[0][major]',
       placeholder: "Enter your leader's major",
       types: 'text',
       pattern: '',
@@ -45,7 +45,7 @@ export const registerData = {
     {
       id: 3,
       label: 'Leader Batch',
-      name: 'leader_batch',
+      name: 'members[0][batch]',
       placeholder: "Enter your leader's batch",
       types: 'text',
       pattern: '',
@@ -53,7 +53,7 @@ export const registerData = {
     {
       id: 4,
       label: 'Leader ID (NIK/Passport)',
-      name: 'leader_id',
+      name: 'members[0][identity_id]',
       placeholder: "Enter your leader's ID",
       types: 'text',
       pattern: '',
@@ -61,7 +61,7 @@ export const registerData = {
     {
       id: 5,
       label: 'Leader Email',
-      name: 'leader_email',
+      name: 'members[0][email]',
       placeholder: "Enter your leader's email",
       types: 'email',
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
@@ -69,7 +69,7 @@ export const registerData = {
     {
       id: 6,
       label: 'Leader Phone Number',
-      name: 'leader_number',
+      name: 'members[0][phone]',
       placeholder: "Enter your leader's phone number",
       types: 'text',
       pattern: '',
@@ -79,7 +79,7 @@ export const registerData = {
     {
       id: 1,
       label: 'Member 1 Name',
-      name: 'member1_name',
+      name: 'members[1][name]',
       placeholder: "Eneter your member 1's name",
       types: 'text',
       pattern: '',
@@ -87,7 +87,7 @@ export const registerData = {
     {
       id: 2,
       label: 'Member 1 Major',
-      name: 'member1_major',
+      name: 'members[1][major]',
       placeholder: "Enter your member 1's major",
       types: 'text',
       pattern: '',
@@ -95,7 +95,7 @@ export const registerData = {
     {
       id: 3,
       label: 'Member 1 Batch',
-      name: 'member1_batch',
+      name: 'members[1][batch]',
       placeholder: "Enter your member 1's batch",
       types: 'text',
       pattern: '',
@@ -103,7 +103,7 @@ export const registerData = {
     {
       id: 4,
       label: 'Member 1 ID (NIK/Passport)',
-      name: 'member1_id',
+      name: 'members[1][identity_id]',
       placeholder: "Enter your member 1's ID",
       types: 'text',
       pattern: '',
@@ -111,7 +111,7 @@ export const registerData = {
     {
       id: 5,
       label: 'Member 1 Email',
-      name: 'member1_email',
+      name: 'members[1][email]',
       placeholder: "Enter your member 1's email",
       types: 'email',
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
@@ -119,7 +119,7 @@ export const registerData = {
     {
       id: 6,
       label: 'Member 1 Phone Number',
-      name: 'member1_number',
+      name: 'members[1][phone]',
       placeholder: "Enter your member 1's phone number",
       types: 'text',
       pattern: '',
@@ -129,7 +129,7 @@ export const registerData = {
     {
       id: 1,
       label: 'Member 2 Name',
-      name: 'member2_name',
+      name: 'members[2][name]',
       placeholder: "Eneter your member 2's name",
       types: 'text',
       pattern: '',
@@ -137,7 +137,7 @@ export const registerData = {
     {
       id: 2,
       label: 'Member 2 Major',
-      name: 'member2_major',
+      name: 'members[2][major]',
       placeholder: "Enter your member 2's major",
       types: 'text',
       pattern: '',
@@ -145,7 +145,7 @@ export const registerData = {
     {
       id: 3,
       label: 'Member 2 Batch',
-      name: 'member2_batch',
+      name: 'members[2][batch]',
       placeholder: "Enter your member 2's batch",
       types: 'text',
       pattern: '',
@@ -153,7 +153,7 @@ export const registerData = {
     {
       id: 4,
       label: 'Member 2 ID (NIK/Passport)',
-      name: 'member2_id',
+      name: 'members[2][identity_id]',
       placeholder: "Enter your member 2's ID",
       types: 'text',
       pattern: '',
@@ -161,7 +161,7 @@ export const registerData = {
     {
       id: 5,
       label: 'Member 2 Email',
-      name: 'member2_email',
+      name: 'members[2][email]',
       placeholder: "Enter your member 2's email",
       types: 'email',
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
@@ -169,7 +169,7 @@ export const registerData = {
     {
       id: 6,
       label: 'Member 2 Phone Number',
-      name: 'member2_number',
+      name: 'members[2][phone]',
       placeholder: "Enter your member 2's phone number",
       types: 'text',
       pattern: '',
@@ -179,7 +179,7 @@ export const registerData = {
     {
       id: 1,
       label: 'Member 3 Name',
-      name: 'member3_name',
+      name: 'members[3][name]',
       placeholder: "Eneter your member 3's name",
       types: 'text',
       pattern: '',
@@ -187,7 +187,7 @@ export const registerData = {
     {
       id: 2,
       label: 'Member 3 Major',
-      name: 'member3_major',
+      name: 'members[3][major]',
       placeholder: "Enter your member 3's major",
       types: 'text',
       pattern: '',
@@ -195,7 +195,7 @@ export const registerData = {
     {
       id: 3,
       label: 'Member 3 Batch',
-      name: 'member3_batch',
+      name: 'members[3][batch]',
       placeholder: "Enter your member 3's batch",
       types: 'text',
       pattern: '',
@@ -203,7 +203,7 @@ export const registerData = {
     {
       id: 4,
       label: 'Member 3 ID (NIK/Passport)',
-      name: 'member3_id',
+      name: 'members[3][identity_id]',
       placeholder: "Enter your member 3's ID",
       types: 'text',
       pattern: '',
@@ -211,7 +211,7 @@ export const registerData = {
     {
       id: 5,
       label: 'Member 3 Email',
-      name: 'member3_email',
+      name: 'members[3][email]',
       placeholder: "Enter your member 3's email",
       types: 'email',
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
@@ -219,7 +219,7 @@ export const registerData = {
     {
       id: 6,
       label: 'Member 3 Phone Number',
-      name: 'member3_number',
+      name: 'members[3][phone]',
       placeholder: "Enter your member 3's phone number",
       types: 'text',
       pattern: '',
@@ -229,7 +229,7 @@ export const registerData = {
     {
       id: 1,
       label: 'Member 4 Name',
-      name: 'member4_name',
+      name: 'members[4][name]',
       placeholder: "Eneter your member 4's name",
       types: 'text',
       pattern: '',
@@ -237,7 +237,7 @@ export const registerData = {
     {
       id: 2,
       label: 'Member 4 Major',
-      name: 'member4_major',
+      name: 'members[4][major]',
       placeholder: "Enter your member 4's major",
       types: 'text',
       pattern: '',
@@ -245,7 +245,7 @@ export const registerData = {
     {
       id: 4,
       label: 'Member 4 Batch',
-      name: 'member4_batch',
+      name: 'members[4][batch]',
       placeholder: "Enter your member 4's batch",
       types: 'text',
       pattern: '',
@@ -253,7 +253,7 @@ export const registerData = {
     {
       id: 4,
       label: 'Member 4 ID (NIK/Passport)',
-      name: 'member4_id',
+      name: 'members[4][identity_id]',
       placeholder: "Enter your member 4's ID",
       types: 'text',
       pattern: '',
@@ -261,7 +261,7 @@ export const registerData = {
     {
       id: 5,
       label: 'Member 4 Email',
-      name: 'member4_email',
+      name: 'members[4][email]',
       placeholder: "Enter your member 4's email",
       types: 'email',
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
@@ -269,7 +269,7 @@ export const registerData = {
     {
       id: 6,
       label: 'Member 4 Phone Number',
-      name: 'member4_number',
+      name: 'members[4][phone]',
       placeholder: "Enter your member 4's phone number",
       types: 'text',
       pattern: '',
@@ -287,7 +287,7 @@ export const registerData = {
     {
       id: 2,
       label: 'Upload KTP/Passport',
-      name: 'ktp/passport',
+      name: 'identity_card',
       placeholder: '',
       types: 'file',
       pattern: /image\/(png|jpg|jpeg)/i,
@@ -295,7 +295,7 @@ export const registerData = {
     {
       id: 3,
       label: 'Upload Students ID Card',
-      name: 'id_card',
+      name: 'student_card',
       placeholder: '',
       types: 'file',
       pattern: /image\/(png|jpg|jpeg)/i,
@@ -309,7 +309,7 @@ export const registerData2 = {
     {
       id: 1,
       label: 'Competition Type',
-      name: 'competition_type',
+      name: 'event_id',
       placeholder: 'Oil Rig Design Competition',
       types: 'text',
       pattern: '',
@@ -335,15 +335,15 @@ export const registerData2 = {
     {
       id: 1,
       label: 'Leader Name',
-      name: 'leader_name',
-      placeholder: "Eneter your leader's name",
+      name: 'members[0][name]',
+      placeholder: "Enter your leader's name",
       types: 'text',
       pattern: '',
     },
     {
       id: 2,
       label: 'Leader Major',
-      name: 'leader_major',
+      name: 'members[0][major]',
       placeholder: "Enter your leader's major",
       types: 'text',
       pattern: '',
@@ -351,7 +351,7 @@ export const registerData2 = {
     {
       id: 3,
       label: 'Leader Batch',
-      name: 'leader_batch',
+      name: 'members[0][batch]',
       placeholder: "Enter your leader's batch",
       types: 'text',
       pattern: '',
@@ -359,7 +359,7 @@ export const registerData2 = {
     {
       id: 4,
       label: 'Leader ID (NIK/Passport)',
-      name: 'leader_id',
+      name: 'members[0][identity_id]',
       placeholder: "Enter your leader's ID",
       types: 'text',
       pattern: '',
@@ -367,7 +367,7 @@ export const registerData2 = {
     {
       id: 5,
       label: 'Leader Email',
-      name: 'leader_email',
+      name: 'members[0][email]',
       placeholder: "Enter your leader's email",
       types: 'email',
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
@@ -375,7 +375,7 @@ export const registerData2 = {
     {
       id: 6,
       label: 'Leader Phone Number',
-      name: 'leader_number',
+      name: 'members[0][phone]',
       placeholder: "Enter your leader's phone number",
       types: 'text',
       pattern: '',
@@ -385,7 +385,7 @@ export const registerData2 = {
     {
       id: 1,
       label: 'Member 1 Name',
-      name: 'member1_name',
+      name: 'members[1][name]',
       placeholder: "Eneter your member 1's name",
       types: 'text',
       pattern: '',
@@ -393,7 +393,7 @@ export const registerData2 = {
     {
       id: 2,
       label: 'Member 1 Major',
-      name: 'member1_major',
+      name: 'members[1][major]',
       placeholder: "Enter your member 1's major",
       types: 'text',
       pattern: '',
@@ -401,7 +401,7 @@ export const registerData2 = {
     {
       id: 3,
       label: 'Member 1 Batch',
-      name: 'member1_batch',
+      name: 'members[1][batch]',
       placeholder: "Enter your member 1's batch",
       types: 'text',
       pattern: '',
@@ -409,7 +409,7 @@ export const registerData2 = {
     {
       id: 4,
       label: 'Member 1 ID (NIK/Passport)',
-      name: 'member1_id',
+      name: 'members[1][identity_id]',
       placeholder: "Enter your member 1's ID",
       types: 'text',
       pattern: '',
@@ -417,7 +417,7 @@ export const registerData2 = {
     {
       id: 5,
       label: 'Member 1 Email',
-      name: 'member1_email',
+      name: 'members[1][email]',
       placeholder: "Enter your member 1's email",
       types: 'email',
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
@@ -425,7 +425,7 @@ export const registerData2 = {
     {
       id: 6,
       label: 'Member 1 Phone Number',
-      name: 'member1_number',
+      name: 'members[1][phone]',
       placeholder: "Enter your member 1's phone number",
       types: 'text',
       pattern: '',
@@ -435,7 +435,7 @@ export const registerData2 = {
     {
       id: 1,
       label: 'Member 2 Name',
-      name: 'member2_name',
+      name: 'members[2][name]',
       placeholder: "Eneter your member 2's name",
       types: 'text',
       pattern: '',
@@ -443,7 +443,7 @@ export const registerData2 = {
     {
       id: 2,
       label: 'Member 2 Major',
-      name: 'member2_major',
+      name: 'members[2][major]',
       placeholder: "Enter your member 2's major",
       types: 'text',
       pattern: '',
@@ -451,7 +451,7 @@ export const registerData2 = {
     {
       id: 3,
       label: 'Member 2 Batch',
-      name: 'member2_batch',
+      name: 'members[2][batch]',
       placeholder: "Enter your member 2's batch",
       types: 'text',
       pattern: '',
@@ -459,7 +459,7 @@ export const registerData2 = {
     {
       id: 4,
       label: 'Member 2 ID (NIK/Passport)',
-      name: 'member2_id',
+      name: 'members[2][identity_id]',
       placeholder: "Enter your member 2's ID",
       types: 'text',
       pattern: '',
@@ -467,7 +467,7 @@ export const registerData2 = {
     {
       id: 5,
       label: 'Member 2 Email',
-      name: 'member2_email',
+      name: 'members[2][email]',
       placeholder: "Enter your member 2's email",
       types: 'email',
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
@@ -475,7 +475,7 @@ export const registerData2 = {
     {
       id: 6,
       label: 'Member 2 Phone Number',
-      name: 'member2_number',
+      name: 'members[2][phone]',
       placeholder: "Enter your member 2's phone number",
       types: 'text',
       pattern: '',
@@ -493,7 +493,7 @@ export const registerData2 = {
     {
       id: 2,
       label: 'Upload KTP/Passport',
-      name: 'ktp/passport',
+      name: 'identity_card',
       placeholder: '',
       types: 'file',
       pattern: /image\/(png|jpg|jpeg)/i,
@@ -501,7 +501,7 @@ export const registerData2 = {
     {
       id: 3,
       label: 'Upload Students ID Card',
-      name: 'id_card',
+      name: 'student_card',
       placeholder: '',
       types: 'file',
       pattern: /image\/(png|jpg|jpeg)/i,
