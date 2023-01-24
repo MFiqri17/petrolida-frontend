@@ -26,10 +26,11 @@ const formtypeArray = [
 const formTypeArray2 = ['General', 'Leader', 'Member 1', 'Member 2', 'Files']
 const competitionType = [
   { id: '1', name: 'Oil Rig Design' },
-  { id: '2', name: 'Fracturing Fluid Design' },
-  { id: '3', name: 'Petrosmart' },
-  { id: '4', name: 'Paper' },
-  { id: '5', name: 'Business Case' },
+  { id: '2', name: 'Paper' },
+  { id: '3', name: 'Business Case' },
+  { id: '4', name: 'Fracturing Fluid Design' },
+  { id: '5', name: 'Case Study' },
+  { id: '6', name: 'Petrosmart' },
 ]
 
 interface IFileState {
