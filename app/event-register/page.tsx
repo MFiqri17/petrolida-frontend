@@ -11,6 +11,7 @@ import FormTimeline from '../../components/register/formTimeline'
 import Formbutton from '../../components/register/formButton'
 import { FormValues } from '../../types/formValues'
 import SuccessModal from '../../components/register/successModal'
+import Spinner from '../../components/utils/spinner'
 import toast from 'react-hot-toast'
 
 const formtypeArray = [
@@ -74,7 +75,7 @@ const EventRegistration = () => {
       .then(() => {
         setIsOpen(true)
       })
-      .catch((e) => {
+      .catch((e:any) => {
         toast.error('Error')
         console.error(e)
       })
@@ -180,6 +181,7 @@ const EventRegistration = () => {
                               {...register(registerItem.name, {
                                 required: true,
                               })}
+                              className="hidden"
                             />
                           ) : registerItem.types === 'file' ? (
                             <ImageInput
@@ -223,6 +225,8 @@ const EventRegistration = () => {
                 </>
               ))}
               <Formbutton
+                isLoading={isLoading}
+                Spinner={Spinner}
                 compValue={compValue}
                 step={index}
                 increamentStep={incrementIndex}

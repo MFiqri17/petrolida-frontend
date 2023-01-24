@@ -30,12 +30,16 @@ const Formbutton = ({
   decreamentStep,
   isValid,
   compValue,
+  Spinner,
+  isLoading
 }: {
   step: number
   increamentStep: () => void
   decreamentStep: () => void
   isValid: boolean
   compValue: string
+  Spinner: any
+  isLoading: boolean
 }) => {
   return (
     <div className="flex flex-col-reverse justify-center space-y-5 space-y-reverse md:flex-row md:space-x-10 md:space-y-0">
@@ -69,8 +73,9 @@ const Formbutton = ({
               'w-full rounded-[30px] bg-[#07003F] py-4 text-2xl  font-semibold text-[#FBFBFC] !transition !duration-300 hover:!scale-105 md:w-[190px]',
             )}
             type="submit"
+            disabled={isLoading}
           >
-            Register
+               {isLoading ? <Spinner /> : 'Register'}
           </button>
         )}
       </>
