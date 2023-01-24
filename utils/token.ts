@@ -1,11 +1,15 @@
-export const getToken = (): string | null => {
-  return localStorage.getItem('petrolida/token')
+import Cookies from 'universal-cookie'
+
+const cookies = new Cookies()
+
+export const getToken = (): string => {
+  return cookies.get('petrolida/token')
 }
 
 export const removeToken = () => {
-  localStorage.removeItem('petrolida/token')
+  cookies.remove('petrolida/token')
 }
 
 export const setToken = (token: string) => {
-  localStorage.setItem('petrolida/token', token)
+  cookies.set('petrolida/token', token)
 }

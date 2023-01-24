@@ -33,10 +33,11 @@ export default function RegisterForm() {
     )
     api
       .post('/register', formData)
-      .then(() => {
+      .then((res) => {
         toast.success(
           'Register success, please check your email for verify email',
         )
+        setToken(res.data.token)
         router.push('/login')
       })
       .catch((e) => {

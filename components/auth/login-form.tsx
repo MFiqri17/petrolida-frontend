@@ -4,6 +4,7 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { api } from '../../utils/api'
+import { setToken } from '../../utils/token'
 import Spinner from '../utils/spinner'
 
 interface LoginFormValue {
@@ -24,8 +25,9 @@ export default function LoginForm() {
     )
     api
       .post('/login', formData)
-      .then(() => {
+      .then((res) => {
         toast.success('Login success')
+        setToken(res.data.token)
         router.push('/dashboard')
       })
       .catch((e) => {
