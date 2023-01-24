@@ -24,7 +24,9 @@ export default function LoginForm() {
       formData.append(val, data[val as keyof LoginFormValue]),
     )
     api
-      .post('/login', formData)
+      .post('/login', formData, {
+        headers: { 'Content-Type': 'application/json' },
+      })
       .then((res) => {
         toast.success('Login success')
         setToken(res.data.token)
