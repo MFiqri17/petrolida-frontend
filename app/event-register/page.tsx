@@ -174,7 +174,16 @@ const EventRegistration = () => {
                     >
                       {registers.map((registerItem) => (
                         <>
-                          {registerItem.name == 'event_id' ? (
+                          {registerItem.name == 'amount' ? (
+                            <input
+                              id={registerItem.name}
+                              value={"200000"}
+                              {...register(registerItem.name, {
+                                required: true,
+                              })}
+                              className="hidden"
+                            />
+                          ) : registerItem.name == 'event_id' ? (
                             <input
                               id={registerItem.name}
                               value={compValue}

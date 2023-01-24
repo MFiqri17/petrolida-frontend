@@ -24,6 +24,14 @@ export const registerData = {
       types: 'text',
       pattern: '',
     },
+    {
+      id: 4,
+      label: 'Amount',
+      name: 'amount',
+      placeholder: "Enter your amounts",
+      types: 'text',
+      pattern: '',
+    }
   ],
   Leader: [
     {
@@ -326,6 +334,14 @@ export const registerData2 = {
       label: 'Team Name',
       name: 'team_name',
       placeholder: "Enter your team's name",
+      types: 'text',
+      pattern: '',
+    },
+    {
+      id: 4,
+      label: 'Amount',
+      name: 'amount',
+      placeholder: 'Enter your amounts',
       types: 'text',
       pattern: '',
     },

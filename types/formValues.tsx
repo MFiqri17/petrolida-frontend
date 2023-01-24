@@ -2,6 +2,7 @@ export interface FormValues {
   event_id: string
   team_name: string
   university: string
+  amount: string
   'members[0][batch]': string
   'members[0][email]': string
   'members[0][identity_id]': string
