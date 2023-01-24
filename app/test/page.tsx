@@ -4,7 +4,8 @@ import Modal from '../../components/register/successModal'
 const Test = () => {
     return(
         <>
-            <Modal />
+            {/* <Modal /> */}
+            <p>test</p>
         </>
     )
 }
