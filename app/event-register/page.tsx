@@ -9,11 +9,10 @@ import { Input, ImageInput } from '../../components/register/formComponent'
 import { api } from '../../utils/api'
 import FormTimeline from '../../components/register/formTimeline'
 import Formbutton from '../../components/register/formButton'
-import { FormValues } from '../../types/formValues'
+// import { FormValues } from '../../types/formValues'
 import SuccessModal from '../../components/register/successModal'
 import Spinner from '../../components/utils/spinner'
 import toast from 'react-hot-toast'
-import { headers } from 'next/headers'
 
 const formtypeArray = [
   'General',
@@ -65,12 +64,24 @@ const EventRegistration = () => {
   function getKeyByValue(object: any, value: any) {
     return Object.keys(object).find((key) => object[key] === value)
   }
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit: SubmitHandler<any> = (data) => {
     setIsLoading(true)
     const formData = new FormData()
-    Object.keys(data).forEach((val) =>
-      formData.append(val, data[val as keyof FormValues]),
-    )
+    Object.keys(data).forEach((val) => {
+      let index = 0
+      if (val === 'members') {
+        data.members.forEach((member: any) => {
+          Object.keys(member).forEach((memb) => {
+            formData.append(`members[${index}][${memb}]`, member[memb])
+          })
+          index++
+        })
+      } else {
+        console.log(val)
+        formData.append(val, data[val])
+      }
+    })
+
     console.log(formData)
     api
       .post('/events/registration', formData, {
@@ -95,7 +106,7 @@ const EventRegistration = () => {
     setError,
     trigger,
     formState: { errors, isValid },
-  } = useForm<FormValues>()
+  } = useForm<any>()
 
   const conditionalForm = () => {
     switch (step) {
