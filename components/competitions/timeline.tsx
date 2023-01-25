@@ -1,10 +1,6 @@
 'use client'
 
 export default function Timeline({ firstDate, firstEvent, timeline, lastDate, lastEvent }: { firstDate: any, firstEvent: any, timeline: { date: any, component: any }[], lastDate: any, lastEvent: any }) {
-
-    var today = new Date();
-    var todayDate = today.getDate();
-    var firstdate = new Date(`${firstDate}, 2023`);
     return (
         <>
             <div className="py-24 bg-[#EDEEF3]">
@@ -15,10 +11,9 @@ export default function Timeline({ firstDate, firstEvent, timeline, lastDate, la
                     <ol className="flex items-center h-56 max-w-screen-xl mx-12 overflow-x-auto snap-x">
                         <li className="relative mb-6 sm:mb-0 snap-center">
                             <time className="block w-48 mx-auto mb-2 text-base font-semibold text-center text-black -translate-y-4 font-poppins">{firstDate}</time>
-                            <div className={`flex items-center justify-center ${todayDate == firstdate.getDate() ? 'animate-pulse' : ''}`}>
+                            <div className="flex items-center justify-center animate-pulse">
                                 <div
-                                    className={`z-10 flex items-center justify-center w-6 h-6 rounded-full ${todayDate == firstdate.getDate() ? 'bg-[#3D4BE0] ring-offset-8 ring-8 ring-[#D0D4F8] outline outline-8 outline-[#838CEB] shrink-0' : 'bg-[#ffffff] ring-inset ring-[7px] ring-[#838CEB] outline outline-[7px] outline-[#D0D4F8]'
-                                        }  `}>
+                                    className="z-10 flex items-center justify-center w-6 h-6 rounded-full bg-[#3D4BE0] ring-offset-8 ring-8 ring-[#D0D4F8] outline outline-8 outline-[#838CEB] shrink-0">
                                 </div>
                                 <div className="flex w-1/2 absolute right-0 h-2 bg-[#FBFBFC]">
                                 </div>
@@ -32,14 +27,11 @@ export default function Timeline({ firstDate, firstEvent, timeline, lastDate, la
                         {timeline.map((item) => (
                             <li key={timeline.indexOf(item)} className="relative mb-6 sm:mb-0 snap-center">
                                 <time className="block w-48 mb-2 text-base font-semibold text-center text-black -translate-y-4 font-poppins">{item.date}</time>
-                                {/* <div className={`relative flex items-center ${today === timeDate ? 'animate-pulse' : ''}`}> */}
-                                <div className={`relative flex items-center ${todayDate == new Date(`${item.date}, 2023`).getDate() ? 'animate-pulse' : ''} `}>
+                                <div className="relative flex items-center">
                                     <div
-                                        className={`z-10 flex items-center justify-center w-6 h-6 mx-auto rounded-full ${todayDate == new Date(`${item.date}, 2023`).getDate() ? 'bg-[#3D4BE0] ring-offset-8 ring-8 ring-[#D0D4F8] outline outline-8 outline-[#838CEB] shrink-0' : 'bg-[#ffffff] ring-inset ring-[7px] ring-[#838CEB] outline outline-[7px] outline-[#D0D4F8]'
-                                            } `}>
+                                        className="z-10 flex items-center justify-center w-6 h-6 mx-auto rounded-full bg-[#ffffff] ring-inset ring-[7px] ring-[#838CEB] outline outline-[7px] outline-[#D0D4F8]">
                                     </div>
                                     <div className="flex absolute w-full h-2 bg-[#FBFBFC]"></div>
-                                    <span></span>
                                 </div>
                                 <div className="mt-3">
                                     <h3 className="text-base font-semibold text-center text-black translate-y-4 font-poppins">{item.component}</h3>
