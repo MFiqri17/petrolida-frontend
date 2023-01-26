@@ -91,23 +91,23 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
             >
               <Popover.Panel
                 focus
-                className="absolute inset-x-0 top-0 origin-top-right transform transition sm:p-2 lg:hidden"
+                className="absolute inset-x-0 top-0 transition origin-top-right transform sm:p-2 lg:hidden"
               >
                 <div className="rounded-lg bg-[#3D4BE0] shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="px-5 pt-5 pb-6">
                     <div className="flex items-center justify-between">
                       <div>
                         <img
-                          className="h-8 w-auto"
+                          className="w-auto h-8"
                           src={'/logo/petrolida-2023-white.png'}
                           alt="logo-petrolida"
                         />
                       </div>
                       <div className="-mr-2">
-                        <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                           <span className="sr-only">Close menu</span>
                           <XMarkIcon
-                            className="h-6 w-6 stroke-white"
+                            className="w-6 h-6 stroke-white"
                             aria-hidden="true"
                           />
                         </Popover.Button>
@@ -117,26 +117,26 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                       <nav className="flex flex-col justify-start space-y-4 text-start">
                         <Link
                           href="/about"
-                          className="text-md text-start font-semibold text-light"
+                          className="font-semibold text-md text-start text-light"
                         >
                           About
                         </Link>
 
                         <Link
                           href="/coming-soon"
-                          className="text-md text-start font-semibold text-light"
+                          className="font-semibold text-md text-start text-light"
                         >
                           Event
                         </Link>
                         <Link
-                          href="/coming-soon"
-                          className="text-md text-start font-semibold text-light"
+                          href="/merchandise"
+                          className="font-semibold text-md text-start text-light"
                         >
-                          Contact
+                          Merchandise
                         </Link>
                         <Popover>
                           <Popover.Button>
-                            <h4 className="text-md flex font-semibold text-light">
+                            <h4 className="flex font-semibold text-md text-light">
                               Competition{' '}
                               <span>
                                 <ChevronDownIcon className='className="w-6 h-6 stroke-white' />
@@ -148,9 +148,9 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                               <Link
                                 key={item.name}
                                 href={`/competition/${item.slug}`}
-                                className="-m-3 flex rounded-md p-3 font-semibold lg:hover:bg-gray-50"
+                                className="flex p-3 -m-3 font-semibold rounded-md lg:hover:bg-gray-50"
                               >
-                                <span className="text-md ml-3 text-light lg:text-gray-900">
+                                <span className="ml-3 text-md text-light lg:text-gray-900">
                                   {item.name}
                                 </span>
                               </Link>
@@ -159,7 +159,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                         </Popover>
                         <Link
                           href="/coming-soon"
-                          className="text-md text-start font-semibold text-light"
+                          className="font-semibold text-md text-start text-light"
                         >
                           Non Competition
                         </Link>
@@ -206,7 +206,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
                     <div className="flex space-x-4">
                       <Link
                         href="/login"
-                        className="text-md w-full rounded-full border border-light bg-transparent py-2 font-semibold text-light"
+                        className="w-full py-2 font-semibold bg-transparent border rounded-full text-md border-light text-light"
                       >
                         Learn more
                       </Link>
@@ -267,7 +267,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Popover.Panel className="absolute z-10 w-60 -translate-x-12">
+              <Popover.Panel className="absolute z-10 -translate-x-12 w-60">
                 <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12">
                   {competitionData.map((item: { name: any; slug: any }) => (
                     <Link key={item.name} href={`/competition/${item.slug}`}>
@@ -318,7 +318,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
 
               <li title="{{ Auth::user()->email }}">User123</li>
               <svg
-                className="transform transition-transform duration-200 "
+                className="transition-transform duration-200 transform "
                 width="11"
                 height="7"
                 viewBox="0 0 11 7"
@@ -365,7 +365,7 @@ export default function Navbar({ isTrans }: { isTrans: boolean }) {
         </ul>
         {/* @endauth
                     @guest */}
-        <ul className="font-poppins hidden flex-row items-center space-x-4 rounded-full bg-transparent px-6 py-3 font-semibold sm:justify-center lg:flex lg:py-2">
+        <ul className="flex-row items-center hidden px-6 py-3 space-x-4 font-semibold bg-transparent rounded-full font-poppins sm:justify-center lg:flex lg:py-2">
           <Link
             href="/login"
             className={`rounded-full bg-gradient-to-r  px-8 py-2 ${

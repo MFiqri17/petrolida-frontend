@@ -1,7 +1,7 @@
 import '../globals.css'
+import Navbar from '../../components/layout/navbar/navbar'
 import localFont from '@next/font/local'
-import Sidebar from '../../components/layout/sidebar/sidebar'
-import ProfileBar from '../../components/dashboard/profile-bar'
+import Footers from '../../components/layout/footer/footers'
 import SmoothScrollContainer from '../../components/utils/smooth-scroll'
 
 const gilroy = localFont({
@@ -20,22 +20,25 @@ const gilroy = localFont({
     },
   ],
 })
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html className={gilroy.className}>
+    <html lang="en" className={gilroy.className}>
+      {/*
+        <head /> will contain the components returned by the nearest parent
+        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
+      */}
       <head />
-      <body className="min-h-screen bg-lightb sm:flex">
-        <Sidebar />
-        <div className="w-3/4 px-5 sm:grow sm:px-24">
-          <section className="justify-end hidden w-full py-14 sm:flex">
-            <ProfileBar />
-          </section>
+      <body>
+        <Navbar isTrans={true} />
+        <SmoothScrollContainer>
           {children}
-        </div>
+          <Footers />
+        </SmoothScrollContainer>
       </body>
     </html>
   )

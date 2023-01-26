@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import headerImg from "../../../public/merchandise/header.png"
+import headerImg from "../../public/merchandise/header.png"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import React from "react"
 import '@splidejs/react-splide/css'
@@ -10,22 +10,22 @@ const bundleData = [
     {
         title: "Bundle 1",
         src: "/merchandise/bundle-1.png",
-        link: "#"
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSc2KdbpJ7DexjuFttOtohIcrCcGR-0xHs1dcvoFm_U9tQRFxQ/viewform"
     },
     {
         title: "Bundle 2",
         src: "/merchandise/bundle-2.png",
-        link: "#"
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSc2KdbpJ7DexjuFttOtohIcrCcGR-0xHs1dcvoFm_U9tQRFxQ/viewform"
     },
     {
         title: "Bundle 3",
         src: "/merchandise/bundle-3.png",
-        link: "#"
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSc2KdbpJ7DexjuFttOtohIcrCcGR-0xHs1dcvoFm_U9tQRFxQ/viewform"
     },
     {
         title: "Bundle 4",
         src: "/merchandise/bundle-4.png",
-        link: "#"
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSc2KdbpJ7DexjuFttOtohIcrCcGR-0xHs1dcvoFm_U9tQRFxQ/viewform"
     },
 ]
 
@@ -109,6 +109,9 @@ export default function merchandisePage() {
                         arrows: false,
                         pagination: false,
                         autoplay: true,
+                        speed: 1500,
+                        drag: true,
+                        pause: false,
                         type: 'loop',
                         pauseOnHover: false,
                     }}
@@ -158,7 +161,7 @@ export default function merchandisePage() {
                                         </svg>
                                     </button>
                                 </div>
-                                <a href={link} className="rounded-full bg-[#E4FCFF] font-semibold translate-y-12 hover:translate-y-10 transition duration-300 flex px-4 py-4 divide-x-2 divide-primary "> <span className="pr-3">Buy now!</span> <span className="pl-3">149 K</span> </a>
+                                <a href={link} target={'_blank'} className="rounded-full bg-[#E4FCFF] font-semibold translate-y-12 hover:translate-y-10 transition duration-300 flex px-4 py-4 divide-x-2 divide-primary "> <span className="pr-3">Buy now!</span> <span className="pl-3">149 K</span> </a>
                                 <div className="flex justify-center text-white translate-y-16 lg:hidden">
                                     <button onClick={() => handleThumbs('<')} className="absolute z-50 block -translate-x-8 lg:hidden">
                                         <svg
@@ -218,7 +221,7 @@ export default function merchandisePage() {
                     ))}
                 </div>
                 <div className="flex flex-col items-center justify-center">
-                    <a href={'#'} className=" text-center  relative rounded-full bg-[#E4FCFF] font-semibold hover:-translate-y-2 transition duration-300 px-4 py-4 divide-x-2 divide-primary "> <span className="pr-3">Buy now!</span> <span className="pl-3">90 K</span> </a>
+                    <a href={'https://docs.google.com/forms/d/e/1FAIpQLSc2KdbpJ7DexjuFttOtohIcrCcGR-0xHs1dcvoFm_U9tQRFxQ/viewform'} target={'_blank'} className=" text-center  relative rounded-full bg-[#E4FCFF] font-semibold hover:-translate-y-2 transition duration-300 px-4 py-4 divide-x-2 divide-primary "> <span className="pr-3">Buy now!</span> <span className="pl-3">90 K</span> </a>
                 </div>
             </div>
 
@@ -236,7 +239,7 @@ export default function merchandisePage() {
                                 className="py-8 transition duration-300 hover:scale-110"
                             />
                             <div className="flex flex-col items-center justify-center">
-                                <a href={'#'} className=" text-center  relative rounded-full bg-[#E4FCFF] font-semibold hover:-translate-y-2 transition duration-300 px-4 py-4 divide-x-2 divide-primary "> <span className="pr-3">Buy now!</span> <span className="pl-3">90 K</span> </a>
+                                <a href={'https://docs.google.com/forms/d/e/1FAIpQLSc2KdbpJ7DexjuFttOtohIcrCcGR-0xHs1dcvoFm_U9tQRFxQ/viewform'} target={'_blank'} className=" text-center  relative rounded-full bg-[#E4FCFF] font-semibold hover:-translate-y-2 transition duration-300 px-4 py-4 divide-x-2 divide-primary "> <span className="pr-3">Buy now!</span> <span className="pl-3">90 K</span> </a>
                             </div>
                             <div className="absolute animate-blob top-24 lg:top-56 left-24 w-24 h-24 bg-[#B1B7F3] rounded-full blur-3xl"></div>
                             <div className="absolute animate-blob animation-delay-2 top-96 lg:top-56 lg:left-[36rem] w-24 h-24 bg-gradient-to-l from-[#07003F] via-[#5461E4] to-[#838CEB] rounded-full blur-3xl"></div>
