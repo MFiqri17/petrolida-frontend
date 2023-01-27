@@ -665,7 +665,7 @@ export const competitionData = [
     image: '/event-dashboard/case-study.png',
     descCard: (
       <>
-        Case Study Competition that will be held online, enables undergraduate
+        Case Study Competition that will be held offline, enables undergraduate
         students to demonstrate their critical thinking abilities, determination
         to address complex issues, and competence to work in teams in order to
         solve oil and gas industry-related cases.{' '}
