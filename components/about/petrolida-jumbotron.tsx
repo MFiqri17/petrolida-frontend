@@ -2,15 +2,15 @@ import SectionTitle from '../utils/section-title'
 import Link from 'next/link'
 import Image from 'next/image'
 import MovingGradient from '../utils/moving-gradient'
-interface cardaboutInterface {}
-const PetrolidaAbout = ({}: cardaboutInterface) => {
+interface cardaboutInterface { }
+const PetrolidaAbout = ({ }: cardaboutInterface) => {
   return (
     <div
       className={`overflow-hidden px-4 pb-[120px] pt-[350px] lg:py-[350px] xl:pr-[222px] xl:pl-[120px]`}
     >
       <section
         id="petrolida"
-        className="relative mx-auto flex  flex-col items-center  justify-center md:flex-row xl:space-x-10  "
+        className="relative flex flex-col items-center justify-center mx-auto md:flex-row xl:space-x-10 "
       >
         <div className={`absolute -left-60 -top-20 sm:-left-40`}>
           {/* <Image
@@ -48,14 +48,14 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
           </section>
           <Link
             href={'/about'}
-            className="mt-6 inline-flex items-center gap-x-6 text-base font-semibold text-white transition-all hover:gap-x-8 lg:mt-14 lg:text-2xl"
+            className="inline-flex items-center mt-6 text-base font-semibold text-white transition-all gap-x-6 hover:gap-x-8 lg:mt-14 lg:text-2xl"
           >
             Learn More{' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-10 w-10"
+              className="w-10 h-10"
             >
               <path
                 fillRule="evenodd"
@@ -65,19 +65,21 @@ const PetrolidaAbout = ({}: cardaboutInterface) => {
             </svg>
           </Link>
         </div>
-        <div className=" flex flex-col space-y-6">
+        <div className="flex flex-col space-y-6 ">
           <p
             className={` ${'text-right'} hidden text-lg font-semibold text-[#3D4BE0] lg:block`}
           >
             {'About Petrolida'}
           </p>
-          <div className="relative h-[344px] w-[334px] lg:h-[500px] lg:w-[486px]">
-            <Image
+          <div className="relative ">
+            <iframe className='rounded-3xl w-[320px] h-[240px] lg:h-[480px] lg:w-[640px]' src="https://drive.google.com/file/d/1-UQTDmZ_GZm1l7_LSAPvYEAgFbhjWyIL/preview" allow='autoplay' allowFullScreen></iframe>
+
+            {/* <Image
               layout="fill"
               src={'/images/surabaya.png'}
               alt={'About Petrolida'}
               objectFit="contain"
-            />
+            /> */}
           </div>
         </div>
       </section>

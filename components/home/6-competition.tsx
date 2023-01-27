@@ -7,7 +7,7 @@ import MovingGradient from '../utils/moving-gradient'
 
 const competitionData = [
   {
-    name: 'OIL RIG DESAIN',
+    name: 'OIL RIG DESIGN',
     desc: 'Innovating Sustainable Oil Platform to Strengthen Energy Security and Maximize Energy Potential',
     src: '/event-dashboard/oil-rig-design.png',
     className: 'sm:text-6xl text-2xl',
@@ -59,21 +59,21 @@ export default function SixCompetition() {
     }, 5000)
   }, [])
   return (
-    <section className="overflow-hidden bg-light pb-64 sm:pt-40">
-      <p className="pb-4 text-center text-lg text-secondary">Competitions</p>
+    <section className="pb-64 overflow-hidden bg-light sm:pt-40">
+      <p className="pb-4 text-lg text-center text-secondary">Competitions</p>
       <SectionTitle
         title="6 COMPETITION EVENT"
         className="text-3xl sm:text-6xl"
       />
-      <p className="mx-auto px-12 text-center sm:w-1/2 sm:text-xl sm:font-semibold">
+      <p className="px-12 mx-auto text-center sm:w-1/2 sm:text-xl sm:font-semibold">
         Meet other participants, let’s show your ideas, innovations and
         abilities to Petrolida 2022
       </p>
-      <div className="relative mx-auto mt-10 px-6 sm:mt-32 sm:w-3/5">
+      <div className="relative px-6 mx-auto mt-10 sm:mt-32 sm:w-3/5">
         <div className="absolute top-0 -right-80 sm:-right-64 sm:-top-32">
           <MovingGradient className="h-[70rem] w-[70rem]" />
         </div>
-        {/* <div className="absolute -top-60 -right-40 hidden sm:block">
+        {/* <div className="absolute hidden -top-60 -right-40 sm:block">
           <Image
             src={'/images/6-competition-bg.png'}
             width={1185}
@@ -118,19 +118,19 @@ export default function SixCompetition() {
                 alt="competition"
                 className="-skew-x-3"
               />
-              <div className="ml-3 mt-4 flex items-center px-6 sm:mt-0 sm:w-1/3 sm:px-0">
+              <div className="flex items-center px-6 mt-4 ml-3 sm:mt-0 sm:w-1/3 sm:px-0">
                 <p className="text-white">{desc}</p>
               </div>
             </SplideSlide>
           ))}
         </Splide>
-        <div className="absolute -bottom-14 right-40 flex justify-center gap-x-4 text-white sm:bottom-36">
+        <div className="absolute flex justify-center text-white -bottom-14 right-40 gap-x-4 sm:bottom-36">
           <button onClick={() => handleThumbs('<')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-8 w-8"
+              className="w-8 h-8"
             >
               <path
                 fillRule="evenodd"
@@ -144,7 +144,7 @@ export default function SixCompetition() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-8 w-8"
+              className="w-8 h-8"
             >
               <path
                 fillRule="evenodd"
