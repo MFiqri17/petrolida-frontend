@@ -9,7 +9,7 @@ import { Input, ImageInput } from '../../components/register/formComponent'
 import { api } from '../../utils/api'
 import FormTimeline from '../../components/register/formTimeline'
 import Formbutton from '../../components/register/formButton'
-// import { FormValues } from '../../types/formValues'
+import { FormValues, FormValues2 } from '../../types/formValues'
 import SuccessModal from '../../components/register/successModal'
 import Spinner from '../../components/utils/spinner'
 import toast from 'react-hot-toast'
@@ -65,7 +65,7 @@ const EventRegistration = () => {
   function getKeyByValue(object: any, value: any) {
     return Object.keys(object).find((key) => object[key] === value)
   }
-  const onSubmit: SubmitHandler<any> = (data) => {
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
     setIsLoading(true)
     const formData = new FormData()
     Object.keys(data).forEach((val) => {
@@ -78,8 +78,7 @@ const EventRegistration = () => {
           index++
         })
       } else {
-        console.log(val)
-        formData.append(val, data[val])
+        formData.append(val, data[val as keyof FormValues2])
       }
     })
 
@@ -107,7 +106,7 @@ const EventRegistration = () => {
     setError,
     trigger,
     formState: { errors, isValid },
-  } = useForm<any>()
+  } = useForm<FormValues>()
 
   const conditionalForm = () => {
     switch (step) {

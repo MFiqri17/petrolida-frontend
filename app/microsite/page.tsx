@@ -1,6 +1,10 @@
+'use client'
+import React from 'react'
 import Image from 'next/image'
 import Button from '../../components/microsite/button'
 import Socials from '../../components/layout/footer/socials'
+import { set } from 'react-hook-form'
+import api from '../../utils/api'
 
 const buttonList = [
   { id: 1, name: 'Registration Form', href: '/event-register' },
@@ -9,10 +13,30 @@ const buttonList = [
   { id: 4, name: 'Wakanda Forever', href: '' },
 ]
 
+interface micrositeInterface {
+  id: number,
+  name: string,
+  logo: any,
+  url: string,
+  description: string,
+  created_at: any,
+  updated_at: any
+}
+
 export default function MicrositePage() {
+  const [micorositeData, setMicrositeData] = React.useState<micrositeInterface[]>([])
+  React.useEffect(() => {
+    api
+      .get('/microsite')
+      .then((res) => {
+        setMicrositeData(res.data.data)
+        console.log(micorositeData)
+      })
+      .catch((e) => console.log(e.message))
+  }, [])
   return (
     <div className="relative flex items-center justify-center overflow-clip bg-light">
-      <div className="z-20 my-20 h-screen md:px-0 px-5  flex flex-col items-center justify-center">
+      <div className="z-20 my-20 flex h-screen flex-col  items-center justify-center px-5 md:px-0">
         <Image
           src={'/images/petrolida-circle.png'}
           alt="logo petrolida circle"
@@ -26,7 +50,7 @@ export default function MicrositePage() {
           Petroleum Integrated Days 2023
         </h5>
         <section className="mt-12 mb-8 flex flex-col space-y-4">
-          {buttonList.map((list) => (
+          {micorositeData.map((list) => (
             <Button key={list.id} {...list} />
           ))}
         </section>
