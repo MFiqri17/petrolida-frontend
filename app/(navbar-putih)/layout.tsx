@@ -5,6 +5,7 @@ import LetsJoin from '../../components/layout/footer/letsJoin'
 import Footers from '../../components/layout/footer/footers'
 import Toast from '../../components/utils/toast'
 import SmoothScrollContainer from '../../components/utils/smooth-scroll'
+import { getUserData } from '../../utils/auth'
 
 const gilroy = localFont({
   src: [
@@ -23,11 +24,12 @@ const gilroy = localFont({
   ],
 })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const userData = await getUserData()
   return (
     <html lang="en" className={gilroy.className}>
       {/*
@@ -36,7 +38,7 @@ export default function RootLayout({
       */}
       <head />
       <body className="bg-light">
-        <Navbar isTrans={false} />
+        <Navbar isTrans={false} userData={userData} />
         <SmoothScrollContainer>
           <Toast />
           {children}

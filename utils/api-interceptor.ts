@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers'
+import { NextRequest } from 'next/server'
 
 import api, { isServer } from './api'
 

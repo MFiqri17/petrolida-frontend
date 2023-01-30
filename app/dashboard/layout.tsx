@@ -2,7 +2,7 @@ import '../globals.css'
 import localFont from '@next/font/local'
 import Sidebar from '../../components/layout/sidebar/sidebar'
 import ProfileBar from '../../components/dashboard/profile-bar'
-import SmoothScrollContainer from '../../components/utils/smooth-scroll'
+import { getUserData } from '../../utils/auth'
 
 const gilroy = localFont({
   src: [
@@ -20,19 +20,20 @@ const gilroy = localFont({
     },
   ],
 })
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const userData = await getUserData()
   return (
     <html className={gilroy.className}>
       <head />
       <body className="min-h-screen bg-lightb sm:flex">
         <Sidebar />
         <div className="w-3/4 px-5 sm:grow sm:px-24">
-          <section className="justify-end hidden w-full py-14 sm:flex">
-            <ProfileBar />
+          <section className="hidden w-full justify-end py-14 sm:flex">
+            <ProfileBar userData={userData} />
           </section>
           {children}
         </div>

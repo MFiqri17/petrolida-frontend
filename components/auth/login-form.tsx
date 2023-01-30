@@ -4,7 +4,7 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { api } from '../../utils/api'
-import { setToken } from '../../utils/token'
+import { cookies, setToken } from '../../utils/token'
 import Spinner from '../utils/spinner'
 
 interface LoginFormValue {
@@ -39,7 +39,7 @@ export default function LoginForm() {
       .finally(() => {
         setIsLoading(false)
       })
-      console.log(formData)
+    console.log(formData)
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="my-8 space-y-6">
@@ -71,6 +71,20 @@ export default function LoginForm() {
       >
         {isLoading ? <Spinner /> : 'Log in'}
       </button>
+      {/* Uncomment this if and insert the cookies from production website if want to use cookies in localhost */}
+      {/* <button
+        type="button"
+        onClick={() => {
+          cookies.set(
+            'petrolida/token',
+            '80|AOueHKyEtJMAOpAMFga9Wt3kB3tn54M3JpAdws77',
+          )
+        }}
+        className="w-full rounded-full bg-primary p-4 text-white"
+        disabled={isLoading}
+      >
+        Add Cookies
+      </button> */}
       <button
         type="button"
         className="w-full rounded-full bg-white p-4 font-semibold"

@@ -3,6 +3,7 @@ import Navbar from '../../components/layout/navbar/navbar'
 import localFont from '@next/font/local'
 import Footers from '../../components/layout/footer/footers'
 import SmoothScrollContainer from '../../components/utils/smooth-scroll'
+import { getUserData } from '../../utils/auth'
 
 const gilroy = localFont({
   src: [
@@ -21,11 +22,12 @@ const gilroy = localFont({
   ],
 })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const userData = await getUserData()
   return (
     <html lang="en" className={gilroy.className}>
       {/*
@@ -34,7 +36,7 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <Navbar isTrans={true} />
+        <Navbar isTrans={true} userData={userData} />
         <SmoothScrollContainer>
           {children}
           <Footers />
