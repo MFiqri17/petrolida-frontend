@@ -25,12 +25,12 @@ const formtypeArray = [
 ]
 const formTypeArray2 = ['General', 'Leader', 'Member 1', 'Member 2', 'Files']
 const competitionType = [
-  { id: '1', name: 'Oil Rig Design' },
-  { id: '2', name: 'Paper' },
-  { id: '3', name: 'Business Case' },
-  { id: '4', name: 'Fracturing Fluid Design' },
-  { id: '5', name: 'Case Study' },
-  { id: '6', name: 'Petrosmart' },
+  { id: '1', name: 'Oil Rig Design', amount: '150.000' },
+  { id: '2', name: 'Paper', amount: '100.000' },
+  { id: '3', name: 'Business Case', amount: '150.000' },
+  { id: '4', name: 'Fracturing Fluid Design', amount: '180.000' },
+  { id: '5', name: 'Case Study', amount: '100.000' },
+  { id: '6', name: 'Petrosmart', amount: '150.000' },
 ]
 
 interface IFileState {
@@ -56,6 +56,7 @@ const EventRegistration = () => {
   const [Img3, setImg3] = React.useState(initialFileState)
   const [step, setStep] = React.useState(0)
   const [compValue, setCompValue] = React.useState<string>('1')
+  const [amount, setAmount] = React.useState<string>('150.000')
   const incrementIndex = () => {
     setIndex(index + 1)
   }
@@ -123,14 +124,18 @@ const EventRegistration = () => {
                 id="compeType"
                 name="compeType"
                 onChange={(e: any) => {
-                  console.log(compValue)
-                  setCompValue(e.target.value)
+                  const jsonData = JSON.parse(e.target.value)
+                  setCompValue(jsonData.id)
+                  setAmount(jsonData.amount)
                 }}
-                value={compValue}
               >
-                {competitionType.map(({ id, name }) => (
-                  <option className="mt-10 w-[500px]" key={id} value={id}>
-                    {name}
+                {competitionType.map((competitionType) => (
+                  <option
+                    className="mt-10 w-[500px]"
+                    key={competitionType.id}
+                    value={JSON.stringify(competitionType)}
+                  >
+                    {competitionType.name}
                   </option>
                 ))}
               </select>
@@ -191,7 +196,7 @@ const EventRegistration = () => {
                           {registerItem.name == 'amount' ? (
                             <input
                               id={registerItem.name}
-                              value={'200000'}
+                              value={amount}
                               {...register(registerItem.name, {
                                 required: true,
                               })}

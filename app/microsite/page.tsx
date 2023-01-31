@@ -30,7 +30,6 @@ export default function MicrositePage() {
       .get('/microsite')
       .then((res) => {
         setMicrositeData(res.data.data)
-        console.log(micorositeData)
       })
       .catch((e) => console.log(e.message))
   }, [])
