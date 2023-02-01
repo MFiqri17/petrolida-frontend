@@ -13,6 +13,7 @@ import { FormValues, FormValues2 } from '../../types/formValues'
 import SuccessModal from '../../components/register/successModal'
 import Spinner from '../../components/utils/spinner'
 import toast from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 
 const formtypeArray = [
   'General',
@@ -114,6 +115,7 @@ const EventRegistration = () => {
       case 0:
         return (
           <>
+            <Toaster/>
             <div className="mt-9 flex flex-col justify-center space-y-2">
               <label htmlFor={'compeType'} className="text-xl font-semibold">
                 Competition Type
