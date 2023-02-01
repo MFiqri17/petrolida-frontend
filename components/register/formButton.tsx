@@ -12,7 +12,9 @@ const stepFunction = (step: number, compValue: string, title: string) => {
   } else if (
     compValue === '2' ||
     compValue === '3' ||
-    compValue === '4' 
+    compValue === '4' ||
+    compValue === '5' ||
+    compValue === '6' 
   ) {
     if (title === 'Next') {
       return step >= 0 && step <= 3
