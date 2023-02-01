@@ -76,7 +76,7 @@ export default function Events() {
                             {item.name}
                           </h3>
                           <a
-                            href="#"
+                            href="/event-register"
                             className="rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1"
                           >
                             Register
