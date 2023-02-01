@@ -64,6 +64,7 @@ const Formbutton = ({
               !isValid && 'cursor-not-allowed',
             )}
             onClick={increamentStep}
+            disabled={!isValid}
             type="button"
           >
             Next

@@ -12,7 +12,7 @@ import Formbutton from '../../components/register/formButton'
 import { FormValues, FormValues2 } from '../../types/formValues'
 import SuccessModal from '../../components/register/successModal'
 import Spinner from '../../components/utils/spinner'
-import toast, {Toaster} from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 
 const formtypeArray = [
   'General',
@@ -114,7 +114,6 @@ const EventRegistration = () => {
       case 0:
         return (
           <>
-            
             <div className="mt-9 flex flex-col justify-center space-y-2">
               <label htmlFor={'compeType'} className="text-xl font-semibold">
                 Competition Type
@@ -253,6 +252,7 @@ const EventRegistration = () => {
                   )}
                 </>
               ))}
+              <Toaster position="bottom-center" />
               <Formbutton
                 isLoading={isLoading}
                 Spinner={Spinner}
@@ -269,28 +269,25 @@ const EventRegistration = () => {
   }
 
   return (
-    <>
-      <Toaster position="top-center" />
-      <div
-        className={`bg-[#EDEEF3] px-5  ${
-          step === 0 ? 'pb-48 pt-40' : 'pb-32 pt-36'
-        }  lg:px-24   xl:px-48 2xl:px-72`}
+    <div
+      className={`bg-[#EDEEF3] px-5  ${
+        step === 0 ? 'pb-48 pt-40' : 'pb-32 pt-36'
+      }  lg:px-24   xl:px-48 2xl:px-72`}
+    >
+      <section
+        style={{
+          background:
+            'linear-gradient(95.81deg, rgba(255, 255, 255, 0.448) 0%, rgba(255, 255, 255, 0.259) 100%)',
+        }}
+        className="flex flex-col items-center justify-center rounded-[30px] px-0 py-10 md:px-10 "
       >
-        <section
-          style={{
-            background:
-              'linear-gradient(95.81deg, rgba(255, 255, 255, 0.448) 0%, rgba(255, 255, 255, 0.259) 100%)',
-          }}
-          className="flex flex-col items-center justify-center rounded-[30px] px-0 py-10 md:px-10 "
-        >
-          <h1 className="text-center text-[28px] font-black text-[#07003F] md:text-5xl">
-            Event Registration
-          </h1>
-          {conditionalForm()}
-        </section>
-        <SuccessModal isOpen={isOpen} setIsOpen={setIsOpen} />
-      </div>
-    </>
+        <h1 className="text-center text-[28px] font-black text-[#07003F] md:text-5xl">
+          Event Registration
+        </h1>
+        {conditionalForm()}
+      </section>
+      <SuccessModal isOpen={isOpen} setIsOpen={setIsOpen} />
+    </div>
   )
 }
 
