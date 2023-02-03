@@ -1,6 +1,5 @@
 import '../globals.css'
 import localFont from '@next/font/local'
-import SmoothScrollContainer from '../../components/utils/smooth-scroll'
 
 const gilroy = localFont({
   src: [
@@ -31,9 +30,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>
-        <SmoothScrollContainer>{children}</SmoothScrollContainer>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

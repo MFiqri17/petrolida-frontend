@@ -1,5 +1,6 @@
 export const competitionData = [
   {
+    id: 1,
     name: 'Oil Rig Design',
     slug: 'oil-rig-design',
     desc: 'Innovating Sustainable Oil Platform to Strengthen Energy Security and Maximize Energy Potential.',
@@ -132,6 +133,7 @@ export const competitionData = [
     lineId: 'krishnananda',
   },
   {
+    id: 4,
     name: 'Fracturing Fluid Design',
     slug: 'fracturing-fluid-design',
     desc: 'Enhancing Oil and Gas Production Efficiency through Modern Hydraulic Fracturing Approach to Sustain Future Energy Supply and Maintain The Safety of Environment.',
@@ -269,6 +271,7 @@ export const competitionData = [
     lineId: 'hagieantasena',
   },
   {
+    id: 6,
     name: 'Petrosmart',
     slug: 'petrosmart',
     desc: 'Igniting Curiosity About The Oil and Gas Industry as The Fulfillment of Future Energy Needs.',
@@ -386,6 +389,7 @@ export const competitionData = [
     lineId: 'dira362',
   },
   {
+    id: 2,
     name: 'Paper',
     slug: 'paper',
     desc: 'Envolving the Opportunity on Oil and Gas Industry to Ignite the Sustainability of Energy Transition.',
@@ -510,6 +514,7 @@ export const competitionData = [
     lineId: 'ressicapt',
   },
   {
+    id: 3,
     name: 'Business Case',
     slug: 'business-case',
     desc: 'Optimizing Supply Chain System Through Reliable and Effective Business Strategy in FMCG Industry.',
@@ -661,6 +666,7 @@ export const competitionData = [
     lineId: 'daffa21-11-01',
   },
   {
+    id: 5,
     name: 'Case Study',
     slug: 'case-study',
     desc: 'Enhancing the Suitable Production to Embrace the Energy Security.',

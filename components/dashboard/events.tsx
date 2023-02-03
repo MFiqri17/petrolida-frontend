@@ -9,10 +9,16 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Events() {
+export default function Events({
+  registeredEvents,
+}: {
+  registeredEvents: any[]
+}) {
   let [categories] = useState({
     'All Competitions': competitionData,
-    Registered: [],
+    Registered: competitionData.filter((item) =>
+      registeredEvents.some((event) => event.event_id == item.id),
+    ),
   })
   return (
     <>
@@ -75,12 +81,16 @@ export default function Events() {
                           <h3 className="text-xl font-semibold leading-5">
                             {item.name}
                           </h3>
-                          <a
-                            href="/event-register"
-                            className="rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1"
-                          >
-                            Register
-                          </a>
+                          {idx === 1 ? (
+                            <p className="pr-5 text-gray-600">Registered</p>
+                          ) : (
+                            <a
+                              href="/event-register"
+                              className="rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1"
+                            >
+                              Register
+                            </a>
+                          )}
                         </div>
                       </li>
                     ))
