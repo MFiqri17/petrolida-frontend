@@ -39,12 +39,11 @@ export default async function RootLayout({
       <head />
       <body className="bg-light">
         <Navbar isTrans={false} userData={userData} />
-        <SmoothScrollContainer>
-          <Toast />
-          {children}
-          <LetsJoin />
-          <Footers />
-        </SmoothScrollContainer>
+
+        <Toast />
+        {children}
+        <LetsJoin />
+        <Footers />
       </body>
     </html>
   )

@@ -18,6 +18,7 @@ export default function LoginForm() {
   const router = useRouter()
 
   const onSubmit: SubmitHandler<LoginFormValue> = (data) => {
+    console.log(data)
     setIsLoading(true)
     const formData = new FormData()
     Object.keys(data).forEach((val) =>
@@ -33,7 +34,11 @@ export default function LoginForm() {
         router.push('/dashboard')
       })
       .catch((e) => {
-        toast.error('Error')
+        toast.error(
+          e.response.data.status === 400
+            ? 'Email or password is wrong'
+            : e.response.data.message,
+        )
         console.error(e)
       })
       .finally(() => {

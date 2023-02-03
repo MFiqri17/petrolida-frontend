@@ -39,7 +39,7 @@ export default function ResetPasswordForm() {
         router.replace('/login')
       })
       .catch((e) => {
-        toast.error('Error')
+        toast.error(e.response.data.message)
         console.error(e)
       })
       .finally(() => {

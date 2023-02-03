@@ -30,10 +30,8 @@ export default async function RootLayout({
     <html className={gilroy.className}>
       <head />
       <body>
-        <SmoothScrollContainer>
-          <Navbar isTrans={false} userData={userData} />
-          {children}
-        </SmoothScrollContainer>
+        <Navbar isTrans={false} userData={userData} />
+        {children}
       </body>
     </html>
   )

@@ -41,13 +41,13 @@ export default function RegisterForm() {
         router.push('/login')
       })
       .catch((e) => {
-        toast.error('Error')
+        toast.error(e.response.data.message)
         console.error(e)
       })
       .finally(() => {
         setIsLoading(false)
       })
-      console.log(formData)
+    console.log(formData)
   }
 
   return (

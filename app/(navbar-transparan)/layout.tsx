@@ -38,11 +38,9 @@ export default async function RootLayout({
       <head />
       <body>
         <Navbar isTrans={true} userData={userData} />
-        <SmoothScrollContainer>
-          {children}
-          <LetsJoin />
-          <Footers />
-        </SmoothScrollContainer>
+        {children}
+        <LetsJoin />
+        <Footers />
       </body>
     </html>
   )

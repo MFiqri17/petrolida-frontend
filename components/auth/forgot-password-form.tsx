@@ -24,7 +24,7 @@ export default function ForgotPasswordForm() {
         toast.success('The reset password email was sent successfully')
       })
       .catch((e) => {
-        toast.error('Error')
+        toast.error(e.response.data.message)
         console.error(e)
       })
       .finally(() => {
