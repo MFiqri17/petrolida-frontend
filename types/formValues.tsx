@@ -10,10 +10,10 @@ export interface FormValues {
     major: string
     name: string
     phone: string
+    identity_card: string
+    student_card: string
   }[]
   transfer_receipt: string
-  identity_card: string
-  student_card: string
 }
 
 export interface FormValues2 {
@@ -22,6 +22,4 @@ export interface FormValues2 {
   university: string
   amount: string
   transfer_receipt: string
-  identity_card: string
-  student_card: string
 }

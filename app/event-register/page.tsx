@@ -220,16 +220,20 @@ const EventRegistration = () => {
                               setError={setError}
                               clearErrors={clearErrors}
                               Img={
-                                registerItem.name === 'transfer_receipt'
+                                registerItem.name ===
+                                `members[${index - 1}][student_card]`
                                   ? Img
-                                  : registerItem.name === 'identity_card'
+                                  : registerItem.name ===
+                                    `members[${index - 1}][identity_card]`
                                   ? Img2
                                   : Img3
                               }
                               setImg={
-                                registerItem.name === 'transfer_receipt'
+                                registerItem.name ===
+                                `members[${index - 1}][student_card]`
                                   ? setImg
-                                  : registerItem.name === 'identity_card'
+                                  : registerItem.name ===
+                                    `members[${index - 1}][identity_card]`
                                   ? setImg2
                                   : setImg3
                               }

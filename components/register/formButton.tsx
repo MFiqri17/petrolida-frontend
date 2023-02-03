@@ -61,10 +61,8 @@ const Formbutton = ({
           <button
             className={clsx(
               'w-full rounded-[30px] bg-[#07003F] py-4 text-center text-2xl  font-semibold text-[#FBFBFC] !transition !duration-300 hover:!scale-105 md:w-[190px]',
-              !isValid && 'cursor-not-allowed',
             )}
             onClick={increamentStep}
-            disabled={!isValid}
             type="button"
           >
             Next
