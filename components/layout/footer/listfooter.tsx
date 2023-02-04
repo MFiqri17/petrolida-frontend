@@ -16,9 +16,9 @@ export default function ListFooter({
             {list.content.map((listcontent: any) => (
               <li
                 key={listcontent.id}
-                className="text-base font-medium text-[#FBFBFC]/[0.7]"
+                className="text-base font-medium text-[#FBFBFC]/[0.7] transition duration-300 hover:translate-x-2"
               >
-                <Link className="hover:font-semibold" href={listcontent.href}>
+                <Link href={listcontent.href}>
                   {listcontent.lable}
                 </Link>
               </li>
