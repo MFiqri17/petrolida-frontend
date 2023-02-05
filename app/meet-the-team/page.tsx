@@ -49,7 +49,7 @@ const financeData = [
     {
         name: 'sponsor-1',
         type: 'video',
-        id: '1E42NKDpMUaCpHIAVhtEYmH5bVEuVbS5E',
+        id: '1zM9HqpQZCU6zNf32pmPCDHfZPIEGvqp9',
     },
     {
         name: 'finance-coor',
@@ -125,6 +125,11 @@ const prData = [
         name: 'marketing-2',
         type: 'image',
         id: '1Lkslkz-xNplhM1GmxCj4ltAn8MnBDCeA',
+    },
+    {
+        name: 'coor-pr',
+        type: 'video',
+        id: '1rEM7MAis7Cwf2ouA7MT-2lkgaBpxWjLO',
     },
 ]
 const oprData = [
@@ -299,7 +304,7 @@ export default function MeetTheTeamPage() {
                         </h3>
                     </div>
                     <Parallax
-                        translateX={['60vw', '-240vw']}
+                        translateX={['60vw', '1vw']}
                         startScroll={700}
                         endScroll={1400}
                         shouldAlwaysCompleteAnimation={true}
@@ -307,7 +312,7 @@ export default function MeetTheTeamPage() {
                         <div className="flex items-center justify-center gap-12 pt-12 min-w-max">
                             {executiveData.map((item: any) => (
                                 <div key={item.id} className="rounded-2xl">
-                                    <video autoPlay preload="auto" loop muted controls className='border border-red-600 rounded-2xl w-[300px] h-[380px]'>
+                                    <video autoPlay preload="auto" loop muted controls className=' rounded-2xl w-[300px] h-[380px]'>
                                         <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                     </video>
                                 </div>
@@ -336,7 +341,7 @@ export default function MeetTheTeamPage() {
                         </h3>
                     </div>
                     <Parallax
-                        translateX={['-240vw', '20vw']}
+                        translateX={['-15vw', '20vw']}
                         startScroll={2100}
                         endScroll={2800}
                         shouldAlwaysCompleteAnimation={true}
@@ -345,7 +350,7 @@ export default function MeetTheTeamPage() {
                             {adminData.map((item: any) => (
                                 <div className="rounded-2xl">
                                     {item.type === 'video' ?
-                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'>
+                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
                                         <Image
@@ -353,7 +358,7 @@ export default function MeetTheTeamPage() {
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
                                             height={380}
-                                            className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'
+                                            className='transition duration-300 rounded-2xl hover:scale-125'
                                         />
                                     }
                                 </div>
@@ -373,7 +378,7 @@ export default function MeetTheTeamPage() {
             </div>
 
             <div className="sticky top-0 w-full pb-24 overflow-x-hidden bg-whiteb h-full shadow-[0_35px_70px_15px_rgba(0,0,0,0.3)]">
-                <div className="sticky top-0 w-full overflow-x-hidden h-[200vh]">
+                <div className="sticky top-0 w-full overflow-x-hidden h-[240vh]">
                     <div className="flex flex-col items-center justify-center pt-24 ">
                         <p className="text-2xl text-center text-secondary">
                             Department of
@@ -383,16 +388,16 @@ export default function MeetTheTeamPage() {
                         </h3>
                     </div>
                     <Parallax
-                        translateX={['60vw', '-340vw']}
-                        startScroll={3700}
-                        endScroll={6000}
+                        translateX={['50vw', '-50vw']}
+                        startScroll={3500}
+                        endScroll={4900}
                         shouldAlwaysCompleteAnimation={true}
                     >
                         <div className="flex gap-12 py-12 min-w-max">
                             {financeData.map((item: any) => (
                                 <div className="rounded-2xl">
                                     {item.type === 'video' ?
-                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'>
+                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
                                         <Image
@@ -400,7 +405,7 @@ export default function MeetTheTeamPage() {
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
                                             height={380}
-                                            className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'
+                                            className='transition duration-300 rounded-2xl hover:scale-125'
                                         />
                                     }
                                 </div>
@@ -418,7 +423,7 @@ export default function MeetTheTeamPage() {
                 <div className="absolute animate-blob lg:top-24 bg-opacity-60 left-12 w-[8rem] h-[8rem] lg:w-[24rem] lg:h-[24rem] bg-[#B1B7F3] rounded-full blur-3xl -z-[10]"></div>
             </div>
             <div className="sticky top-0 w-full pb-24 overflow-x-hidden bg-whiteb h-full shadow-[0_35px_70px_15px_rgba(0,0,0,0.3)]">
-                <div className="sticky top-0 w-full overflow-x-hidden h-[200vh]">
+                <div className="sticky top-0 w-full overflow-x-hidden h-[390vh]">
                     <div className="flex flex-col items-center justify-center pt-24 ">
                         <p className="text-2xl text-center text-secondary">
                             Department of
@@ -428,16 +433,16 @@ export default function MeetTheTeamPage() {
                         </h3>
                     </div>
                     <Parallax
-                        translateX={['260vw', '-240vw']}
-                        startScroll={5200}
-                        endScroll={6100}
+                        translateX={['-180vw', '60vw']}
+                        startScroll={5600}
+                        endScroll={8000}
                         shouldAlwaysCompleteAnimation={true}
                     >
                         <div className="flex gap-12 py-12 min-w-max">
                             {prData.map((item: any) => (
                                 <div className="rounded-2xl">
                                     {item.type === 'video' ?
-                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'>
+                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
                                         <Image
@@ -445,7 +450,7 @@ export default function MeetTheTeamPage() {
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
                                             height={380}
-                                            className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'
+                                            className='transition duration-300 rounded-2xl hover:scale-125'
                                         />
                                     }
                                 </div>
@@ -464,7 +469,7 @@ export default function MeetTheTeamPage() {
                 <div className="absolute animate-blob lg:top-24 bg-opacity-60 right-12 w-[8rem] h-[8rem] lg:w-[24rem] lg:h-[24rem] bg-[#A5F4DF] rounded-full blur-3xl -z-[10]"></div>
             </div>
             <div className="sticky top-0 w-full pb-24 overflow-x-hidden bg-whiteb h-full shadow-[0_35px_70px_15px_rgba(0,0,0,0.3)]">
-                <div className="sticky top-0 w-full overflow-x-hidden h-[200vh]">
+                <div className="sticky top-0 w-full overflow-x-hidden h-[340vh]">
                     <div className="flex flex-col items-center justify-center pt-24 ">
                         <p className="text-2xl text-center text-secondary">
                             Department of
@@ -474,16 +479,16 @@ export default function MeetTheTeamPage() {
                         </h3>
                     </div>
                     <Parallax
-                        translateX={['-100vw', '100vw']}
-                        startScroll={7000}
-                        endScroll={7800}
+                        translateX={['20vw', '-100vw']}
+                        startScroll={8800}
+                        endScroll={10400}
                         shouldAlwaysCompleteAnimation={true}
                     >
                         <div className="flex gap-12 py-12 min-w-max">
                             {oprData.map((item: any) => (
                                 <div className="rounded-2xl">
                                     {item.type === 'video' ?
-                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'>
+                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
                                         <Image
@@ -491,7 +496,7 @@ export default function MeetTheTeamPage() {
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
                                             height={380}
-                                            className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'
+                                            className='transition duration-300 rounded-2xl hover:scale-125'
                                         />
                                     }
                                 </div>
@@ -510,7 +515,7 @@ export default function MeetTheTeamPage() {
                 <div className="absolute animate-blob lg:top-24 bg-opacity-60 left-12 w-[8rem] h-[8rem] lg:w-[24rem] lg:h-[24rem] bg-[#B1B7F3] rounded-full blur-3xl -z-[10]"></div>
             </div>
             <div className="sticky top-0 w-full pb-24 overflow-x-hidden bg-whiteb h-full shadow-[0_35px_70px_15px_rgba(0,0,0,0.3)]">
-                <div className="sticky top-0 w-full overflow-x-hidden h-[200vh]">
+                <div className="sticky top-0 w-full overflow-x-hidden h-[320vh]">
                     <div className="flex flex-col items-center justify-center pt-24 ">
                         <p className="text-2xl text-center text-secondary">
                             Department of
@@ -520,16 +525,16 @@ export default function MeetTheTeamPage() {
                         </h3>
                     </div>
                     <Parallax
-                        translateX={['60vw', '-240vw']}
-                        startScroll={8700}
-                        endScroll={9700}
+                        translateX={['-100vw', '60vw']}
+                        startScroll={11200}
+                        endScroll={12900}
                         shouldAlwaysCompleteAnimation={true}
                     >
                         <div className="flex gap-12 py-12 min-w-max">
                             {compeData.map((item: any) => (
                                 <div className="rounded-2xl">
                                     {item.type === 'video' ?
-                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'>
+                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
                                         <Image
@@ -537,7 +542,7 @@ export default function MeetTheTeamPage() {
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
                                             height={380}
-                                            className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'
+                                            className='transition duration-300 rounded-2xl hover:scale-125'
                                         />
                                     }
                                 </div>
@@ -556,7 +561,7 @@ export default function MeetTheTeamPage() {
                 <div className="absolute animate-blob lg:top-24 bg-opacity-60 right-12 w-[8rem] h-[8rem] lg:w-[24rem] lg:h-[24rem] bg-[#5484FF] rounded-full blur-3xl -z-[10]"></div>
             </div>
             <div className="sticky top-0 w-full pb-24 overflow-x-hidden bg-whiteb h-full shadow-[0_35px_70px_15px_rgba(0,0,0,0.3)]">
-                <div className="sticky top-0 w-full overflow-x-hidden h-[200vh]">
+                <div className="sticky top-0 w-full overflow-x-hidden h-[280vh]">
                     <div className="flex flex-col items-center justify-center pt-24 ">
                         <p className="text-2xl text-center text-secondary">
                             Department of
@@ -566,16 +571,16 @@ export default function MeetTheTeamPage() {
                         </h3>
                     </div>
                     <Parallax
-                        translateX={['100vw', '-120vw']}
-                        startScroll={10000}
-                        endScroll={10300}
+                        translateX={['60vw', '-140vw']}
+                        startScroll={13200}
+                        endScroll={14900}
                         shouldAlwaysCompleteAnimation={true}
                     >
                         <div className="flex gap-12 py-12 min-w-max">
                             {noncompeData.map((item: any) => (
                                 <div className="rounded-2xl">
                                     {item.type === 'video' ?
-                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'>
+                                        <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
                                         <Image
@@ -583,7 +588,7 @@ export default function MeetTheTeamPage() {
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
                                             height={380}
-                                            className='transition duration-300 border border-red-600 rounded-2xl hover:scale-125'
+                                            className='transition duration-300 rounded-2xl hover:scale-125'
                                         />
                                     }
                                 </div>
@@ -602,7 +607,7 @@ export default function MeetTheTeamPage() {
                 <div className="absolute animate-blob lg:top-24 bg-opacity-60 left-12 w-[8rem] h-[8rem] lg:w-[24rem] lg:h-[24rem] bg-[#B1B7F3] rounded-full blur-3xl -z-[10]"></div>
             </div>
 
-            <div className="sticky top-0 h-72">
+            <div className="sticky top-0 h-[240vh]">
 
             </div>
         </ParallaxProvider >
