@@ -54,6 +54,12 @@ const EventRegistration = () => {
   const [Img, setImg] = React.useState(initialFileState)
   const [Img2, setImg2] = React.useState(initialFileState)
   const [Img3, setImg3] = React.useState(initialFileState)
+  const [Img4, setImg4] = React.useState(initialFileState)
+  const [Img5, setImg5] = React.useState(initialFileState)
+  const [Img6, setImg6] = React.useState(initialFileState)
+  const [Img7, setImg7] = React.useState(initialFileState)
+  const [Img8, setImg8] = React.useState(initialFileState)
+  const [Img9, setImg9] = React.useState(initialFileState)
   const [step, setStep] = React.useState(0)
   const [compValue, setCompValue] = React.useState<string>('1')
   const [amount, setAmount] = React.useState<string>('150.000')
@@ -220,22 +226,56 @@ const EventRegistration = () => {
                               setError={setError}
                               clearErrors={clearErrors}
                               Img={
-                                registerItem.name ===
-                                `members[${index - 1}][student_card]`
+                                registerItem.name === `members[0][student_card]`
                                   ? Img
                                   : registerItem.name ===
-                                    `members[${index - 1}][identity_card]`
+                                    `members[0][identity_card]`
                                   ? Img2
-                                  : Img3
+                                  : registerItem.name ===
+                                    `members[1][student_card]`
+                                  ? Img3
+                                  : registerItem.name ===
+                                    `members[1][identity_card]`
+                                  ? Img4
+                                  : registerItem.name ===
+                                    `members[2][student_card]`
+                                  ? Img5
+                                  : registerItem.name ===
+                                    `members[2][identity_card]`
+                                  ? Img6
+                                  : registerItem.name ===
+                                    `members[2][identity_card]`
+                                  ? Img7
+                                  : registerItem.name ===
+                                    `members[2][identity_card]`
+                                  ? Img8
+                                  : Img9
                               }
                               setImg={
-                                registerItem.name ===
-                                `members[${index - 1}][student_card]`
+                                registerItem.name === `members[0][student_card]`
                                   ? setImg
                                   : registerItem.name ===
-                                    `members[${index - 1}][identity_card]`
+                                    `members[0][identity_card]`
                                   ? setImg2
-                                  : setImg3
+                                  : registerItem.name ===
+                                    `members[1][student_card]`
+                                  ? setImg3
+                                  : registerItem.name ===
+                                    `members[1][identity_card]`
+                                  ? setImg4
+                                  : registerItem.name ===
+                                    `members[2][student_card]`
+                                  ? setImg5
+                                  : registerItem.name ===
+                                    `members[2][identity_card]`
+                                  ? setImg6
+                                  : registerItem.name ===
+                                    `members[2][identity_card]`
+                                  ? setImg7
+                                  : registerItem.name ===
+                                    `members[2][identity_card]`
+                                  ? setImg8
+                                  : setImg9
                               }
                               {...registerItem}
                             />
