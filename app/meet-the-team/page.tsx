@@ -312,7 +312,7 @@ export default function MeetTheTeamPage() {
                         <div className="flex items-center justify-center gap-12 pt-12 min-w-max">
                             {executiveData.map((item: any) => (
                                 <div key={item.id} className="rounded-2xl">
-                                    <video autoPlay preload="auto" loop muted controls className=' rounded-2xl w-[300px] h-[380px]'>
+                                    <video autoPlay preload="auto" loop muted controls className=' rounded-2xl w-[300px] h-[380px]hover:scale-105 transition duration-300'>
                                         <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                     </video>
                                 </div>

@@ -71,9 +71,10 @@ const PetrolidaAbout = ({ }: cardaboutInterface) => {
           >
             {'About Petrolida'}
           </p>
-          <div className="relative ">
-            <iframe className='rounded-3xl w-[320px] h-[240px] lg:h-[480px] lg:w-[640px]' src="https://drive.google.com/file/d/1-UQTDmZ_GZm1l7_LSAPvYEAgFbhjWyIL/preview" allow='autoplay' allowFullScreen></iframe>
-
+          <div className="relative">
+            <video autoPlay preload="auto" loop muted controls className='transition duration-300 rounded-3xl w-[320px] h-[240px] lg:h-[480px] lg:w-[640px]'>
+              <source src={`https://drive.google.com/uc?id=1-UQTDmZ_GZm1l7_LSAPvYEAgFbhjWyIL`} />
+            </video>
             {/* <Image
               layout="fill"
               src={'/images/surabaya.png'}
