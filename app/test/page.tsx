@@ -1,4 +1,3 @@
-import React from 'react'
 import Announcement from '../../components/dashboard/announcement'
 import {api} from '../../utils/api'
 import { serverApiInterceptors } from '../../utils/api-interceptor'
@@ -6,7 +5,7 @@ import { serverApiInterceptors } from '../../utils/api-interceptor'
 async function getEvents_data() {
   serverApiInterceptors()
   try {
-    const res = await api.get('/announcement')
+    const res = await api.get('/api/announcement')
     console.log(res.data.data)
     return res.data.data
   } catch (error) {
