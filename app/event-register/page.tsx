@@ -24,7 +24,7 @@ const formtypeArray = [
   'Files',
 ]
 const formTypeArray2 = ['General', 'Leader', 'Member 1', 'Member 2', 'Files']
-const competitionType = [
+export const competitionType = [
   { id: '1', name: 'Oil Rig Design', amount: '150.000' },
   { id: '2', name: 'Paper', amount: '100.000' },
   { id: '3', name: 'Business Case', amount: '150.000' },

@@ -1,13 +1,22 @@
+import React from 'react'
+import Announcement from '../../components/dashboard/announcement'
+import {api} from '../../utils/api'
+import { serverApiInterceptors } from '../../utils/api-interceptor'
 
-import Modal from '../../components/register/successModal' 
-
-const Test = () => {
-    return(
-        <>
-            {/* <Modal /> */}
-            <p>test</p>
-        </>
-    )
+async function getEvents_data() {
+  serverApiInterceptors()
+  try {
+    const res = await api.get('/announcement')
+    console.log(res.data.data)
+    return res.data.data
+  } catch (error) {
+    return
+  }
 }
 
-export default Test;
+const Test = async () => {
+  const events = await getEvents_data()  
+  return <><Announcement events={events ?? []} /></>
+}
+
+export default Test
