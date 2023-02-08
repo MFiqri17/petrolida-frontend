@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useRef } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 import { competitionData } from '../../../data/competition'
@@ -76,6 +76,53 @@ export default function Navbar({
     },
   ]
 
+
+  const buttonRefAbout = useRef<HTMLButtonElement>(null)
+  const buttonRefCompe = useRef<HTMLButtonElement>(null)
+  const timeoutDuration = 300
+  let timeout: any;
+
+  const closePopoverAbout = () => {
+    return buttonRefAbout.current?.dispatchEvent(
+      new KeyboardEvent("keydown", {
+        key: "Escape",
+        bubbles: true,
+        cancelable: true
+      })
+    )
+  }
+  const closePopoverCompe = () => {
+    return buttonRefCompe.current?.dispatchEvent(
+      new KeyboardEvent("keydown", {
+        key: "Escape",
+        bubbles: true,
+        cancelable: true
+      })
+    )
+  }
+
+  const onMouseEnter = (open: Boolean) => {
+    clearTimeout(timeout)
+    if (open) return
+    return buttonRefAbout.current?.click()
+  }
+
+  const onMouseLeave = (open: Boolean) => {
+    if (!open) return
+    timeout = setTimeout(() => closePopoverAbout(), timeoutDuration)
+  }
+
+  const onMouseEnterCompe = (openCompe: Boolean) => {
+    clearTimeout(timeout)
+    if (openCompe) return
+    return buttonRefCompe.current?.click()
+  }
+
+  const onMouseLeaveCompe = (openCompe: Boolean) => {
+    if (!openCompe) return
+    timeout = setTimeout(() => closePopoverCompe(), timeoutDuration)
+  }
+
   return (
     <div>
       <nav
@@ -83,6 +130,8 @@ export default function Navbar({
           } text-center ${isTrans && color ? 'shadow-none' : 'shadow-lg'
           } rounded-full transition duration-300 ease-linear lg:mt-4 lg:max-w-screen-lg`}
       >
+
+        {/* Mobile View */}
         <Link href="/">
           <span className="sr-only">Petrolida 2023</span>
           <div className="p-4">
@@ -314,45 +363,54 @@ export default function Navbar({
             </Transition>
           </Popover>
         </div>
-        <ul className="font-poppins bg-liteBlack absolute mt-[3.25em] hidden transform flex-col space-y-4 rounded-br-lg px-6 py-8 text-start font-semibold text-white transition duration-300 lg:static lg:mt-0 lg:flex lg:translate-x-0 lg:flex-row lg:items-center lg:!space-y-0 lg:space-x-8 lg:rounded-full lg:!py-2">
-          {/* <Link href="/about">
-            <li
-              className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-                }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
-            >
-              About
-            </li>
-          </Link> */}
-          <Popover className="">
-            <Popover.Button
-              className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-                }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent focus-visible:outline-none`}
-            >
-              About
-            </Popover.Button>
-            <Transition
-              enter="transition duration-100 ease-out"
-              enterFrom="transform scale-95 opacity-0"
-              enterTo="transform scale-100 opacity-100"
-              leave="transition duration-75 ease-out"
-              leaveFrom="transform scale-100 opacity-100"
-              leaveTo="transform scale-95 opacity-0"
-            >
-              <Popover.Panel className="absolute z-10 -translate-x-12 w-60">
-                <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12">
-                  <Link key={'about us'} href={`/about`}>
-                    <li className="mb-3 bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
-                      {'About Us'}
-                    </li>
-                  </Link>
-                  <Link key={'meet the team'} href={`/meet-the-team`}>
-                    <li className=" bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
-                      {'Meet the Team'}
-                    </li>
-                  </Link>
-                </ul>
-              </Popover.Panel>
-            </Transition>
+
+        {/* Desktop */}
+        <ul className="font-poppins bg-liteBlack absolute mt-[3.25em] hidden transform flex-col space-y-4 rounded-br-lg px-1 py-8 text-start font-semibold text-white transition duration-300 lg:static lg:mt-0 lg:flex lg:translate-x-0 lg:flex-row lg:items-center lg:!space-y-0 lg:space-x-8 lg:rounded-full lg:!py-2">
+          <Popover className="relative">
+            {({ open }) => {
+              return (
+                <div onMouseLeave={onMouseLeave.bind(null, open)}>
+                  <Popover.Button
+                    ref={buttonRefAbout}
+                    className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+                      }  hover:from-[#07003F] inline-flex justify-center items-center hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent focus-visible:outline-none`}
+                    onMouseEnter={onMouseEnter.bind(null, open)}
+                    onMouseLeave={onMouseLeave.bind(null, open)}
+                  >
+                    <span className='pr-0.5'>About</span>
+                    <svg className={`transition duration-300 ${open ? "rotate-180" : ""}`} width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 6.5L0.5 0.5H14.5L7.5 6.5Z" fill="black" />
+                    </svg>
+                  </Popover.Button>
+                  <Transition
+                    enter="transition duration-100 ease-out"
+                    enterFrom="transform scale-95 opacity-0"
+                    enterTo="transform scale-100 opacity-100"
+                    leave="transition duration-75 ease-out"
+                    leaveFrom="transform scale-100 opacity-100"
+                    leaveTo="transform scale-95 opacity-0"
+                  >
+                    <Popover.Panel className="absolute z-10 -translate-x-12 w-60"
+                    >
+                      <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12"
+                        onMouseEnter={onMouseEnter.bind(null, open)}
+                        onMouseLeave={onMouseLeave.bind(null, open)}>
+                        <Link key={'about us'} href={`/about`}>
+                          <li className="mb-3 bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
+                            {'About Us'}
+                          </li>
+                        </Link>
+                        <Link key={'meet the team'} href={`/meet-the-team`}>
+                          <li className=" bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
+                            {'Meet the Team'}
+                          </li>
+                        </Link>
+                      </ul>
+                    </Popover.Panel>
+                  </Transition>
+                </div>
+              )
+            }}
           </Popover>
           <Link href="/coming-soon">
             <li
@@ -371,32 +429,46 @@ export default function Navbar({
             </li>
           </Link>
           <Popover className="relative">
-            <Popover.Button
-              className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-                }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent focus-visible:outline-none`}
-            >
-              Competition
-            </Popover.Button>
-            <Transition
-              enter="transition duration-100 ease-out"
-              enterFrom="transform scale-95 opacity-0"
-              enterTo="transform scale-100 opacity-100"
-              leave="transition duration-75 ease-out"
-              leaveFrom="transform scale-100 opacity-100"
-              leaveTo="transform scale-95 opacity-0"
-            >
-              <Popover.Panel className="absolute z-10 -translate-x-12 w-60">
-                <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12">
-                  {competitionData.map((item: { name: any; slug: any }) => (
-                    <Link key={item.name} href={`/competition/${item.slug}`}>
-                      <li className="mb-3 bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
-                        {item.name}
-                      </li>
-                    </Link>
-                  ))}
-                </ul>
-              </Popover.Panel>
-            </Transition>
+            {({ open }) => {
+              return (
+                <div onMouseLeave={onMouseLeaveCompe.bind(null, open)}>
+                  <Popover.Button
+                    className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+                      }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent focus-visible:outline-none flex items-center`}
+                    ref={buttonRefCompe}
+                    onMouseEnter={onMouseEnterCompe.bind(null, open)}
+                    onMouseLeave={onMouseLeaveCompe.bind(null, open)}
+                  >
+                    <span className='pr-0.5 w-24'>Competition</span>
+                    <svg className={`transition duration-300 ${open ? "rotate-180" : ""}`} width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 6.5L0.5 0.5H14.5L7.5 6.5Z" fill="black" />
+                    </svg>
+                  </Popover.Button>
+                  <Transition
+                    enter="transition duration-100 ease-out"
+                    enterFrom="transform scale-95 opacity-0"
+                    enterTo="transform scale-100 opacity-100"
+                    leave="transition duration-75 ease-out"
+                    leaveFrom="transform scale-100 opacity-100"
+                    leaveTo="transform scale-95 opacity-0"
+                  >
+                    <Popover.Panel className="absolute z-10 -translate-x-12 w-60">
+                      <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12"
+                        onMouseEnter={onMouseEnter.bind(null, open)}
+                        onMouseLeave={onMouseLeave.bind(null, open)}>
+                        {competitionData.map((item: { name: any; slug: any }) => (
+                          <Link key={item.name} href={`/competition/${item.slug}`}>
+                            <li className="mb-3 bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
+                              {item.name}
+                            </li>
+                          </Link>
+                        ))}
+                      </ul>
+                    </Popover.Panel>
+                  </Transition>
+                </div>
+              )
+            }}
           </Popover>
           <Link href="/coming-soon">
             <li
@@ -433,7 +505,7 @@ export default function Navbar({
                 />
               </svg>
 
-              <li title="{{ Auth::user()->email }}">User123</li>
+              <li title="User123">User123</li>
               <svg
                 className="transition-transform duration-200 transform "
                 width="11"
@@ -534,7 +606,7 @@ export default function Navbar({
           )}
         </ul>
         {/* @endguest */}
-      </nav>
-    </div>
+      </nav >
+    </div >
   )
 }
