@@ -23,8 +23,14 @@ const formtypeArray = [
   'Member 4',
   'Files',
 ]
+interface competitionTypeInterface {
+  id: string,
+  name: string,
+  amount: string
+}
+
 const formTypeArray2 = ['General', 'Leader', 'Member 1', 'Member 2', 'Files']
-export const competitionType = [
+const competitionType: competitionTypeInterface[] = [
   { id: '1', name: 'Oil Rig Design', amount: '150.000' },
   { id: '2', name: 'Paper', amount: '100.000' },
   { id: '3', name: 'Business Case', amount: '150.000' },
