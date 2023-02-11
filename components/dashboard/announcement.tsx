@@ -23,8 +23,11 @@ const Announcement = ({
   ]
   return (
     <div>
-      <h1>Announcement</h1>
+      <h1 className="mb-6 text-2xl font-bold leading-[29px] text-[#1E1E2D]">
+        Announcement
+      </h1>
       <select
+        className="!focus:border-0 !border-0 text-lg font-bold leading-[21.76px] text-[#131736] focus:outline-none "
         onChange={(e: any) => {
           setCompId(e.target.value)
           console.log(compId)
@@ -36,10 +39,34 @@ const Announcement = ({
           </option>
         ))}
       </select>
+
       {events
         .filter((item: any) => compId == item.id)
         .map((event: any) => (
-          <p key={event.event_id}>{event.title}</p>
+          <div className="flex space-x-6">
+            <section className="flex flex-col items-center justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] lg:h-[150px] lg:w-[486px]">
+              <h5 className="text-base font-semibold leading-[19px] text-[#605C84]">
+                Title
+              </h5>
+              <p
+                className="text-lg font-bold text-[#1E1E2D]"
+                key={event.event_id}
+              >
+                {event.title}
+              </p>
+            </section>
+            <section className="flex flex-col items-center justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] lg:h-[150px] lg:w-[486px]">
+              <h5 className="text-base font-semibold leading-[19px] text-[#605C84]">
+                Competition Stage
+              </h5>
+              <p
+                className="text-lg font-bold text-[#1E1E2D]"
+                key={event.event_id}
+              >
+                {event.competition_stage}
+              </p>
+            </section>
+          </div>
         ))}
     </div>
   )
