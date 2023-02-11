@@ -1,4 +1,3 @@
-import React from 'react'
 import Events from '../../components/dashboard/events'
 import api from '../../utils/api'
 import { serverApiInterceptors } from '../../utils/api-interceptor'
@@ -16,36 +15,31 @@ async function getRegisteredEvents() {
   }
 }
 
+async function getEventsAnnoucement() {
+  serverApiInterceptors()
+  try {
+    const res = await api.get('/announcement')
+    return res.data.data
+  } catch (error) {
+    return
+  }
+}
+
 export default async function Page() {
-  const [events, setEvents] = React.useState([])
-  const [compId, setCompId] = React.useState('1')
-  React.useEffect(() => {
-    api
-      .get('/announcement')
-      .then((res) => {
-        console.log(res.data.data)
-        setEvents(res.data.data)
-      })
-      .catch((e) => {
-        console.log(e.message)
-      })
-  }, [])
+  const events = await getEventsAnnoucement()
   const registeredEvents = await getRegisteredEvents()
   if (!registeredEvents) {
     return (
       <>
+        <Announcement events={events ?? []} />
         <Events registeredEvents={[]} />
       </>
     )
   }
   return (
     <>
+      <Announcement events={events ?? []} />
       <Events registeredEvents={registeredEvents.data ?? []} />
-      <Announcement
-        compId={compId}
-        setCompId={setCompId}
-        events={events ?? []}
-      />
     </>
   )
 }
