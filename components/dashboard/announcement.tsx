@@ -1,6 +1,13 @@
-'use client'
 import React from 'react'
-const Announcement = ({ events }: { events: any[] }) => {
+const Announcement = ({
+  events,
+  compId,
+  setCompId,
+}: {
+  events: any[]
+  compId: any
+  setCompId: any
+}) => {
   interface competitionTypeInterface {
     id: string
     name: string
@@ -14,17 +21,13 @@ const Announcement = ({ events }: { events: any[] }) => {
     { id: '5', name: 'Case Study', amount: '100.000' },
     { id: '6', name: 'Petrosmart', amount: '150.000' },
   ]
-  const [compId, setCompId] = React.useState('1')
-  let [event_filtered] = React.useState(
-    events.filter((item: any) => compId == item.id),
-  )
   return (
     <div>
       <h1>Announcement</h1>
       <select
         onChange={(e: any) => {
           setCompId(e.target.value)
-          console.log(event_filtered)
+          console.log(compId)
         }}
       >
         {competitionType.map((comp) => (
@@ -33,9 +36,11 @@ const Announcement = ({ events }: { events: any[] }) => {
           </option>
         ))}
       </select>
-      {event_filtered.map((event: any) => (
-        <p key={event.event_id}>{event.title}</p>
-      ))}
+      {events
+        .filter((item: any) => compId == item.id)
+        .map((event: any) => (
+          <p key={event.event_id}>{event.title}</p>
+        ))}
     </div>
   )
 }
