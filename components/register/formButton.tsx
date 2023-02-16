@@ -2,19 +2,19 @@
 import React from 'react'
 import clsx from 'clsx'
 
-const stepFunction = (step: number, compValue: string, title: string) => {
-  if (compValue === '1' && title === 'Next') {
+const stepFunction = (step: number, compValue: number | any, title: string) => {
+  if (compValue === 1 && title === 'Next') {
     return(step >= 0 && step <= 5)
-  } else if (compValue === '1' && title === 'Back') {
+  } else if (compValue === 1 && title === 'Back') {
     return step > 0 && step <= 6
-  } else if (compValue === '1' && title === 'Register') {
+  } else if (compValue === 1 && title === 'Register') {
     return step > 5
   } else if (
-    compValue === '2' ||
-    compValue === '3' ||
-    compValue === '4' ||
-    compValue === '5' ||
-    compValue === '6' 
+    compValue === 2 ||
+    compValue === 3 ||
+    compValue === 4 ||
+    compValue === 5 ||
+    compValue === 6 
   ) {
     if (title === 'Next') {
       return step >= 0 && step <= 3
@@ -39,7 +39,7 @@ const Formbutton = ({
   increamentStep: () => void
   decreamentStep: () => void
   isValid: boolean
-  compValue: string
+  compValue: number | any
   Spinner: any
   isLoading: boolean
 }) => {

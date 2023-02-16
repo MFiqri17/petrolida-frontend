@@ -85,7 +85,7 @@ export default function Sidebar() {
                     </button>
                   </div>
                   <button
-                    className="absolute -right-12 top-3 rounded-full rounded-full bg-white p-2"
+                    className="absolute -right-12 top-3 rounded-full bg-white p-2"
                     onClick={() => setIsMobileSidebarOpen(false)}
                   >
                     <svg

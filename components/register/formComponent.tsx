@@ -36,7 +36,6 @@ export function Input({
             : `focus:!border-2 focus:!border-[#838CEB] focus:outline-none  focus:!ring-[#838CEB] focus-visible:!border-[#838CEB]`
         } h-[48px] w-full rounded-[30px] bg-white pl-4  font-normal text-[#605C84] lg:h-[60px] lg:w-[700px]  `}
         placeholder={placeholder}
-        onChange={console.log(errors[name])}
         type={types}
         onKeyUp={() => {
           trigger(name)

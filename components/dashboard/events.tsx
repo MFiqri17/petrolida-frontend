@@ -20,6 +20,13 @@ export default function Events({
       registeredEvents.some((event) => event.event_id == item.id),
     ),
   })
+  const [todayDate] = useState<any>(new Date())
+  let currentDate: string =
+    todayDate.getFullYear() +
+    '-' +
+    (todayDate.getMonth() + 1) +
+    '-' +
+    todayDate.getDate()
   return (
     <>
       <div className="w-full px-2 sm:px-0">
@@ -85,8 +92,13 @@ export default function Events({
                             <p className="pr-5 text-gray-600">Registered</p>
                           ) : (
                             <a
-                              href="/event-register"
-                              className="rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1"
+                              href={`/event-register/${item.slug}`}
+                              className={`${
+                                currentDate >= item.start_registration &&
+                                currentDate <= item.end_registration
+                                  ? 'rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1 '
+                                  : 'pointer-events-none rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300'
+                              } `}
                             >
                               Register
                             </a>

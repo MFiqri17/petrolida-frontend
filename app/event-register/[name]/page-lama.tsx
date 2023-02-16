@@ -1,17 +1,17 @@
 'use client'
 
 import React from 'react'
-import { registerData, registerData2 } from '../../data/register'
+import { registerData, registerData2 } from '../../../data/register'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import clsx from 'clsx'
-import { Input, ImageInput } from '../../components/register/formComponent'
-import { api } from '../../utils/api'
-import FormTimeline from '../../components/register/formTimeline'
-import Formbutton from '../../components/register/formButton'
-import { FormValues, FormValues2 } from '../../types/formValues'
-import SuccessModal from '../../components/register/successModal'
-import Spinner from '../../components/utils/spinner'
+import { Input, ImageInput } from '../../../components/register/formComponent'
+import { api } from '../../../utils/api'
+import FormTimeline from '../../../components/register/formTimeline'
+import Formbutton from '../../../components/register/formButton'
+import { FormValues, FormValues2 } from '../../../types/formValues'
+import SuccessModal from '../../../components/register/successModal'
+import Spinner from '../../../components/utils/spinner'
 import toast, { Toaster } from 'react-hot-toast'
 
 const formtypeArray = [
@@ -48,7 +48,7 @@ interface IFileState {
   }
 }
 
-const EventRegistration = () => {
+const EventRegistrationLama = () => {
   const initialFileState: IFileState = {
     file: null,
     src: '',
@@ -341,4 +341,4 @@ const EventRegistration = () => {
   )
 }
 
-export default EventRegistration
+export default EventRegistrationLama
