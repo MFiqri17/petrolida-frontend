@@ -25,20 +25,31 @@ async function getEventsAnnoucement() {
   }
 }
 
+async function getStatusAnnouncement() {
+  serverApiInterceptors()
+  try {
+    const res = await api.get('/events/registration')
+    return res.data.data
+  } catch (error) {
+    return
+  }
+}
+
 export default async function Page() {
   const events = await getEventsAnnoucement()
   const registeredEvents = await getRegisteredEvents()
+  const status = await getStatusAnnouncement()
   if (!registeredEvents) {
     return (
       <>
-        <Announcement events={events ?? []} />
+        <Announcement events={events ?? []} status={status ?? []} />
         <Events registeredEvents={[]} />
       </>
     )
   }
   return (
     <>
-      <Announcement events={events ?? []} />
+      <Announcement events={events ?? []} status={status ?? []} />
       <Events registeredEvents={registeredEvents.data ?? []} />
     </>
   )
