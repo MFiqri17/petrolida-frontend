@@ -71,6 +71,7 @@ const Announcement = ({ events, status }: { events: any[]; status: any[] }) => {
                   onClick={() => {
                     setClosed(true)
                   }}
+                  className=""
                   type="button"
                 >
                   <Image
