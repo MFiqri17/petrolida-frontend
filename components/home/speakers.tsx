@@ -1,4 +1,6 @@
 'use client'
+import { InstagramEmbed } from 'react-social-media-embed';
+
 
 export default function Speakers() {
   return (
@@ -18,17 +20,29 @@ export default function Speakers() {
         </p>
       </div>
       <div
-        className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-4  lg:gap-8 bg-cover lg:bg-contain bg-[center_-4rem] bg-no-repeat px-24 py-16 lg:py-56 relative z-50"
+        className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-4 bg-cover lg:bg-contain bg-[center_-4rem] bg-no-repeat px-24 py-16 lg:py-56 relative z-50"
       >
 
-        <div className="flex items-center justify-center transition duration-300 bg-white cursor-pointer lg:-skew-x-12 h-96 w-80 lg:-rotate-12 rounded-xl hover:rotate-0 hover:skew-x-0">
-          <p className="text-2xl font-bold text-[#07003F] ">Coming Soon</p>
+        <div className="flex items-center justify-center transition duration-300 bg-white cursor-pointer lg:-skew-x-12 h-fit w-fit lg:-rotate-12 rounded-xl hover:rotate-0 hover:skew-x-0">
+          <InstagramEmbed
+            url={`https://www.instagram.com/reel/Co6eEkFMxf3/?utm_source=ig_web_copy_link`}
+            captioned={true}
+            width="400"
+          />
         </div>
-        <div className="flex items-center justify-center bg-white cursor-pointer lg:-translate-y-10 h-96 w-80 rounded-xl">
-          <p className="text-2xl font-bold text-[#07003F]">Coming Soon</p>
+        <div className="flex items-center justify-center bg-white cursor-pointer lg:-translate-y-10 h-fit w-fit rounded-xl">
+          <InstagramEmbed
+            url={`https://www.instagram.com/reel/Co4jU4wNI6-/?utm_source=ig_web_copy_link`}
+            captioned={true}
+            width="400"
+          />
         </div>
-        <div className="flex items-center justify-center transition duration-300 bg-white cursor-pointer lg:skew-x-12 h-96 w-80 lg:rotate-12 rounded-xl hover:rotate-0 hover:skew-x-0">
-          <p className="text-2xl font-bold text-[#07003F]">Coming Soon</p>
+        <div className="flex items-center justify-center transition duration-300 bg-white cursor-pointer lg:skew-x-12 h-fit w-fit lg:rotate-12 rounded-xl hover:rotate-0 hover:skew-x-0">
+          <InstagramEmbed
+            url={`https://www.instagram.com/p/Cozm6kzytXn/?utm_source=ig_web_copy_link`}
+            captioned={true}
+            width="400"
+          />
         </div>
       </div>
       <div className="absolute animate-blob top-24 lg:top-56 left-1 w-[30rem] h-[30rem] bg-[#A5F4DF] rounded-full blur-3xl"></div>

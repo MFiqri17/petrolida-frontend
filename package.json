@@ -28,7 +28,9 @@
     "react-hook-form": "^7.41.3",
     "react-hot-toast": "^2.4.0",
     "react-scroll-parallax": "^3.3.2",
+    "react-social-media-embed": "^2.3.4",
     "react-timer-hook": "^3.0.5",
+    "swiper": "^9.0.5",
     "tailwind-merge": "^1.8.0",
     "typescript": "4.8.4",
     "universal-cookie": "^4.0.4"
