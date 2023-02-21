@@ -578,8 +578,8 @@ export default function Navbar({
               <DropdownMenu
                 button={
                   <div className="inline-flex items-center h-full gap-x-3">
-                    <p className="font-semibold">
-                      {userData === undefined ? 'User' : userData.data.name}
+                    <p className="font-semibold" title={userData.data.name}>
+                      {userData === undefined ? 'User' : `${userData.data.name.substring(0, 8)}...`}
                     </p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
