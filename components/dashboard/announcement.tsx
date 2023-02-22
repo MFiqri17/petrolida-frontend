@@ -1,12 +1,25 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-const Announcement = ({ events, status }: { events: any[]; status: any[] }) => {
+import FileInput from './fileInput'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { api } from '../../utils/api'
+
+const Announcement = ({
+  events,
+  status,
+  submission,
+}: {
+  events: any[]
+  status: any[]
+  submission: any[]
+}) => {
   interface competitionTypeInterface {
     id: string
     name: string
     amount: string
   }
+
   const [compId, setCompId] = React.useState('1')
   const [closed, setClosed] = React.useState<boolean>(false)
   const competitionType: competitionTypeInterface[] = [
@@ -17,6 +30,32 @@ const Announcement = ({ events, status }: { events: any[]; status: any[] }) => {
     { id: '5', name: 'Case Study', amount: '100.000' },
     { id: '6', name: 'Petrosmart', amount: '150.000' },
   ]
+
+  const onSubmit: SubmitHandler<any> = (data) => {
+    const formData = new FormData()
+    Object.keys(data).forEach((val) => {
+      formData.append(val, data[val as keyof any])
+    })
+    console.log(data)
+    console.log(formData)
+    api
+      .post('/submission/team', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then(() => {
+        console.log('success bro')
+      })
+      .catch((e: any) => {
+        console.error(e)
+      })
+      .finally(() => {})
+  }
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors, isValid },
+  } = useForm<any>()
   return (
     <div className="mb-20">
       <h1 className="mb-6 text-2xl font-bold leading-[29px] text-[#1E1E2D]">
@@ -26,6 +65,7 @@ const Announcement = ({ events, status }: { events: any[]; status: any[] }) => {
         className="!focus:border-0 mb-[18px] !border-0 !bg-transparent text-lg font-bold leading-[21.76px] text-[#131736] focus:outline-none "
         onChange={(e: any) => {
           setCompId(e.target.value)
+          setClosed(false)
           console.log(compId)
         }}
       >
@@ -101,18 +141,45 @@ const Announcement = ({ events, status }: { events: any[]; status: any[] }) => {
                 {event.title}
               </p>
             </section>
-            <div className="flex justify-between space-x-8">
+          </div>
+        ))}
+
+      <div className="flex justify-between space-x-8">
+        {submission
+          .filter((item: any) => compId === item.event_id)
+          .map((event: any) => (
+            <form key={event.id} onSubmit={handleSubmit(onSubmit)}>
               <section className="mb-5 flex w-full flex-col items-start justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] px-6 lg:h-[150px]">
                 <h5 className="text-base font-bold leading-[19px] text-[#605C84]">
                   Competition Stage
                 </h5>
                 <p className="text-lg font-semibold text-[#1E1E2D]">
-                  {event.competition_stage}
+                  {event.title}
                 </p>
+                <FileInput
+                  register={register}
+                  submission_id={event.id}
+                  setValue={setValue}
+                />
+                <input
+                  className="hidden"
+                  {...register('event_id', {
+                    required: true,
+                  })}
+                  value={compId}
+                />
+                <input
+                  className="hidden"
+                  {...register('submission_id', {
+                    required: true,
+                  })}
+                  value={event.id}
+                />
+                <button type="submit">Submit</button>
               </section>
-            </div>
-          </div>
-        ))}
+            </form>
+          ))}
+      </div>
     </div>
   )
 }

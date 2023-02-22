@@ -35,21 +35,40 @@ async function getStatusAnnouncement() {
   }
 }
 
+async function getSubmission() {
+  serverApiInterceptors()
+  try {
+    const res = await api.get('/submission')
+    return res.data.data
+  } catch (error) {
+    return
+  }
+}
+
 export default async function Page() {
   const events = await getEventsAnnoucement()
   const registeredEvents = await getRegisteredEvents()
   const status = await getStatusAnnouncement()
+  const submission = await getSubmission()
   if (!registeredEvents) {
     return (
       <>
-        <Announcement events={events ?? []} status={status ?? []} />
+        <Announcement
+          events={events ?? []}
+          submission={submission ?? []}
+          status={status ?? []}
+        />
         <Events registeredEvents={[]} />
       </>
     )
   }
   return (
     <>
-      <Announcement events={events ?? []} status={status ?? []} />
+      <Announcement
+        events={events ?? []}
+        submission={submission ?? []}
+        status={status ?? []}
+      />
       <Events registeredEvents={registeredEvents.data ?? []} />
     </>
   )
