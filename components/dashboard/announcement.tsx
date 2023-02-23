@@ -22,6 +22,7 @@ const Announcement = ({
 
   const [compId, setCompId] = React.useState('1')
   const [closed, setClosed] = React.useState<boolean>(false)
+  const [submitStatus, setSubmitStatus] = React.useState<boolean>(false)
   const competitionType: competitionTypeInterface[] = [
     { id: '1', name: 'Oil Rig Design', amount: '150.000' },
     { id: '2', name: 'Paper', amount: '100.000' },
@@ -148,35 +149,44 @@ const Announcement = ({
         {submission
           .filter((item: any) => compId === item.event_id)
           .map((event: any) => (
-            <form key={event.id} onSubmit={handleSubmit(onSubmit)}>
-              <section className="mb-5 flex w-full flex-col items-start justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] px-6 lg:h-[150px]">
-                <h5 className="text-base font-bold leading-[19px] text-[#605C84]">
-                  Competition Stage
-                </h5>
-                <p className="text-lg font-semibold text-[#1E1E2D]">
-                  {event.title}
-                </p>
-                <FileInput
-                  register={register}
-                  submission_id={event.id}
-                  setValue={setValue}
-                />
-                <input
-                  className="hidden"
-                  {...register('event_id', {
-                    required: true,
-                  })}
-                  value={compId}
-                />
-                <input
-                  className="hidden"
-                  {...register('submission_id', {
-                    required: true,
-                  })}
-                  value={event.id}
-                />
-                <button type="submit">Submit</button>
-              </section>
+            <form
+              className="mb-5 flex w-full flex-col items-start justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] px-6 py-[30px]"
+              key={event.id}
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              <h5 className="text-base font-bold leading-[19px] text-[#605C84]">
+                Competition Stage
+              </h5>
+              <p className="text-lg font-semibold text-[#1E1E2D]">
+                {event.title}
+              </p>
+              <FileInput
+                register={register}
+                title={event.title}
+                setValue={setValue}
+                setSubmitStatus={setSubmitStatus}
+                submission_id={event.id}
+              />
+              <input
+                className="hidden"
+                {...register('event_id', {
+                  required: true,
+                })}
+                value={compId}
+              />
+              <input
+                className="hidden"
+                {...register('submission_id', {
+                  required: true,
+                })}
+                value={event.id}
+              />
+              <button
+                className={`${isValid ? 'block' : 'hidden'}`}
+                type="submit"
+              >
+                Submit
+              </button>
             </form>
           ))}
       </div>

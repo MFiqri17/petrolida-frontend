@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import NextImage from 'next/image'
 
 interface IFileState {
   file: File | null
@@ -9,12 +8,16 @@ interface IFileState {
 
 export default function FileInput({
   register,
-  submission_id,
+  title,
   setValue,
+  setSubmitStatus,
+  submission_id
 }: {
   register: any
-  submission_id: number
+  title: string
   setValue: any
+  setSubmitStatus: any
+  submission_id: number
 }) {
   const initialFileState: IFileState = {
     file: null,
@@ -39,37 +42,33 @@ export default function FileInput({
 
   return (
     <>
-      <div className="text-cblack  flex flex-col justify-start space-y-2 font-medium">
+      <div className="text-cblack mt-6  flex flex-col justify-start space-y-2 font-medium">
         <div className="flex flex-row items-center justify-start">
           <button
-            id={submission_id.toString()}
+            id={title}
             type="button"
-            className="h-[48px] w-[228px] rounded-[30px] bg-white pl-5 text-left text-base font-semibold text-[#605C84] !transition   !duration-300 hover:!scale-105   md:h-[60px]"
+            className="w-[169px] rounded-[30px] bg-[#3D4BE0] py-[14.5px]  text-center text-base font-semibold text-[#FBFBFC] !transition   !duration-300 hover:!scale-105"
             onClick={(e) => {
               e.preventDefault()
               console.log(fileRef?.current)
               fileRef?.current?.click()
             }}
           >
-            <NextImage
-              className="mr-4 inline"
-              src={'/images/upload.png'}
-              alt="upload"
-              width={24}
-              height={24}
-            />{' '}
             Upload
           </button>
           <input
             ref={fileRef}
             type="file"
             multiple={false}
-            id={submission_id.toString()}
+            id={title}
             name={'file'}
             onChange={(e: any) => {
               const value = e.target.files[0]
-              console.log(submission_id)
               console.log(e.target.files[0])
+              console.log(value)
+              if(value) {
+                setSubmitStatus(true)
+              }
               handleChange(e)
               setValue('file', value)
             }}
@@ -80,7 +79,7 @@ export default function FileInput({
       {File.url !== '' && (
         <div>
           <a rel="noreferrer" target="_blank" href={File.url}>
-            Open your File
+            {File.file?.name}
           </a>
         </div>
       )}
