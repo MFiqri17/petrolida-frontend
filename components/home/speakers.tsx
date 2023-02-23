@@ -1,6 +1,4 @@
 'use client'
-import { InstagramEmbed } from 'react-social-media-embed';
-
 
 export default function Speakers() {
   return (
