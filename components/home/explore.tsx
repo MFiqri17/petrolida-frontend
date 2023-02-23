@@ -1,8 +1,8 @@
 'use client'
 
+
 import { EffectCoverflow } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { InstagramEmbed } from 'react-social-media-embed';
 
 // Import Swiper styles
 import 'swiper/swiper-bundle.min.css';
