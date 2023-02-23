@@ -2,6 +2,7 @@ import Events from '../../components/dashboard/events'
 import api from '../../utils/api'
 import { serverApiInterceptors } from '../../utils/api-interceptor'
 import Announcement from '../../components/dashboard/announcement'
+import Toast from '../../components/utils/toast'
 
 export const dynamic = 'force-dynamic'
 
@@ -53,6 +54,7 @@ export default async function Page() {
   if (!registeredEvents) {
     return (
       <>
+        <Toast />
         <Announcement
           events={events ?? []}
           submission={submission ?? []}
@@ -64,6 +66,7 @@ export default async function Page() {
   }
   return (
     <>
+      <Toast />
       <Announcement
         events={events ?? []}
         submission={submission ?? []}

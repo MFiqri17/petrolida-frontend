@@ -1,11 +1,6 @@
 'use client'
 import React from 'react'
 
-interface IFileState {
-  file: File | null
-  url: string
-}
-
 export default function FileInput({
   register,
   title,
@@ -13,6 +8,12 @@ export default function FileInput({
   setValue,
   clearErrors,
   setError,
+  name,
+  submitStatus,
+  setSubmitStatus,
+  is_submitted,
+  File,
+  setFile,
 }: {
   register: any
   title: string
@@ -20,15 +21,16 @@ export default function FileInput({
   setValue: any
   clearErrors: any
   setError: any
+  name: string
+  submitStatus: any
+  setSubmitStatus: any
+  is_submitted: boolean
+  File: any
+  setFile: any
 }) {
-  const initialFileState: IFileState = {
-    file: null,
-    url: '',
-  }
   const fileRef = React.useRef<HTMLInputElement>(null)
-  const [File, setFile] = React.useState(initialFileState)
   React.useEffect(() => {
-    register('file', {
+    register(name, {
       required: true,
     })
   }, [])
@@ -49,7 +51,11 @@ export default function FileInput({
           <button
             id={title}
             type="button"
-            className="w-[169px] rounded-[30px] bg-[#3D4BE0] py-[14.5px]  text-center text-base font-semibold text-[#FBFBFC] !transition   !duration-300 hover:!scale-105"
+            className={`${
+              is_submitted
+                ? 'pointer-events-none bg-[#EDEEF3] text-[#9C99B2] hover:cursor-not-allowed'
+                : 'bg-[#3D4BE0] text-[#FBFBFC]'
+            } w-[169px] rounded-[30px]  py-[14.5px]  text-center text-base font-semibold  !transition   !duration-300 hover:!scale-105`}
             onClick={(e) => {
               e.preventDefault()
               console.log(fileRef?.current)
@@ -63,30 +69,38 @@ export default function FileInput({
             type="file"
             multiple={false}
             id={title}
-            name={'file'}
+            name={name}
             onChange={(e: any) => {
               const value = e.target.files[0]
               console.log(e.target.files[0])
               console.log(value)
-              setError('file')
-              clearErrors('file')
+              setError(name)
+              clearErrors(name)
               handleChange(e)
-              setValue('file', value)
+              setValue(name, value)
             }}
             className="hidden"
           />
         </div>
-        {errors['file'] && (
-          <p className="text-red-700 ">{title} is required</p>
-        )}
+        {errors[name] && <p className="text-red-700 ">{title} is required</p>}
       </div>
       {File.url !== '' && (
         <div>
-          <a rel="noreferrer" target="_blank" href={File.url}>
-            {File.file?.name}
-          </a>
+          <p>
+            {' '}
+            File:
+            <a
+              className="ml-1 inline hover:border-b-2 hover:border-black"
+              rel="noreferrer"
+              target="_blank"
+              href={File.url}
+            >
+              {File.file?.name}
+            </a>
+          </p>
         </div>
       )}
+      {File.url !== '' ? setSubmitStatus(true) : setSubmitStatus(false)}
     </>
   )
 }
