@@ -114,7 +114,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
         setIsOpen(true)
       })
       .catch((e: any) => {
-        toast.error(e.message)
+        toast.error(e.response.data.message)
         console.error(e)
       })
       .finally(() => {
