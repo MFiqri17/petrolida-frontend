@@ -9,15 +9,17 @@ interface IFileState {
 export default function FileInput({
   register,
   title,
+  errors,
   setValue,
-  setSubmitStatus,
-  submission_id
+  clearErrors,
+  setError,
 }: {
   register: any
   title: string
+  errors: any
   setValue: any
-  setSubmitStatus: any
-  submission_id: number
+  clearErrors: any
+  setError: any
 }) {
   const initialFileState: IFileState = {
     file: null,
@@ -54,7 +56,7 @@ export default function FileInput({
               fileRef?.current?.click()
             }}
           >
-            Upload
+            Upload Submission
           </button>
           <input
             ref={fileRef}
@@ -66,15 +68,17 @@ export default function FileInput({
               const value = e.target.files[0]
               console.log(e.target.files[0])
               console.log(value)
-              if(value) {
-                setSubmitStatus(true)
-              }
+              setError('file')
+              clearErrors('file')
               handleChange(e)
               setValue('file', value)
             }}
             className="hidden"
           />
         </div>
+        {errors['file'] && (
+          <p className="text-red-700 ">{title} is required</p>
+        )}
       </div>
       {File.url !== '' && (
         <div>

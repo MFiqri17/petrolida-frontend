@@ -22,7 +22,6 @@ const Announcement = ({
 
   const [compId, setCompId] = React.useState('1')
   const [closed, setClosed] = React.useState<boolean>(false)
-  const [submitStatus, setSubmitStatus] = React.useState<boolean>(false)
   const competitionType: competitionTypeInterface[] = [
     { id: '1', name: 'Oil Rig Design', amount: '150.000' },
     { id: '2', name: 'Paper', amount: '100.000' },
@@ -55,7 +54,9 @@ const Announcement = ({
     register,
     handleSubmit,
     setValue,
-    formState: { errors, isValid },
+    clearErrors,
+    setError,
+    formState: { errors },
   } = useForm<any>()
   return (
     <div className="mb-20">
@@ -136,10 +137,10 @@ const Announcement = ({
           >
             <section className="mb-5 flex w-full flex-col items-start justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] px-6 lg:h-[150px]">
               <h5 className="text-base font-bold leading-[19px] text-[#605C84]">
-                Title
+                Announcement
               </h5>
               <p className="text-lg font-semibold text-[#1E1E2D]">
-                {event.title}
+                {event.content}
               </p>
             </section>
           </div>
@@ -155,7 +156,7 @@ const Announcement = ({
               onSubmit={handleSubmit(onSubmit)}
             >
               <h5 className="text-base font-bold leading-[19px] text-[#605C84]">
-                Competition Stage
+                Competition Submission
               </h5>
               <p className="text-lg font-semibold text-[#1E1E2D]">
                 {event.title}
@@ -164,8 +165,9 @@ const Announcement = ({
                 register={register}
                 title={event.title}
                 setValue={setValue}
-                setSubmitStatus={setSubmitStatus}
-                submission_id={event.id}
+                clearErrors={clearErrors}
+                setError={setError}
+                errors={errors}
               />
               <input
                 className="hidden"
@@ -182,7 +184,7 @@ const Announcement = ({
                 value={event.id}
               />
               <button
-                className={`${isValid ? 'block' : 'hidden'}`}
+                className="w-[80px] rounded-[30px] bg-[#3D4BE0] py-[14.5px]  text-center text-base font-semibold text-[#FBFBFC] !transition   !duration-300 hover:!scale-105"
                 type="submit"
               >
                 Submit
