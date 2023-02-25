@@ -2,6 +2,7 @@ import api from '../../../utils/api'
 import { serverApiInterceptors } from '../../../utils/api-interceptor'
 import ProfileContainer from '../../../components/dashboard/profile-container'
 import { getUserData } from '../../../utils/auth'
+import UserProfileContainer from '../../../components/dashboard/user-profile-container'
 
 const profileData = [
   {
@@ -134,24 +135,11 @@ export interface RegisteredEventsType {
   data: TeamData[]
 }
 
-async function getRegisteredEvents() {
-  serverApiInterceptors()
-  try {
-    const res = await api.get<RegisteredEventsType>('/events/registration')
-    return res.data
-  } catch (error) {
-    return
-  }
-}
-
 export default async function Page() {
-  const registeredEvents = await getRegisteredEvents()
   const userData = await getUserData()
 
-  if (!registeredEvents || !userData) {
+  if (!userData) {
     return <div>Something went wrong</div>
   }
-  return (
-    <ProfileContainer teamData={registeredEvents.data} userData={userData} />
-  )
+  return <UserProfileContainer userData={userData} />
 }

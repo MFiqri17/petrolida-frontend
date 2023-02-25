@@ -4,6 +4,7 @@ import { Tab } from '@headlessui/react'
 import { competitionData } from '../../data/competition'
 import OngoingPopup from './ongoing-event-popup'
 import RegistrationTimer from './registration-timer'
+import Link from 'next/link'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -89,7 +90,17 @@ export default function Events({
                             {item.name}
                           </h3>
                           {idx === 1 ? (
-                            <p className="pr-5 text-gray-600">Registered</p>
+                            <div className="flex flex-col items-center">
+                              <p className="text-gray-600">Registered</p>
+                              <Link
+                                href={`/dashboard/${item.slug}/details`}
+                                className="w-full"
+                              >
+                                <div className="rounded-full bg-secondary py-1 px-2 text-center font-semibold text-white">
+                                  Details
+                                </div>
+                              </Link>
+                            </div>
                           ) : (
                             <a
                               href={`/event-register/${item.slug}`}
