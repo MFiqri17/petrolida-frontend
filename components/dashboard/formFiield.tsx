@@ -6,6 +6,12 @@ import FileInput from './fileInput'
 import { EventInput, SubmissionInput } from './textInput'
 import Spinner from '../utils/spinner'
 import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
+
+interface IFileState {
+  file: File | null
+  url: string
+}
 
 export default function FormField({
   id,
@@ -18,8 +24,14 @@ export default function FormField({
   compId: string
   is_submitted: boolean
 }) {
+  const initialFileState: IFileState = {
+    file: null,
+    url: '',
+  }
   const [submitStatus, setSubmitStatus] = React.useState<boolean>(false)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const [File, setFile] = React.useState(initialFileState)
+  const router = useRouter()
   const onSubmit: SubmitHandler<any> = (data) => {
     setIsLoading(true)
     const formData = new FormData()
@@ -34,7 +46,8 @@ export default function FormField({
       })
       .then(() => {
         toast.success('Your File Submission Success')
-        window.location.reload()
+        router.refresh()
+        setFile(initialFileState)
       })
       .catch((e: any) => {
         toast.error(e.response.data.message)
@@ -76,6 +89,8 @@ export default function FormField({
           submitStatus={submitStatus}
           setSubmitStatus={setSubmitStatus}
           is_submitted={is_submitted}
+          File={File}
+          setFile={setFile}
         />
         <button
           className={`${
