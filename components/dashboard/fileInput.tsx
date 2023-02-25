@@ -1,11 +1,6 @@
 'use client'
 import React from 'react'
 
-interface IFileState {
-  file: File | null
-  url: string
-}
-
 export default function FileInput({
   register,
   title,
@@ -17,6 +12,8 @@ export default function FileInput({
   submitStatus,
   setSubmitStatus,
   is_submitted,
+  File,
+  setFile,
 }: {
   register: any
   title: string
@@ -28,13 +25,10 @@ export default function FileInput({
   submitStatus: any
   setSubmitStatus: any
   is_submitted: boolean
+  File: any
+  setFile: any
 }) {
-  const initialFileState: IFileState = {
-    file: null,
-    url: '',
-  }
   const fileRef = React.useRef<HTMLInputElement>(null)
-  const [File, setFile] = React.useState(initialFileState)
   React.useEffect(() => {
     register(name, {
       required: true,
