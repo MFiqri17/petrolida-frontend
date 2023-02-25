@@ -5,6 +5,7 @@ import { TeamData } from '../../app/dashboard/profile/page'
 import React from 'react'
 import { UserDataTypes } from '../../utils/auth'
 import { GeneralTabPanel, ProfileTabPanel, FileTabPanel } from './profile-panel'
+import clsxm from '../../utils/clsxm'
 
 export default function ProfileContainer({
   teamData,
@@ -32,15 +33,39 @@ export default function ProfileContainer({
               </div>
               <Tab.List className="flex w-full flex-col items-center justify-center gap-y-4 py-6">
                 {/* The Tabs Start here */}
-                <Tab>
+                <Tab
+                  className={({ selected }) =>
+                    clsxm(
+                      'font-semibold text-gray-400',
+                      selected && 'text-primary',
+                    )
+                  }
+                >
                   <h1>General</h1>
                 </Tab>
                 {selectedTeam.members.map(({ id }, i) => (
-                  <Tab key={id}>
+                  <Tab
+                    key={id}
+                    className={({ selected }) =>
+                      clsxm(
+                        'font-semibold text-gray-400',
+                        selected && 'text-primary',
+                      )
+                    }
+                  >
                     <h1 key={id}>{i === 0 ? 'Leader' : `Member ${i}`}</h1>
                   </Tab>
                 ))}
-                <Tab>File</Tab>
+                <Tab
+                  className={({ selected }) =>
+                    clsxm(
+                      'font-semibold text-gray-400',
+                      selected && 'text-primary',
+                    )
+                  }
+                >
+                  File
+                </Tab>
               </Tab.List>
             </div>
           </div>
