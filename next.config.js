@@ -1,19 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['drive.google.com'],
+    domains: ['drive.google.com', 'admin.tesdeveloper.me'],
   },
   experimental: {
     appDir: true,
-  },
-  async redirects() {
-    return [
-      {
-        source: '/dashboard/profile',
-        destination: '/dashboard/profile/general',
-        permanent: true,
-      },
-    ]
   },
 }
 

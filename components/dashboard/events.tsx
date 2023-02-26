@@ -4,6 +4,7 @@ import { Tab } from '@headlessui/react'
 import { competitionData } from '../../data/competition'
 import OngoingPopup from './ongoing-event-popup'
 import RegistrationTimer from './registration-timer'
+import Link from 'next/link'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -89,7 +90,17 @@ export default function Events({
                             {item.name}
                           </h3>
                           {idx === 1 ? (
-                            <p className="pr-5 text-gray-600">Registered</p>
+                            <div className="flex flex-col items-center">
+                              <p className="text-gray-600">Registered</p>
+                              <Link
+                                href={`/dashboard/${item.slug}/details`}
+                                className="w-full"
+                              >
+                                <div className="rounded-full bg-secondary py-1 px-2 text-center font-semibold text-white">
+                                  Details
+                                </div>
+                              </Link>
+                            </div>
                           ) : (
                             <a
                               href={`/event-register/${item.slug}`}
@@ -97,7 +108,7 @@ export default function Events({
                                 currentDate >= item.start_registration &&
                                 currentDate <= item.end_registration
                                   ? 'rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1 '
-                                  : 'pointer-events-none rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300'
+                                  : 'rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300'
                               } `}
                             >
                               Register
