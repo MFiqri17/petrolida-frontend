@@ -1,4 +1,5 @@
 import ProfileContainer from '../../../../components/dashboard/profile-container'
+import SingleAnnouncement from '../../../../components/dashboard/single-announcment'
 import api from '../../../../utils/api'
 import { serverApiInterceptors } from '../../../../utils/api-interceptor'
 import { getUserData } from '../../../../utils/auth'
@@ -60,6 +61,36 @@ async function getRegisteredEvents() {
   }
 }
 
+async function getEventsAnnoucement() {
+  serverApiInterceptors()
+  try {
+    const res = await api.get('/announcement')
+    return res.data.data
+  } catch (error) {
+    return
+  }
+}
+
+async function getStatusAnnouncement() {
+  serverApiInterceptors()
+  try {
+    const res = await api.get('/events/registration')
+    return res.data.data
+  } catch (error) {
+    return
+  }
+}
+
+async function getSubmission() {
+  serverApiInterceptors()
+  try {
+    const res = await api.get('/submission')
+    return res.data.data
+  } catch (error) {
+    return
+  }
+}
+
 const competitionSlug = {
   1: 'oil-rig-design',
   2: 'paper',
@@ -69,10 +100,14 @@ const competitionSlug = {
   6: 'petrosmart',
 }
 
-const coba = competitionSlug[1]
-
 const checkCompetitionSlug = (competition: string) => {
-  return Object.values(competitionSlug).includes(competition)
+  const slugValidity = Object.values(competitionSlug).includes(competition)
+  const slugId =
+    Object.keys(competitionSlug).find(
+      (key) =>
+        competitionSlug[+key as keyof typeof competitionSlug] === competition,
+    ) || 0
+  return { slugValidity, slugId }
 }
 
 export default async function Page({
@@ -83,8 +118,12 @@ export default async function Page({
   const registeredEvents = await getRegisteredEvents()
   const userData = await getUserData()
   const isCompetitonSlugValid = checkCompetitionSlug(params.competition)
+  // Announcment
+  const events = await getEventsAnnoucement()
+  const status = await getStatusAnnouncement()
+  const submission = await getSubmission()
 
-  if (!registeredEvents || !userData || !isCompetitonSlugValid) {
+  if (!registeredEvents || !userData || !isCompetitonSlugValid.slugValidity) {
     return <div>Something went wrong</div>
   }
 
@@ -93,6 +132,16 @@ export default async function Page({
       competitionSlug[+data.event_id as keyof typeof competitionSlug] ===
       params.competition,
   )
+  // Announcment Based on selected Registered Events
+  const selectedEvent = events.filter(
+    (event: any) => event.event_id === isCompetitonSlugValid.slugId,
+  )
+  const selectedStatus = status.filter(
+    (status: any) => status.event_id === isCompetitonSlugValid.slugId,
+  )
+  const selectedSubmission = submission.filter(
+    (submission: any) => submission.event_id === isCompetitonSlugValid.slugId,
+  )
 
   if (!selectedRegisteredEvent) {
     return <div>You did not sign up for this competition</div>
@@ -100,6 +149,11 @@ export default async function Page({
 
   return (
     <>
+      <SingleAnnouncement
+        events={selectedEvent ?? []}
+        submission={selectedSubmission ?? []}
+        status={selectedStatus ?? []}
+      />
       <ProfileContainer
         teamData={selectedRegisteredEvent}
         userData={userData}

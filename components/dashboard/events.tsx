@@ -21,6 +21,11 @@ export default function Events({
       registeredEvents.some((event) => event.event_id == item.id),
     ),
   })
+
+  const checkIfRegistered = (id: number) => {
+    return registeredEvents.some((event) => event.event_id == id)
+  }
+
   const [todayDate] = useState<any>(new Date())
   let currentDate: string =
     todayDate.getFullYear() +
@@ -101,18 +106,28 @@ export default function Events({
                                 </div>
                               </Link>
                             </div>
-                          ) : (
+                          ) : checkIfRegistered(item.id) ? (
+                            <button
+                              disabled
+                              className="cursor-not-allowed rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb brightness-[75%]"
+                            >
+                              Register
+                            </button>
+                          ) : currentDate >= item.start_registration &&
+                            currentDate <= item.end_registration ? (
                             <a
                               href={`/event-register/${item.slug}`}
-                              className={`${
-                                currentDate >= item.start_registration &&
-                                currentDate <= item.end_registration
-                                  ? 'rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1 '
-                                  : 'rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300'
-                              } `}
+                              className={`${'rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1'}`}
                             >
                               Register
                             </a>
+                          ) : (
+                            <button
+                              disabled
+                              className="cursor-not-allowed rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb brightness-[75%]"
+                            >
+                              Register
+                            </button>
                           )}
                         </div>
                       </li>
