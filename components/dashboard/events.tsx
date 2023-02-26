@@ -108,7 +108,7 @@ export default function Events({
                                 currentDate >= item.start_registration &&
                                 currentDate <= item.end_registration
                                   ? 'rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1 '
-                                  : 'pointer-events-none rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300'
+                                  : 'rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300'
                               } `}
                             >
                               Register
