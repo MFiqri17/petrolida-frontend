@@ -104,6 +104,7 @@ export function ImageInput({
   types,
   Img,
   setImg,
+  Source,
 }: {
   register: any
   name: string
@@ -115,13 +116,12 @@ export function ImageInput({
   types: string
   Img: any
   setImg: any
+  Source: any
 }) {
+  console.log(Source)
   const fileRef = React.useRef<HTMLInputElement>(null)
   React.useEffect(() => {
-    register(name, {
-      required: true,
-      pattern: /image\/(png|jpg|jpeg)/i,
-    })
+    register(name)
   }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -196,20 +196,24 @@ export function ImageInput({
             name={name}
             onChange={(e: any) => {
               const value = e.target.files[0]
+              if (!value) {
+                setValue(name, Source)
+                clearErrors(name)
+              }
               setError(name)
               handleChange(e)
-              clearErrors(name)
               setValue(name, value)
             }}
             type={types}
             className="hidden"
           />
         </div>
-        {errors[name] && (
+        {/* {errors[name] && (
           <p className="text-red-700 ">{label.toLowerCase()} is required</p>
-        )}
+        )} */}
       </div>
       <div>
+        <p>{Source}</p>
         <img src={Img.src} alt="" />
       </div>
     </>

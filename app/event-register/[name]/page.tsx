@@ -43,6 +43,7 @@ function getPageData(param: string) {
 
 const EventRegistration = ({ params }: { params: { name: string } }) => {
   const data = getPageData(params.name)
+  
   const initialFileState: IFileState = {
     file: null,
     src: '',
@@ -134,12 +135,12 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
   return (
     <div
       className={
-        !isClosed
+        isClosed
           ? 'bg-[#EDEEF3] px-5 pb-32 pt-36 lg:px-24 xl:px-48 2xl:px-72'
           : 'h-screen items-center justify-center bg-[#EDEEF3]'
       }
     >
-      {!isClosed ? (
+      {isClosed ? (
         <h1 className="pt-64 text-center text-[28px] font-black text-[#07003F] md:text-5xl">
           Event Registration is closed
         </h1>
@@ -209,6 +210,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                 errors={errors}
                                 setError={setError}
                                 clearErrors={clearErrors}
+                                Source={''}
                                 Img={
                                   registerItem.name ===
                                   `members[0][student_card]`

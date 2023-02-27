@@ -1,5 +1,4 @@
 'use client'
-
 import React from 'react'
 import { registerData, registerData2 } from '../../../data/register'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -23,6 +22,7 @@ const formtypeArray = [
   'Member 4',
   'Files',
 ]
+
 const formTypeArray2 = ['General', 'Leader', 'Member 1', 'Member 2', 'Files']
 interface IFileState {
   file: File | null
@@ -33,27 +33,33 @@ interface IFileState {
   }
 }
 
-function getPageData(param: string) {
-  const data = competitionData.filter(({ slug }) => slug === param)
+function getCompetitionData(competition: string) {
+  const data = competitionData.filter(({ slug }) => slug === competition)
   if (data[0]) {
     return data[0]
   }
   return null
 }
 
-const EventRegistrationUpdate = ({ params }: { params: { name: string } }) => {
-  const data = getPageData(params.name)
+const EventRegistrationUpdate = ({
+  params,
+}: {
+  params: { competition: string }
+}) => {
+  const data = getCompetitionData(params.competition)
   const initialFileState: IFileState = {
     file: null,
     src: '',
     dimension: { width: 0, height: 0 },
   }
+
   const [index, setIndex] = React.useState<number>(0)
   const [todayDate] = React.useState<any>(new Date())
+  const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
   const [isClosed, setIsClosed] = React.useState<boolean>(true)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
-  const [user, setUser] = React.useState<any>([])
+
   const [Img, setImg] = React.useState(initialFileState)
   const [Img2, setImg2] = React.useState(initialFileState)
   const [Img3, setImg3] = React.useState(initialFileState)
@@ -65,6 +71,17 @@ const EventRegistrationUpdate = ({ params }: { params: { name: string } }) => {
   const [Img9, setImg9] = React.useState(initialFileState)
   const [Img10, setImg10] = React.useState(initialFileState)
   const [Img11, setImg11] = React.useState(initialFileState)
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    clearErrors,
+    setError,
+    trigger,
+    getValues,
+    formState: { errors, isValid },
+  } = useForm<FormValues>()
   React.useEffect(() => {
     let currentDate: string =
       todayDate.getFullYear() +
@@ -81,14 +98,50 @@ const EventRegistrationUpdate = ({ params }: { params: { name: string } }) => {
   }, [])
   React.useEffect(() => {
     api
-      .get('/events/registration')
+      .get(`/events/registration/${data?.id}`)
       .then((res) => {
-        setUser(res.data.data)
-        console.log(user)
-        console.log(res.data.data)
+        const data = res.data.data
+
+        setValue('event_id', data.id)
+        setValue('university', data.university)
+        setValue('team_name', data.team_name)
+        setValue('amount', data.payment.amount)
+        setValue('transfer_receipt', data.payment.payment_proof)
+
+        data.members.forEach((member: any, index: any) => {
+          setValue(`members.${index}.name`, member.name)
+          setValue(`members.${index}.major`, member.major)
+          setValue(`members.${index}.batch`, member.batch)
+          setValue(`members.${index}.identity_id`, member.identity_id)
+          setValue(`members.${index}.email`, member.email)
+          setValue(
+            `members.${index}.identity_card`,
+            `${member.identity_card_path}`,
+          )
+          setValue(
+            `members.${index}.student_card`,
+            `${member.student_card_path}`,
+          )
+
+        })
       })
       .catch((e) => console.log(e.message))
   }, [])
+  const studentCardValue = [
+    getValues(`members.${0}.student_card`),
+    getValues(`members.${1}.student_card`),
+    getValues(`members.${2}.student_card`),
+    getValues(`members.${3}.student_card`),
+    getValues(`members.${4}.student_card`),
+  ]
+  const identityCardValue = [
+    getValues(`members.${0}.identity_card`),
+    getValues(`members.${1}.identity_card`),
+    getValues(`members.${2}.identity_card`),
+    getValues(`members.${3}.identity_card`),
+    getValues(`members.${4}.identity_card`),
+  ]
+  const transferReceiptValue = getValues('transfer_receipt')
   const incrementIndex = () => {
     setIndex(index + 1)
   }
@@ -133,74 +186,6 @@ const EventRegistrationUpdate = ({ params }: { params: { name: string } }) => {
         setIsLoading(false)
       })
   }
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    clearErrors,
-    setError,
-    trigger,
-    formState: { errors, isValid },
-  } = useForm<FormValues>()
-  //     {
-  //     defaultValues: {
-  //       university: user.university,
-  //       team_name: user.team_name,
-  //     //   members: [
-  //     //     {
-  //     //       name: user.members[0].name,
-  //     //       major: user.members[0].major,
-  //     //       batch: user.members[0].batch,
-  //     //       identity_id: user.members[0].identity_id,
-  //     //       email: user.members[0].email,
-  //     //       phone: user.members[0].phone,
-  //     //       identity_card: user.members[0].identity_card_path,
-  //     //       student_card: user.members[0].student_card_path,
-  //     //     },
-  //     //     {
-  //     //       name: user.members[1].name,
-  //     //       major: user.members[1].major,
-  //     //       batch: user.members[1].batch,
-  //     //       identity_id: user.members[1].identity_id,
-  //     //       email: user.members[1].email,
-  //     //       phone: user.members[1].phone,
-  //     //       identity_card: user.members[1].identity_card_path,
-  //     //       student_card: user.members[1].student_card_path,
-  //     //     },
-  //     //     {
-  //     //       name: user.members[2].name,
-  //     //       major: user.members[2].major,
-  //     //       batch: user.members[2].batch,
-  //     //       identity_id: user.members[2].identity_id,
-  //     //       email: user.members[2].email,
-  //     //       phone: user.members[2].phone,
-  //     //       identity_card: user.members[2].identity_card_path,
-  //     //       student_card: user.members[2].student_card_path,
-  //     //     },
-  //     //     {
-  //     //       name: user.members[3].name,
-  //     //       major: user.members[3].major,
-  //     //       batch: user.members[3].batch,
-  //     //       identity_id: user.members[3].identity_id,
-  //     //       email: user.members[3].email,
-  //     //       phone: user.members[3].phone,
-  //     //       identity_card: user.members[3].identity_card_path,
-  //     //       student_card: user.members[3].student_card_path,
-  //     //     },
-  //     //     {
-  //     //       name: user.members[4].name,
-  //     //       major: user.members[4].major,
-  //     //       batch: user.members[4].batch,
-  //     //       identity_id: user.members[4].identity_id,
-  //     //       email: user.members[4].email,
-  //     //       phone: user.members[4].phone,
-  //     //       identity_card: user.members[4].identity_card_path,
-  //     //       student_card: user.members[4].student_card_path,
-  //     //     },
-  //     //   ],
-  //       transfer_receipt: user.payment.payment_proof,
-  //     },
-  //   }
 
   return (
     <div
@@ -280,6 +265,39 @@ const EventRegistrationUpdate = ({ params }: { params: { name: string } }) => {
                                 errors={errors}
                                 setError={setError}
                                 clearErrors={clearErrors}
+                                Source={
+                                  registerItem.name ===
+                                  `members[0][student_card]`
+                                    ? studentCardValue[0]
+                                    : registerItem.name ===
+                                      `members[0][identity_card]`
+                                    ? identityCardValue[0]
+                                    : registerItem.name ===
+                                      `members[1][student_card]`
+                                    ? studentCardValue[1]
+                                    : registerItem.name ===
+                                      `members[1][identity_card]`
+                                    ? identityCardValue[1]
+                                    : registerItem.name ===
+                                      `members[2][student_card]`
+                                    ? studentCardValue[2]
+                                    : registerItem.name ===
+                                      `members[2][identity_card]`
+                                    ? identityCardValue[2]
+                                    : registerItem.name ===
+                                      `members[3][student_card]`
+                                    ? studentCardValue[3]
+                                    : registerItem.name ===
+                                      `members[3][identity_card]`
+                                    ? identityCardValue[3]
+                                    : registerItem.name ===
+                                      `members[4][student_card]`
+                                    ? studentCardValue[4]
+                                    : registerItem.name ===
+                                      `members[4][identity_card]`
+                                    ? identityCardValue[4]
+                                    : transferReceiptValue
+                                }
                                 Img={
                                   registerItem.name ===
                                   `members[0][student_card]`
