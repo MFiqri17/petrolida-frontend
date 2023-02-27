@@ -139,7 +139,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
           : 'h-screen items-center justify-center bg-[#EDEEF3]'
       }
     >
-      {isClosed ? (
+      {!isClosed ? (
         <h1 className="pt-64 text-center text-[28px] font-black text-[#07003F] md:text-5xl">
           Event Registration is closed
         </h1>
