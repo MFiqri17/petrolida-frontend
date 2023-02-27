@@ -18,6 +18,7 @@ const Announcement = ({
     amount: string
   }
 
+  const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
   const [compId, setCompId] = React.useState('1')
   const [closed, setClosed] = React.useState<boolean>(false)
   const competitionType: competitionTypeInterface[] = [
@@ -111,6 +112,20 @@ const Announcement = ({
               <p className="text-lg font-semibold text-[#1E1E2D]">
                 {event.content}
               </p>
+              <div>
+                <p>
+                  {' '}
+                  File:
+                  <a
+                    className="ml-1 inline hover:border-b-2 hover:border-black"
+                    rel="noreferrer"
+                    target="_blank"
+                    href={`${baseStorageUrl}${event.file}`}
+                  >
+                    {event.file}
+                  </a>
+                </p>
+              </div>
             </section>
           </div>
         ))}
