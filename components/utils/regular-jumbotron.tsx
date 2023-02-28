@@ -32,7 +32,11 @@ export default function RegularJumbotron({
         <p className="text-white sm:w-2/3 sm:text-xl">{desc}</p>
         <div className="flex gap-x-6">
           <a
-            href={isHome ? '#petrolida' : '#'}
+            href={
+              isHome
+                ? '#petrolida'
+                : 'https://drive.google.com/file/d/1u3sCDOXVpEDUf5SU54aAeIZYH6G3StjE/view?usp=sharing'
+            }
             className="rounded-full border border-white px-6 py-2.5 font-semibold text-white transition hover:bg-white hover:text-secondary"
           >
             {isHome ? 'Learn More' : 'Guidebook'}

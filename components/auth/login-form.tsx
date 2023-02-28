@@ -90,12 +90,6 @@ export default function LoginForm() {
       >
         Add Cookies
       </button> */}
-      <button
-        type="button"
-        className="w-full rounded-full bg-white p-4 font-semibold"
-      >
-        Log in with Google
-      </button>
     </form>
   )
 }

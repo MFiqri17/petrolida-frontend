@@ -43,7 +43,7 @@ function getPageData(param: string) {
 
 const EventRegistration = ({ params }: { params: { name: string } }) => {
   const data = getPageData(params.name)
-  
+
   const initialFileState: IFileState = {
     file: null,
     src: '',
@@ -65,6 +65,11 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
   const [Img9, setImg9] = React.useState(initialFileState)
   const [Img10, setImg10] = React.useState(initialFileState)
   const [Img11, setImg11] = React.useState(initialFileState)
+  const [ImgTwibbon, setImgTwibbon] = React.useState(initialFileState)
+  const [ImgTwibbon2, setImgTwibbon2] = React.useState(initialFileState)
+  const [ImgTwibbon3, setImgTwibbon3] = React.useState(initialFileState)
+  const [ImgTwibbon4, setImgTwibbon4] = React.useState(initialFileState)
+  const [ImgTwibbon5, setImgTwibbon5] = React.useState(initialFileState)
   React.useEffect(() => {
     let currentDate: string =
       todayDate.getFullYear() +
@@ -135,7 +140,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
   return (
     <div
       className={
-        isClosed
+        !isClosed
           ? 'bg-[#EDEEF3] px-5 pb-32 pt-36 lg:px-24 xl:px-48 2xl:px-72'
           : 'h-screen items-center justify-center bg-[#EDEEF3]'
       }
@@ -211,6 +216,15 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                 setError={setError}
                                 clearErrors={clearErrors}
                                 Source={''}
+                                path={registerItem.path_twibbon}
+                                label={
+                                  params.name === 'business-case' &&
+                                  registerItem.name === 'transfer_receipt'
+                                    ? 'Grab Unlimited Proof'
+                                    : registerItem.label
+                                }
+                                name={registerItem.name}
+                                types={registerItem.types}
                                 Img={
                                   registerItem.name ===
                                   `members[0][student_card]`
@@ -219,11 +233,17 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                       `members[0][identity_card]`
                                     ? Img2
                                     : registerItem.name ===
+                                      'members[0][twibbon_path]'
+                                    ? ImgTwibbon
+                                    : registerItem.name ===
                                       `members[1][student_card]`
                                     ? Img3
                                     : registerItem.name ===
                                       `members[1][identity_card]`
                                     ? Img4
+                                    : registerItem.name ===
+                                      'members[1][twibbon_path]'
+                                    ? ImgTwibbon2
                                     : registerItem.name ===
                                       `members[2][student_card]`
                                     ? Img5
@@ -231,17 +251,26 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                       `members[2][identity_card]`
                                     ? Img6
                                     : registerItem.name ===
+                                      'members[2][twibbon_path]'
+                                    ? ImgTwibbon3
+                                    : registerItem.name ===
                                       `members[3][student_card]`
                                     ? Img7
                                     : registerItem.name ===
                                       `members[3][identity_card]`
                                     ? Img8
                                     : registerItem.name ===
+                                      'members[3][twibbon_path]'
+                                    ? ImgTwibbon4
+                                    : registerItem.name ===
                                       `members[4][student_card]`
                                     ? Img9
                                     : registerItem.name ===
                                       `members[4][identity_card]`
                                     ? Img10
+                                    : registerItem.name ===
+                                      'members[4][twibbon_path]'
+                                    ? ImgTwibbon5
                                     : Img11
                                 }
                                 setImg={
@@ -252,11 +281,17 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                       `members[0][identity_card]`
                                     ? setImg2
                                     : registerItem.name ===
+                                      'members[0][twibbon_path]'
+                                    ? setImgTwibbon
+                                    : registerItem.name ===
                                       `members[1][student_card]`
                                     ? setImg3
                                     : registerItem.name ===
                                       `members[1][identity_card]`
                                     ? setImg4
+                                    : registerItem.name ===
+                                      'members[1][twibbon_path]'
+                                    ? setImgTwibbon2
                                     : registerItem.name ===
                                       `members[2][student_card]`
                                     ? setImg5
@@ -264,20 +299,28 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                       `members[2][identity_card]`
                                     ? setImg6
                                     : registerItem.name ===
+                                      'members[2][twibbon_path]'
+                                    ? setImgTwibbon3
+                                    : registerItem.name ===
                                       `members[3][student_card]`
                                     ? setImg7
                                     : registerItem.name ===
                                       `members[3][identity_card]`
                                     ? setImg8
                                     : registerItem.name ===
+                                      'members[3][twibbon_path]'
+                                    ? setImgTwibbon4
+                                    : registerItem.name ===
                                       `members[4][student_card]`
                                     ? setImg9
                                     : registerItem.name ===
                                       `members[4][identity_card]`
                                     ? setImg10
+                                    : registerItem.name ===
+                                      'members[4][twibbon_path]'
+                                    ? setImgTwibbon5
                                     : setImg11
                                 }
-                                {...registerItem}
                               />
                             ) : (
                               <Input

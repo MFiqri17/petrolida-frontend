@@ -105,6 +105,7 @@ export function ImageInput({
   Img,
   setImg,
   Source,
+  path,
 }: {
   register: any
   name: string
@@ -117,11 +118,15 @@ export function ImageInput({
   Img: any
   setImg: any
   Source: any
+  path: any
 }) {
   console.log(Source)
   const fileRef = React.useRef<HTMLInputElement>(null)
   React.useEffect(() => {
-    register(name)
+    register(name, {
+      required: true,
+      pattern: /image\/(png|jpg|jpeg)/i,
+    })
   }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -196,25 +201,159 @@ export function ImageInput({
             name={name}
             onChange={(e: any) => {
               const value = e.target.files[0]
-              if (!value) {
-                setValue(name, Source)
-                clearErrors(name)
-              }
               setError(name)
               handleChange(e)
+              clearErrors(name)
               setValue(name, value)
             }}
             type={types}
             className="hidden"
           />
         </div>
-        {/* {errors[name] && (
+        {errors[name] && (
           <p className="text-red-700 ">{label.toLowerCase()} is required</p>
-        )} */}
+        )}
+      </div>
+      <div className={path === '' ? 'hidden' : 'block'}>
+        <p>
+          {' '}
+          Link Twibbon:
+          <a
+            className="ml-1 inline hover:border-b-2 hover:border-black"
+            rel="noreferrer"
+            target="_blank"
+            href={path}
+          >
+            {path}
+          </a>
+        </p>
       </div>
       <div>
         <p>{Source}</p>
         <img src={Img.src} alt="" />
+      </div>
+    </>
+  )
+}
+
+export function ImageInputUpdate({
+  register,
+  name,
+  label,
+  errors,
+  setValue,
+  clearErrors,
+  setError,
+  types,
+  Img,
+  setImg,
+  Source,
+  path,
+}: {
+  register: any
+  name: string
+  label: string
+  errors: any
+  setValue: any
+  clearErrors: any
+  setError: any
+  types: string
+  Img: any
+  setImg: any
+  Source: any
+  path: any
+}) {
+  console.log(Source)
+  const fileRef = React.useRef<HTMLInputElement>(null)
+  React.useEffect(() => {
+    register(name, {
+      required: true,
+      pattern: /image\/(png|jpg|jpeg)/i,
+    })
+  }, [])
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    if (!e.target.files) return
+    const file = e.target.files[0]
+    const url = URL.createObjectURL(file)
+    setImg(url)
+    e.target.files
+  }
+
+  return (
+    <>
+      <div className="text-cblack  flex flex-col justify-start space-y-2 font-medium">
+        <label htmlFor={name} className="text-xl font-semibold">
+          {label}
+        </label>
+        <div className="flex flex-row items-center justify-start">
+          <button
+            id={name}
+            type="button"
+            className="h-[48px] w-[228px] rounded-[30px] bg-white pl-5 text-left text-base font-semibold text-[#605C84] !transition   !duration-300 hover:!scale-105   md:h-[60px]"
+            onClick={(e) => {
+              e.preventDefault()
+              fileRef?.current?.click()
+            }}
+          >
+            <NextImage
+              className="mr-4 inline"
+              src={'/images/upload.png'}
+              alt="upload"
+              width={24}
+              height={24}
+            />{' '}
+            Upload
+          </button>
+          <input
+            ref={fileRef}
+            multiple={false}
+            accept="image/*"
+            id={name}
+            name={name}
+            onChange={(e: any) => {
+              const value = e.target.files[0]
+              setError(name)
+              handleChange(e)
+              clearErrors(name)
+              setValue(name, value)
+            }}
+            type={types}
+            className="hidden"
+          />
+        </div>
+        {errors[name] && (
+          <p className="text-red-700 ">{label.toLowerCase()} is required</p>
+        )}
+      </div>
+      <div className={path === '' ? 'hidden' : 'block'}>
+        <p>
+          {' '}
+          Link Twibbon:
+          <a
+            className="ml-1 inline hover:border-b-2 hover:border-black"
+            rel="noreferrer"
+            target="_blank"
+            href={path}
+          >
+            {path}
+          </a>
+        </p>
+      </div>
+      <div>
+        <p>
+          {' '}
+          File:
+          <a
+            className="ml-1 inline hover:border-b-2 hover:border-black"
+            rel="noreferrer"
+            target="_blank"
+            href={Img}
+          >
+            {Img}
+          </a>
+        </p>
       </div>
     </>
   )
