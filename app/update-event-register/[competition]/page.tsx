@@ -3,7 +3,10 @@ import React from 'react'
 import { registerData, registerData2 } from '../../../data/register'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
-import { Input, ImageInput } from '../../../components/register/formComponent'
+import {
+  Input,
+  ImageInputUpdate,
+} from '../../../components/register/formComponent'
 import { api } from '../../../utils/api'
 import FormTimeline from '../../../components/register/formTimeline'
 import Formbutton from '../../../components/register/formButton'
@@ -24,14 +27,6 @@ const formtypeArray = [
 ]
 
 const formTypeArray2 = ['General', 'Leader', 'Member 1', 'Member 2', 'Files']
-interface IFileState {
-  file: File | null
-  src: string
-  dimension: {
-    width: number
-    height: number
-  }
-}
 
 function getCompetitionData(competition: string) {
   const data = competitionData.filter(({ slug }) => slug === competition)
@@ -47,11 +42,6 @@ const EventRegistrationUpdate = ({
   params: { competition: string }
 }) => {
   const data = getCompetitionData(params.competition)
-  const initialFileState: IFileState = {
-    file: null,
-    src: '',
-    dimension: { width: 0, height: 0 },
-  }
 
   const [index, setIndex] = React.useState<number>(0)
   const [todayDate] = React.useState<any>(new Date())
@@ -59,18 +49,18 @@ const EventRegistrationUpdate = ({
   const [isClosed, setIsClosed] = React.useState<boolean>(true)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
-
-  const [Img, setImg] = React.useState(initialFileState)
-  const [Img2, setImg2] = React.useState(initialFileState)
-  const [Img3, setImg3] = React.useState(initialFileState)
-  const [Img4, setImg4] = React.useState(initialFileState)
-  const [Img5, setImg5] = React.useState(initialFileState)
-  const [Img6, setImg6] = React.useState(initialFileState)
-  const [Img7, setImg7] = React.useState(initialFileState)
-  const [Img8, setImg8] = React.useState(initialFileState)
-  const [Img9, setImg9] = React.useState(initialFileState)
-  const [Img10, setImg10] = React.useState(initialFileState)
-  const [Img11, setImg11] = React.useState(initialFileState)
+  const [team_id, setTeam_id] = React.useState<number>(0)
+  const [Img, setImg] = React.useState('')
+  const [Img2, setImg2] = React.useState('')
+  const [Img3, setImg3] = React.useState('')
+  const [Img4, setImg4] = React.useState('')
+  const [Img5, setImg5] = React.useState('')
+  const [Img6, setImg6] = React.useState('')
+  const [Img7, setImg7] = React.useState('')
+  const [Img8, setImg8] = React.useState('')
+  const [Img9, setImg9] = React.useState('')
+  const [Img10, setImg10] = React.useState('')
+  const [Img11, setImg11] = React.useState('')
 
   const {
     register,
@@ -101,12 +91,20 @@ const EventRegistrationUpdate = ({
       .get(`/events/registration/${data?.id}`)
       .then((res) => {
         const data = res.data.data
-
-        setValue('event_id', data.id)
         setValue('university', data.university)
         setValue('team_name', data.team_name)
-        setValue('amount', data.payment.amount)
-        setValue('transfer_receipt', data.payment.payment_proof)
+        setImg(`${baseStorageUrl}${data.members[0].student_card_path}`)
+        setImg2(`${baseStorageUrl}${data.members[0].identity_card_path}`)
+        setImg3(`${baseStorageUrl}${data.members[1].student_card_path}`)
+        setImg4(`${baseStorageUrl}${data.members[1].identity_card_path}`)
+        setImg5(`${baseStorageUrl}${data.members[2].student_card_path}`)
+        setImg6(`${baseStorageUrl}${data.members[2].identity_card_path}`)
+        setImg7(`${baseStorageUrl}${data.members[3].student_card_path}`)
+        setImg8(`${baseStorageUrl}${data.members[3].identity_card_path}`)
+        setImg9(`${baseStorageUrl}${data.members[3].student_card_path}`)
+        setImg10(`${baseStorageUrl}${data.members[4].identity_card_path}`)
+        setImg11(`${baseStorageUrl}${data.payment.payment_proof}`)
+        setTeam_id(data.id)
 
         data.members.forEach((member: any, index: any) => {
           setValue(`members.${index}.name`, member.name)
@@ -114,34 +112,12 @@ const EventRegistrationUpdate = ({
           setValue(`members.${index}.batch`, member.batch)
           setValue(`members.${index}.identity_id`, member.identity_id)
           setValue(`members.${index}.email`, member.email)
-          setValue(
-            `members.${index}.identity_card`,
-            `${member.identity_card_path}`,
-          )
-          setValue(
-            `members.${index}.student_card`,
-            `${member.student_card_path}`,
-          )
-
+          setValue(`members.${index}.phone`, member.phone)
         })
       })
       .catch((e) => console.log(e.message))
   }, [])
-  const studentCardValue = [
-    getValues(`members.${0}.student_card`),
-    getValues(`members.${1}.student_card`),
-    getValues(`members.${2}.student_card`),
-    getValues(`members.${3}.student_card`),
-    getValues(`members.${4}.student_card`),
-  ]
-  const identityCardValue = [
-    getValues(`members.${0}.identity_card`),
-    getValues(`members.${1}.identity_card`),
-    getValues(`members.${2}.identity_card`),
-    getValues(`members.${3}.identity_card`),
-    getValues(`members.${4}.identity_card`),
-  ]
-  const transferReceiptValue = getValues('transfer_receipt')
+
   const incrementIndex = () => {
     setIndex(index + 1)
   }
@@ -172,7 +148,7 @@ const EventRegistrationUpdate = ({
 
     console.log(formData)
     api
-      .post('/events/registration', formData, {
+      .post(`events/registration/${team_id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then(() => {
@@ -258,46 +234,15 @@ const EventRegistrationUpdate = ({
                                 className="hidden"
                               />
                             ) : registerItem.types === 'file' ? (
-                              <ImageInput
+                              <ImageInputUpdate
                                 key={registerItem.id}
                                 register={register}
                                 setValue={setValue}
                                 errors={errors}
                                 setError={setError}
                                 clearErrors={clearErrors}
-                                Source={
-                                  registerItem.name ===
-                                  `members[0][student_card]`
-                                    ? studentCardValue[0]
-                                    : registerItem.name ===
-                                      `members[0][identity_card]`
-                                    ? identityCardValue[0]
-                                    : registerItem.name ===
-                                      `members[1][student_card]`
-                                    ? studentCardValue[1]
-                                    : registerItem.name ===
-                                      `members[1][identity_card]`
-                                    ? identityCardValue[1]
-                                    : registerItem.name ===
-                                      `members[2][student_card]`
-                                    ? studentCardValue[2]
-                                    : registerItem.name ===
-                                      `members[2][identity_card]`
-                                    ? identityCardValue[2]
-                                    : registerItem.name ===
-                                      `members[3][student_card]`
-                                    ? studentCardValue[3]
-                                    : registerItem.name ===
-                                      `members[3][identity_card]`
-                                    ? identityCardValue[3]
-                                    : registerItem.name ===
-                                      `members[4][student_card]`
-                                    ? studentCardValue[4]
-                                    : registerItem.name ===
-                                      `members[4][identity_card]`
-                                    ? identityCardValue[4]
-                                    : transferReceiptValue
-                                }
+                                path={registerItem.path_twibbon}
+                                Source={''}
                                 Img={
                                   registerItem.name ===
                                   `members[0][student_card]`

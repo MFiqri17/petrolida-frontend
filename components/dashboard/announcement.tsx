@@ -2,6 +2,8 @@
 import React from 'react'
 import Image from 'next/image'
 import FormField from './formFiield'
+import { Splide, SplideSlide } from '@splidejs/react-splide'
+import '@splidejs/react-splide/css'
 
 const Announcement = ({
   events,
@@ -18,6 +20,12 @@ const Announcement = ({
     amount: string
   }
 
+  const carouselRef = React.useRef<Splide>(null)
+  const handleThumbs = (id: string) => {
+    if (carouselRef.current) {
+      carouselRef.current.go(id)
+    }
+  }
   const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
   const [compId, setCompId] = React.useState('1')
   const [closed, setClosed] = React.useState<boolean>(false)
@@ -130,7 +138,7 @@ const Announcement = ({
           </div>
         ))}
 
-      <div className="flex justify-between space-x-8">
+      <div className="flex flex-col justify-between space-x-0 md:flex-row md:space-x-8">
         {submission
           .filter((item: any) => compId === item.event_id)
           .map((event: any) => (
