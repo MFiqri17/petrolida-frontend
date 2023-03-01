@@ -6,6 +6,7 @@ import { ErrorMessage } from '@hookform/error-message'
 import {
   Input,
   ImageInputUpdate,
+  ImageInput,
 } from '../../../components/register/formComponent'
 import { api } from '../../../utils/api'
 import FormTimeline from '../../../components/register/formTimeline'
@@ -27,7 +28,14 @@ const formtypeArray = [
 ]
 
 const formTypeArray2 = ['General', 'Leader', 'Member 1', 'Member 2', 'Files']
-
+interface IFileState {
+  file: File | null
+  src: string
+  dimension: {
+    width: number
+    height: number
+  }
+}
 function getCompetitionData(competition: string) {
   const data = competitionData.filter(({ slug }) => slug === competition)
   if (data[0]) {
@@ -42,7 +50,11 @@ const EventRegistrationUpdate = ({
   params: { competition: string }
 }) => {
   const data = getCompetitionData(params.competition)
-
+  const initialFileState: IFileState = {
+    file: null,
+    src: '',
+    dimension: { width: 0, height: 0 },
+  }
   const [index, setIndex] = React.useState<number>(0)
   const [todayDate] = React.useState<any>(new Date())
   const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
@@ -50,18 +62,38 @@ const EventRegistrationUpdate = ({
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
   const [team_id, setTeam_id] = React.useState<number>(0)
-  const [Img, setImg] = React.useState('')
-  const [Img2, setImg2] = React.useState('')
-  const [Img3, setImg3] = React.useState('')
-  const [Img4, setImg4] = React.useState('')
-  const [Img5, setImg5] = React.useState('')
-  const [Img6, setImg6] = React.useState('')
-  const [Img7, setImg7] = React.useState('')
-  const [Img8, setImg8] = React.useState('')
-  const [Img9, setImg9] = React.useState('')
-  const [Img10, setImg10] = React.useState('')
-  const [Img11, setImg11] = React.useState('')
-
+  const [Img, setImg] = React.useState(initialFileState)
+  const [Img2, setImg2] = React.useState(initialFileState)
+  const [Img3, setImg3] = React.useState(initialFileState)
+  const [Img4, setImg4] = React.useState(initialFileState)
+  const [Img5, setImg5] = React.useState(initialFileState)
+  const [Img6, setImg6] = React.useState(initialFileState)
+  const [Img7, setImg7] = React.useState(initialFileState)
+  const [Img8, setImg8] = React.useState(initialFileState)
+  const [Img9, setImg9] = React.useState(initialFileState)
+  const [Img10, setImg10] = React.useState(initialFileState)
+  const [Img11, setImg11] = React.useState(initialFileState)
+  const [ImgTwibbon, setImgTwibbon] = React.useState(initialFileState)
+  const [ImgTwibbon2, setImgTwibbon2] = React.useState(initialFileState)
+  const [ImgTwibbon3, setImgTwibbon3] = React.useState(initialFileState)
+  const [ImgTwibbon4, setImgTwibbon4] = React.useState(initialFileState)
+  const [ImgTwibbon5, setImgTwibbon5] = React.useState(initialFileState)
+  const [src, setsrc] = React.useState('')
+  const [src2, setsrc2] = React.useState('')
+  const [src3, setsrc3] = React.useState('')
+  const [src4, setsrc4] = React.useState('')
+  const [src5, setsrc5] = React.useState('')
+  const [src6, setsrc6] = React.useState('')
+  const [src7, setsrc7] = React.useState('')
+  const [src8, setsrc8] = React.useState('')
+  const [src9, setsrc9] = React.useState('')
+  const [src10, setsrc10] = React.useState('')
+  const [src11, setsrc11] = React.useState('')
+  const [srcTwibbon, setsrcTwibbon] = React.useState('')
+  const [srcTwibbon2, setsrcTwibbon2] = React.useState('')
+  const [srcTwibbon3, setsrcTwibbon3] = React.useState('')
+  const [srcTwibbon4, setsrcTwibbon4] = React.useState('')
+  const [srcTwibbon5, setsrcTwibbon5] = React.useState('')
   const {
     register,
     handleSubmit,
@@ -94,6 +126,7 @@ const EventRegistrationUpdate = ({
         setValue('university', datas.university)
         setValue('team_name', datas.team_name)
         setTeam_id(datas.id)
+        setsrc11(baseStorageUrl + datas.payment.payment_proof)
         console.log(datas.members)
         datas.members.forEach((member: any, index: any) => {
           setValue(`members.${index}.name`, member.name)
@@ -103,21 +136,26 @@ const EventRegistrationUpdate = ({
           setValue(`members.${index}.email`, member.email)
           setValue(`members.${index}.phone`, member.phone)
         })
-        setImg(`${baseStorageUrl}${datas.members[0].student_card_path}`)
-        setImg2(`${baseStorageUrl}${datas.members[0].identity_card_path}`)
-        setImg3(`${baseStorageUrl}${datas.members[1].student_card_path}`)
-        setImg4(`${baseStorageUrl}${datas.members[1].identity_card_path}`)
-        setImg5(`${baseStorageUrl}${datas.members[2].student_card_path}`)
-        setImg6(`${baseStorageUrl}${datas.members[2].identity_card_path}`)
-        setImg7(`${baseStorageUrl}${datas.members[3].student_card_path}`)
-        setImg8(`${baseStorageUrl}${datas.members[3].identity_card_path}`)
-        setImg9(`${baseStorageUrl}${datas.members[4].student_card_path}`)
-        setImg10(`${baseStorageUrl}${datas.members[4].identity_card_path}`)
-        setImg11(`${baseStorageUrl}${datas.payment.payment_proof}`)
+        
+        setsrc(baseStorageUrl + datas.members[0].student_card_path)
+        setsrc2(baseStorageUrl + datas.members[0].identity_card_path)
+        setsrcTwibbon(baseStorageUrl + datas.members[0].twibbon_path)
+        setsrc3(baseStorageUrl + datas.members[1].student_card_path)
+        setsrc4(baseStorageUrl + datas.members[1].identity_card_path)
+        setsrcTwibbon2(baseStorageUrl + datas.members[1].twibbon_path)
+        setsrc5(baseStorageUrl + datas.members[2].student_card_path)
+        setsrc6(baseStorageUrl + datas.members[2].identity_card_path)
+        setsrcTwibbon3(baseStorageUrl + datas.members[2].twibbon_path)
+        setsrc7(baseStorageUrl + datas.members[3].student_card_path)
+        setsrc8(baseStorageUrl + datas.members[3].identity_card_path)
+        setsrcTwibbon4(baseStorageUrl + datas.members[3].twibbon_path)
+        setsrc9(baseStorageUrl + datas.members[4].student_card_path)
+        setsrc10(baseStorageUrl + datas.members[4].identity_card_path)
+        setsrcTwibbon5(baseStorageUrl + datas.members[4].twibbon_path)
+        console.log(src, src2, srcTwibbon, src11)
       })
       .catch((e) => console.log(e.message))
-  }, [data?.id])
-
+  }, [])
   const incrementIndex = () => {
     setIndex(index + 1)
   }
@@ -242,7 +280,62 @@ const EventRegistrationUpdate = ({
                                 setError={setError}
                                 clearErrors={clearErrors}
                                 path={registerItem.path_twibbon}
-                                Source={''}
+                                Source={
+                                  registerItem.name ===
+                                  `members[0][student_card]`
+                                    ? src
+                                    : registerItem.name ===
+                                      `members[0][identity_card]`
+                                    ? src2
+                                    : registerItem.name ===
+                                      'members[0][twibbon_path]'
+                                    ? srcTwibbon
+                                    : registerItem.name ===
+                                      `members[1][student_card]`
+                                    ? src3
+                                    : registerItem.name ===
+                                      `members[1][identity_card]`
+                                    ? src4
+                                    : registerItem.name ===
+                                      'members[1][twibbon_path]'
+                                    ? srcTwibbon2
+                                    : registerItem.name ===
+                                      `members[2][student_card]`
+                                    ? src5
+                                    : registerItem.name ===
+                                      `members[2][identity_card]`
+                                    ? src6
+                                    : registerItem.name ===
+                                      'members[2][twibbon_path]'
+                                    ? srcTwibbon3
+                                    : registerItem.name ===
+                                      `members[3][student_card]`
+                                    ? src7
+                                    : registerItem.name ===
+                                      `members[3][identity_card]`
+                                    ? src8
+                                    : registerItem.name ===
+                                      'members[3][twibbon_path]'
+                                    ? srcTwibbon4
+                                    : registerItem.name ===
+                                      `members[4][student_card]`
+                                    ? src9
+                                    : registerItem.name ===
+                                      `members[4][identity_card]`
+                                    ? src10
+                                    : registerItem.name ===
+                                      'members[4][twibbon_path]'
+                                    ? srcTwibbon5
+                                    : src11
+                                }
+                                label={
+                                  params.competition === 'business-case' &&
+                                  registerItem.name === 'transfer_receipt'
+                                    ? 'Grab Unlimited Proof'
+                                    : registerItem.label
+                                }
+                                name={registerItem.name}
+                                types={registerItem.types}
                                 Img={
                                   registerItem.name ===
                                   `members[0][student_card]`
@@ -251,11 +344,17 @@ const EventRegistrationUpdate = ({
                                       `members[0][identity_card]`
                                     ? Img2
                                     : registerItem.name ===
+                                      'members[0][twibbon_path]'
+                                    ? ImgTwibbon
+                                    : registerItem.name ===
                                       `members[1][student_card]`
                                     ? Img3
                                     : registerItem.name ===
                                       `members[1][identity_card]`
                                     ? Img4
+                                    : registerItem.name ===
+                                      'members[1][twibbon_path]'
+                                    ? ImgTwibbon2
                                     : registerItem.name ===
                                       `members[2][student_card]`
                                     ? Img5
@@ -263,17 +362,26 @@ const EventRegistrationUpdate = ({
                                       `members[2][identity_card]`
                                     ? Img6
                                     : registerItem.name ===
+                                      'members[2][twibbon_path]'
+                                    ? ImgTwibbon3
+                                    : registerItem.name ===
                                       `members[3][student_card]`
                                     ? Img7
                                     : registerItem.name ===
                                       `members[3][identity_card]`
                                     ? Img8
                                     : registerItem.name ===
+                                      'members[3][twibbon_path]'
+                                    ? ImgTwibbon4
+                                    : registerItem.name ===
                                       `members[4][student_card]`
                                     ? Img9
                                     : registerItem.name ===
                                       `members[4][identity_card]`
                                     ? Img10
+                                    : registerItem.name ===
+                                      'members[4][twibbon_path]'
+                                    ? ImgTwibbon5
                                     : Img11
                                 }
                                 setImg={
@@ -284,11 +392,17 @@ const EventRegistrationUpdate = ({
                                       `members[0][identity_card]`
                                     ? setImg2
                                     : registerItem.name ===
+                                      'members[0][twibbon_path]'
+                                    ? setImgTwibbon
+                                    : registerItem.name ===
                                       `members[1][student_card]`
                                     ? setImg3
                                     : registerItem.name ===
                                       `members[1][identity_card]`
                                     ? setImg4
+                                    : registerItem.name ===
+                                      'members[1][twibbon_path]'
+                                    ? setImgTwibbon2
                                     : registerItem.name ===
                                       `members[2][student_card]`
                                     ? setImg5
@@ -296,20 +410,28 @@ const EventRegistrationUpdate = ({
                                       `members[2][identity_card]`
                                     ? setImg6
                                     : registerItem.name ===
+                                      'members[2][twibbon_path]'
+                                    ? setImgTwibbon3
+                                    : registerItem.name ===
                                       `members[3][student_card]`
                                     ? setImg7
                                     : registerItem.name ===
                                       `members[3][identity_card]`
                                     ? setImg8
                                     : registerItem.name ===
+                                      'members[3][twibbon_path]'
+                                    ? setImgTwibbon4
+                                    : registerItem.name ===
                                       `members[4][student_card]`
                                     ? setImg9
                                     : registerItem.name ===
                                       `members[4][identity_card]`
                                     ? setImg10
+                                    : registerItem.name ===
+                                      'members[4][twibbon_path]'
+                                    ? setImgTwibbon5
                                     : setImg11
                                 }
-                                {...registerItem}
                               />
                             ) : (
                               <Input

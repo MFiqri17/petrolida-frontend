@@ -35,7 +35,7 @@ export default function RegularJumbotron({
             href={
               isHome
                 ? '#petrolida'
-                : 'https://drive.google.com/file/d/1u3sCDOXVpEDUf5SU54aAeIZYH6G3StjE/view?usp=sharing'
+                : 'https://drive.google.com/drive/folders/1ddc7zQtaKLThA31BF0RnscSXaXkPDEg4'
             }
             className="rounded-full border border-white px-6 py-2.5 font-semibold text-white transition hover:bg-white hover:text-secondary"
           >
@@ -69,7 +69,7 @@ export default function RegularJumbotron({
       ) : (
         <>
           <div className="relative hidden w-1/2 sm:block">
-            <div className="absolute -bottom-60 right-0 z-20">
+            <div className="absolute right-0 z-20 -bottom-60">
               <Image
                 src={'/svg/jumbotron-triangle.svg'}
                 width={441}
@@ -86,7 +86,7 @@ export default function RegularJumbotron({
               />
             </div>
           </div>
-          <div className="absolute right-12 -bottom-24 z-20 block w-1/2 sm:hidden">
+          <div className="absolute z-20 block w-1/2 right-12 -bottom-24 sm:hidden">
             <Image
               src={'/svg/jumbotron-triangle.svg'}
               width={441}
@@ -94,7 +94,7 @@ export default function RegularJumbotron({
               alt="triangle"
             />
           </div>
-          <div className="absolute -bottom-24 -right-8 z-20 block w-1/2 sm:hidden">
+          <div className="absolute z-20 block w-1/2 -bottom-24 -right-8 sm:hidden">
             <Image
               src={'/svg/jumbotron-triangle.svg'}
               width={441}
