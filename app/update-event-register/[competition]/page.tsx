@@ -90,23 +90,23 @@ const EventRegistrationUpdate = ({
     api
       .get(`/events/registration/${data?.id}`)
       .then((res) => {
-        const data = res.data.data
-        setValue('university', data.university)
-        setValue('team_name', data.team_name)
-        setImg(`${baseStorageUrl}${data.members[0].student_card_path}`)
-        setImg2(`${baseStorageUrl}${data.members[0].identity_card_path}`)
-        setImg3(`${baseStorageUrl}${data.members[1].student_card_path}`)
-        setImg4(`${baseStorageUrl}${data.members[1].identity_card_path}`)
-        setImg5(`${baseStorageUrl}${data.members[2].student_card_path}`)
-        setImg6(`${baseStorageUrl}${data.members[2].identity_card_path}`)
-        setImg7(`${baseStorageUrl}${data.members[3].student_card_path}`)
-        setImg8(`${baseStorageUrl}${data.members[3].identity_card_path}`)
-        setImg9(`${baseStorageUrl}${data.members[3].student_card_path}`)
-        setImg10(`${baseStorageUrl}${data.members[4].identity_card_path}`)
-        setImg11(`${baseStorageUrl}${data.payment.payment_proof}`)
-        setTeam_id(data.id)
+        const datas = res.data.data
+        setValue('university', datas.university)
+        setValue('team_name', datas.team_name)
+        setImg(`${baseStorageUrl}${datas.members[0].student_card_path}`)
+        setImg2(`${baseStorageUrl}${datas.members[0].identity_card_path}`)
+        setImg3(`${baseStorageUrl}${datas.members[1].student_card_path}`)
+        setImg4(`${baseStorageUrl}${datas.members[1].identity_card_path}`)
+        setImg5(`${baseStorageUrl}${datas.members[2].student_card_path}`)
+        setImg6(`${baseStorageUrl}${datas.members[2].identity_card_path}`)
+        setImg7(`${baseStorageUrl}${datas.members[3].student_card_path}`)
+        setImg8(`${baseStorageUrl}${datas.members[3].identity_card_path}`)
+        setImg9(`${baseStorageUrl}${datas.members[3].student_card_path}`)
+        setImg10(`${baseStorageUrl}${datas.members[4].identity_card_path}`)
+        setImg11(`${baseStorageUrl}${datas.payment.payment_proof}`)
+        setTeam_id(datas.id)
 
-        data.members.forEach((member: any, index: any) => {
+        datas.members.forEach((member: any, index: any) => {
           setValue(`members.${index}.name`, member.name)
           setValue(`members.${index}.major`, member.major)
           setValue(`members.${index}.batch`, member.batch)
