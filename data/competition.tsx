@@ -7,8 +7,8 @@ export const competitionData = [
     desc: 'Innovating Sustainable Oil Platform to Strengthen Energy Security and Maximize Energy Potential.',
     about:
       'Oil Rig Design Competition that will be held online is a competition in which challenges participants to combine their engineering sense and creative innovations in designing a semi-submersible platform for a specific offshore oil field. Participants are expected to make a project explanation of their semi-submersible oil rig based on what situation they had. This competition aims to develop participants knowledge to overcome all challenges in the given field. In the next round, participants are also expected to make a 3D Video for the selection in favorite winner categories and prepare a presentation to be presented in front of the judges.',
-    start_registration: '2023-2-27',
-    end_registration: '2023-3-30',
+    start_registration: '2023-2-28',
+    end_registration: '2023-3-28',
     firstDate: '27 Feb',
     firstEvent: (
       <>
@@ -25,7 +25,7 @@ export const competitionData = [
         specific offshore oil field. Participants are expected to make a project
         explanation of their semi-submersible oil rig based on what situation
         they had.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           This competition aims to develop participants' knowledge to overcome
           all challenges in the given field. In the next round, participants are
@@ -141,8 +141,8 @@ export const competitionData = [
     desc: 'Enhancing Oil and Gas Production Efficiency through Modern Hydraulic Fracturing Approach to Sustain Future Energy Supply and Maintain The Safety of Environment.',
     about:
       'The Fracturing Fluid Design Competition was first held in 2018 and credited with being the pioneer in the region of Pacific Asia. This competition will challenge all delegates to create the optimal capability of fracture fluid related to the given case. Each team will present their findings directly to the judges and the most optimal, including performance feasibility, environmental effects, and economic consideration, will have the most points.',
-    start_registration: '2023-2-27',
-    end_registration: '2023-3-26',
+    start_registration: '2023-2-28',
+    end_registration: '2023-3-29',
     firstDate: '27 Feb',
     firstEvent: (
       <>
@@ -156,7 +156,7 @@ export const competitionData = [
         credited with being the pioneer in the region of Pacific Asia. This
         competition will challenge all delegates to create the optimal
         capability of fracture fluid related to the given case.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           Each team will present their findings directly to the judges and the
           most optimal, including performance feasibility, environmental
@@ -280,8 +280,8 @@ export const competitionData = [
     desc: 'Igniting Curiosity About The Oil and Gas Industry as The Fulfillment of Future Energy Needs.',
     about:
       'Petrosmart Competition is an online quick-fire rounds competition where teams from various universities compete against one another to challenge their knowledge by answering questions covering technical and non-technical aspects of the oil and gas industry. There will be 3 rounds: online preliminary, semi-final and final. Participants will have to answer questions or cases that will be packed in each exciting round of petrosmart. With this competition, we hope each of the participants could enrich their knowledge in petroleum science and to have an unforgettable experience with the fellow SPE Student Chapter while upholding sportsmanship during the competition.',
-    start_registration: '2023-2-27',
-    end_registration: '2023-3-26',
+    start_registration: '2023-2-28',
+    end_registration: '2023-3-29',
     firstDate: '27 Feb',
     firstEvent: (
       <>
@@ -296,7 +296,7 @@ export const competitionData = [
         their knowledge by answering questions covering technical and
         non-technical aspects of the oil and gas industry. There will be 3
         rounds: online preliminary, semi-final and final.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           Participants will have to answer questions or cases that will be
           packed in each exciting round of petrosmart. With this competition, we
@@ -321,7 +321,8 @@ export const competitionData = [
         date: '14 Apr',
         component: (
           <>
-            Technical Meeting<br />
+            Technical Meeting
+            <br />
             for Online Selection
           </>
         ),
@@ -348,7 +349,8 @@ export const competitionData = [
         date: '25 May',
         component: (
           <>
-            Technical Meeting<br />
+            Technical Meeting
+            <br />
             for Competition Day
           </>
         ),
@@ -408,8 +410,8 @@ export const competitionData = [
     desc: 'Envolving the Opportunity on Oil and Gas Industry to Ignite the Sustainability of Energy Transition.',
     about:
       'Petrolida 2022 paper competition is held by SPE Student Chapter Sepuluh Nopember Insitute of Technology annually. For educational purposes, Petrolida 2022 Paper Competition is a competition that challenges undergraduate students to apply their knowledge concerning the oil and gas industry to enhance their capability for supervising scientific new innovation research. This will be valuable for the human race and the energy industry also to solve energy issues by providing innovative solutions to create a sustainable future in a form of a research paper. Petrolida 2022 Paper Competition aims to benefit students greatly on their critical thinking skills and push them to brainstorm ideas as visionary to better the future.',
-    start_registration: '2023-2-27',
-    end_registration: '2023-3-30',
+    start_registration: '2023-2-28',
+    end_registration: '2023-3-29',
     firstDate: '27 Feb',
     firstEvent: (
       <>
@@ -425,7 +427,7 @@ export const competitionData = [
         undergraduate students to apply their knowledge concerning the oil and
         gas industry to enhance their capability for supervising scientific new
         innovation research.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           This will be valuable for the human race and the energy industry also
           to solve energy issues by providing innovative solutions to create a
@@ -534,8 +536,8 @@ export const competitionData = [
     desc: 'Optimizing Supply Chain System Through Reliable and Effective Business Strategy in FMCG Industry.',
     about:
       "The business case competition is a problem-solving competition that focuses on the industry's real-world problems. The participants must emphasize their ideas to solve the problems that the company has. There will be three stages in this competition that include the Preliminary round, Semi-final round, and Final round. The objective of the competition is to find feasible solutions with depth analysis of the problems.",
-    start_registration: '2023-2-27',
-    end_registration: '2023-3-26',
+    start_registration: '2023-2-28',
+    end_registration: '2023-3-29',
     firstDate: '27 Feb',
     firstEvent: (
       <>
@@ -687,8 +689,8 @@ export const competitionData = [
     desc: 'Enhancing the Suitable Production to Embrace the Energy Security.',
     about:
       'Case Study Competition that will be held offline, enables undergraduate students to demonstrate their critical thinking abilities, determination to address complex issues, and competence to work in teams in order to solve oil and gas industry-related cases. Participating teams of the competition will be challenged with a case problem statement given by a panel of petroleum experts representing various disciplines within oil and gas companies. Moreover, participating teams must also be able to examine case resolution using an appropriate problem approach in a solution report and presentation in front of the honorable judges.',
-    start_registration: '2023-2-27',
-    end_registration: '2023-3-26',
+    start_registration: '2023-2-28',
+    end_registration: '2023-3-29',
     firstDate: '27 Feb',
     firstEvent: (
       <>
@@ -702,7 +704,7 @@ export const competitionData = [
         students to demonstrate their critical thinking abilities, determination
         to address complex issues, and competence to work in teams in order to
         solve oil and gas industry-related cases.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           Participating teams of the competition will be challenged with a case
           problem statement given by a panel of petroleum experts representing
