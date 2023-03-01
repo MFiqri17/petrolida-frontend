@@ -54,21 +54,21 @@ export default function RegisterForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="my-8 space-y-6">
       <input
         type="text"
-        className="w-full rounded-full bg-gray-200 py-4 px-7"
+        className="w-full py-4 bg-gray-200 rounded-full px-7"
         placeholder="First & Last Name"
         required
         {...register('name', { required: true })}
       />
       <input
         type="email"
-        className="w-full rounded-full bg-gray-200 py-4 px-7"
+        className="w-full py-4 bg-gray-200 rounded-full px-7"
         placeholder="Email Address"
         required
         {...register('email', { required: true })}
       />
       <input
         type="password"
-        className="w-full rounded-full bg-gray-200 py-4 px-7"
+        className="w-full py-4 bg-gray-200 rounded-full px-7"
         placeholder="Create Password"
         minLength={8}
         required
@@ -76,7 +76,7 @@ export default function RegisterForm() {
       />
       <input
         type="password"
-        className="w-full rounded-full bg-gray-200 py-4 px-7"
+        className="w-full py-4 bg-gray-200 rounded-full px-7"
         placeholder="Confirm Password"
         required
         {...register('confirm_password', {
@@ -105,16 +105,10 @@ export default function RegisterForm() {
       </div>
       <button
         type="submit"
-        className="w-full rounded-full bg-primary p-4 text-white"
+        className="w-full p-4 text-white rounded-full bg-primary"
         disabled={isLoading}
       >
         {isLoading ? <Spinner /> : 'Sign up'}
-      </button>
-      <button
-        type="button"
-        className="w-full rounded-full bg-white p-4 font-semibold"
-      >
-        Sign up with Google
       </button>
     </form>
   )

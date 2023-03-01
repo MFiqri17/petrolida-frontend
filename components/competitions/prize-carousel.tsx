@@ -5,9 +5,10 @@ import SectionTitle from '../utils/section-title'
 import '@splidejs/react-splide/css'
 
 export default function PrizeCarousel({
-  prize,
+  prize, prizePool
 }: {
-  prize: { name: string; prize: string; src: string }[]
+  prize: { name: string; prize: string; src: string }[],
+  prizePool: string
 }) {
   const carouselRef = React.useRef<Splide>(null)
 
@@ -17,14 +18,14 @@ export default function PrizeCarousel({
     }
   }
   return (
-    <section className="pb-32 pt-20">
+    <section className="pt-20 pb-32">
       <SectionTitle
         title="Competition Prize"
         className="text-4xl sm:text-6xl"
       />
-      <div className="mx-auto px-5 sm:w-1/3 sm:px-0">
+      <div className="px-5 mx-auto sm:w-1/3 sm:px-0">
         <h2 className="text-center sm:text-xl sm:font-semibold">
-          Winners have a chance to win the prize pool of Rp 6.500.000 consist of
+          Winners have a chance to win the prize pool of Rp.{prizePool}  consist of
         </h2>
         <Splide
           aria-label="Competition Prize"
@@ -54,13 +55,13 @@ export default function PrizeCarousel({
           ))}
         </Splide>
       </div>
-      <div className="flex justify-center gap-x-4 pt-5">
+      <div className="flex justify-center pt-5 gap-x-4">
         <button onClick={() => handleThumbs('<')}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="h-8 w-8"
+            className="w-8 h-8"
           >
             <path
               fillRule="evenodd"
@@ -74,7 +75,7 @@ export default function PrizeCarousel({
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="h-8 w-8"
+            className="w-8 h-8"
           >
             <path
               fillRule="evenodd"

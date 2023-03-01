@@ -46,7 +46,7 @@ export default function CompetitionPage({
         lastDate={data.lastDate}
         lastEvent={data.lastEvent}
       />
-      <PrizeCarousel prize={data.prize} />
+      <PrizeCarousel prize={data.prize} prizePool={data.prize_pool} />
       <FaqSection faq={data.faq} />
       <Contact
         type={'competition'}

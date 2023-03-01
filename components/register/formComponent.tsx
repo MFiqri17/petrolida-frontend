@@ -229,7 +229,6 @@ export function ImageInput({
         </p>
       </div>
       <div>
-        <p>{Source}</p>
         <img src={Img.src} alt="" />
       </div>
     </>
@@ -240,10 +239,7 @@ export function ImageInputUpdate({
   register,
   name,
   label,
-  errors,
   setValue,
-  clearErrors,
-  setError,
   types,
   Img,
   setImg,
@@ -253,10 +249,7 @@ export function ImageInputUpdate({
   register: any
   name: string
   label: string
-  errors: any
   setValue: any
-  clearErrors: any
-  setError: any
   types: string
   Img: any
   setImg: any
@@ -267,7 +260,7 @@ export function ImageInputUpdate({
   const fileRef = React.useRef<HTMLInputElement>(null)
   React.useEffect(() => {
     register(name, {
-      required: true,
+      required: false,
       pattern: /image\/(png|jpg|jpeg)/i,
     })
   }, [])
@@ -276,11 +269,41 @@ export function ImageInputUpdate({
     e.preventDefault()
     if (!e.target.files) return
     const file = e.target.files[0]
-    const url = URL.createObjectURL(file)
-    setImg(url)
+    setImg((prev: any) => ({ ...prev, file: file }))
     e.target.files
   }
 
+  React.useEffect(() => {
+    const fileReader = new FileReader()
+    let isCancel = false
+    if (Img) {
+      fileReader.onload = () => {
+        const result = fileReader.result
+        if (result && !isCancel) {
+          const img = new Image()
+          img.onload = () => {
+            const height = img.height
+            const width = img.width
+            setImg((prev: any) => ({
+              ...prev,
+              dimension: { height, width },
+            }))
+          }
+          img.src = result.toString()
+          setImg((prev: any) => ({ ...prev, src: result.toString() }))
+        }
+      }
+      if (Img.file) {
+        fileReader.readAsDataURL(Img.file)
+      }
+    }
+    return () => {
+      isCancel = true
+      if (fileReader && fileReader.readyState === 1) {
+        fileReader.abort()
+      }
+    }
+  }, [Img])
   return (
     <>
       <div className="text-cblack  flex flex-col justify-start space-y-2 font-medium">
@@ -314,18 +337,13 @@ export function ImageInputUpdate({
             name={name}
             onChange={(e: any) => {
               const value = e.target.files[0]
-              setError(name)
               handleChange(e)
-              clearErrors(name)
               setValue(name, value)
             }}
             type={types}
             className="hidden"
           />
         </div>
-        {errors[name] && (
-          <p className="text-red-700 ">{label.toLowerCase()} is required</p>
-        )}
       </div>
       <div className={path === '' ? 'hidden' : 'block'}>
         <p>
@@ -342,18 +360,11 @@ export function ImageInputUpdate({
         </p>
       </div>
       <div>
-        <p>
-          {' '}
-          File:
-          <a
-            className="ml-1 inline hover:border-b-2 hover:border-black"
-            rel="noreferrer"
-            target="_blank"
-            href={Img}
-          >
-            {Img}
-          </a>
-        </p>
+        <img
+          src={Source}
+          alt=""
+        />
+        <img src={Img.src} alt="" />
       </div>
     </>
   )
