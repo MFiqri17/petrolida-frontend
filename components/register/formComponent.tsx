@@ -239,10 +239,7 @@ export function ImageInputUpdate({
   register,
   name,
   label,
-  errors,
   setValue,
-  clearErrors,
-  setError,
   types,
   Img,
   setImg,
@@ -252,10 +249,7 @@ export function ImageInputUpdate({
   register: any
   name: string
   label: string
-  errors: any
   setValue: any
-  clearErrors: any
-  setError: any
   types: string
   Img: any
   setImg: any
@@ -343,18 +337,13 @@ export function ImageInputUpdate({
             name={name}
             onChange={(e: any) => {
               const value = e.target.files[0]
-              setError(name)
               handleChange(e)
-              clearErrors(name)
               setValue(name, value)
             }}
             type={types}
             className="hidden"
           />
         </div>
-        {errors[name] && (
-          <p className="text-red-700 ">{label.toLowerCase()} is required</p>
-        )}
       </div>
       <div className={path === '' ? 'hidden' : 'block'}>
         <p>
