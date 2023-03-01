@@ -116,7 +116,7 @@ const EventRegistrationUpdate = ({
         })
       })
       .catch((e) => console.log(e.message))
-  }, [])
+  }, [data?.id])
 
   const incrementIndex = () => {
     setIndex(index + 1)
