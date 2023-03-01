@@ -38,7 +38,7 @@ export default function Events({
       <div className="w-full px-2 sm:px-0">
         <h2 className="text-2xl font-semibold">Events</h2>
         <Tab.Group>
-          <Tab.List className="flex space-x-1 p-1 ">
+          <Tab.List className="flex p-1 space-x-1 ">
             {Object.keys(categories).map((category) => (
               <Tab
                 key={category}
@@ -60,22 +60,21 @@ export default function Events({
             {Object.values(categories).map((items, idx) => (
               <Tab.Panel key={idx} className={classNames('rounded-xl p-3')}>
                 <ul
-                  className={`${
-                    Object.keys(items).length != 0
+                  className={`${Object.keys(items).length != 0
                       ? 'grid grid-cols-1 gap-8 lg:grid-cols-3'
                       : 'flex flex-col items-center justify-center'
-                  }`}
+                    }`}
                 >
                   {Object.keys(items).length != 0 ? (
                     items.map((item) => (
                       <li
                         key={item.name}
-                        className="relative max-w-sm rounded-3xl border bg-whiteb hover:bg-gray-100"
+                        className="relative max-w-sm border rounded-3xl bg-whiteb hover:bg-gray-100"
                       >
                         <div className="relative overflow-hidden rounded-3xl">
                           <img
-                            className="max-h-full w-full transition duration-300 hover:scale-105"
-                            src={`/event-dashboard/${item.slug}.png`}
+                            className="w-full max-h-full transition duration-300 hover:scale-105"
+                            src={`/event-dashboard/${item.slug}.jpg`}
                             alt={item.slug}
                           />
                           <RegistrationTimer
@@ -90,7 +89,7 @@ export default function Events({
                             ''
                           )}
                         </div>
-                        <div className="flex items-center justify-between space-x-6 px-4 py-6">
+                        <div className="flex items-center justify-between px-4 py-6 space-x-6">
                           <h3 className="text-xl font-semibold leading-5">
                             {item.name}
                           </h3>
@@ -101,7 +100,7 @@ export default function Events({
                                 href={`/dashboard/${item.slug}/details`}
                                 className="w-full"
                               >
-                                <div className="rounded-full bg-secondary py-1 px-2 text-center font-semibold text-white">
+                                <div className="px-2 py-1 font-semibold text-center text-white rounded-full bg-secondary">
                                   Details
                                 </div>
                               </Link>
@@ -133,7 +132,7 @@ export default function Events({
                       </li>
                     ))
                   ) : (
-                    <div className="flex flex-col items-center justify-center space-y-6 p-4 text-left lg:text-center">
+                    <div className="flex flex-col items-center justify-center p-4 space-y-6 text-left lg:text-center">
                       <div className="w-72 md:w-96">
                         <img
                           className="w-full"

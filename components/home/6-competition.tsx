@@ -9,37 +9,37 @@ const competitionData = [
   {
     name: 'OIL RIG DESIGN',
     desc: 'Innovating Sustainable Oil Platform to Strengthen Energy Security and Maximize Energy Potential',
-    src: '/event-dashboard/oil-rig-design.png',
+    src: '/event-dashboard/oil-rig-design.jpg',
     className: 'sm:text-6xl text-2xl',
   },
   {
     name: 'FRACTURING FLUID DESIGN',
     desc: 'Enhancing Oil and Gas Production Efficiency through Modern Hydraulic Fracturing Approach to Sustain Future Energy Supply and Maintain The Safety of Environment',
-    src: '/event-dashboard/fracturing-fluid-design.png',
+    src: '/event-dashboard/fracturing-fluid-design.jpg',
     className: 'sm:text-4xl text-2xl',
   },
   {
     name: 'PETROSMART',
     desc: 'Igniting Curiosity About The Oil and Gas Industry as The Fulfillment of Future Energy Needs',
-    src: '/event-dashboard/petrosmart.png',
+    src: '/event-dashboard/petrosmart.jpg',
     className: 'sm:text-4xl text-2xl',
   },
   {
     name: 'PAPER',
     desc: 'Envolving the Opportunity on Oil and Gas Industry to Ignite the Sustainability of Energy Transition',
-    src: '/event-dashboard/paper.png',
+    src: '/event-dashboard/paper.jpg',
     className: 'sm:text-6xl text-2xl',
   },
   {
     name: 'BUSINESS CASE',
     desc: 'Optimizing Supply Chain System Through Reliable and Effective Business Strategy in FMCG Industry',
-    src: '/event-dashboard/business-case.png',
+    src: '/event-dashboard/business-case.jpg',
     className: 'sm:text-5xl text-2xl',
   },
   {
     name: 'CASE STUDY',
     desc: 'Enhancing the Suitable Production to Embrace the Energy Security',
-    src: '/event-dashboard/case-study.png',
+    src: '/event-dashboard/case-study.jpg',
     className: 'sm:text-6xl text-2xl',
   },
 ]
@@ -116,7 +116,7 @@ export default function SixCompetition() {
                 width={384}
                 height={480}
                 alt="competition"
-                className="-skew-x-3"
+                className="-skew-x-3 rounded-3xl"
               />
               <div className="flex items-center px-6 mt-4 ml-3 sm:mt-0 sm:w-1/3 sm:px-0">
                 <p className="text-white">{desc}</p>
