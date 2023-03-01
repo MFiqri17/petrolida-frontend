@@ -126,7 +126,7 @@ const EventRegistrationUpdate = ({
         setValue('university', datas.university)
         setValue('team_name', datas.team_name)
         setTeam_id(datas.id)
-        setsrc11(baseStorageUrl + datas.payment.payment_proof)
+
         console.log(datas.members)
         datas.members.forEach((member: any, index: any) => {
           setValue(`members.${index}.name`, member.name)
@@ -136,23 +136,38 @@ const EventRegistrationUpdate = ({
           setValue(`members.${index}.email`, member.email)
           setValue(`members.${index}.phone`, member.phone)
         })
-        
-        setsrc(baseStorageUrl + datas.members[0].student_card_path)
-        setsrc2(baseStorageUrl + datas.members[0].identity_card_path)
-        setsrcTwibbon(baseStorageUrl + datas.members[0].twibbon_path)
-        setsrc3(baseStorageUrl + datas.members[1].student_card_path)
-        setsrc4(baseStorageUrl + datas.members[1].identity_card_path)
-        setsrcTwibbon2(baseStorageUrl + datas.members[1].twibbon_path)
-        setsrc5(baseStorageUrl + datas.members[2].student_card_path)
-        setsrc6(baseStorageUrl + datas.members[2].identity_card_path)
-        setsrcTwibbon3(baseStorageUrl + datas.members[2].twibbon_path)
-        setsrc7(baseStorageUrl + datas.members[3].student_card_path)
-        setsrc8(baseStorageUrl + datas.members[3].identity_card_path)
-        setsrcTwibbon4(baseStorageUrl + datas.members[3].twibbon_path)
-        setsrc9(baseStorageUrl + datas.members[4].student_card_path)
-        setsrc10(baseStorageUrl + datas.members[4].identity_card_path)
-        setsrcTwibbon5(baseStorageUrl + datas.members[4].twibbon_path)
-        console.log(src, src2, srcTwibbon, src11)
+
+        if (data?.id === 1) {
+          setsrc(baseStorageUrl + datas.members[0].student_card_path)
+          setsrc2(baseStorageUrl + datas.members[0].identity_card_path)
+          setsrcTwibbon(baseStorageUrl + datas.members[0].twibbon_path)
+          setsrc3(baseStorageUrl + datas.members[1].student_card_path)
+          setsrc4(baseStorageUrl + datas.members[1].identity_card_path)
+          setsrcTwibbon2(baseStorageUrl + datas.members[1].twibbon_path)
+          setsrc5(baseStorageUrl + datas.members[2].student_card_path)
+          setsrc6(baseStorageUrl + datas.members[2].identity_card_path)
+          setsrcTwibbon3(baseStorageUrl + datas.members[2].twibbon_path)
+          setsrc7(baseStorageUrl + datas.members[3].student_card_path)
+          setsrc8(baseStorageUrl + datas.members[3].identity_card_path)
+          setsrcTwibbon4(baseStorageUrl + datas.members[3].twibbon_path)
+          setsrc9(baseStorageUrl + datas.members[4].student_card_path)
+          setsrc10(baseStorageUrl + datas.members[4].identity_card_path)
+          setsrcTwibbon5(baseStorageUrl + datas.members[4].twibbon_path)
+          setsrc11(baseStorageUrl + datas.payment.payment_proof)
+          console.log(src, src2, srcTwibbon, src11)
+        } else {
+          setsrc(baseStorageUrl + datas.members[0].student_card_path)
+          setsrc2(baseStorageUrl + datas.members[0].identity_card_path)
+          setsrcTwibbon(baseStorageUrl + datas.members[0].twibbon_path)
+          setsrc3(baseStorageUrl + datas.members[1].student_card_path)
+          setsrc4(baseStorageUrl + datas.members[1].identity_card_path)
+          setsrcTwibbon2(baseStorageUrl + datas.members[1].twibbon_path)
+          setsrc5(baseStorageUrl + datas.members[2].student_card_path)
+          setsrc6(baseStorageUrl + datas.members[2].identity_card_path)
+          setsrcTwibbon3(baseStorageUrl + datas.members[2].twibbon_path)
+          setsrc11(baseStorageUrl + datas.payment.payment_proof)
+          console.log(src, src2, srcTwibbon, src11)
+        }
       })
       .catch((e) => console.log(e.message))
   }, [])
@@ -276,9 +291,6 @@ const EventRegistrationUpdate = ({
                                 key={registerItem.id}
                                 register={register}
                                 setValue={setValue}
-                                errors={errors}
-                                setError={setError}
-                                clearErrors={clearErrors}
                                 path={registerItem.path_twibbon}
                                 Source={
                                   registerItem.name ===
