@@ -18,6 +18,7 @@ const Announcement = ({
     id: string
     name: string
     amount: string
+    slug: string
   }
 
   const carouselRef = React.useRef<Splide>(null)
@@ -30,12 +31,27 @@ const Announcement = ({
   const [compId, setCompId] = React.useState('1')
   const [closed, setClosed] = React.useState<boolean>(false)
   const competitionType: competitionTypeInterface[] = [
-    { id: '1', name: 'Oil Rig Design', amount: '150.000' },
-    { id: '2', name: 'Paper', amount: '100.000' },
-    { id: '3', name: 'Business Case', amount: '150.000' },
-    { id: '4', name: 'Fracturing Fluid Design', amount: '180.000' },
-    { id: '5', name: 'Case Study', amount: '100.000' },
-    { id: '6', name: 'Petrosmart', amount: '150.000' },
+    {
+      id: '1',
+      name: 'Oil Rig Design',
+      amount: '150.000',
+      slug: 'oil-rig-design',
+    },
+    { id: '2', name: 'Paper', amount: '100.000', slug: 'paper' },
+    {
+      id: '3',
+      name: 'Business Case',
+      amount: '150.000',
+      slug: 'business-case',
+    },
+    {
+      id: '4',
+      name: 'Fracturing Fluid Design',
+      amount: '180.000',
+      slug: 'fracturing-fluid-design',
+    },
+    { id: '5', name: 'Case Study', amount: '100.000', slug: 'case-study' },
+    { id: '6', name: 'Petrosmart', amount: '150.000', slug: 'petrosmart' },
   ]
   return (
     <div className="mb-20">
@@ -82,9 +98,19 @@ const Announcement = ({
                       your registration status
                     </p>
                     <p className="text-base font-medium text-[#EDEEF3]">
-                      Please upload a new file or provide additional information
-                      to help us fix the error
+                      {stat.identity_team_comment}
                     </p>
+                    <a
+                      href={`update-event-register/${
+                        competitionType[+compId - 1].slug
+                      }`}
+                    >
+                      <button
+                        className={`w-[180px] rounded-[30px] bg-[#FBFBFC] py-[14.5px]  text-center text-base font-semibold text-[#3D4BE0] !transition   !duration-300 hover:!scale-105`}
+                      >
+                        Register Again
+                      </button>
+                    </a>
                   </div>
                 </div>
                 <button
