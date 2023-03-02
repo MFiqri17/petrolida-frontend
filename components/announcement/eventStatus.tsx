@@ -46,7 +46,7 @@ const EventStatus = ({
                 Your registration is currently under review
               </p>
             )}
-            <p className="fonxt-bold text-lg text-[#878eae]">
+            <p className="fonxt-bold text-lg text-[#FBFBFC]">
               {identity_team_comment}
             </p>
             {isRejected && (

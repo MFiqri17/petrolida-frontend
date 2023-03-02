@@ -18,15 +18,13 @@ export default function FormField({
   title,
   compId,
   is_submitted,
-  isPending,
-  isRejected,
+  is_verified,
 }: {
   id: number
   title: string
   compId: string
   is_submitted: boolean
-  isPending: any
-  isRejected: any
+  is_verified: boolean
 }) {
   const initialFileState: IFileState = {
     file: null,
@@ -71,7 +69,7 @@ export default function FormField({
   } = useForm<any>()
   return (
     <>
-      {isPending === 'unverifed' || isRejected === 'rejected' ? (
+      {is_verified && (
         <form
           className="mb-5 flex w-full flex-col items-start justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] px-6 py-[30px]"
           key={id}
@@ -106,7 +104,7 @@ export default function FormField({
             {isLoading ? <Spinner /> : 'Submit'}
           </button>
         </form>
-      ) : null}
+      )}
     </>
   )
 }

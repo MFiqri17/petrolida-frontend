@@ -81,6 +81,7 @@ const Announcement = ({
           const isRejected = stat.identity_team_status === 'rejected'
           return (
             <EventStatus
+              key={stat.event_id}
               event_id={stat.event_id}
               isPending={isPending}
               isRejected={isRejected}
@@ -98,6 +99,7 @@ const Announcement = ({
         .filter((item: any) => compId === item.event_id)
         .map((event: any) => (
           <EventComment
+            key={event.id}
             id={event.id}
             content={event.content}
             link={`${baseStorageUrl}${event.file}`}
@@ -108,25 +110,16 @@ const Announcement = ({
       <div className="flex flex-col justify-between space-x-0 md:flex-row md:space-x-8">
         {submission
           .filter((item: any) => compId === item.event_id)
-          .map((event: any) => {
-            const isPending =
-              status.find((item: any) => item.event_id === event.event_id)
-                ?.identity_team_status === 'unverified'
-            const isRejected =
-              status.find((item: any) => item.event_id === event.event_id)
-                ?.identity_team_status === 'rejected'
-            return (
-              <FormField
-                key={event.id}
-                id={event.id}
-                compId={compId}
-                title={event.title}
-                is_submitted={event.is_submitted}
-                isPending={isPending}
-                isRejected={isRejected}
-              />
-            )
-          })}
+          .map((event: any) => (
+            <FormField
+              key={event.id}
+              id={event.id}
+              compId={compId}
+              title={event.title}
+              is_submitted={event.is_submitted}
+              is_verified={event.is_verified}
+            />
+          ))}
       </div>
     </div>
   )

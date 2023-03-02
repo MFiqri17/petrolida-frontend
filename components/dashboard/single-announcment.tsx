@@ -104,6 +104,7 @@ const SingleAnnouncement = ({
             compId={event.event_id}
             title={event.title}
             is_submitted={event.is_submitted}
+            is_verified={event.is_verified}
           />
         ))}
       </div>
