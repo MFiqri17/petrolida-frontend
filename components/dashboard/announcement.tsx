@@ -94,8 +94,7 @@ const Announcement = ({
                   </div>
                   <div className="flex flex-col space-y-1">
                     <p className="text-lg font-bold text-[#FBFBFC]">
-                      We regret to inform you that an error has been detected in
-                      your registration status
+                      Your registration is currently under review
                     </p>
                     <p className="text-base font-medium text-[#EDEEF3]">
                       {stat.identity_team_comment}

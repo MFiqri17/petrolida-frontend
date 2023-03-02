@@ -9,7 +9,7 @@ export const competitionData = [
     about:
       'Oil Rig Design Competition that will be held online is a competition in which challenges participants to combine their engineering sense and creative innovations in designing a semi-submersible platform for a specific offshore oil field. Participants are expected to make a project explanation of their semi-submersible oil rig based on what situation they had. This competition aims to develop participants knowledge to overcome all challenges in the given field. In the next round, participants are also expected to make a 3D Video for the selection in favorite winner categories and prepare a presentation to be presented in front of the judges.',
     start_registration: '2023-2-28',
-    end_registration: '2023-3-28',
+    end_registration: '2023-3-29',
     firstDate: '28 Feb',
     firstEvent: (
       <>
@@ -26,7 +26,7 @@ export const competitionData = [
         specific offshore oil field. Participants are expected to make a project
         explanation of their semi-submersible oil rig based on what situation
         they had.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           This competition aims to develop participants' knowledge to overcome
           all challenges in the given field. In the next round, participants are
@@ -38,7 +38,7 @@ export const competitionData = [
     ),
     timeline: [
       {
-        date: '28 Mar',
+        date: '29 Mar',
         component: (
           <>
             Close <br /> Registration
@@ -167,7 +167,7 @@ export const competitionData = [
         credited with being the pioneer in the region of Pacific Asia. This
         competition will challenge all delegates to create the optimal
         capability of fracture fluid related to the given case.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           Each team will present their findings directly to the judges and the
           most optimal, including performance feasibility, environmental
@@ -250,7 +250,8 @@ export const competitionData = [
         date: '26 May',
         component: (
           <>
-            Competition <br />Day
+            Competition <br />
+            Day
           </>
         ),
       },
@@ -325,7 +326,7 @@ export const competitionData = [
         their knowledge by answering questions covering technical and
         non-technical aspects of the oil and gas industry. There will be 3
         rounds: online preliminary, semi-final and final.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           Participants will have to answer questions or cases that will be
           packed in each exciting round of petrosmart. With this competition, we
@@ -378,7 +379,8 @@ export const competitionData = [
         date: '25 May',
         component: (
           <>
-            Technical<br />
+            Technical
+            <br />
             Meeting
           </>
         ),
@@ -387,7 +389,8 @@ export const competitionData = [
         date: '26 May',
         component: (
           <>
-            Competition<br />
+            Competition
+            <br />
             Day
           </>
         ),
@@ -465,7 +468,7 @@ export const competitionData = [
         undergraduate students to apply their knowledge concerning the oil and
         gas industry to enhance their capability for supervising scientific new
         innovation research.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           This will be valuable for the human race and the energy industry also
           to solve energy issues by providing innovative solutions to create a
@@ -576,7 +579,7 @@ export const competitionData = [
     about:
       "The business case competition is a problem-solving competition that focuses on the industry's real-world problems. The participants must emphasize their ideas to solve the problems that the company has. There will be three stages in this competition that include the Preliminary round, Semi-final round, and Final round. The objective of the competition is to find feasible solutions with depth analysis of the problems.",
     start_registration: '2023-2-28',
-    end_registration: '2023-3-29',
+    end_registration: '2023-4-4',
     firstDate: '28 Feb',
     firstEvent: (
       <>
@@ -597,7 +600,7 @@ export const competitionData = [
     ),
     timeline: [
       {
-        date: '29 Mar',
+        date: '04 Apr',
         component: (
           <>
             Close <br /> Registration
@@ -635,7 +638,8 @@ export const competitionData = [
         date: '7 May',
         component: (
           <>
-            Solution Report<br />
+            Solution Report
+            <br />
             Submission Deadline
           </>
         ),
@@ -705,7 +709,7 @@ export const competitionData = [
       {
         question: 'What is the theme of this competition?',
         answer:
-          'The Petrolida 2022 Business Case Competition have the theme “Optimizing Supply Chain System Through Reliable & Effective Business Strategy in FMCG Industry”',
+          'The Petrolida 2022 Business Case Competition have the theme “Maintaining Grab User Loyalty and Retention in a  Post Pandemic Environment”',
       },
       {
         question: 'Can I join as an individual?',
@@ -744,7 +748,7 @@ export const competitionData = [
         students to demonstrate their critical thinking abilities, determination
         to address complex issues, and competence to work in teams in order to
         solve oil and gas industry-related cases.{' '}
-        <span className="block mt-3">
+        <span className="mt-3 block">
           {' '}
           Participating teams of the competition will be challenged with a case
           problem statement given by a panel of petroleum experts representing

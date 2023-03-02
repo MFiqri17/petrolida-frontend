@@ -13,7 +13,6 @@ const SingleAnnouncement = ({
   submission: any[]
 }) => {
   const [closed, setClosed] = React.useState<boolean>(false)
-  const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
 
   return (
     <div className="mb-20">
@@ -40,10 +39,12 @@ const SingleAnnouncement = ({
                 </div>
                 <div className="flex flex-col space-y-1">
                   <p className="text-lg font-bold text-[#FBFBFC]">
-                    Your registration is currently under review
+                    We regret to inform you that an error has been detected in
+                    your registration status
                   </p>
                   <p className="text-base font-medium text-[#EDEEF3]">
-                    {stat.identity_team_comment}
+                    Please upload a new file or provide additional information
+                    to help us fix the error
                   </p>
                 </div>
               </div>
@@ -78,20 +79,6 @@ const SingleAnnouncement = ({
             <p className="text-lg font-semibold text-[#1E1E2D]">
               {event.content}
             </p>
-            <div>
-              <p>
-                {' '}
-                File:
-                <a
-                  className="ml-1 inline hover:border-b-2 hover:border-black"
-                  rel="noreferrer"
-                  target="_blank"
-                  href={`${baseStorageUrl}${event.file}`}
-                >
-                  {event.file}
-                </a>
-              </p>
-            </div>
           </section>
         </div>
       ))}
