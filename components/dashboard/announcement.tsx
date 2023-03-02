@@ -104,6 +104,7 @@ const Announcement = ({
                       href={`update-event-register/${
                         competitionType[+compId - 1].slug
                       }`}
+                      className="w-full"
                     >
                       <button
                         className={`w-[180px] rounded-[30px] bg-[#FBFBFC] py-[14.5px]  text-center text-base font-semibold text-[#3D4BE0] !transition   !duration-300 hover:!scale-105`}
