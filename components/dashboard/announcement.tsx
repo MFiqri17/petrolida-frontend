@@ -2,8 +2,39 @@
 import React from 'react'
 import Image from 'next/image'
 import FormField from './formFiield'
-import { Splide, SplideSlide } from '@splidejs/react-splide'
-import '@splidejs/react-splide/css'
+import EventComment from '../announcement/eventComment'
+import EventStatus from '../announcement/eventStatus'
+
+interface competitionTypeInterface {
+  id: string
+  name: string
+  amount: string
+  slug: string
+}
+
+const competitionType: competitionTypeInterface[] = [
+  {
+    id: '1',
+    name: 'Oil Rig Design',
+    amount: '150.000',
+    slug: 'oil-rig-design',
+  },
+  { id: '2', name: 'Paper', amount: '100.000', slug: 'paper' },
+  {
+    id: '3',
+    name: 'Business Case',
+    amount: '150.000',
+    slug: 'business-case',
+  },
+  {
+    id: '4',
+    name: 'Fracturing Fluid Design',
+    amount: '180.000',
+    slug: 'fracturing-fluid-design',
+  },
+  { id: '5', name: 'Case Study', amount: '100.000', slug: 'case-study' },
+  { id: '6', name: 'Petrosmart', amount: '150.000', slug: 'petrosmart' },
+]
 
 const Announcement = ({
   events,
@@ -14,45 +45,10 @@ const Announcement = ({
   status: any[]
   submission: any[]
 }) => {
-  interface competitionTypeInterface {
-    id: string
-    name: string
-    amount: string
-    slug: string
-  }
-
-  const carouselRef = React.useRef<Splide>(null)
-  const handleThumbs = (id: string) => {
-    if (carouselRef.current) {
-      carouselRef.current.go(id)
-    }
-  }
   const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
   const [compId, setCompId] = React.useState('1')
   const [closed, setClosed] = React.useState<boolean>(false)
-  const competitionType: competitionTypeInterface[] = [
-    {
-      id: '1',
-      name: 'Oil Rig Design',
-      amount: '150.000',
-      slug: 'oil-rig-design',
-    },
-    { id: '2', name: 'Paper', amount: '100.000', slug: 'paper' },
-    {
-      id: '3',
-      name: 'Business Case',
-      amount: '150.000',
-      slug: 'business-case',
-    },
-    {
-      id: '4',
-      name: 'Fracturing Fluid Design',
-      amount: '180.000',
-      slug: 'fracturing-fluid-design',
-    },
-    { id: '5', name: 'Case Study', amount: '100.000', slug: 'case-study' },
-    { id: '6', name: 'Petrosmart', amount: '150.000', slug: 'petrosmart' },
-  ]
+
   return (
     <div className="mb-20">
       <h1 className="mb-6 text-2xl font-bold leading-[29px] text-[#1E1E2D]">
@@ -75,98 +71,39 @@ const Announcement = ({
 
       {status
         .filter((item: any) => compId === item.event_id)
-        .map((stat: any) => (
-          <div key={stat.event_id} className="mb-6">
-            {stat.identity_team_status === 'unverifed' ||
-            stat.identity_team_status === 'rejected' ? (
-              <section
-                className={`${
-                  closed ? 'hidden' : 'block'
-                } flex w-full items-start justify-between rounded-[30px] bg-[#FF695A] py-3.5 px-5`}
-              >
-                <div className="flex space-x-3">
-                  <div>
-                    <Image
-                      src={'/images/info.png'}
-                      width={32}
-                      height={32}
-                      alt={'info logo'}
-                    />
-                  </div>
-                  <div className="flex flex-col space-y-1">
-                    {stat.identity_team_status === 'unverifed' && (
-                      <p className="text-lg font-bold text-[#FBFBFC]">
-                        Your registration is currently under review
-                      </p>
-                    )}
-                    <p className="text-lg font-bold text-[#EDEEF3]">
-                      {stat.identity_team_comment}
-                    </p>
-                    {stat.identity_team_status === 'rejected' && (
-                      <a
-                        href={`update-event-register/${
-                          competitionType[+compId - 1].slug
-                        }`}
-                        className="w-full"
-                      >
-                        <button
-                          className={`w-[180px] rounded-[30px] bg-[#FBFBFC] py-[14.5px]  text-center text-base font-semibold text-[#3D4BE0] !transition   !duration-300 hover:!scale-105`}
-                        >
-                          Register Again
-                        </button>
-                      </a>
-                    )}
-                  </div>
-                </div>
-                <button
-                  onClick={() => {
-                    setClosed(true)
-                  }}
-                  className=""
-                  type="button"
-                >
-                  <Image
-                    src={'/images/Close.png'}
-                    width={16}
-                    height={16}
-                    alt={'close'}
-                  />
-                </button>
-              </section>
-            ) : null}
-          </div>
-        ))}
+        .map((stat: any) => {
+          if (
+            stat.identity_team_status !== 'unverifed' &&
+            stat.identity_team_status !== 'rejected'
+          ) {
+            return null
+          }
+          const isPending = stat.identity_team_status === 'unverifed'
+          const isRejected = stat.identity_team_status === 'rejected'
+          return (
+            <EventStatus
+              event_id={stat.event_id}
+              isPending={isPending}
+              isRejected={isRejected}
+              identity_team_comment={stat.identity_team_comment}
+              link={`update-event-register/${
+                competitionType[+compId - 1].slug
+              }`}
+              closed={closed}
+              setClosed={setClosed}
+            />
+          )
+        })}
 
       {events
         .filter((item: any) => compId === item.event_id)
         .map((event: any) => (
-          <div
-            key={event.id}
-            className=" flex flex-col justify-between space-x-6"
-          >
-            <section className="mb-5 flex w-full flex-col items-start justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] px-6 lg:h-[150px]">
-              <h5 className="text-base font-bold leading-[19px] text-[#605C84]">
-                Announcement
-              </h5>
-              <p className="text-lg font-semibold text-[#1E1E2D]">
-                {event.content}
-              </p>
-              <div>
-                <p>
-                  {' '}
-                  File:
-                  <a
-                    className="ml-1 inline hover:border-b-2 hover:border-black"
-                    rel="noreferrer"
-                    target="_blank"
-                    href={`${baseStorageUrl}${event.file}`}
-                  >
-                    {event.file}
-                  </a>
-                </p>
-              </div>
-            </section>
-          </div>
+          <EventComment
+            id={event.id}
+            content={event.content}
+            link={`${baseStorageUrl}${event.file}`}
+            file={event.file}
+          />
         ))}
 
       <div className="flex flex-col justify-between space-x-0 md:flex-row md:space-x-8">
