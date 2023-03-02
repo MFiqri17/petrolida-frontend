@@ -78,62 +78,62 @@ const Announcement = ({
         .map((stat: any) => (
           <div key={stat.event_id} className="mb-6">
             {stat.identity_team_status === 'unverifed' ||
-              (stat.identity_team_status === 'rejected' && (
-                <section
-                  className={`${
-                    closed ? 'hidden' : 'block'
-                  } flex w-full items-start justify-between rounded-[30px] bg-[#FF695A] py-3.5 px-5`}
-                >
-                  <div className="flex space-x-3">
-                    <div>
-                      <Image
-                        src={'/images/info.png'}
-                        width={32}
-                        height={32}
-                        alt={'info logo'}
-                      />
-                    </div>
-                    <div className="flex flex-col space-y-1">
-                      {stat.identity_team_status === 'unverifed' && (
-                        <p className="text-lg font-bold text-[#FBFBFC]">
-                          Your registration is currently under review
-                        </p>
-                      )}
-                      <p className="text-lg font-bold text-[#EDEEF3]">
-                        {stat.identity_team_comment}
-                      </p>
-                      {stat.identity_team_status === 'rejected' && (
-                        <a
-                          href={`update-event-register/${
-                            competitionType[+compId - 1].slug
-                          }`}
-                          className="w-full"
-                        >
-                          <button
-                            className={`w-[180px] rounded-[30px] bg-[#FBFBFC] py-[14.5px]  text-center text-base font-semibold text-[#3D4BE0] !transition   !duration-300 hover:!scale-105`}
-                          >
-                            Register Again
-                          </button>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => {
-                      setClosed(true)
-                    }}
-                    className=""
-                    type="button"
-                  >
+            stat.identity_team_status === 'rejected' ? (
+              <section
+                className={`${
+                  closed ? 'hidden' : 'block'
+                } flex w-full items-start justify-between rounded-[30px] bg-[#FF695A] py-3.5 px-5`}
+              >
+                <div className="flex space-x-3">
+                  <div>
                     <Image
-                      src={'/images/Close.png'}
-                      width={16}
-                      height={16}
-                      alt={'close'}
+                      src={'/images/info.png'}
+                      width={32}
+                      height={32}
+                      alt={'info logo'}
                     />
-                  </button>
-                </section>
-              ))}
+                  </div>
+                  <div className="flex flex-col space-y-1">
+                    {stat.identity_team_status === 'unverifed' && (
+                      <p className="text-lg font-bold text-[#FBFBFC]">
+                        Your registration is currently under review
+                      </p>
+                    )}
+                    <p className="text-lg font-bold text-[#EDEEF3]">
+                      {stat.identity_team_comment}
+                    </p>
+                    {stat.identity_team_status === 'rejected' && (
+                      <a
+                        href={`update-event-register/${
+                          competitionType[+compId - 1].slug
+                        }`}
+                        className="w-full"
+                      >
+                        <button
+                          className={`w-[180px] rounded-[30px] bg-[#FBFBFC] py-[14.5px]  text-center text-base font-semibold text-[#3D4BE0] !transition   !duration-300 hover:!scale-105`}
+                        >
+                          Register Again
+                        </button>
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    setClosed(true)
+                  }}
+                  className=""
+                  type="button"
+                >
+                  <Image
+                    src={'/images/Close.png'}
+                    width={16}
+                    height={16}
+                    alt={'close'}
+                  />
+                </button>
+              </section>
+            ) : null}
           </div>
         ))}
 
