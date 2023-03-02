@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
 import FormField from './formFiield'
 import EventComment from '../announcement/eventComment'
 import EventStatus from '../announcement/eventStatus'
@@ -109,15 +108,25 @@ const Announcement = ({
       <div className="flex flex-col justify-between space-x-0 md:flex-row md:space-x-8">
         {submission
           .filter((item: any) => compId === item.event_id)
-          .map((event: any) => (
-            <FormField
-              key={event.id}
-              id={event.id}
-              compId={compId}
-              title={event.title}
-              is_submitted={event.is_submitted}
-            />
-          ))}
+          .map((event: any) => {
+            const isPending =
+              status.find((item: any) => item.event_id === event.event_id)
+                ?.identity_team_status === 'unverified'
+            const isRejected =
+              status.find((item: any) => item.event_id === event.event_id)
+                ?.identity_team_status === 'rejected'
+            return (
+              <FormField
+                key={event.id}
+                id={event.id}
+                compId={compId}
+                title={event.title}
+                is_submitted={event.is_submitted}
+                isPending={isPending}
+                isRejected={isRejected}
+              />
+            )
+          })}
       </div>
     </div>
   )
