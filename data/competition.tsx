@@ -26,7 +26,7 @@ export const competitionData = [
         specific offshore oil field. Participants are expected to make a project
         explanation of their semi-submersible oil rig based on what situation
         they had.{' '}
-        <span className="mt-3 block">
+        <span className="block mt-3">
           {' '}
           This competition aims to develop participants' knowledge to overcome
           all challenges in the given field. In the next round, participants are
@@ -140,7 +140,7 @@ export const competitionData = [
           'The submission of registration form should not pass the specified deadline. So please mark your calendar if you don’t want to miss out',
       },
     ],
-    picName: 'I Gede Krishnananda Wibawa ',
+    picName: 'I Gde Krishnananda Wibawa',
     lineId: 'krishnananda',
   },
   {
@@ -167,7 +167,7 @@ export const competitionData = [
         credited with being the pioneer in the region of Pacific Asia. This
         competition will challenge all delegates to create the optimal
         capability of fracture fluid related to the given case.{' '}
-        <span className="mt-3 block">
+        <span className="block mt-3">
           {' '}
           Each team will present their findings directly to the judges and the
           most optimal, including performance feasibility, environmental
@@ -326,7 +326,7 @@ export const competitionData = [
         their knowledge by answering questions covering technical and
         non-technical aspects of the oil and gas industry. There will be 3
         rounds: online preliminary, semi-final and final.{' '}
-        <span className="mt-3 block">
+        <span className="block mt-3">
           {' '}
           Participants will have to answer questions or cases that will be
           packed in each exciting round of petrosmart. With this competition, we
@@ -468,7 +468,7 @@ export const competitionData = [
         undergraduate students to apply their knowledge concerning the oil and
         gas industry to enhance their capability for supervising scientific new
         innovation research.{' '}
-        <span className="mt-3 block">
+        <span className="block mt-3">
           {' '}
           This will be valuable for the human race and the energy industry also
           to solve energy issues by providing innovative solutions to create a
@@ -748,7 +748,7 @@ export const competitionData = [
         students to demonstrate their critical thinking abilities, determination
         to address complex issues, and competence to work in teams in order to
         solve oil and gas industry-related cases.{' '}
-        <span className="mt-3 block">
+        <span className="block mt-3">
           {' '}
           Participating teams of the competition will be challenged with a case
           problem statement given by a panel of petroleum experts representing

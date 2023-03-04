@@ -360,10 +360,7 @@ export function ImageInputUpdate({
         </p>
       </div>
       <div>
-        <img
-          src={Source}
-          alt=""
-        />
+        <img src={Img.src !== '' ? '' : Source} alt="" />
         <img src={Img.src} alt="" />
       </div>
     </>
