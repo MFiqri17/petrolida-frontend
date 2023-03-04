@@ -77,7 +77,7 @@ export default function LoginForm() {
         {isLoading ? <Spinner /> : 'Log in'}
       </button>
       {/* Uncomment this if and insert the cookies from production website if want to use cookies in localhost */}
-      {/* <button
+      <button
         type="button"
         onClick={() => {
           cookies.set(
@@ -89,7 +89,7 @@ export default function LoginForm() {
         disabled={isLoading}
       >
         Add Cookies
-      </button> */}
+      </button>
     </form>
   )
 }
