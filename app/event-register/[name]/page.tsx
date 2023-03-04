@@ -71,15 +71,10 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
   const [ImgTwibbon4, setImgTwibbon4] = React.useState(initialFileState)
   const [ImgTwibbon5, setImgTwibbon5] = React.useState(initialFileState)
   React.useEffect(() => {
-    let currentDate: string =
-      todayDate.getFullYear() +
-      '-' +
-      (todayDate.getMonth() + 1) +
-      '-' +
-      todayDate.getDate()
+    let currentDate = new Date()
     if (
-      currentDate >= data!.start_registration &&
-      currentDate <= data!.end_registration
+      currentDate >= new Date(data!.start_registration) &&
+      currentDate <= new Date(data!.end_registration)
     ) {
       setIsClosed(false)
     }
