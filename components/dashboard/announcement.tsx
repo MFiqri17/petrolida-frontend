@@ -11,6 +11,8 @@ interface competitionTypeInterface {
   slug: string
 }
 
+const competitionStage = ['unverified', 'preliminary', 'semifinal', 'final']
+
 const competitionType: competitionTypeInterface[] = [
   {
     id: '1',
@@ -47,6 +49,9 @@ const Announcement = ({
   const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
   const [compId, setCompId] = React.useState('1')
   const [closed, setClosed] = React.useState<boolean>(false)
+  const competitionStage =
+    status.filter((item: any) => compId === item.event_id)[0]
+      ?.competition_stage || ''
 
   return (
     <div className="mb-20">
@@ -96,7 +101,11 @@ const Announcement = ({
         })}
 
       {events
-        .filter((item: any) => compId === item.event_id)
+        .filter(
+          (item: any) =>
+            compId === item.event_id &&
+            competitionStage === item.competition_stage,
+        )
         .map((event: any) => (
           <EventComment
             key={event.id}

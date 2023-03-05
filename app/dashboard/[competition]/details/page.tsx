@@ -153,6 +153,7 @@ export default async function Page({
         events={selectedEvent ?? []}
         submission={selectedSubmission ?? []}
         status={selectedStatus ?? []}
+        slug={params.competition}
       />
       <ProfileContainer
         teamData={selectedRegisteredEvent}
