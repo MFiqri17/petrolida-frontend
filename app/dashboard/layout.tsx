@@ -1,25 +1,7 @@
-import '../globals.css'
-import localFont from '@next/font/local'
 import Sidebar from '../../components/layout/sidebar/sidebar'
 import ProfileBar from '../../components/dashboard/profile-bar'
 import { getUserData } from '../../utils/auth'
 
-const gilroy = localFont({
-  src: [
-    {
-      path: '../../public/fonts/Gilroy-Regular.woff',
-      weight: '400',
-    },
-    {
-      path: '../../public/fonts/Gilroy-ExtraBold.woff',
-      weight: '700',
-    },
-    {
-      path: '../../public/fonts/Gilroy-SemiBold.woff',
-      weight: '600',
-    },
-  ],
-})
 export default async function RootLayout({
   children,
 }: {
@@ -27,9 +9,8 @@ export default async function RootLayout({
 }) {
   const userData = await getUserData()
   return (
-    <html className={gilroy.className}>
-      <head />
-      <body className="min-h-screen bg-lightb sm:flex">
+    <main>
+      <div className="min-h-screen bg-lightb sm:flex">
         <Sidebar />
         <div className="w-full grow border-2 px-5 sm:w-auto sm:px-24">
           <section className="hidden w-full justify-end py-14 sm:flex">
@@ -37,7 +18,7 @@ export default async function RootLayout({
           </section>
           {children}
         </div>
-      </body>
-    </html>
+      </div>
+    </main>
   )
 }

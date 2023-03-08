@@ -5,23 +5,6 @@ import Footers from '../../components/layout/footer/footers'
 import SmoothScrollContainer from '../../components/utils/smooth-scroll'
 import { getUserData } from '../../utils/auth'
 
-const gilroy = localFont({
-  src: [
-    {
-      path: '../../public/fonts/Gilroy-Regular.woff',
-      weight: '400',
-    },
-    {
-      path: '../../public/fonts/Gilroy-ExtraBold.woff',
-      weight: '700',
-    },
-    {
-      path: '../../public/fonts/Gilroy-SemiBold.woff',
-      weight: '600',
-    },
-  ],
-})
-
 export default async function RootLayout({
   children,
 }: {
@@ -29,19 +12,14 @@ export default async function RootLayout({
 }) {
   const userData = await getUserData()
   return (
-    <html lang="en" className={gilroy.className}>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body className='relative'>
+    <main lang="en">
+      <div className="relative">
         <Navbar isTrans={false} userData={userData} />
         {/* <SmoothScrollContainer> */}
         {children}
         <Footers />
         {/* </SmoothScrollContainer> */}
-      </body>
-    </html>
+      </div>
+    </main>
   )
 }
