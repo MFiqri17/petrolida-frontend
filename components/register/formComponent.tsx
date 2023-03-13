@@ -170,7 +170,7 @@ export function ImageInput({
   }, [Img])
   return (
     <>
-      <div className="text-cblack  flex flex-col justify-start space-y-2 font-medium">
+      <div className="flex flex-col justify-start space-y-2 font-medium text-cblack">
         <label htmlFor={name} className="text-xl font-semibold">
           {label}
         </label>
@@ -185,7 +185,7 @@ export function ImageInput({
             }}
           >
             <NextImage
-              className="mr-4 inline"
+              className="inline mr-4"
               src={'/images/upload.png'}
               alt="upload"
               width={24}
@@ -211,7 +211,7 @@ export function ImageInput({
           />
         </div>
         {errors[name] && (
-          <p className="text-red-700 ">{label.toLowerCase()} is required</p>
+          <p className="text-red-700 ">{label.toLowerCase()} is required. <br />The file must have the extension .png .jpg .jpeg</p>
         )}
       </div>
       <div className={path === '' ? 'hidden' : 'block'}>
@@ -219,7 +219,7 @@ export function ImageInput({
           {' '}
           Link Twibbon:
           <a
-            className="ml-1 inline hover:border-b-2 hover:border-black"
+            className="inline ml-1 hover:border-b-2 hover:border-black"
             rel="noreferrer"
             target="_blank"
             href={path}
@@ -306,7 +306,7 @@ export function ImageInputUpdate({
   }, [Img])
   return (
     <>
-      <div className="text-cblack  flex flex-col justify-start space-y-2 font-medium">
+      <div className="flex flex-col justify-start space-y-2 font-medium text-cblack">
         <label htmlFor={name} className="text-xl font-semibold">
           {label}
         </label>
@@ -321,7 +321,7 @@ export function ImageInputUpdate({
             }}
           >
             <NextImage
-              className="mr-4 inline"
+              className="inline mr-4"
               src={'/images/upload.png'}
               alt="upload"
               width={24}
@@ -350,7 +350,7 @@ export function ImageInputUpdate({
           {' '}
           Link Twibbon:
           <a
-            className="ml-1 inline hover:border-b-2 hover:border-black"
+            className="inline ml-1 hover:border-b-2 hover:border-black"
             rel="noreferrer"
             target="_blank"
             href={path}

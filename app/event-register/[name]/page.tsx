@@ -339,7 +339,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                               <Input
                                 register={register}
                                 {...registerItem}
-                                ErrorMessage={`${ErrorMessage} The file must have the extension .png .jpg .jpeg`}
+                                ErrorMessage={ErrorMessage}
                                 errors={errors}
                                 trigger={trigger}
                               />
