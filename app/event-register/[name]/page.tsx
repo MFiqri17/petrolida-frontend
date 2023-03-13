@@ -171,9 +171,9 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                       data?.id === 1 ? registerData : registerData2,
                       registers,
                     ) ==
-                    (data?.id === 1
-                      ? formtypeArray[index]
-                      : formTypeArray2[index]) ? (
+                      (data?.id === 1
+                        ? formtypeArray[index]
+                        : formTypeArray2[index]) ? (
                       <div
                         className="flex flex-col space-y-10"
                         key={
@@ -215,107 +215,107 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                   path={registerItem.path_twibbon}
                                   label={
                                     params.name === 'business-case' &&
-                                    registerItem.name === 'transfer_receipt'
-                                      ? 'Grab Unlimited Proof'
+                                      registerItem.name === 'transfer_receipt'
+                                      ? 'Grab Unlimited Proof (Please attach 3 proofs in one file)'
                                       : registerItem.label
                                   }
                                   name={registerItem.name}
                                   types={registerItem.types}
                                   Img={
                                     registerItem.name ===
-                                    `members[0][student_card]`
+                                      `members[0][student_card]`
                                       ? Img
                                       : registerItem.name ===
                                         `members[0][identity_card]`
-                                      ? Img2
-                                      : registerItem.name ===
-                                        'members[0][twibbon_path]'
-                                      ? ImgTwibbon
-                                      : registerItem.name ===
-                                        `members[1][student_card]`
-                                      ? Img3
-                                      : registerItem.name ===
-                                        `members[1][identity_card]`
-                                      ? Img4
-                                      : registerItem.name ===
-                                        'members[1][twibbon_path]'
-                                      ? ImgTwibbon2
-                                      : registerItem.name ===
-                                        `members[2][student_card]`
-                                      ? Img5
-                                      : registerItem.name ===
-                                        `members[2][identity_card]`
-                                      ? Img6
-                                      : registerItem.name ===
-                                        'members[2][twibbon_path]'
-                                      ? ImgTwibbon3
-                                      : registerItem.name ===
-                                        `members[3][student_card]`
-                                      ? Img7
-                                      : registerItem.name ===
-                                        `members[3][identity_card]`
-                                      ? Img8
-                                      : registerItem.name ===
-                                        'members[3][twibbon_path]'
-                                      ? ImgTwibbon4
-                                      : registerItem.name ===
-                                        `members[4][student_card]`
-                                      ? Img9
-                                      : registerItem.name ===
-                                        `members[4][identity_card]`
-                                      ? Img10
-                                      : registerItem.name ===
-                                        'members[4][twibbon_path]'
-                                      ? ImgTwibbon5
-                                      : Img11
+                                        ? Img2
+                                        : registerItem.name ===
+                                          'members[0][twibbon_path]'
+                                          ? ImgTwibbon
+                                          : registerItem.name ===
+                                            `members[1][student_card]`
+                                            ? Img3
+                                            : registerItem.name ===
+                                              `members[1][identity_card]`
+                                              ? Img4
+                                              : registerItem.name ===
+                                                'members[1][twibbon_path]'
+                                                ? ImgTwibbon2
+                                                : registerItem.name ===
+                                                  `members[2][student_card]`
+                                                  ? Img5
+                                                  : registerItem.name ===
+                                                    `members[2][identity_card]`
+                                                    ? Img6
+                                                    : registerItem.name ===
+                                                      'members[2][twibbon_path]'
+                                                      ? ImgTwibbon3
+                                                      : registerItem.name ===
+                                                        `members[3][student_card]`
+                                                        ? Img7
+                                                        : registerItem.name ===
+                                                          `members[3][identity_card]`
+                                                          ? Img8
+                                                          : registerItem.name ===
+                                                            'members[3][twibbon_path]'
+                                                            ? ImgTwibbon4
+                                                            : registerItem.name ===
+                                                              `members[4][student_card]`
+                                                              ? Img9
+                                                              : registerItem.name ===
+                                                                `members[4][identity_card]`
+                                                                ? Img10
+                                                                : registerItem.name ===
+                                                                  'members[4][twibbon_path]'
+                                                                  ? ImgTwibbon5
+                                                                  : Img11
                                   }
                                   setImg={
                                     registerItem.name ===
-                                    `members[0][student_card]`
+                                      `members[0][student_card]`
                                       ? setImg
                                       : registerItem.name ===
                                         `members[0][identity_card]`
-                                      ? setImg2
-                                      : registerItem.name ===
-                                        'members[0][twibbon_path]'
-                                      ? setImgTwibbon
-                                      : registerItem.name ===
-                                        `members[1][student_card]`
-                                      ? setImg3
-                                      : registerItem.name ===
-                                        `members[1][identity_card]`
-                                      ? setImg4
-                                      : registerItem.name ===
-                                        'members[1][twibbon_path]'
-                                      ? setImgTwibbon2
-                                      : registerItem.name ===
-                                        `members[2][student_card]`
-                                      ? setImg5
-                                      : registerItem.name ===
-                                        `members[2][identity_card]`
-                                      ? setImg6
-                                      : registerItem.name ===
-                                        'members[2][twibbon_path]'
-                                      ? setImgTwibbon3
-                                      : registerItem.name ===
-                                        `members[3][student_card]`
-                                      ? setImg7
-                                      : registerItem.name ===
-                                        `members[3][identity_card]`
-                                      ? setImg8
-                                      : registerItem.name ===
-                                        'members[3][twibbon_path]'
-                                      ? setImgTwibbon4
-                                      : registerItem.name ===
-                                        `members[4][student_card]`
-                                      ? setImg9
-                                      : registerItem.name ===
-                                        `members[4][identity_card]`
-                                      ? setImg10
-                                      : registerItem.name ===
-                                        'members[4][twibbon_path]'
-                                      ? setImgTwibbon5
-                                      : setImg11
+                                        ? setImg2
+                                        : registerItem.name ===
+                                          'members[0][twibbon_path]'
+                                          ? setImgTwibbon
+                                          : registerItem.name ===
+                                            `members[1][student_card]`
+                                            ? setImg3
+                                            : registerItem.name ===
+                                              `members[1][identity_card]`
+                                              ? setImg4
+                                              : registerItem.name ===
+                                                'members[1][twibbon_path]'
+                                                ? setImgTwibbon2
+                                                : registerItem.name ===
+                                                  `members[2][student_card]`
+                                                  ? setImg5
+                                                  : registerItem.name ===
+                                                    `members[2][identity_card]`
+                                                    ? setImg6
+                                                    : registerItem.name ===
+                                                      'members[2][twibbon_path]'
+                                                      ? setImgTwibbon3
+                                                      : registerItem.name ===
+                                                        `members[3][student_card]`
+                                                        ? setImg7
+                                                        : registerItem.name ===
+                                                          `members[3][identity_card]`
+                                                          ? setImg8
+                                                          : registerItem.name ===
+                                                            'members[3][twibbon_path]'
+                                                            ? setImgTwibbon4
+                                                            : registerItem.name ===
+                                                              `members[4][student_card]`
+                                                              ? setImg9
+                                                              : registerItem.name ===
+                                                                `members[4][identity_card]`
+                                                                ? setImg10
+                                                                : registerItem.name ===
+                                                                  'members[4][twibbon_path]'
+                                                                  ? setImgTwibbon5
+                                                                  : setImg11
                                   }
                                 />
                                 {params.name === 'business-case' &&
@@ -339,7 +339,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                               <Input
                                 register={register}
                                 {...registerItem}
-                                ErrorMessage={ErrorMessage}
+                                ErrorMessage={`${ErrorMessage} The file must have the extension .png .jpg .jpeg`}
                                 errors={errors}
                                 trigger={trigger}
                               />
