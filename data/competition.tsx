@@ -64,7 +64,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '27 Apr',
+        date: '20 Apr',
         component: (
           <>
             Finalist <br />
@@ -73,7 +73,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '18 May',
         component: (
           <>
             Presentation <br />
@@ -82,7 +82,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '18 May',
         component: (
           <>
             Technical <br />
@@ -90,12 +90,21 @@ export const competitionData = [
           </>
         ),
       },
+      {
+        date: '19 May',
+        component: (
+          <>
+            Competition <br />
+            Day
+          </>
+        ),
+      },
     ],
-    lastDate: '26 May',
+    lastDate: '20 May',
     lastEvent: (
       <>
-        Competition <br />
-        Day
+        Gala <br />
+        Dinner
       </>
     ),
     prize: [
@@ -221,7 +230,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '19 May',
+        date: '2 May',
         component: (
           <>
             Laboratory Testing <br />
@@ -230,7 +239,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '26 May',
+        date: '18 May',
         component: (
           <>
             PowerPoint File <br />
@@ -239,7 +248,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '18 May',
         component: (
           <>
             Technical <br /> Meeting
@@ -247,7 +256,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '26 May',
+        date: '19 May',
         component: (
           <>
             Competition <br />
@@ -256,7 +265,7 @@ export const competitionData = [
         ),
       },
     ],
-    lastDate: '27 May',
+    lastDate: '20 May',
     lastEvent: (
       <>
         Gala <br />
@@ -348,7 +357,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '13 Apr',
+        date: '14 Apr',
         component: (
           <>
             Technical Meeting
@@ -376,7 +385,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '18 May',
         component: (
           <>
             Technical
@@ -386,7 +395,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '26 May',
+        date: '19 May',
         component: (
           <>
             Competition
@@ -396,7 +405,7 @@ export const competitionData = [
         ),
       },
     ],
-    lastDate: '27 May',
+    lastDate: '20 May',
     lastEvent: (
       <>
         Gala <br />
@@ -507,7 +516,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '17 May',
         component: (
           <>
             PPT & Paper <br />
@@ -516,7 +525,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '18 May',
         component: (
           <>
             Technical <br />
@@ -524,12 +533,21 @@ export const competitionData = [
           </>
         ),
       },
+      {
+        date: '19 May',
+        component: (
+          <>
+            Competition <br />
+            Day
+          </>
+        ),
+      },
     ],
-    lastDate: '26 May',
+    lastDate: '20 May',
     lastEvent: (
       <>
-        Competition <br />
-        Day
+        Gala <br />
+        Dinner
       </>
     ),
     prize: [
@@ -635,7 +653,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '7 May',
+        date: '1 May',
         component: (
           <>
             Solution Report
@@ -645,7 +663,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '12 May',
+        date: '7 May',
         component: (
           <>
             Finalist <br />
@@ -663,7 +681,7 @@ export const competitionData = [
       //   ),
       // },
       {
-        date: '25 May',
+        date: '16 May',
         component: (
           <>
             Final <br />
@@ -672,7 +690,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '18 May',
         component: (
           <>
             Technical <br />
@@ -680,12 +698,21 @@ export const competitionData = [
           </>
         ),
       },
+      {
+        date: '19 May',
+        component: (
+          <>
+            Competition <br />
+            Day
+          </>
+        ),
+      },
     ],
-    lastDate: '26 May',
+    lastDate: '20 May',
     lastEvent: (
       <>
-        Competition <br />
-        Day
+        Gala <br />
+        Dinner
       </>
     ),
     prize: [
@@ -795,7 +822,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '17 May',
         component: (
           <>
             Solution Report <br />
@@ -804,7 +831,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '18 May',
         component: (
           <>
             PowerPoint File <br />
@@ -813,7 +840,7 @@ export const competitionData = [
         ),
       },
       {
-        date: '25 May',
+        date: '18 May',
         component: (
           <>
             Technical <br />
@@ -821,12 +848,21 @@ export const competitionData = [
           </>
         ),
       },
+      {
+        date: '19 May',
+        component: (
+          <>
+            Competition <br />
+            Day
+          </>
+        ),
+      },
     ],
-    lastDate: '26 May',
+    lastDate: '20 May',
     lastEvent: (
       <>
-        Competition <br />
-        Day
+        Gala <br />
+        Dinner
       </>
     ),
     prize: [
