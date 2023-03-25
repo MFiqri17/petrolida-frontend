@@ -2,6 +2,7 @@
 
 import Speakers from '../../components/home/speakers'
 import Explore from '../../components/home/explore'
+import Sponsors from '../../components/home/sponsors'
 import SixCompetition from '../../components/home/6-competition'
 import PetrolidaAbout from '../../components/about/petrolida-jumbotron'
 import RegularJumbotron from '../../components/utils/regular-jumbotron'
@@ -21,6 +22,7 @@ export default function Home() {
       <SixCompetition />
       <Speakers />
       <Explore />
+      <Sponsors />
       {/* <Contact type="landing" /> */}
     </>
   )
