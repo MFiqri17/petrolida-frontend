@@ -7,6 +7,9 @@ export interface footerlistInterface {
   }[]
 }
 
+
+
+
 const footerListData = [
   {
     id: 1,

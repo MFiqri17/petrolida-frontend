@@ -11,7 +11,7 @@ const EventComment = ({
 }) => {
   return (
     <div key={id} className=" flex flex-col justify-between space-x-6">
-      <section className="mb-5 flex w-full flex-col items-start justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] px-6 lg:h-[150px]">
+      <section className="mb-5 flex w-full flex-col items-start justify-center space-y-2 rounded-[30px] bg-[#FBFBFC] px-6 h-full py-5 ">
         <h5 className="text-base font-bold leading-[19px] text-[#605C84]">
           Announcement
         </h5>
