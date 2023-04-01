@@ -64,7 +64,6 @@ const Formbutton = ({
             )}
             onClick={increamentStep}
             type="button"
-            disabled={!isValid}
           >
             Next
           </button>

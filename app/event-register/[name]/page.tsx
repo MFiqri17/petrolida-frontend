@@ -49,8 +49,9 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
     src: '',
     dimension: { width: 0, height: 0 },
   }
-  const [isFormValid, setIsFormValid] = React.useState<boolean>(false)
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false)
   const [index, setIndex] = React.useState<number>(0)
+  const [todayDate] = React.useState<any>(new Date())
   const [isClosed, setIsClosed] = React.useState<boolean>(true)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
@@ -80,7 +81,15 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
     }
   }, [])
   const incrementIndex = () => {
-    setIndex(index + 1)
+    setIsSubmitting(true)
+    trigger().then((valid) => {
+      if (valid) {
+        setIndex(index + 1)
+      } else {
+        setIsSubmitting(false)
+      }
+    })
+    
   }
   const decrementIndex = () => {
     setIndex(index - 1)
@@ -89,6 +98,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
     return Object.keys(object).find((key) => object[key] === value)
   }
   const onSubmit: SubmitHandler<FormValues> = (data) => {
+    setIsSubmitting(true)
     setIsLoading(true)
     const formData = new FormData()
     Object.keys(data).forEach((val) => {
@@ -122,7 +132,6 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
         setIsLoading(false)
       })
   }
-
   const {
     register,
     handleSubmit,
@@ -132,19 +141,6 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
     trigger,
     formState: { errors, isValid },
   } = useForm<FormValues>()
-
-  const validateInput = async (name: any) => {
-    try {
-      await trigger(name)
-      setIsFormValid(Object.keys(errors).length === 0)
-    } catch (error: any) {
-      setIsFormValid(false)
-      setError(name, {
-        type: 'manual',
-        message: error.message,
-      })
-    }
-  }
 
   return (
     <div
@@ -235,6 +231,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                   }
                                   name={registerItem.name}
                                   types={registerItem.types}
+                                  ErrorMessage={ErrorMessage}
                                   Img={
                                     registerItem.name ===
                                     `members[0][student_card]`
@@ -353,15 +350,9 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                               <Input
                                 register={register}
                                 {...registerItem}
-                                ErrorMessage={({ errors, name }: {errors: any, name: any}) => (
-                                  <p className="text-red-700">
-                                    {errors[name]?.type === 'required'
-                                      ? `${name} is required`
-                                      : errors[name]?.message}
-                                  </p>
-                                )}
+                                ErrorMessage={ErrorMessage}
                                 errors={errors}
-                                trigger={validateInput}
+                                trigger={trigger}
                               />
                             )}
                           </>
@@ -381,7 +372,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                 step={index}
                 increamentStep={incrementIndex}
                 decreamentStep={decrementIndex}
-                isValid={isFormValid}
+                isValid={isValid}
               />
             </form>
           </>

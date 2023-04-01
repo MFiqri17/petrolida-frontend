@@ -45,6 +45,11 @@ export function Input({
       <ErrorMessage
         errors={errors}
         name={name}
+        render={() => (
+          <p className="text-red-700 ">
+            {label.toLowerCase()} is required or incorrect format
+          </p>
+        )}
       />
     </div>
   )
@@ -101,6 +106,7 @@ export function ImageInput({
   setImg,
   Source,
   path,
+  ErrorMessage,
 }: {
   register: any
   name: string
@@ -114,6 +120,7 @@ export function ImageInput({
   setImg: any
   Source: any
   path: any
+  ErrorMessage: any
 }) {
   console.log(Source)
   const fileRef = React.useRef<HTMLInputElement>(null)
@@ -165,7 +172,7 @@ export function ImageInput({
   }, [Img])
   return (
     <>
-      <div className="flex flex-col justify-start space-y-2 font-medium text-cblack">
+      <div className="text-cblack flex flex-col justify-start space-y-2 font-medium">
         <label htmlFor={name} className="text-xl font-semibold">
           {label}
         </label>
@@ -180,7 +187,7 @@ export function ImageInput({
             }}
           >
             <NextImage
-              className="inline mr-4"
+              className="mr-4 inline"
               src={'/images/upload.png'}
               alt="upload"
               width={24}
@@ -205,16 +212,23 @@ export function ImageInput({
             className="hidden"
           />
         </div>
-        {errors[name] && (
-          <p className="text-red-700 ">{label.toLowerCase()} is required. <br />The file must have the extension .png .jpg .jpeg</p>
-        )}
+        <ErrorMessage
+          errors={errors}
+          name={name}
+          render={() => (
+          <p className="text-red-700 ">
+            {label.toLowerCase()} is required. <br />
+            The file must have the extension .png .jpg .jpeg
+          </p>
+          )}
+        />
       </div>
       <div className={path === '' ? 'hidden' : 'block'}>
         <p>
           {' '}
           Link Twibbon:
           <a
-            className="inline ml-1 hover:border-b-2 hover:border-black"
+            className="ml-1 inline hover:border-b-2 hover:border-black"
             rel="noreferrer"
             target="_blank"
             href={path}
