@@ -45,11 +45,6 @@ export function Input({
       <ErrorMessage
         errors={errors}
         name={name}
-        render={() => (
-          <p className="text-red-700 ">
-            {label.toLowerCase()} is required or incorrect format
-          </p>
-        )}
       />
     </div>
   )
