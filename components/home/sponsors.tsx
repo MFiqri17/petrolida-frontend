@@ -1,7 +1,8 @@
 'use client'
 
 import Image from 'next/image';
-import sponsorsImg from '../../public/sponsors.png';
+import sponsorsImg from '../../public/sponsors2.png';
+// import sponsorsImg from '../../public/sponsors.png';
 
 
 
@@ -17,10 +18,11 @@ export default function Sponsors() {
           Empowering Change
         </h2>
       </div>
-      <div className='flex items-center justify-center w-full px-4 py-3 md:py-16 lg:py-24'>
+      <div className='flex items-center justify-center w-full px-4 py-12 md:py-16 lg:py-24'>
         <Image
           src={sponsorsImg}
           alt={'sponsors'}
+          placeholder={'blur'}
         />
       </div>
     </div >
