@@ -13,6 +13,18 @@ import { removeToken } from '../../../utils/token'
 
 const isBrowser = () => typeof window !== 'undefined'
 
+const NonCompData = [
+  {
+    name: 'Petroshow Vol 1',
+    slug: 'coming-soon'
+  },
+  {
+    name: 'Petroshow Vol 2',
+    slug: 'coming-soon'
+  }
+]
+
+
 export default function Navbar({
   isTrans,
   userData,
@@ -79,6 +91,7 @@ export default function Navbar({
 
   const buttonRefAbout = useRef<HTMLButtonElement>(null)
   const buttonRefCompe = useRef<HTMLButtonElement>(null)
+  const buttonRefNonCompe = useRef<HTMLButtonElement>(null)
   const timeoutDuration = 300
   let timeout: any;
 
@@ -92,6 +105,15 @@ export default function Navbar({
     )
   }
   const closePopoverCompe = () => {
+    return buttonRefCompe.current?.dispatchEvent(
+      new KeyboardEvent("keydown", {
+        key: "Escape",
+        bubbles: true,
+        cancelable: true
+      })
+    )
+  }
+  const closePopoverNonCompe = () => {
     return buttonRefCompe.current?.dispatchEvent(
       new KeyboardEvent("keydown", {
         key: "Escape",
@@ -121,6 +143,16 @@ export default function Navbar({
   const onMouseLeaveCompe = (openCompe: Boolean) => {
     if (!openCompe) return
     timeout = setTimeout(() => closePopoverCompe(), timeoutDuration)
+  }
+  const onMouseEnterNonCompe = (openNonCompe: Boolean) => {
+    clearTimeout(timeout)
+    if (openNonCompe) return
+    return buttonRefNonCompe.current?.click()
+  }
+
+  const onMouseLeaveNonCompe = (openNonCompe: Boolean) => {
+    if (!openNonCompe) return
+    timeout = setTimeout(() => closePopoverNonCompe(), timeoutDuration)
   }
 
   return (
@@ -470,14 +502,48 @@ export default function Navbar({
               )
             }}
           </Popover>
-          <Link href="/coming-soon">
-            <li
-              className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
-                }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent`}
-            >
-              Non Competition
-            </li>
-          </Link>
+          <Popover className="relative">
+            {({ open }) => {
+              return (
+                <div onMouseLeave={onMouseLeaveNonCompe.bind(null, open)}>
+                  <Popover.Button
+                    className={`bg-gradient-to-r bg-clip-text ${isTrans && color ? 'text-[#FBFBFC]' : 'text-[#07003F]'
+                      }  hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent focus-visible:outline-none flex items-center`}
+                    ref={buttonRefNonCompe}
+                    onMouseEnter={onMouseEnterNonCompe.bind(null, open)}
+                    onMouseLeave={onMouseLeaveNonCompe.bind(null, open)}
+                  >
+                    <span className='pr-0.5 w-32'>Non Competition</span>
+                    <svg className={`transition duration-300 ${open ? "rotate-180" : ""}`} width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 6.5L0.5 0.5H14.5L7.5 6.5Z" fill="black" />
+                    </svg>
+                  </Popover.Button>
+                  <Transition
+                    enter="transition duration-100 ease-out"
+                    enterFrom="transform scale-95 opacity-0"
+                    enterTo="transform scale-100 opacity-100"
+                    leave="transition duration-75 ease-out"
+                    leaveFrom="transform scale-100 opacity-100"
+                    leaveTo="transform scale-95 opacity-0"
+                  >
+                    <Popover.Panel className="absolute z-10 -translate-x-12 w-60">
+                      <ul className="mt-8 rounded-xl bg-[#FBFBFC] py-4 pl-4 pr-12"
+                        onMouseEnter={onMouseEnterNonCompe.bind(null, open)}
+                        onMouseLeave={onMouseLeaveNonCompe.bind(null, open)}>
+                        {NonCompData.map((item) => (
+                          <Link key={item.name} href={`${item.slug}`}>
+                            <li className="mb-3 bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
+                              {item.name}
+                            </li>
+                          </Link>
+                        ))}
+                      </ul>
+                    </Popover.Panel>
+                  </Transition>
+                </div>
+              )
+            }}
+          </Popover>
         </ul>
 
         {/* @auth */}
