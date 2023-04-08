@@ -1,7 +1,8 @@
 'use client'
 
 import Image from 'next/image';
-import sponsorsImg from '../../public/sponsors2.png';
+import sponsorsImg from '../../public/sponsors3.png';
+// import sponsorsImg from '../../public/sponsors2.png';
 // import sponsorsImg from '../../public/sponsors.png';
 
 
