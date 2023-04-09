@@ -46,7 +46,7 @@ const Announcement = ({
   status: any[]
   submission: any[]
 }) => {
-  const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
+  const baseStorageUrl = 'https://petrolidaserver.com/storage/'
   const [compId, setCompId] = React.useState('1')
   const [closed, setClosed] = React.useState<boolean>(false)
   const competitionStage =

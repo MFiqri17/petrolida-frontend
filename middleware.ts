@@ -7,7 +7,7 @@ export async function getUserDataMiddleware(request: NextRequest) {
   const token = request.cookies.get('petrolida/token')?.value
   const bearer = token ? `Bearer ${token}` : ''
   try {
-    const res = await fetch('https://admin.tesdeveloper.me/api/user', {
+    const res = await fetch('https://petrolidaserver.com/api/user', {
       headers: {
         Authorization: bearer,
       },

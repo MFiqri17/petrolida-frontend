@@ -18,7 +18,7 @@ const SingleAnnouncement = ({
 }) => {
   const [closed, setClosed] = React.useState<boolean>(false)
   const competitionStage = status[0]?.competition_stage || ''
-  const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
+  const baseStorageUrl = 'https://petrolidaserver.com/storage/'
 
   return (
     <div className="mb-20">

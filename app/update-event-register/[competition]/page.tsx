@@ -57,7 +57,7 @@ const EventRegistrationUpdate = ({
   }
   const [index, setIndex] = React.useState<number>(0)
   const [todayDate] = React.useState<any>(new Date())
-  const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
+  const baseStorageUrl = 'https://petrolidaserver.com/storage/'
   const [isClosed, setIsClosed] = React.useState<boolean>(true)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [isOpen, setIsOpen] = React.useState<boolean>(false)

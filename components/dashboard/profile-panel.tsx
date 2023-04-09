@@ -13,7 +13,7 @@ const profileTabPanelMemberData = {
   batch: 'Batch',
 }
 
-const baseStorageUrl = 'https://admin.tesdeveloper.me/storage/'
+const baseStorageUrl = 'https://petrolidaserver.com/storage/'
 
 export const ProfileTabPanel = ({
   memberData,
