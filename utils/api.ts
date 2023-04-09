@@ -10,6 +10,7 @@ export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 export const api = axios.create({
   baseURL: BASE_URL,
   withCredentials: false,
+  timeout: 8000, // 10 seconds
 })
 
 /** Only intercept client side fetch */
