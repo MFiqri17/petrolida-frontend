@@ -14,14 +14,14 @@ const ShortenLink = ({ params }: { params: { short_url: string } }) => {
         }
       })
       .catch((err) => {
-        console.log("error bos")
+        // console.log("error bos")
         notFound()
       })
   }, [params.short_url, router])
   return (
-    <div className='flex justify-center items-center mx-0'>
+    <div className='flex items-center justify-center w-full h-full mx-0'>
       {' '}
-      <p className='text-2xl'>Please wait, You are being redirected bos</p>{' '}
+      <p className='text-2xl'>Please wait, You are being redirected...</p>{' '}
     </div>
   )
 }

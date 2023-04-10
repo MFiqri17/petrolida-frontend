@@ -16,7 +16,7 @@ const isBrowser = () => typeof window !== 'undefined'
 const NonCompData = [
   {
     name: 'Petroshow Vol 1',
-    slug: 'coming-soon'
+    slug: 'vol-1'
   },
   {
     name: 'Petroshow Vol 2',
@@ -531,7 +531,7 @@ export default function Navbar({
                         onMouseEnter={onMouseEnterNonCompe.bind(null, open)}
                         onMouseLeave={onMouseLeaveNonCompe.bind(null, open)}>
                         {NonCompData.map((item) => (
-                          <Link key={item.name} href={`${item.slug}`}>
+                          <Link key={item.name} href={`/petroshow/${item.slug}`}>
                             <li className="mb-3 bg-gradient-to-r text-start text-[#6B6F75] hover:from-[#07003F] hover:via-[#3D4BE0] hover:to-[#D0D4F8] hover:bg-clip-text hover:text-transparent">
                               {item.name}
                             </li>
