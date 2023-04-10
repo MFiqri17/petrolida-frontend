@@ -127,7 +127,7 @@ export default function CompetitionPage({
                     <h6 className='mb-12 font-medium uppercase text-secondary'>PERFORMANCE BY : {data.performer}</h6>
                 </div>
                 <div className='grid w-full gap-2 lg:grid-cols-3 lg:grid-rows-2'>
-                    <div className='lg:row-span-2 lg:col-span-2 h-[500px]'>
+                    <div className='lg:row-span-2 lg:col-span-2 lg:h-[500px]'>
                         <div className='h-full mb-10 overflow-hidden rounded-3xl'>
                             <img src={data.performerImage} alt={data.name} className={'w-full hover:scale-105 transition duration-300'} />
                         </div>
@@ -155,12 +155,12 @@ export default function CompetitionPage({
                     />
                 </div>
                 <div className='grid w-full gap-5 lg:grid-cols-3'>
-                    <div className='col-span-1'>
+                    <div className='lg:col-span-1'>
                         <div className='w-full h-full mb-10 overflow-hidden lg:flex lg:items-center rounded-xl'>
                             <img src={data.artImage} alt={data.name} className={'w-full hover:scale-105 transition duration-300'} />
                         </div>
                     </div>
-                    <div className='col-span-2'>
+                    <div className='lg:col-span-2'>
                         <div className='w-full h-full mb-10 overflow-hidden lg:flex lg:items-center rounded-xl'>
                             <img src={data.artImage2} alt={data.name} className={'w-full hover:scale-105 transition duration-300'} />
                         </div>

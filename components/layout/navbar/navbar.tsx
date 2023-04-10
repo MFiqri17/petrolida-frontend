@@ -310,12 +310,29 @@ export default function Navbar({
                             ))}
                           </Popover.Panel>
                         </Popover>
-                        <Link
-                          href="/coming-soon"
-                          className="font-semibold text-md text-start text-light"
-                        >
-                          Non Competition
-                        </Link>
+                        <Popover>
+                          <Popover.Button>
+                            <h4 className="flex font-semibold text-md text-light">
+                              Non Competition{' '}
+                              <span>
+                                <ChevronDownIcon className='className="w-6 h-6 stroke-white' />
+                              </span>
+                            </h4>
+                          </Popover.Button>
+                          <Popover.Panel className="mt-3">
+                            {NonCompData.map((item) => (
+                              <Link
+                                key={item.name}
+                                href={`${item.slug}`}
+                                className="flex p-3 -m-3 font-semibold rounded-md lg:hover:bg-gray-50"
+                              >
+                                <span className="ml-3 text-md text-light lg:text-gray-900">
+                                  {item.name}
+                                </span>
+                              </Link>
+                            ))}
+                          </Popover.Panel>
+                        </Popover>
                       </nav>
                     </div>
                   </div>
