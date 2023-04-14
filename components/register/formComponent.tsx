@@ -216,10 +216,10 @@ export function ImageInput({
           errors={errors}
           name={name}
           render={() => (
-          <p className="text-red-700 ">
-            {label.toLowerCase()} is required. <br />
-            The file must have the extension .png .jpg .jpeg
-          </p>
+            <p className="text-red-700 ">
+              {label.toLowerCase()} is required. <br />
+              The file must have the extension .png .jpg .jpeg
+            </p>
           )}
         />
       </div>
@@ -315,7 +315,7 @@ export function ImageInputUpdate({
   }, [Img])
   return (
     <>
-      <div className="flex flex-col justify-start space-y-2 font-medium text-cblack">
+      <div className="text-cblack flex flex-col justify-start space-y-2 font-medium">
         <label htmlFor={name} className="text-xl font-semibold">
           {label}
         </label>
@@ -330,7 +330,7 @@ export function ImageInputUpdate({
             }}
           >
             <NextImage
-              className="inline mr-4"
+              className="mr-4 inline"
               src={'/images/upload.png'}
               alt="upload"
               width={24}
@@ -359,7 +359,7 @@ export function ImageInputUpdate({
           {' '}
           Link Twibbon:
           <a
-            className="inline ml-1 hover:border-b-2 hover:border-black"
+            className="ml-1 inline hover:border-b-2 hover:border-black"
             rel="noreferrer"
             target="_blank"
             href={path}
@@ -373,5 +373,55 @@ export function ImageInputUpdate({
         <img src={Img.src} alt="" />
       </div>
     </>
+  )
+}
+
+export const ImageSelector = ({
+  registerItem,
+  members,
+  register,
+  setValue,
+  errors,
+  setError,
+  clearErrors,
+  params,
+  ErrorMessage,
+}: {
+  registerItem: any
+  members: any
+  register: any
+  setValue: any
+  errors: any
+  setError: any
+  clearErrors: any
+  params: any
+  ErrorMessage: any
+}) => {
+  const member = members.find((member: any) =>
+    registerItem.name.includes(member),
+  )
+
+  return (
+    <ImageInput
+      key={registerItem.id}
+      register={register}
+      setValue={setValue}
+      errors={errors}
+      setError={setError}
+      clearErrors={clearErrors}
+      Source={''}
+      path={registerItem.path_twibbon}
+      label={
+        params.name === 'business-case' &&
+        registerItem.name === 'transfer_receipt'
+          ? 'Grab Unlimited Proof (Please attach 3 proofs in one file)'
+          : registerItem.label
+      }
+      name={registerItem.name}
+      types={registerItem.types}
+      ErrorMessage={ErrorMessage}
+      Img={member[registerItem.name]}
+      setImg={member[`set${registerItem.name}`]}
+    />
   )
 }
