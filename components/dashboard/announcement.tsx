@@ -118,7 +118,7 @@ const Announcement = ({
 
       <div className="flex flex-col justify-between space-x-0 md:flex-row md:space-x-8">
         {submission
-          .filter((item: any) => compId === item.event_id)
+          .filter((item: any) => compId === item.event_id && item.id !== 4)
           .map((event: any) => (
             <FormField
               key={event.id}
