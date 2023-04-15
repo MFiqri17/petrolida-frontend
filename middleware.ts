@@ -32,6 +32,6 @@ export async function middleware(request: NextRequest) {
 }
 
 // See "Matching Paths" below to learn more
-// export const config = {
-//   matcher: ['/event-register/:path*', '/dashboard/:path*'],
-// }
+export const config = {
+  matcher: ['/event-register/:path*', '/dashboard/:path*'],
+}
