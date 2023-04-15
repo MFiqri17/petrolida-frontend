@@ -4,11 +4,7 @@ import React from 'react'
 import { registerData, registerData2 } from '../../../data/register'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
-import {
-  Input,
-  ImageInput,
-  ImageSelector,
-} from '../../../components/register/formComponent'
+import { Input, ImageInput } from '../../../components/register/formComponent'
 import { api } from '../../../utils/api'
 import FormTimeline from '../../../components/register/formTimeline'
 import Formbutton from '../../../components/register/formButton'
@@ -75,33 +71,6 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
   const [ImgTwibbon3, setImgTwibbon3] = React.useState(initialFileState)
   const [ImgTwibbon4, setImgTwibbon4] = React.useState(initialFileState)
   const [ImgTwibbon5, setImgTwibbon5] = React.useState(initialFileState)
-  const members = [
-    {
-      studentCard: Img,
-      identityCard: Img2,
-      twibbonPath: ImgTwibbon,
-    },
-    {
-      studentCard: Img3,
-      identityCard: Img4,
-      twibbonPath: ImgTwibbon2,
-    },
-    {
-      studentCard: Img5,
-      identityCard: Img6,
-      twibbonPath: ImgTwibbon3,
-    },
-    {
-      studentCard: Img7,
-      identityCard: Img8,
-      twibbonPath: ImgTwibbon4,
-    },
-    {
-      studentCard: Img9,
-      identityCard: Img10,
-      twibbonPath: ImgTwibbon5,
-    },
-  ]
   React.useEffect(() => {
     let currentDate = new Date()
     if (
@@ -120,6 +89,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
         setIsSubmitting(false)
       }
     })
+    
   }
   const decrementIndex = () => {
     setIndex(index - 1)
@@ -244,7 +214,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                               />
                             ) : registerItem.types === 'file' ? (
                               <>
-                                {/* <ImageInput
+                                <ImageInput
                                   key={registerItem.id}
                                   register={register}
                                   setValue={setValue}
@@ -358,18 +328,6 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                       ? setImgTwibbon5
                                       : setImg11
                                   }
-                                /> */}
-                                <ImageSelector
-                                  key={registerItem.id}
-                                  registerItem={registerItem}
-                                  members={members}
-                                  register={register}
-                                  setValue={setValue}
-                                  errors={errors}
-                                  setError={setError}
-                                  clearErrors={clearErrors}
-                                  params={params}
-                                  ErrorMessage={ErrorMessage}
                                 />
                                 {params.name === 'business-case' &&
                                   registerItem.name === 'transfer_receipt' && (
