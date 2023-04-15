@@ -41,6 +41,8 @@ function getPageData(param: string) {
   return null
 }
 
+
+
 const EventRegistration = ({ params }: { params: { name: string } }) => {
   const data = getPageData(params.name)
 
@@ -71,6 +73,45 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
   const [ImgTwibbon3, setImgTwibbon3] = React.useState(initialFileState)
   const [ImgTwibbon4, setImgTwibbon4] = React.useState(initialFileState)
   const [ImgTwibbon5, setImgTwibbon5] = React.useState(initialFileState)
+
+  const getImageStateAndSetter = (registerItemName : any) => {
+    switch (registerItemName) {
+      case 'members[0][student_card]':
+        return [Img, setImg]
+      case 'members[0][identity_card]':
+        return [Img2, setImg2]
+      case 'members[0][twibbon_path]':
+        return [ImgTwibbon, setImgTwibbon]
+      case 'members[1][student_card]':
+        return [Img3, setImg3]
+      case 'members[1][identity_card]':
+        return [Img4, setImg4]
+      case 'members[1][twibbon_path]':
+        return [ImgTwibbon2, setImgTwibbon2]
+      case 'members[2][student_card]':
+        return [Img5, setImg5]
+      case 'members[2][identity_card]':
+        return [Img6, setImg6]
+      case 'members[2][twibbon_path]':
+        return [ImgTwibbon3, setImgTwibbon3]
+      case 'members[3][student_card]':
+        return [Img7, setImg7]
+      case 'members[3][identity_card]':
+        return [Img8, setImg8]
+      case 'members[3][twibbon_path]':
+        return [ImgTwibbon4, setImgTwibbon4]
+      case 'members[4][student_card]':
+        return [Img9, setImg9]
+      case 'members[4][identity_card]':
+        return [Img10, setImg10]
+      case 'members[4][twibbon_path]':
+        return [ImgTwibbon5, setImgTwibbon5]
+      default:
+        return [Img11, setImg11]
+    }
+  }
+  
+
   React.useEffect(() => {
     let currentDate = new Date()
     if (
@@ -214,7 +255,7 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                               />
                             ) : registerItem.types === 'file' ? (
                               <>
-                                <ImageInput
+                                {/* <ImageInput
                                   key={registerItem.id}
                                   register={register}
                                   setValue={setValue}
@@ -327,6 +368,29 @@ const EventRegistration = ({ params }: { params: { name: string } }) => {
                                         'members[4][twibbon_path]'
                                       ? setImgTwibbon5
                                       : setImg11
+                                  }
+                                /> */}
+                                <ImageInput
+                                  key={registerItem.id}
+                                  register={register}
+                                  setValue={setValue}
+                                  errors={errors}
+                                  setError={setError}
+                                  clearErrors={clearErrors}
+                                  Source={''}
+                                  path={registerItem.path_twibbon}
+                                  label={
+                                    params.name === 'business-case' &&
+                                    registerItem.name === 'transfer_receipt'
+                                      ? 'Grab Unlimited Proof (Please attach 3 proofs in one file)'
+                                      : registerItem.label
+                                  }
+                                  name={registerItem.name}
+                                  types={registerItem.types}
+                                  ErrorMessage={ErrorMessage}
+                                  Img={getImageStateAndSetter(registerItem)[0]}
+                                  setImg={
+                                    getImageStateAndSetter(registerItem)[1]
                                   }
                                 />
                                 {params.name === 'business-case' &&
