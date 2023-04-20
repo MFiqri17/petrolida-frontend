@@ -6,7 +6,6 @@ import { ErrorMessage } from '@hookform/error-message'
 import {
   Input,
   ImageInputUpdate,
-  ImageInput,
 } from '../../../components/register/formComponent'
 import { api } from '../../../utils/api'
 import FormTimeline from '../../../components/register/formTimeline'
@@ -98,10 +97,7 @@ const EventRegistrationUpdate = ({
     register,
     handleSubmit,
     setValue,
-    clearErrors,
-    setError,
     trigger,
-    getValues,
     formState: { errors, isValid },
   } = useForm<FormValues>()
   React.useEffect(() => {

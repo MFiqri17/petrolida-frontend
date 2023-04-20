@@ -1,0 +1,219 @@
+'use client'
+import { ErrorMessage } from '@hookform/error-message'
+import clsx from 'clsx'
+import React from 'react'
+import { useFieldArray, useForm } from 'react-hook-form'
+import { Input, ImageInput } from '../../components/register/formComponent'
+import Spinner from '../../components/utils/spinner'
+import Image from 'next/image'
+
+interface IFileState {
+  file: File | null
+  src: string
+  dimension: {
+    width: number
+    height: number
+  }
+}
+
+const TicketRegistration = () => {
+  const initialFileState: IFileState = {
+    file: null,
+    src: '',
+    dimension: { width: 0, height: 0 },
+  }
+  const [isClosed, setIsClosed] = React.useState<boolean>(false)
+  const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const [Img, setImg] = React.useState(initialFileState)
+  const {
+    register,
+    handleSubmit,
+    control,
+    trigger,
+    setError,
+    setValue,
+    clearErrors,
+    formState: { errors, isValid },
+  } = useForm<any>()
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'members',
+  })
+
+  const onSubmit = (data: any) => {
+    console.log(data)
+  }
+
+  return (
+    <div
+      className={
+        !isClosed
+          ? 'bg-[#EDEEF3] px-5 pb-32 pt-36 lg:px-24 xl:px-48 2xl:px-72'
+          : 'h-screen items-center justify-center bg-[#EDEEF3]'
+      }
+    >
+      {isClosed ? (
+        <h1 className="pt-64 text-center text-[28px] font-black text-[#07003F] md:text-5xl">
+          Event Registration is closed
+        </h1>
+      ) : (
+        <section
+          style={{
+            background:
+              'linear-gradient(95.81deg, rgba(255, 255, 255, 0.448) 0%, rgba(255, 255, 255, 0.259) 100%)',
+          }}
+          className="flex flex-col items-center justify-center rounded-[30px] px-0 py-10 md:px-10 "
+        >
+          <h1 className="text-center text-[28px] font-black text-[#07003F] md:text-5xl">
+            Event Registration
+          </h1>
+          <>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="mt-9 flex w-full flex-col space-y-5 px-4 md:px-0 lg:mt-16 lg:w-[700px]"
+            >
+              <div className="flex flex-col space-y-10">
+                <Input
+                  label="Name"
+                  name="members[0][name]"
+                  placeholder="Enter your full name"
+                  register={register}
+                  trigger={trigger}
+                  pattern=""
+                  errors={errors}
+                  ErrorMessage={ErrorMessage}
+                  types={'text'}
+                />
+
+                <Input
+                  label="NIK"
+                  name={`members[0][nik]`}
+                  placeholder="Enter member NIK"
+                  register={register}
+                  trigger={trigger}
+                  pattern=""
+                  errors={errors}
+                  ErrorMessage={ErrorMessage}
+                  types={'text'}
+                />
+
+                <Input
+                  label="Email"
+                  name="email"
+                  placeholder="Enter your email"
+                  register={register}
+                  trigger={trigger}
+                  pattern=""
+                  errors={errors}
+                  ErrorMessage={ErrorMessage}
+                  types={'email'}
+                />
+
+                <Input
+                  label="WhatsApp Number"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  register={register}
+                  trigger={trigger}
+                  pattern=""
+                  errors={errors}
+                  ErrorMessage={ErrorMessage}
+                  types={'text'}
+                />
+
+                <ImageInput
+                  label="Upload Payment Receipt"
+                  name="payment_proof"
+                  register={register}
+                  errors={errors}
+                  setValue={setValue}
+                  clearErrors={clearErrors}
+                  setError={setError}
+                  types={'file'}
+                  Img={Img}
+                  setImg={setImg}
+                  Source={''}
+                  path={''}
+                  ErrorMessage={ErrorMessage}
+                />
+              </div>
+
+              {fields.map((field, index) => (
+                <div key={field.id}>
+                  {index > 0 && index <= 3 && (
+                    <div className="flex flex-col space-y-10 border-t-2 border-black py-20">
+                      <section className="flex justify-between">
+                        <h2 className="text-xl font-semibold text-[#605C84]">
+                          Member {index + 1}
+                        </h2>
+                        <button
+                          className="!transition !duration-300 hover:!scale-110"
+                          onClick={() => remove(index)}
+                          type="button"
+                        >
+                          <Image
+                            src="/icon/close black.png"
+                            width={36}
+                            height={36}
+                            alt="close"
+                          />
+                        </button>
+                      </section>
+                      <Input
+                        label="Name"
+                        name={`members[${index}][name]`}
+                        placeholder="Enter member name"
+                        register={register}
+                        trigger={trigger}
+                        pattern=""
+                        errors={errors}
+                        ErrorMessage={ErrorMessage}
+                        types={'email'}
+                      />
+                      <Input
+                        label="NIK"
+                        name={`members[${index}][nik]`}
+                        placeholder="Enter member NIK"
+                        register={register}
+                        trigger={trigger}
+                        pattern=""
+                        errors={errors}
+                        ErrorMessage={ErrorMessage}
+                        types={'email'}
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              <button
+                className={`text-xl ${
+                  fields.length > 3 ? 'hidden' : 'block'
+                } font-semibold text-[#605C84] underline underline-offset-4 !transition !duration-300 hover:!scale-110`}
+                type="button"
+                onClick={() => append({})}
+              >
+                Add other members
+              </button>
+
+              <div className="flex justify-center">
+                <button
+                  className={clsx(
+                    'mt-20 w-full rounded-[30px] bg-[#07003F] py-4 text-center  text-2xl font-semibold text-[#FBFBFC] !transition !duration-300 hover:!scale-105 md:w-[190px]',
+                  )}
+                  type="submit"
+                  disabled={isLoading}
+                >
+                  {isLoading ? <Spinner /> : 'Submit'}
+                </button>
+              </div>
+            </form>
+          </>
+        </section>
+      )}
+    </div>
+  )
+}
+
+export default TicketRegistration
