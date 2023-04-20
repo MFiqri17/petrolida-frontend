@@ -30,11 +30,7 @@ export function Input({
       </label>
       <input
         id={name}
-        className={`${
-          errors[name]
-            ? `!border-2 !border-red-700 outline-none !ring-red-700`
-            : `focus:!border-2 focus:!border-[#838CEB] focus:outline-none  focus:!ring-[#838CEB] focus-visible:!border-[#838CEB]`
-        } h-[48px] w-full rounded-[30px] bg-white pl-4  font-normal text-[#605C84] lg:h-[60px] lg:w-[700px]  `}
+        className={`h-[48px] w-full rounded-[30px]  bg-white pl-4 font-normal text-[#605C84] focus:!border-2 focus:!border-[#838CEB] focus:outline-none  focus:!ring-[#838CEB] focus-visible:!border-[#838CEB] lg:h-[60px] lg:w-[700px]`}
         placeholder={placeholder}
         type={types}
         onKeyUp={() => {
