@@ -142,7 +142,7 @@ const TicketRegistration = () => {
               {fields.map((field, index) => (
                 <div key={field.id}>
                   {index > 0 && index <= 3 && (
-                    <div className="flex flex-col space-y-10 border-t-2 border-black py-20">
+                    <div className="flex flex-col space-y-10 border-t-2 border-[#C3C2D1] py-20">
                       <section className="flex justify-between">
                         <h2 className="text-xl font-semibold text-[#605C84]">
                           Member {index + 1}
