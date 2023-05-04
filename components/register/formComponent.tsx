@@ -118,7 +118,6 @@ export function ImageInput({
   path: any
   ErrorMessage: any
 }) {
-  console.log(Source)
   const fileRef = React.useRef<HTMLInputElement>(null)
   React.useEffect(() => {
     register(name, {
@@ -261,7 +260,6 @@ export function ImageInputUpdate({
   Source: any
   path: any
 }) {
-  console.log(Source)
   const fileRef = React.useRef<HTMLInputElement>(null)
   React.useEffect(() => {
     register(name, {

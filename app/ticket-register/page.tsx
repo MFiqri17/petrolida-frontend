@@ -2,10 +2,13 @@
 import { ErrorMessage } from '@hookform/error-message'
 import clsx from 'clsx'
 import React from 'react'
-import { useFieldArray, useForm } from 'react-hook-form'
+import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form'
 import { Input, ImageInput } from '../../components/register/formComponent'
 import Spinner from '../../components/utils/spinner'
 import Image from 'next/image'
+import { api } from '../../utils/api'
+import toast, { Toaster } from 'react-hot-toast'
+import SuccessModal from '../../components/register/successModal'
 
 interface IFileState {
   file: File | null
@@ -25,6 +28,7 @@ const TicketRegistration = () => {
   const [isClosed, setIsClosed] = React.useState<boolean>(false)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [Img, setImg] = React.useState(initialFileState)
+  const [isOpen, setIsOpen] = React.useState<boolean>(false)
   const {
     register,
     handleSubmit,
@@ -41,8 +45,37 @@ const TicketRegistration = () => {
     name: 'members',
   })
 
-  const onSubmit = (data: any) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<any> = (data: any) => {
+    const formData = new FormData()
+    Object.keys(data).forEach((val) => {
+      let index = 0
+      if (val === 'members') {
+        data.members.forEach((member: any) => {
+          Object.keys(member).forEach((memb) => {
+            formData.append(`members[${index}][${memb}]`, member[memb])
+          })
+          index++
+        })
+      } else {
+        formData.append(val, data[val as keyof any])
+      }
+      console.log(data)
+    })
+
+    api
+      .post('/events/ticket', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then(() => {
+        setIsOpen(true)
+      })
+      .catch((e: any) => {
+        toast.error(e.response.data.message)
+        console.error(e)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
   return (
@@ -73,6 +106,42 @@ const TicketRegistration = () => {
               onSubmit={handleSubmit(onSubmit)}
               className="mt-9 flex w-full flex-col space-y-5 px-4 md:px-0 lg:mt-16 lg:w-[700px]"
             >
+              <input
+                id={'name'}
+                value={"members[0][name]"}
+                {...register('name', {
+                  required: true,
+                })}
+                className="hidden"
+              />
+
+              <input
+                id={'event_id'}
+                value={7}
+                {...register('event_id', {
+                  required: true,
+                })}
+                className="hidden"
+              />
+
+              <input
+                id={'ticket_type'}
+                value={'Presale 1'}
+                {...register('ticket_type', {
+                  required: true,
+                })}
+                className="hidden"
+              />
+
+              <input
+                id={'amount'}
+                value={'30000000'}
+                {...register('amount', {
+                  required: true,
+                })}
+                className="hidden"
+              />
+
               <div className="flex flex-col space-y-10">
                 <Input
                   label="Name"
@@ -104,7 +173,7 @@ const TicketRegistration = () => {
                   placeholder="Enter your email"
                   register={register}
                   trigger={trigger}
-                  pattern=""
+                  pattern={/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i}
                   errors={errors}
                   ErrorMessage={ErrorMessage}
                   types={'email'}
@@ -212,6 +281,7 @@ const TicketRegistration = () => {
           </>
         </section>
       )}
+      <SuccessModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   )
 }

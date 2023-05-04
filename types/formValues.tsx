@@ -23,3 +23,5 @@ export interface FormValues2 {
   amount: string
   transfer_receipt: string
 }
+
+
