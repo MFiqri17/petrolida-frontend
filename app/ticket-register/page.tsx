@@ -10,6 +10,7 @@ import { api } from '../../utils/api'
 import toast, { Toaster } from 'react-hot-toast'
 import SuccessModal from '../../components/register/successModal'
 
+
 interface IFileState {
   file: File | null
   src: string
@@ -19,7 +20,7 @@ interface IFileState {
   }
 }
 
-const TicketRegistration = () => {
+const TicketRegistration  = () => {
   const initialFileState: IFileState = {
     file: null,
     src: '',
@@ -37,6 +38,7 @@ const TicketRegistration = () => {
     setError,
     setValue,
     clearErrors,
+    watch,
     formState: { errors, isValid },
   } = useForm<any>()
 
@@ -108,7 +110,7 @@ const TicketRegistration = () => {
             >
               <input
                 id={'name'}
-                value={"members[0][name]"}
+                value={'members[0][name]'}
                 {...register('name', {
                   required: true,
                 })}
