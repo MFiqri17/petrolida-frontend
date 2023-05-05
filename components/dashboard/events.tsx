@@ -5,6 +5,7 @@ import { competitionData } from '../../data/competition'
 import OngoingPopup from './ongoing-event-popup'
 import RegistrationTimer from './registration-timer'
 import Link from 'next/link'
+import { nonCompetitionData } from '../../data/non-competition'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -12,11 +13,16 @@ function classNames(...classes: string[]) {
 
 export default function Events({
   registeredEvents,
+  setIsNonCompetitions,
+  isNonCompetitions,
 }: {
   registeredEvents: any[]
+  setIsNonCompetitions: React.Dispatch<React.SetStateAction<boolean>>
+  isNonCompetitions: boolean
 }) {
   let [categories] = useState({
-    'All Competitions': competitionData,
+    Competitions: competitionData,
+    'Non Competitions': nonCompetitionData,
     Registered: competitionData.filter((item) =>
       registeredEvents.some((event) => event.event_id == item.id),
     ),
@@ -37,8 +43,16 @@ export default function Events({
     <>
       <div className="w-full px-2 sm:px-0">
         <h2 className="text-2xl font-semibold">Events</h2>
-        <Tab.Group>
-          <Tab.List className="flex space-x-1 p-1 ">
+        <Tab.Group
+          onChange={(index) => {
+            if (index == 1) {
+              setIsNonCompetitions(true)
+            } else {
+              setIsNonCompetitions(false)
+            }
+          }}
+        >
+          <Tab.List className="flex flex-wrap space-x-1 p-1 sm:flex-nowrap">
             {Object.keys(categories).map((category) => (
               <Tab
                 key={category}
@@ -75,14 +89,18 @@ export default function Events({
                         <div className="relative overflow-hidden rounded-3xl">
                           <img
                             className="max-h-full w-full transition duration-300 hover:scale-105"
-                            src={`/event-dashboard/${item.slug}.jpg`}
+                            src={
+                              isNonCompetitions
+                                ? item.image
+                                : `/event-dashboard/${item.slug}.jpg`
+                            }
                             alt={item.slug}
                           />
                           <RegistrationTimer
                             startRegistration={item.start_registration || ''}
                             endRegistration={item.end_registration || ''}
                           />
-                          {idx === 1 ? (
+                          {idx === 2 ? (
                             <div className="absolute top-0 right-0 mx-3 mt-3">
                               <OngoingPopup />
                             </div>
@@ -94,7 +112,7 @@ export default function Events({
                           <h3 className="text-xl font-semibold leading-5">
                             {item.name}
                           </h3>
-                          {idx === 1 ? (
+                          {idx === 2 ? (
                             <div className="flex flex-col items-center">
                               <p className="text-gray-600">Registered</p>
                               <Link
@@ -106,7 +124,8 @@ export default function Events({
                                 </div>
                               </Link>
                             </div>
-                          ) : checkIfRegistered(item.id) ? (
+                          ) : checkIfRegistered(item.id) &&
+                            !isNonCompetitions ? (
                             <button
                               disabled
                               className="cursor-not-allowed rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb brightness-[75%]"
@@ -116,7 +135,11 @@ export default function Events({
                           ) : new Date() >= new Date(item.start_registration) &&
                             new Date() <= new Date(item.end_registration) ? (
                             <a
-                              href={`/event-register/${item.slug}`}
+                              href={
+                                isNonCompetitions
+                                  ? '/dashboard/petroshow-vol-2'
+                                  : `/event-register/${item.slug}`
+                              }
                               className={`${'rounded-full bg-secondary px-5 py-4 font-semibold text-whiteb transition duration-300 hover:-translate-y-1'}`}
                             >
                               Register

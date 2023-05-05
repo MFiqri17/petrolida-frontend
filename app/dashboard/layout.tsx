@@ -12,7 +12,7 @@ export default async function RootLayout({
     <main>
       <div className="min-h-screen bg-lightb sm:flex">
         <Sidebar />
-        <div className="w-full grow border-2 px-5 sm:w-auto sm:px-24">
+        <div className="w-full px-5 sm:w-[86%] sm:px-24">
           <section className="hidden w-full justify-end py-14 sm:flex">
             <ProfileBar userData={userData} />
           </section>

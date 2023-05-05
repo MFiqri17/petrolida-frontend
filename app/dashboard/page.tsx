@@ -3,6 +3,7 @@ import api from '../../utils/api'
 import { serverApiInterceptors } from '../../utils/api-interceptor'
 import Announcement from '../../components/dashboard/announcement'
 import Toast from '../../components/utils/toast'
+import EventsWrapper from '../../components/dashboard/events-wrapper'
 
 export const dynamic = 'force-dynamic'
 
@@ -51,28 +52,24 @@ export default async function Page() {
   const registeredEvents = await getRegisteredEvents()
   const status = await getStatusAnnouncement()
   const submission = await getSubmission()
+
   if (!registeredEvents) {
     return (
-      <>
-        <Toast />
-        <Announcement
-          events={events ?? []}
-          submission={submission ?? []}
-          status={status ?? []}
-        />
-        <Events registeredEvents={[]} />
-      </>
+      <EventsWrapper
+        events={events || []}
+        submission={submission || []}
+        status={status || []}
+        registeredEvents={[]}
+      />
     )
   }
+
   return (
-    <>
-      <Toast />
-      <Announcement
-        events={events ?? []}
-        submission={submission ?? []}
-        status={status ?? []}
-      />
-      <Events registeredEvents={registeredEvents.data ?? []} />
-    </>
+    <EventsWrapper
+      events={events || []}
+      submission={submission || []}
+      status={status || []}
+      registeredEvents={registeredEvents.data || []}
+    />
   )
 }

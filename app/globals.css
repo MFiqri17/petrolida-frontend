@@ -65,4 +65,8 @@
       background-image: url('/images/bg-mission-mobile.png');
     }
   }
+
+  .bb {
+    @apply border-2 border-black;
+  }
 }
