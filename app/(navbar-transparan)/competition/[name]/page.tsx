@@ -10,6 +10,7 @@ import PrizeCarousel from '../../../../components/competitions/prize-carousel'
 import FaqSection from '../../../../components/competitions/faq-section'
 import CardAbout from '../../../../components/home/card-about/CardAbout'
 import Timeline from '../../../../components/competitions/timeline'
+import Winners from '../../../../components/competitions/winners'
 
 function getPageData(param: string) {
   const data = competitionData.filter(({ slug }) => slug === param)
@@ -33,7 +34,8 @@ export default function CompetitionPage({
   return (
     <main className="bg-light">
       <RegularJumbotron title={data.name} desc={data.desc} />
-      <Timers />
+      <Winners title={data.name} winner1={data.winner1} winner1name={data.winner1name} winner2={data.winner2} winner2name={data.winner2name} winner3={data.winner3} winner3name={data.winner3name} />
+      {/* <Timers /> */}
       <CardAbout
         image={data.image}
         text="About the Competition"
