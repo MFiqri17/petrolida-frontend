@@ -1,8 +1,4 @@
 'use client'
-
-import Image from "next/image"
-import { competitionData } from "../../data/competition"
-
 interface winnersInterface {
     title: string
     winner1: string
@@ -33,11 +29,7 @@ export default function Speakers({ title, winner1, winner1name, winner2, winner2
             >
 
                 <div className="flex flex-col items-center justify-center transition duration-300 cursor-pointer lg:-skew-x-12 h-fit w-fit lg:-rotate-12 rounded-xl hover:rotate-0 hover:skew-x-0">
-                    <Image
-                        src={`https://drive.google.com/uc?export=view&id=${winner2}`}
-                        height={680}
-                        width={600}
-                        alt={title} />
+                    <img src={`https://drive.google.com/uc?export=view&id=${winner2}`} alt={winner2name} />
                     <h2 className="text-4xl text-center font-bold text-[#3D4BE0] mt-12">
                         {winner2name}
                     </h2>
@@ -46,11 +38,7 @@ export default function Speakers({ title, winner1, winner1name, winner2, winner2
                     </p>
                 </div>
                 <div className="flex flex-col items-center justify-center cursor-pointer lg:-translate-y-10 h-fit w-fit rounded-xl">
-                    <Image
-                        src={`https://drive.google.com/uc?export=view&id=${winner1}`}
-                        height={680}
-                        width={600}
-                        alt={title} />
+                    <img src={`https://drive.google.com/uc?export=view&id=${winner1}`} alt={winner1name} />
                     <h2 className="text-4xl text-center font-bold text-[#3D4BE0] mt-12">
                         {winner1name}
                     </h2>
@@ -59,11 +47,7 @@ export default function Speakers({ title, winner1, winner1name, winner2, winner2
                     </p>
                 </div>
                 <div className="flex flex-col items-center justify-center transition duration-300 cursor-pointer lg:skew-x-12 h-fit w-fit lg:rotate-12 rounded-xl hover:rotate-0 hover:skew-x-0">
-                    <Image
-                        src={`https://drive.google.com/uc?export=view&id=${winner3}`}
-                        height={680}
-                        width={600}
-                        alt={title} />
+                    <img src={`https://drive.google.com/uc?export=view&id=${winner3}`} alt={winner3name} />
                     <h2 className="text-4xl text-center font-bold text-[#3D4BE0] mt-12">
                         {winner3name}
                     </h2>
