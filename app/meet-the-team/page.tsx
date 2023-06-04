@@ -353,7 +353,7 @@ export default function MeetTheTeamPage() {
                                         <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
-                                        <Image
+                                        <img
                                             alt={item.name}
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
@@ -400,7 +400,7 @@ export default function MeetTheTeamPage() {
                                         <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
-                                        <Image
+                                        <img
                                             alt={item.name}
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
@@ -445,7 +445,7 @@ export default function MeetTheTeamPage() {
                                         <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
-                                        <Image
+                                        <img
                                             alt={item.name}
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
@@ -491,7 +491,7 @@ export default function MeetTheTeamPage() {
                                         <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
-                                        <Image
+                                        <img
                                             alt={item.name}
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
@@ -537,7 +537,7 @@ export default function MeetTheTeamPage() {
                                         <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
-                                        <Image
+                                        <img
                                             alt={item.name}
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
@@ -583,7 +583,7 @@ export default function MeetTheTeamPage() {
                                         <video autoPlay preload="auto" loop muted controls style={{ width: '300px', height: '380px' }} className='transition duration-300 rounded-2xl hover:scale-125'>
                                             <source src={`https://drive.google.com/uc?id=${item.id}`} />
                                         </video> :
-                                        <Image
+                                        <img
                                             alt={item.name}
                                             src={`https://drive.google.com/uc?id=${item.id}`}
                                             width={300}
