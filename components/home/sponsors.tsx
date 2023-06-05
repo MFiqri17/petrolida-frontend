@@ -1,11 +1,7 @@
 'use client'
 
 import Image from 'next/image';
-import sponsorsImg from '../../public/sponsors4.png';
-// import sponsorsImg from '../../public/sponsors2.png';
-// import sponsorsImg from '../../public/sponsors.png';
-
-
+import sponsorsImg from '../../public/sponsors5.png';
 
 export default function Sponsors() {
 
