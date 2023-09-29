@@ -2,10 +2,10 @@
 import { usePathname } from 'next/navigation'
 
 const defaultMeta = {
-  title: 'Petrolida 2023',
-  siteName: 'Petrolida 2023',
+  title: 'Petrolida 2024',
+  siteName: 'Petrolida 2024',
   description:
-    'Petrolida 2023 is present as a place for initiating continuous innovations based on sustainable ideas that play a role in securing energy security',
+    'Petrolida 2024 aims to serve as a platform for university students to explore and disclose their innovation regarding today’s energy challenges through providing them a change to achieve their excellence.',
   url: 's',
   type: 'website',
   robots: 'follow, index',
